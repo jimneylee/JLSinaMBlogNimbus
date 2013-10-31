@@ -1,7 +1,7 @@
 #SinaMBlogNimbus
 --------------
 
-采用nimbus框架，进行二次构建。
+采用(nimbus](https://github.com/jverkoey/nimbus)框架，进行二次构建。
 
 这是一个适用于网络请求后以tableview列表数据展现的一个简单框架，
 
