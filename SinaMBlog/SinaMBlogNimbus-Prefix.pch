@@ -1,0 +1,32 @@
+//
+// Prefix header for all source files of the 'VideoOnline' target in the 'VideoOnline' project
+//
+
+#import <Availability.h>
+
+#ifndef __IPHONE_4_0
+#warning "This project uses features only available in iOS SDK 4.0 and later."
+#endif
+
+#ifdef __OBJC__
+    #import <UIKit/UIKit.h>
+    #import <Foundation/Foundation.h>
+
+    // self
+    #import "SMGlobalConfig.h"
+    #import "SMJSONKeys.h"
+
+    // MBProgressHUD
+    #import "MBProgressHUD.h"
+
+    // three20 category
+    #import "UIViewAdditions.h"
+
+    // nimbus
+    #import "NimbusModels.h"
+    #import "NimbusCore.h"
+    #import "NimbusNetworkImage.h"
+    #import "NITableViewModel+Private.h"
+    #import "NIMutableTableViewModel+Private.h"
+
+#endif

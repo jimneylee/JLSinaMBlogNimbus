@@ -1,0 +1,14 @@
+:1.add nimbus into project:
+http://wiki.nimbuskit.info/Add-Nimbus-to-your-project
+ 
+# clone nimbus
+$ git clone https://github.com/jverkoey/nimbus.git
+
+# check out AFNetworking and JSONKit
+$ git submodule init
+$ git submodule update
+
+
+# updating nimbus
+$ cd ~/path/to/nimbus/
+$ git fetch; git rebase origin master
