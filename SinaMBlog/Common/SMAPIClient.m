@@ -9,9 +9,8 @@
 #import "SMAPIClient.h"
 #import "AFImageRequestOperation.h"
 
-// TODO:发布前要修改
-#define SinaWeiboV2ConsumerKey         @"2893625261"	// The consumer key (The client id)
-#define SinaWeiboV2ConsumerSecret      @"3c74b04cd0906a69cee6abddc1335eef"	// The secret key
+#define SinaWeiboV2ConsumerKey         @"2780787370"	// The consumer key (The client id)
+#define SinaWeiboV2ConsumerSecret      @"71a64aefb76a513687e073a4823ed4aa"	// The secret key
 #define SinaWeiboV2CallbackUrl         @"null"
 
 NSString *const kSNAPIBaseURLString = @"https://api.weibo.com/2/";
