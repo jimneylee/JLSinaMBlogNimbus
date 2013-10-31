@@ -9,7 +9,7 @@ git submodule add https://github.com/jverkoey/nimbus.git vendor/nimbus
 
 git submodule add https://github.com/rs/SDURLCache.git vendor/SDURLCache
 
-2、使用CocoaPods的命令安装其他依赖库：
+2、使用[CocoaPods](http://cocoapods.org)的命令安装其他依赖库：
    pod install
 
 --------------
