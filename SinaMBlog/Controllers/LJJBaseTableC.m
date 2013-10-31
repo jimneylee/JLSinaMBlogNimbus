@@ -132,6 +132,10 @@
     if (!self.loadMoreFooterView && self.model.hasMoreEntity) {
         [self createLoadMoreFooterView];
     }
+    else {
+        self.tableView.tableFooterView = nil;
+        self.loadMoreFooterView = nil;
+    }
 }
 
 ///////////////////////////////////////////////////////////////////////////////////////////////////
@@ -209,12 +213,14 @@
 ///////////////////////////////////////////////////////////////////////////////////////////////////
 - (void)scrollViewDidEndDragging:(UIScrollView *)scrollView willDecelerate:(BOOL)decelerate
 {
-    // TODO:做一个BaseTableView，基础操作放入底层实现，但是可能引入项目工程的复杂性，权衡代价
-    CGFloat kDragUpBottomOffset = 30.f;
-    CGFloat endScrolling = scrollView.contentOffset.y + scrollView.frame.size.height;
-    if (scrollView.contentSize.height > scrollView.height
-        && endScrolling >= scrollView.contentSize.height + kDragUpBottomOffset) {
-        [self loadMoreAction];
+    if (self.loadMoreFooterView) {
+        // TODO:做一个BaseTableView，基础操作放入底层实现，但是可能引入项目工程的复杂性，权衡代价
+        CGFloat kDragUpBottomOffset = 30.f;
+        CGFloat endScrolling = scrollView.contentOffset.y + scrollView.frame.size.height;
+        if (scrollView.contentSize.height > scrollView.height
+            && endScrolling >= scrollView.contentSize.height + kDragUpBottomOffset) {
+            [self loadMoreAction];
+        }
     }
 }
 
