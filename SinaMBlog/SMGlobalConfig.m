@@ -1,9 +1,9 @@
 //
 //  TVGlobalConfig.m
-//  VideoOnline
+//  SinaMBlogNimbus
 //
 //  Created by Lee jimney on 10/30/13.
-//  Copyright (c) 2013 SuperMaxDev. All rights reserved.
+//  Copyright (c) 2013 jimneylee. All rights reserved.
 //
 
 #import "SMGlobalConfig.h"

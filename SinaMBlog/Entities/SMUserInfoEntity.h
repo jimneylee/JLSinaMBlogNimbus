@@ -3,7 +3,7 @@
 //  SinaMBlog
 //
 //  Created by Jiang Yu on 13-2-22.
-//  Copyright (c) 2013年 SuperMaxDev. All rights reserved.
+//  Copyright (c) 2013年 jimneylee. All rights reserved.
 //
 
 #import "SMBaseEntity.h"

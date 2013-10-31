@@ -2,8 +2,8 @@
 //  NSDate+SinaMBlog.m
 //  SinaMBlogNimbus
 //
-//  Created by ccjoy-jimneylee on 13-10-31.
-//  Copyright (c) 2013年 SuperMaxDev. All rights reserved.
+//  Created by jimneylee on 13-10-31.
+//  Copyright (c) 2013年 jimneylee. All rights reserved.
 //
 
 #import "NSDate+SinaMBlog.h"

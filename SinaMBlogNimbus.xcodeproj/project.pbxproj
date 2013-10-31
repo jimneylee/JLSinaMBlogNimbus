@@ -35,6 +35,8 @@
 		28121EF81822038A00837E25 /* NSDateAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = 28121EF71822038A00837E25 /* NSDateAdditions.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		28121EFA1822040600837E25 /* Three20.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 28121EF91822040600837E25 /* Three20.bundle */; };
 		28121EFD1822226400837E25 /* NSDate+SinaMBlog.m in Sources */ = {isa = PBXBuildFile; fileRef = 28121EFC1822226400837E25 /* NSDate+SinaMBlog.m */; };
+		28121F1C1822654C00837E25 /* README.md in Resources */ = {isa = PBXBuildFile; fileRef = 28121F1B1822654C00837E25 /* README.md */; };
+		28121F1E1822655E00837E25 /* TODO in Resources */ = {isa = PBXBuildFile; fileRef = 28121F1D1822655E00837E25 /* TODO */; };
 		2872F32C182104E2008F329D /* NIActions.m in Sources */ = {isa = PBXBuildFile; fileRef = 2872F2FA182104E2008F329D /* NIActions.m */; };
 		2872F32D182104E2008F329D /* NIButtonUtilities.m in Sources */ = {isa = PBXBuildFile; fileRef = 2872F2FD182104E2008F329D /* NIButtonUtilities.m */; };
 		2872F32E182104E2008F329D /* NICommonMetrics.m in Sources */ = {isa = PBXBuildFile; fileRef = 2872F2FF182104E2008F329D /* NICommonMetrics.m */; };
@@ -129,6 +131,8 @@
 		28121EF91822040600837E25 /* Three20.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = Three20.bundle; sourceTree = "<group>"; };
 		28121EFB1822226400837E25 /* NSDate+SinaMBlog.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSDate+SinaMBlog.h"; sourceTree = "<group>"; };
 		28121EFC1822226400837E25 /* NSDate+SinaMBlog.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSDate+SinaMBlog.m"; sourceTree = "<group>"; };
+		28121F1B1822654C00837E25 /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = README.md; sourceTree = "<group>"; };
+		28121F1D1822655E00837E25 /* TODO */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = TODO; sourceTree = "<group>"; };
 		2872F2F9182104E2008F329D /* NIActions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = NIActions.h; path = vendor/nimbus/src/core/src/NIActions.h; sourceTree = "<group>"; };
 		2872F2FA182104E2008F329D /* NIActions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = NIActions.m; path = vendor/nimbus/src/core/src/NIActions.m; sourceTree = "<group>"; };
 		2872F2FB182104E2008F329D /* NIActions+Subclassing.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "NIActions+Subclassing.h"; path = "vendor/nimbus/src/core/src/NIActions+Subclassing.h"; sourceTree = "<group>"; };
@@ -342,6 +346,8 @@
 		28B4756C1820EFC20044DF59 = {
 			isa = PBXGroup;
 			children = (
+				28121F1D1822655E00837E25 /* TODO */,
+				28121F1B1822654C00837E25 /* README.md */,
 				28121DF41821EAB700837E25 /* Vendor */,
 				28B4757E1820EFC30044DF59 /* SinaMBlog */,
 				28B475771820EFC30044DF59 /* Frameworks */,
@@ -569,6 +575,8 @@
 				28121E241821F05D00837E25 /* Default@2x.png in Resources */,
 				28121E261821F05D00837E25 /* SinaMBlogNimbus-Info.plist in Resources */,
 				28121EFA1822040600837E25 /* Three20.bundle in Resources */,
+				28121F1C1822654C00837E25 /* README.md in Resources */,
+				28121F1E1822655E00837E25 /* TODO in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
