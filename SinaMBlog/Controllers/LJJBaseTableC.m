@@ -1,6 +1,6 @@
 //
 //  LJJBaseTableC.m
-//  SkyNet
+//  SinaMBlogNimbus
 //
 //  Created by jimneylee on 13-7-29.
 //  Copyright (c) 2013年 jimneylee. All rights reserved.

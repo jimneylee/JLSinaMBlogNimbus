@@ -51,11 +51,7 @@
 
 ///////////////////////////////////////////////////////////////////////////////////////////////////
 - (void)refreshAction
-{
-//    [UIView animateWithDuration:0.25f delay:0.f options:UIViewAnimationOptionBeginFromCurrentState animations:^(void){
-//        self.tableView.contentOffset = CGPointMake(0.f, -self.refreshControl.frame.size.height);
-//    } completion:NULL];
-    
+{   
     self.tableView.contentOffset = CGPointMake(0.f, -self.refreshControl.frame.size.height);
     [self.refreshControl beginRefreshing];
     [self refreshData];
@@ -78,7 +74,7 @@
         if (!self.editing) {
             if ([object isKindOfClass:[SMStatusEntity class]]) {
                 SMStatusEntity* status = (SMStatusEntity*)object;
-                NSLog(@"show mblog title:%@", status.text);
+                [SMGlobalConfig showHUDMessage:status.source addedToView:self.view];
             }
             return YES;
         }

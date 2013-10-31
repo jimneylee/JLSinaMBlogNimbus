@@ -1,6 +1,6 @@
 //
 //  NSString+StringValue.m
-//  SkyNet
+//  SinaMBlogNimbus
 //
 //  Created by jimneylee on 13-10-14.
 //  Copyright (c) 2013年 jimneylee. All rights reserved.

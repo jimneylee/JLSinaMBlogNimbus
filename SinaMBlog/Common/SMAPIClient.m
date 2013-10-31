@@ -1,6 +1,6 @@
 //
 //  SNAPIClient.m
-//  SkyNet
+//  SinaMBlogNimbus
 //
 //  Created by jimneylee on 13-7-25.
 //  Copyright (c) 2013年 jimneylee. All rights reserved.
@@ -8,10 +8,6 @@
 
 #import "SMAPIClient.h"
 #import "AFImageRequestOperation.h"
-
-#define SinaWeiboV2ConsumerKey         @"2780787370"	// The consumer key (The client id)
-#define SinaWeiboV2ConsumerSecret      @"71a64aefb76a513687e073a4823ed4aa"	// The secret key
-#define SinaWeiboV2CallbackUrl         @"null"
 
 NSString *const kSNAPIBaseURLString = @"https://api.weibo.com/2/";
 
@@ -60,6 +56,6 @@ NSString *const kSNAPIBaseURLString = @"https://api.weibo.com/2/";
                                              perpageCount:(NSInteger)perpageCount
 {
     return [NSString stringWithFormat:@"statuses/public_timeline.json?cursor=%d&count=%d&source=%@",
-            pageCounter, perpageCount, SinaWeiboV2ConsumerKey];
+            pageCounter, perpageCount, SinaWeiboV2AppKey];
 }
 @end

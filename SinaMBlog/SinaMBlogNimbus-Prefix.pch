@@ -29,4 +29,11 @@
     #import "NITableViewModel+Private.h"
     #import "NIMutableTableViewModel+Private.h"
 
+    // log switch
+    #ifdef DEBUG
+    #    define NSLog(...) NSLog(__VA_ARGS__)
+    #else
+    #    define NSLog(...) {}
+    #endif
+
 #endif

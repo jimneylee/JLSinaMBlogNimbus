@@ -1,5 +1,5 @@
 //
-//  TVVideoCell.h
+//  SMStatusCell.h
 //  SinaMBlogNimbus
 //
 //  Created by Lee jimney on 10/30/13.

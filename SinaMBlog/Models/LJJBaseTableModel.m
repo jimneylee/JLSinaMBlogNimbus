@@ -1,6 +1,6 @@
 //
 //  SNListBaseModel.m
-//  SkyNet
+//  SinaMBlogNimbus
 //
 //  Created by Lee jimney on 7/27/13.
 //  Copyright (c) 2013 jimneylee. All rights reserved.
@@ -25,7 +25,6 @@
         self.perpageCount = PERPAGE_COUNT;
 		self.hasMoreEntity = YES;
         
-        // default map object to cell
         if (delegate && [delegate isKindOfClass:[NICellFactory class]]) {
             NICellFactory* factory = (NICellFactory*)delegate;
             NIDASSERT([self objectClass]);
@@ -114,6 +113,7 @@
                                          block(indexPaths, nil);
                                      }
                                  } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+                                     NSLog(@"Error:%@", error.description);
                                      if (block) {
                                          block(nil, error);
                                      }
