@@ -16,6 +16,7 @@
 @property (nonatomic, strong) NITableViewActions* actions;
 @property (nonatomic, strong) NICellFactory* cellFactory;
 
+- (void)refreshAction;
 - (void)refreshData;
 - (void)loadMore;
 - (void)didFinishLoadData;

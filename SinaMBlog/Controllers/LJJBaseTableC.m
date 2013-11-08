@@ -87,6 +87,14 @@
 #pragma mark - Private
 
 ///////////////////////////////////////////////////////////////////////////////////////////////////
+- (void)refreshAction
+{
+    self.tableView.contentOffset = CGPointMake(0.f, -self.refreshControl.frame.size.height);
+    [self.refreshControl beginRefreshing];
+    [self refreshData];
+}
+
+///////////////////////////////////////////////////////////////////////////////////////////////////
 - (void)setEditing:(BOOL)editing animated:(BOOL)animated {
     [super setEditing:editing animated:animated];
     [self.tableView setEditing:editing animated:animated];
