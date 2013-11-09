@@ -29,7 +29,9 @@
 
 1、更新submodule：
 
-   git submodule init & git submodule update
+   git submodule init 
+   
+   git submodule update
    
 
 2、使用[CocoaPods](http://cocoapods.org)的命令安装其他依赖库：
