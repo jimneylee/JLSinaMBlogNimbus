@@ -27,11 +27,10 @@
 --------------
 项目clone到本地后
 
-1、请执行如下git命令，添加nimbus为submodule：
+1、更新submodule：
 
-   git submodule add https://github.com/jverkoey/nimbus.git vendor/nimbus
-
-   git submodule add https://github.com/rs/SDURLCache.git vendor/SDURLCache
+   git submodule init & git submodule update
+   
 
 2、使用[CocoaPods](http://cocoapods.org)的命令安装其他依赖库：
    
