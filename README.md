@@ -39,6 +39,14 @@
    pod install
 
 --------------
+--------------
 若出现这个问题：'vendor/SDURLCache' already exists in the index
 
 git rm --cached vendor/SDURLCache
+
+--------------
+若出现这个问题：diff: /../Podfile.lock: No such file or directory 
+diff: /Manifest.lock: No such file or directory 
+error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.
+
+重新pod install
