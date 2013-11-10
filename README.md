@@ -1,4 +1,10 @@
 --------------
+#TODO
+1、新浪微博登录（包括SSO登录）
+
+2、发帖、转发、转发、评论
+
+--------------
 
 #首先感谢OSC开源中国,
 #无私提供个人1000个私有仓库，受惠良久。
@@ -27,17 +33,27 @@
 --------------
 项目clone到本地后
 
-1、请执行如下git命令，添加nimbus为submodule：
+1、更新submodule：
 
-   git submodule add https://github.com/jverkoey/nimbus.git vendor/nimbus
-
-   git submodule add https://github.com/rs/SDURLCache.git vendor/SDURLCache
+   git submodule init 
+   
+   git submodule update
+   
 
 2、使用[CocoaPods](http://cocoapods.org)的命令安装其他依赖库：
    
    pod install
 
+#ERROR解决方法
+
 --------------
 若出现这个问题：'vendor/SDURLCache' already exists in the index
 
 git rm --cached vendor/SDURLCache
+
+--------------
+若出现这个问题：diff: /../Podfile.lock: No such file or directory 
+diff: /Manifest.lock: No such file or directory 
+error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.
+
+重新pod install
