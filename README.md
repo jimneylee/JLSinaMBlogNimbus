@@ -44,7 +44,8 @@
    
    pod install
 
---------------
+#ERROR解决方法
+
 --------------
 若出现这个问题：'vendor/SDURLCache' already exists in the index
 
