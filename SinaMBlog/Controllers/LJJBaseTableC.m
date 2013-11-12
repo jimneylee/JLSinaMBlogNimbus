@@ -137,12 +137,16 @@
 ///////////////////////////////////////////////////////////////////////////////////////////////////
 - (void)didFinishLoadData
 {
-    if (!self.loadMoreFooterView && self.model.hasMoreEntity) {
-        [self createLoadMoreFooterView];
+    if (self.model.hasMoreEntity) {
+        if (!self.loadMoreFooterView ) {
+            [self createLoadMoreFooterView];
+        }
     }
     else {
-        self.tableView.tableFooterView = nil;
-        self.loadMoreFooterView = nil;
+        if (self.loadMoreFooterView) {
+            self.tableView.tableFooterView = nil;
+            self.loadMoreFooterView = nil;
+        }
     }
 }
 
