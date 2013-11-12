@@ -23,7 +23,7 @@
 		28121EA91821FA0800837E25 /* SMUserInfoEntity.m in Sources */ = {isa = PBXBuildFile; fileRef = 28121E981821FA0800837E25 /* SMUserInfoEntity.m */; };
 		28121EAA1821FA0800837E25 /* LJJBaseTableModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 28121E9B1821FA0800837E25 /* LJJBaseTableModel.m */; };
 		28121EAB1821FA0800837E25 /* SMPublicTimelineModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 28121E9D1821FA0800837E25 /* SMPublicTimelineModel.m */; };
-		28121EAC1821FA0800837E25 /* SNLoadMoreFooterView.m in Sources */ = {isa = PBXBuildFile; fileRef = 28121EA01821FA0800837E25 /* SNLoadMoreFooterView.m */; };
+		28121EAC1821FA0800837E25 /* LJJLoadMoreFooterView.m in Sources */ = {isa = PBXBuildFile; fileRef = 28121EA01821FA0800837E25 /* LJJLoadMoreFooterView.m */; };
 		28121EAD1821FA0800837E25 /* SMStatusCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 28121EA21821FA0800837E25 /* SMStatusCell.m */; };
 		28121ECF1821FA2300837E25 /* UIFontAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = 28121EB01821FA2300837E25 /* UIFontAdditions.m */; };
 		28121ED01821FA2300837E25 /* UIViewAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = 28121EB21821FA2300837E25 /* UIViewAdditions.m */; };
@@ -106,8 +106,8 @@
 		28121E9B1821FA0800837E25 /* LJJBaseTableModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LJJBaseTableModel.m; sourceTree = "<group>"; };
 		28121E9C1821FA0800837E25 /* SMPublicTimelineModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SMPublicTimelineModel.h; sourceTree = "<group>"; };
 		28121E9D1821FA0800837E25 /* SMPublicTimelineModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SMPublicTimelineModel.m; sourceTree = "<group>"; };
-		28121E9F1821FA0800837E25 /* SNLoadMoreFooterView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SNLoadMoreFooterView.h; sourceTree = "<group>"; };
-		28121EA01821FA0800837E25 /* SNLoadMoreFooterView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SNLoadMoreFooterView.m; sourceTree = "<group>"; };
+		28121E9F1821FA0800837E25 /* LJJLoadMoreFooterView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LJJLoadMoreFooterView.h; sourceTree = "<group>"; };
+		28121EA01821FA0800837E25 /* LJJLoadMoreFooterView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LJJLoadMoreFooterView.m; sourceTree = "<group>"; };
 		28121EA11821FA0800837E25 /* SMStatusCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SMStatusCell.h; sourceTree = "<group>"; };
 		28121EA21821FA0800837E25 /* SMStatusCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SMStatusCell.m; sourceTree = "<group>"; };
 		28121EAF1821FA2300837E25 /* UIFontAdditions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UIFontAdditions.h; sourceTree = "<group>"; };
@@ -304,8 +304,8 @@
 		28121E9E1821FA0800837E25 /* Views */ = {
 			isa = PBXGroup;
 			children = (
-				28121E9F1821FA0800837E25 /* SNLoadMoreFooterView.h */,
-				28121EA01821FA0800837E25 /* SNLoadMoreFooterView.m */,
+				28121E9F1821FA0800837E25 /* LJJLoadMoreFooterView.h */,
+				28121EA01821FA0800837E25 /* LJJLoadMoreFooterView.m */,
 				28121EA11821FA0800837E25 /* SMStatusCell.h */,
 				28121EA21821FA0800837E25 /* SMStatusCell.m */,
 			);
@@ -664,7 +664,7 @@
 				28121EA91821FA0800837E25 /* SMUserInfoEntity.m in Sources */,
 				28121EAA1821FA0800837E25 /* LJJBaseTableModel.m in Sources */,
 				28121EAB1821FA0800837E25 /* SMPublicTimelineModel.m in Sources */,
-				28121EAC1821FA0800837E25 /* SNLoadMoreFooterView.m in Sources */,
+				28121EAC1821FA0800837E25 /* LJJLoadMoreFooterView.m in Sources */,
 				28121EAD1821FA0800837E25 /* SMStatusCell.m in Sources */,
 				28121ECF1821FA2300837E25 /* UIFontAdditions.m in Sources */,
 				28121ED01821FA2300837E25 /* UIViewAdditions.m in Sources */,

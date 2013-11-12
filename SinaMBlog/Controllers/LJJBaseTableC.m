@@ -7,13 +7,13 @@
 //
 
 #import "LJJBaseTableC.h"
-#import "SNLoadMoreFooterView.h"
+#import "LJJLoadMoreFooterView.h"
 
 ///////////////////////////////////////////////////////////////////////////////////////////////////
 ///////////////////////////////////////////////////////////////////////////////////////////////////
 ///////////////////////////////////////////////////////////////////////////////////////////////////
 @interface LJJBaseTableC ()
-@property (nonatomic, strong) SNLoadMoreFooterView* loadMoreFooterView;
+@property (nonatomic, strong) LJJLoadMoreFooterView* loadMoreFooterView;
 @end
 
 ///////////////////////////////////////////////////////////////////////////////////////////////////
@@ -103,7 +103,7 @@
 ///////////////////////////////////////////////////////////////////////////////////////////////////
 - (void)createLoadMoreFooterView
 {
-    SNLoadMoreFooterView* loadMoreFooterView = [[SNLoadMoreFooterView alloc] init];
+    LJJLoadMoreFooterView* loadMoreFooterView = [[LJJLoadMoreFooterView alloc] init];
     [loadMoreFooterView addTarget:self action:@selector(loadMoreAction) forControlEvents:UIControlEventTouchUpInside];
     self.tableView.tableFooterView = loadMoreFooterView;
     self.loadMoreFooterView = loadMoreFooterView;

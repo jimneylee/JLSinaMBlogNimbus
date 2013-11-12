@@ -8,7 +8,7 @@
 
 #import <UIKit/UIKit.h>
 
-@interface SNLoadMoreFooterView : UIButton
+@interface LJJLoadMoreFooterView : UIButton
 
 @property (nonatomic, strong) UILabel*  textLabel;
 @property (nonatomic, strong) UIActivityIndicatorView*  activityIndicatorView;

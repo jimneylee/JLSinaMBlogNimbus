@@ -6,13 +6,13 @@
 //  Copyright (c) 2013年 jimneylee. All rights reserved.
 //
 
-#import "SNLoadMoreFooterView.h"
+#import "LJJLoadMoreFooterView.h"
 
 #define PLAIN_MORE_BUTTON_HEIGHT 55
 
-@interface SNLoadMoreFooterView()
+@interface LJJLoadMoreFooterView()
 @end
-@implementation SNLoadMoreFooterView
+@implementation LJJLoadMoreFooterView
 
 ///////////////////////////////////////////////////////////////////////////////////////////////////
 - (id)init
