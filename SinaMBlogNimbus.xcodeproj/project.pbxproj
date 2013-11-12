@@ -17,12 +17,12 @@
 		28121EA31821FA0800837E25 /* NSString+StringValue.m in Sources */ = {isa = PBXBuildFile; fileRef = 28121E881821FA0800837E25 /* NSString+StringValue.m */; };
 		28121EA41821FA0800837E25 /* SMAPIClient.m in Sources */ = {isa = PBXBuildFile; fileRef = 28121E8B1821FA0800837E25 /* SMAPIClient.m */; };
 		28121EA51821FA0800837E25 /* LJJBaseTableC.m in Sources */ = {isa = PBXBuildFile; fileRef = 28121E8F1821FA0800837E25 /* LJJBaseTableC.m */; };
-		28121EA61821FA0800837E25 /* SMPublicTimlineListC.m in Sources */ = {isa = PBXBuildFile; fileRef = 28121E911821FA0800837E25 /* SMPublicTimlineListC.m */; };
+		28121EA61821FA0800837E25 /* SMPageTimlineListC.m in Sources */ = {isa = PBXBuildFile; fileRef = 28121E911821FA0800837E25 /* SMPageTimlineListC.m */; };
 		28121EA71821FA0800837E25 /* SMBaseEntity.m in Sources */ = {isa = PBXBuildFile; fileRef = 28121E941821FA0800837E25 /* SMBaseEntity.m */; };
 		28121EA81821FA0800837E25 /* SMStatusEntity.m in Sources */ = {isa = PBXBuildFile; fileRef = 28121E961821FA0800837E25 /* SMStatusEntity.m */; };
 		28121EA91821FA0800837E25 /* SMUserInfoEntity.m in Sources */ = {isa = PBXBuildFile; fileRef = 28121E981821FA0800837E25 /* SMUserInfoEntity.m */; };
 		28121EAA1821FA0800837E25 /* LJJBaseTableModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 28121E9B1821FA0800837E25 /* LJJBaseTableModel.m */; };
-		28121EAB1821FA0800837E25 /* SMPublicTimelineModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 28121E9D1821FA0800837E25 /* SMPublicTimelineModel.m */; };
+		28121EAB1821FA0800837E25 /* SMPageTimelineModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 28121E9D1821FA0800837E25 /* SMPageTimelineModel.m */; };
 		28121EAC1821FA0800837E25 /* LJJLoadMoreFooterView.m in Sources */ = {isa = PBXBuildFile; fileRef = 28121EA01821FA0800837E25 /* LJJLoadMoreFooterView.m */; };
 		28121EAD1821FA0800837E25 /* SMStatusCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 28121EA21821FA0800837E25 /* SMStatusCell.m */; };
 		28121ECF1821FA2300837E25 /* UIFontAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = 28121EB01821FA2300837E25 /* UIFontAdditions.m */; };
@@ -37,6 +37,12 @@
 		28121EFD1822226400837E25 /* NSDate+SinaMBlog.m in Sources */ = {isa = PBXBuildFile; fileRef = 28121EFC1822226400837E25 /* NSDate+SinaMBlog.m */; };
 		28121F1C1822654C00837E25 /* README.md in Resources */ = {isa = PBXBuildFile; fileRef = 28121F1B1822654C00837E25 /* README.md */; };
 		28121F1E1822655E00837E25 /* TODO in Resources */ = {isa = PBXBuildFile; fileRef = 28121F1D1822655E00837E25 /* TODO */; };
+		2844D9E71831BC5F006405EA /* libWeiboSDK.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 2844D9E41831BC5F006405EA /* libWeiboSDK.a */; };
+		2844D9E81831BC5F006405EA /* WeiboSDK.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 2844D9E51831BC5F006405EA /* WeiboSDK.bundle */; };
+		2844D9EB1831BF06006405EA /* SMLoginC.m in Sources */ = {isa = PBXBuildFile; fileRef = 2844D9EA1831BF06006405EA /* SMLoginC.m */; };
+		2844DA091831E8B9006405EA /* LJJMaxIdBaseTableModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 2844DA081831E8B9006405EA /* LJJMaxIdBaseTableModel.m */; };
+		2844DA0C1831EB27006405EA /* SMMaxIdTimelineModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 2844DA0B1831EB27006405EA /* SMMaxIdTimelineModel.m */; };
+		2844DA0F1831F28F006405EA /* SMHomeTimlineListC.m in Sources */ = {isa = PBXBuildFile; fileRef = 2844DA0E1831F28F006405EA /* SMHomeTimlineListC.m */; };
 		2872F32C182104E2008F329D /* NIActions.m in Sources */ = {isa = PBXBuildFile; fileRef = 2872F2FA182104E2008F329D /* NIActions.m */; };
 		2872F32D182104E2008F329D /* NIButtonUtilities.m in Sources */ = {isa = PBXBuildFile; fileRef = 2872F2FD182104E2008F329D /* NIButtonUtilities.m */; };
 		2872F32E182104E2008F329D /* NICommonMetrics.m in Sources */ = {isa = PBXBuildFile; fileRef = 2872F2FF182104E2008F329D /* NICommonMetrics.m */; };
@@ -94,8 +100,8 @@
 		28121E8C1821FA0800837E25 /* SMJSONKeys.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SMJSONKeys.h; sourceTree = "<group>"; };
 		28121E8E1821FA0800837E25 /* LJJBaseTableC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LJJBaseTableC.h; sourceTree = "<group>"; };
 		28121E8F1821FA0800837E25 /* LJJBaseTableC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LJJBaseTableC.m; sourceTree = "<group>"; };
-		28121E901821FA0800837E25 /* SMPublicTimlineListC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SMPublicTimlineListC.h; sourceTree = "<group>"; };
-		28121E911821FA0800837E25 /* SMPublicTimlineListC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SMPublicTimlineListC.m; sourceTree = "<group>"; };
+		28121E901821FA0800837E25 /* SMPageTimlineListC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SMPageTimlineListC.h; sourceTree = "<group>"; };
+		28121E911821FA0800837E25 /* SMPageTimlineListC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SMPageTimlineListC.m; sourceTree = "<group>"; };
 		28121E931821FA0800837E25 /* SMBaseEntity.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SMBaseEntity.h; sourceTree = "<group>"; };
 		28121E941821FA0800837E25 /* SMBaseEntity.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SMBaseEntity.m; sourceTree = "<group>"; };
 		28121E951821FA0800837E25 /* SMStatusEntity.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SMStatusEntity.h; sourceTree = "<group>"; };
@@ -104,8 +110,8 @@
 		28121E981821FA0800837E25 /* SMUserInfoEntity.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SMUserInfoEntity.m; sourceTree = "<group>"; };
 		28121E9A1821FA0800837E25 /* LJJBaseTableModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LJJBaseTableModel.h; sourceTree = "<group>"; };
 		28121E9B1821FA0800837E25 /* LJJBaseTableModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LJJBaseTableModel.m; sourceTree = "<group>"; };
-		28121E9C1821FA0800837E25 /* SMPublicTimelineModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SMPublicTimelineModel.h; sourceTree = "<group>"; };
-		28121E9D1821FA0800837E25 /* SMPublicTimelineModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SMPublicTimelineModel.m; sourceTree = "<group>"; };
+		28121E9C1821FA0800837E25 /* SMPageTimelineModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SMPageTimelineModel.h; sourceTree = "<group>"; };
+		28121E9D1821FA0800837E25 /* SMPageTimelineModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SMPageTimelineModel.m; sourceTree = "<group>"; };
 		28121E9F1821FA0800837E25 /* LJJLoadMoreFooterView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LJJLoadMoreFooterView.h; sourceTree = "<group>"; };
 		28121EA01821FA0800837E25 /* LJJLoadMoreFooterView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LJJLoadMoreFooterView.m; sourceTree = "<group>"; };
 		28121EA11821FA0800837E25 /* SMStatusCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SMStatusCell.h; sourceTree = "<group>"; };
@@ -133,6 +139,17 @@
 		28121EFC1822226400837E25 /* NSDate+SinaMBlog.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSDate+SinaMBlog.m"; sourceTree = "<group>"; };
 		28121F1B1822654C00837E25 /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = README.md; sourceTree = "<group>"; };
 		28121F1D1822655E00837E25 /* TODO */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = TODO; sourceTree = "<group>"; };
+		2844D9E41831BC5F006405EA /* libWeiboSDK.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libWeiboSDK.a; sourceTree = "<group>"; };
+		2844D9E51831BC5F006405EA /* WeiboSDK.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = WeiboSDK.bundle; sourceTree = "<group>"; };
+		2844D9E61831BC5F006405EA /* WeiboSDK.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WeiboSDK.h; sourceTree = "<group>"; };
+		2844D9E91831BF06006405EA /* SMLoginC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SMLoginC.h; sourceTree = "<group>"; };
+		2844D9EA1831BF06006405EA /* SMLoginC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SMLoginC.m; sourceTree = "<group>"; };
+		2844DA071831E8B9006405EA /* LJJMaxIdBaseTableModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LJJMaxIdBaseTableModel.h; sourceTree = "<group>"; };
+		2844DA081831E8B9006405EA /* LJJMaxIdBaseTableModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LJJMaxIdBaseTableModel.m; sourceTree = "<group>"; };
+		2844DA0A1831EB26006405EA /* SMMaxIdTimelineModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SMMaxIdTimelineModel.h; sourceTree = "<group>"; };
+		2844DA0B1831EB27006405EA /* SMMaxIdTimelineModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SMMaxIdTimelineModel.m; sourceTree = "<group>"; };
+		2844DA0D1831F28F006405EA /* SMHomeTimlineListC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SMHomeTimlineListC.h; sourceTree = "<group>"; };
+		2844DA0E1831F28F006405EA /* SMHomeTimlineListC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SMHomeTimlineListC.m; sourceTree = "<group>"; };
 		2872F2F9182104E2008F329D /* NIActions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = NIActions.h; path = vendor/nimbus/src/core/src/NIActions.h; sourceTree = "<group>"; };
 		2872F2FA182104E2008F329D /* NIActions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = NIActions.m; path = vendor/nimbus/src/core/src/NIActions.m; sourceTree = "<group>"; };
 		2872F2FB182104E2008F329D /* NIActions+Subclassing.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "NIActions+Subclassing.h"; path = "vendor/nimbus/src/core/src/NIActions+Subclassing.h"; sourceTree = "<group>"; };
@@ -224,6 +241,7 @@
 				28B4757B1820EFC30044DF59 /* Foundation.framework in Frameworks */,
 				28B4757D1820EFC30044DF59 /* CoreGraphics.framework in Frameworks */,
 				4E03C33DEEED412ABAF0DC41 /* libPods.a in Frameworks */,
+				2844D9E71831BC5F006405EA /* libWeiboSDK.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -233,6 +251,7 @@
 		28121DF41821EAB700837E25 /* Vendor */ = {
 			isa = PBXGroup;
 			children = (
+				2844D9E31831BC5F006405EA /* libWeiboSDK */,
 				28121EAE1821FA2300837E25 /* 320Category */,
 				28121ECA1821FA2300837E25 /* SDURLCache */,
 				28B475C7182103790044DF59 /* Nimbus */,
@@ -268,8 +287,12 @@
 			children = (
 				28121E8E1821FA0800837E25 /* LJJBaseTableC.h */,
 				28121E8F1821FA0800837E25 /* LJJBaseTableC.m */,
-				28121E901821FA0800837E25 /* SMPublicTimlineListC.h */,
-				28121E911821FA0800837E25 /* SMPublicTimlineListC.m */,
+				2844D9E91831BF06006405EA /* SMLoginC.h */,
+				2844D9EA1831BF06006405EA /* SMLoginC.m */,
+				28121E901821FA0800837E25 /* SMPageTimlineListC.h */,
+				28121E911821FA0800837E25 /* SMPageTimlineListC.m */,
+				2844DA0D1831F28F006405EA /* SMHomeTimlineListC.h */,
+				2844DA0E1831F28F006405EA /* SMHomeTimlineListC.m */,
 			);
 			name = Controllers;
 			path = SinaMBlog/Controllers;
@@ -294,8 +317,12 @@
 			children = (
 				28121E9A1821FA0800837E25 /* LJJBaseTableModel.h */,
 				28121E9B1821FA0800837E25 /* LJJBaseTableModel.m */,
-				28121E9C1821FA0800837E25 /* SMPublicTimelineModel.h */,
-				28121E9D1821FA0800837E25 /* SMPublicTimelineModel.m */,
+				2844DA071831E8B9006405EA /* LJJMaxIdBaseTableModel.h */,
+				2844DA081831E8B9006405EA /* LJJMaxIdBaseTableModel.m */,
+				28121E9C1821FA0800837E25 /* SMPageTimelineModel.h */,
+				28121E9D1821FA0800837E25 /* SMPageTimelineModel.m */,
+				2844DA0A1831EB26006405EA /* SMMaxIdTimelineModel.h */,
+				2844DA0B1831EB27006405EA /* SMMaxIdTimelineModel.m */,
 			);
 			name = Models;
 			path = SinaMBlog/Models;
@@ -341,6 +368,17 @@
 			);
 			name = SDURLCache;
 			path = vendor/SDURLCache;
+			sourceTree = "<group>";
+		};
+		2844D9E31831BC5F006405EA /* libWeiboSDK */ = {
+			isa = PBXGroup;
+			children = (
+				2844D9E41831BC5F006405EA /* libWeiboSDK.a */,
+				2844D9E51831BC5F006405EA /* WeiboSDK.bundle */,
+				2844D9E61831BC5F006405EA /* WeiboSDK.h */,
+			);
+			name = libWeiboSDK;
+			path = vendor/libWeiboSDK;
 			sourceTree = "<group>";
 		};
 		28B4756C1820EFC20044DF59 = {
@@ -577,6 +615,7 @@
 				28121EFA1822040600837E25 /* Three20.bundle in Resources */,
 				28121F1C1822654C00837E25 /* README.md in Resources */,
 				28121F1E1822655E00837E25 /* TODO in Resources */,
+				2844D9E81831BC5F006405EA /* WeiboSDK.bundle in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -658,12 +697,12 @@
 				28121EA31821FA0800837E25 /* NSString+StringValue.m in Sources */,
 				28121EA41821FA0800837E25 /* SMAPIClient.m in Sources */,
 				28121EA51821FA0800837E25 /* LJJBaseTableC.m in Sources */,
-				28121EA61821FA0800837E25 /* SMPublicTimlineListC.m in Sources */,
+				28121EA61821FA0800837E25 /* SMPageTimlineListC.m in Sources */,
 				28121EA71821FA0800837E25 /* SMBaseEntity.m in Sources */,
 				28121EA81821FA0800837E25 /* SMStatusEntity.m in Sources */,
 				28121EA91821FA0800837E25 /* SMUserInfoEntity.m in Sources */,
 				28121EAA1821FA0800837E25 /* LJJBaseTableModel.m in Sources */,
-				28121EAB1821FA0800837E25 /* SMPublicTimelineModel.m in Sources */,
+				28121EAB1821FA0800837E25 /* SMPageTimelineModel.m in Sources */,
 				28121EAC1821FA0800837E25 /* LJJLoadMoreFooterView.m in Sources */,
 				28121EAD1821FA0800837E25 /* SMStatusCell.m in Sources */,
 				28121ECF1821FA2300837E25 /* UIFontAdditions.m in Sources */,
@@ -675,6 +714,10 @@
 				28121EF51822036900837E25 /* TTGlobalCoreLocale.m in Sources */,
 				28121EF81822038A00837E25 /* NSDateAdditions.m in Sources */,
 				28121EFD1822226400837E25 /* NSDate+SinaMBlog.m in Sources */,
+				2844D9EB1831BF06006405EA /* SMLoginC.m in Sources */,
+				2844DA091831E8B9006405EA /* LJJMaxIdBaseTableModel.m in Sources */,
+				2844DA0C1831EB27006405EA /* SMMaxIdTimelineModel.m in Sources */,
+				2844DA0F1831F28F006405EA /* SMHomeTimlineListC.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -745,6 +788,10 @@
 				GCC_PREFIX_HEADER = "SinaMBlog/SinaMBlogNimbus-Prefix.pch";
 				INFOPLIST_FILE = "$(SRCROOT)/SinaMBlog/SinaMBlogNimbus-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"$(SRCROOT)/vendor/libWeiboSDK\"",
+				);
 				PRODUCT_NAME = SinaMBlogNimbus;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				WRAPPER_EXTENSION = app;
@@ -759,6 +806,10 @@
 				GCC_PREFIX_HEADER = "SinaMBlog/SinaMBlogNimbus-Prefix.pch";
 				INFOPLIST_FILE = "$(SRCROOT)/SinaMBlog/SinaMBlogNimbus-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"$(SRCROOT)/vendor/libWeiboSDK\"",
+				);
 				PRODUCT_NAME = SinaMBlogNimbus;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				WRAPPER_EXTENSION = app;
