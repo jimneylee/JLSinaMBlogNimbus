@@ -58,4 +58,26 @@ NSString *const kSNAPIBaseURLString = @"https://api.weibo.com/2/";
     return [NSString stringWithFormat:@"statuses/public_timeline.json?cursor=%d&count=%d&source=%@",
             pageCounter, perpageCount, SinaWeiboV2AppKey];
 }
+
+// 当前登录用户及关注好友微博某页
++ (NSString*)relativePathForFriendsTimelineWithMaxId:(NSString *)maxId
+{
+    return [NSString stringWithFormat:@"statuses/friends_timeline.json?max_id=%@&access_token=%@",//todo:count default 20[200]
+            maxId, [SMGlobalConfig getCurrentLoginedAccessToken]];
+}
+
+// 用户发布的微博:maxId
++ (NSString*)relativePathForUserTimelineWithUserID:(NSString *)userID maxId:(NSString *)maxId
+{
+    return [NSString stringWithFormat:@"statuses/user_timeline.json?uid=%@&max_id=%@&access_token=%@",
+            userID, maxId, [SMGlobalConfig getCurrentLoginedAccessToken]];
+}
+
+// @我的微博:maxId
++ (NSString*)relativePathForAtMeTimelineWithMaxId:(NSString *)maxId
+{
+    return [NSString stringWithFormat:@"statuses/mentions.json?max_id=%@&access_token=%@",
+            maxId, [SMGlobalConfig getCurrentLoginedAccessToken]];
+}
+
 @end

@@ -8,6 +8,6 @@
 
 #import "LJJBaseTableModel.h"
 
-@interface SMPublicTimelineModel : LJJBaseTableModel
+@interface SMPageTimelineModel : LJJBaseTableModel
 
 @end

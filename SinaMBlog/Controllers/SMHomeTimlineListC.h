@@ -9,6 +9,6 @@
 #import <UIKit/UIKit.h>
 #import "LJJBaseTableC.h"
 
-@interface SMPageTimlineListC : LJJBaseTableC
+@interface SMHomeTimlineListC : LJJBaseTableC
 
 @end

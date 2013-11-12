@@ -7,12 +7,11 @@
 //
 
 #import <UIKit/UIKit.h>
-#import "SMPublicTimlineListC.h"
+#import "SMLoginC.h"
 
-@interface AppDelegate : UIResponder <UIApplicationDelegate>
+@interface AppDelegate : UIResponder <UIApplicationDelegate, WeiboSDKDelegate>
 
 @property (strong, nonatomic) UIWindow* window;
-
-@property (strong, nonatomic) SMPublicTimlineListC* viewController;
+@property (strong, nonatomic) SMLoginC* viewController;
 
 @end

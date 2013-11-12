@@ -6,11 +6,11 @@
 //  Copyright (c) 2013 jimneylee. All rights reserved.
 //
 
-#import "SMPublicTimelineModel.h"
+#import "SMPageTimelineModel.h"
 #import "SMStatusEntity.h"
 #import "SMStatusCell.h"
 
-@implementation SMPublicTimelineModel
+@implementation SMPageTimelineModel
 
 ///////////////////////////////////////////////////////////////////////////////////////////////////
 - (id)initWithDelegate:(id<NITableViewModelDelegate>)delegate

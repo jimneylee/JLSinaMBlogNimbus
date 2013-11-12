@@ -65,7 +65,7 @@
     [super viewDidLoad];
     
     self.tableView.separatorColor = [UIColor clearColor];
-    self.tableView.backgroundColor = [UIColor whiteColor];
+    self.tableView.backgroundColor = TABLE_VIEW_BG_COLOR;
     self.tableView.backgroundView = nil;
     
     self.tableView.dataSource = self.model;
@@ -89,7 +89,14 @@
 ///////////////////////////////////////////////////////////////////////////////////////////////////
 - (void)refreshAction
 {
-    self.tableView.contentOffset = CGPointMake(0.f, -self.refreshControl.frame.size.height);
+//    CGFloat height = 0.0f;
+//    if (IOS_7_X) {
+//        height = -((44+20)+self.refreshControl.frame.size.height);
+//    }
+//    else {
+//        height = -self.refreshControl.frame.size.height;
+//    }
+//    self.tableView.contentOffset = CGPointMake(0.f, height);
     [self.refreshControl beginRefreshing];
     [self refreshData];
 }
@@ -104,6 +111,7 @@
 - (void)createLoadMoreFooterView
 {
     LJJLoadMoreFooterView* loadMoreFooterView = [[LJJLoadMoreFooterView alloc] init];
+    loadMoreFooterView.backgroundColor = TABLE_VIEW_BG_COLOR;
     [loadMoreFooterView addTarget:self action:@selector(loadMoreAction) forControlEvents:UIControlEventTouchUpInside];
     self.tableView.tableFooterView = loadMoreFooterView;
     self.loadMoreFooterView = loadMoreFooterView;
@@ -183,9 +191,17 @@
                 [SMGlobalConfig showHUDMessage:alertMsg addedToView:self.view];
             }
             [self.refreshControl endRefreshing];
-            [UIView animateWithDuration:0.25f delay:0.f options:UIViewAnimationOptionBeginFromCurrentState animations:^(void){
-                self.tableView.contentOffset = CGPointMake(0.f, 0.f);
-            } completion:NULL];
+            
+//            CGFloat height = 0.0f;
+//            if (IOS_7_X) {
+//                height = (20.f + 44.f);
+//            }
+//            else {
+//                height = 0.f;
+//            }
+//            [UIView animateWithDuration:0.25f delay:0.f options:UIViewAnimationOptionBeginFromCurrentState animations:^(void){
+//                self.tableView.contentOffset = CGPointMake(0.f, height);
+//            } completion:NULL];
         } more:NO];
     }
 }
@@ -195,7 +211,7 @@
 {
     [self.model loadDataWithBlock:^(NSArray* indexPaths, NSError* error) {
         if (indexPaths.count) {
-            [self.tableView insertRowsAtIndexPaths:indexPaths withRowAnimation:UITableViewRowAnimationAutomatic];
+            [self.tableView insertRowsAtIndexPaths:indexPaths withRowAnimation:UITableViewRowAnimationNone];
             [self didFinishLoadData];
         }
         else {

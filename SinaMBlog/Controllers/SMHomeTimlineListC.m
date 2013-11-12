@@ -6,15 +6,15 @@
 //  Copyright (c) 2013年 jimneylee. All rights reserved.
 //
 
-#import "SMPageTimlineListC.h"
+#import "SMHomeTimlineListC.h"
 #import "SMStatusEntity.h"
-#import "SMPageTimelineModel.h"
+#import "SMMaxIdTimelineModel.h"
 
-@interface SMPageTimlineListC ()
+@interface SMHomeTimlineListC ()
 @property (nonatomic, strong) NIActionBlock tapAction;
 @end
 
-@implementation SMPageTimlineListC
+@implementation SMHomeTimlineListC
 
 ///////////////////////////////////////////////////////////////////////////////////////////////////
 ///////////////////////////////////////////////////////////////////////////////////////////////////
@@ -26,6 +26,7 @@
     self = [super initWithStyle:style];
     if (self) {
         self.title = APP_NAME;
+        self.navigationItem.leftBarButtonItem = [SMGlobalConfig createPostBarButtonItemWithTarget:self action:@selector(postNewStatusAction)];
         self.navigationItem.rightBarButtonItem = [SMGlobalConfig createRefreshBarButtonItemWithTarget:self
                                                                                                action:@selector(refreshAction)];
     }
@@ -56,13 +57,19 @@
 }
 
 ///////////////////////////////////////////////////////////////////////////////////////////////////
+- (void)postNewStatusAction
+{
+    NSLog(@"post new status");
+}
+
+///////////////////////////////////////////////////////////////////////////////////////////////////
 ///////////////////////////////////////////////////////////////////////////////////////////////////
 #pragma mark - Override
 
 ///////////////////////////////////////////////////////////////////////////////////////////////////
 - (id)tableModelClass
 {
-    return [SMPageTimelineModel class];
+    return [SMMaxIdTimelineModel class];
 }
 
 ///////////////////////////////////////////////////////////////////////////////////////////////////

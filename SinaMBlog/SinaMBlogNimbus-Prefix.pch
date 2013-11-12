@@ -29,6 +29,9 @@
     #import "NITableViewModel+Private.h"
     #import "NIMutableTableViewModel+Private.h"
 
+    // sina mblog sdk
+    #import "WeiboSDK.h"
+
     // log switch
     #ifdef DEBUG
     #    define NSLog(...) NSLog(__VA_ARGS__)
