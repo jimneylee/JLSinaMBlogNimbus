@@ -37,6 +37,7 @@
 		28121EFD1822226400837E25 /* NSDate+SinaMBlog.m in Sources */ = {isa = PBXBuildFile; fileRef = 28121EFC1822226400837E25 /* NSDate+SinaMBlog.m */; };
 		28121F1C1822654C00837E25 /* README.md in Resources */ = {isa = PBXBuildFile; fileRef = 28121F1B1822654C00837E25 /* README.md */; };
 		28121F1E1822655E00837E25 /* TODO in Resources */ = {isa = PBXBuildFile; fileRef = 28121F1D1822655E00837E25 /* TODO */; };
+		28398CA3183360110087F2F1 /* SMUserInfoModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 28398CA2183360110087F2F1 /* SMUserInfoModel.m */; };
 		2844D9E71831BC5F006405EA /* libWeiboSDK.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 2844D9E41831BC5F006405EA /* libWeiboSDK.a */; };
 		2844D9E81831BC5F006405EA /* WeiboSDK.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 2844D9E51831BC5F006405EA /* WeiboSDK.bundle */; };
 		2844D9EB1831BF06006405EA /* SMLoginC.m in Sources */ = {isa = PBXBuildFile; fileRef = 2844D9EA1831BF06006405EA /* SMLoginC.m */; };
@@ -139,6 +140,8 @@
 		28121EFC1822226400837E25 /* NSDate+SinaMBlog.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSDate+SinaMBlog.m"; sourceTree = "<group>"; };
 		28121F1B1822654C00837E25 /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = README.md; sourceTree = "<group>"; };
 		28121F1D1822655E00837E25 /* TODO */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = TODO; sourceTree = "<group>"; };
+		28398CA1183360110087F2F1 /* SMUserInfoModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SMUserInfoModel.h; sourceTree = "<group>"; };
+		28398CA2183360110087F2F1 /* SMUserInfoModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SMUserInfoModel.m; sourceTree = "<group>"; };
 		2844D9E41831BC5F006405EA /* libWeiboSDK.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libWeiboSDK.a; sourceTree = "<group>"; };
 		2844D9E51831BC5F006405EA /* WeiboSDK.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = WeiboSDK.bundle; sourceTree = "<group>"; };
 		2844D9E61831BC5F006405EA /* WeiboSDK.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WeiboSDK.h; sourceTree = "<group>"; };
@@ -323,6 +326,8 @@
 				28121E9D1821FA0800837E25 /* SMPageTimelineModel.m */,
 				2844DA0A1831EB26006405EA /* SMMaxIdTimelineModel.h */,
 				2844DA0B1831EB27006405EA /* SMMaxIdTimelineModel.m */,
+				28398CA1183360110087F2F1 /* SMUserInfoModel.h */,
+				28398CA2183360110087F2F1 /* SMUserInfoModel.m */,
 			);
 			name = Models;
 			path = SinaMBlog/Models;
@@ -695,6 +700,7 @@
 				28121E591821F07300837E25 /* AppDelegate.m in Sources */,
 				28121E5A1821F07300837E25 /* SMGlobalConfig.m in Sources */,
 				28121EA31821FA0800837E25 /* NSString+StringValue.m in Sources */,
+				28398CA3183360110087F2F1 /* SMUserInfoModel.m in Sources */,
 				28121EA41821FA0800837E25 /* SMAPIClient.m in Sources */,
 				28121EA51821FA0800837E25 /* LJJBaseTableC.m in Sources */,
 				28121EA61821FA0800837E25 /* SMPageTimlineListC.m in Sources */,
