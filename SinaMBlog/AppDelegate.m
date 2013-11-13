@@ -44,10 +44,11 @@
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
     [self prepareForLaunching];
-
+    
     self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
     self.viewController = [[SMLoginC alloc] initWithStyle:UITableViewStylePlain];
     UINavigationController* navi = [[UINavigationController alloc] initWithRootViewController:self.viewController];
+    navi.navigationBar.translucent = NO;
     self.window.rootViewController = navi;
     [self.window makeKeyAndVisible];
     
