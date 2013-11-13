@@ -25,7 +25,7 @@
 ///////////////////////////////////////////////////////////////////////////////////////////////////
 - (NSString*)relativePath
 {
-    return [[SMAPIClient sharedClient] relativePathForPublicTimelineWithPageCounter:self.pageCounter
+    return [SMAPIClient relativePathForPublicTimelineWithPageCounter:self.pageCounter
                                                                        perpageCount:self.perpageCount];
 }
 
