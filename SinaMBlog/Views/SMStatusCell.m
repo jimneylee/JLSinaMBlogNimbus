@@ -103,7 +103,6 @@
 - (void)prepareForReuse
 {
     [super prepareForReuse];
-    [self.headView setPathToNetworkImage:nil];
 }
 
 ///////////////////////////////////////////////////////////////////////////////////////////////////
@@ -155,14 +154,19 @@
     [super shouldUpdateCellWithObject:object];
     if ([object isKindOfClass:[SMStatusEntity class]]) {
         SMStatusEntity* o = (SMStatusEntity*)object;
-        [self.headView setPathToNetworkImage:o.user.profile_image_url];
+        if (o.user.profile_image_url.length) {
+            [self.headView setPathToNetworkImage:o.user.profile_image_url];
+        }
+        else {
+            [self.headView setPathToNetworkImage:nil];
+        }
         self.textLabel.text = o.user.name;
         self.detailTextLabel.text = [NSString stringWithFormat:@"%@  %@",
                                      o.source, [o.timestamp formatRelativeTime]];// 解决动态计算时间
         self.contentLabel.text = o.text;
         if (o.thumbnail_pic.length) {
             self.contentImageView.hidden = NO;
-            [self.contentImageView setPathToNetworkImage:o.thumbnail_pic contentMode:UIViewContentModeScaleAspectFit];
+            [self.contentImageView setPathToNetworkImage:o.thumbnail_pic contentMode:UIViewContentModeCenter];
         }
         else {
             self.contentImageView.hidden = YES;
@@ -171,21 +175,5 @@
     }
     return YES;
 }
-
-///////////////////////////////////////////////////////////////////////////////////////////////////
-//- (void)drawRect:(CGRect)rect
-//{
-//	[super drawRect:rect];
-//    
-//    CGFloat lineHeight = 1.f;
-//    
-//	CGContextRef ctx = UIGraphicsGetCurrentContext();
-//    CGContextSetLineWidth(ctx, lineHeight);
-//    CGContextSetStrokeColorWithColor(ctx, LINE_COLOR.CGColor);
-//    CGContextMoveToPoint(ctx, 0, rect.size.height - lineHeight);
-//	CGContextAddLineToPoint(ctx, rect.size.width, rect.size.height);
-//    CGContextStrokePath(ctx);
-//}
-
 
 @end
