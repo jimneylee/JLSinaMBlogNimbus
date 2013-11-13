@@ -15,10 +15,11 @@
 #define SUBTITLE_FONT_SIZE [UIFont systemFontOfSize:12]
 #define CONTENT_FONT_SIZE [UIFont systemFontOfSize:16]
 #define HEAD_IAMGE_HEIGHT 34
-
+#define CONTENT_IMAGE_HEIGHT 160
 @interface SMStatusCell()
 @property (nonatomic, strong) UILabel* contentLabel;
 @property (nonatomic, strong) NINetworkImageView* headView;
+@property (nonatomic, strong) NINetworkImageView* contentImageView;
 @end
 @implementation SMStatusCell
 
@@ -42,6 +43,12 @@
         CGSize titleSize = [o.text sizeWithFont:CONTENT_FONT_SIZE constrainedToSize:CGSizeMake(kContentLength, FLT_MAX)];
         height = height + titleSize.height;
         
+        // content image
+        if (o.thumbnail_pic.length) {
+            height = height + CELL_PADDING_10;
+            height = height + CONTENT_IMAGE_HEIGHT;
+        }
+
         // TODO: button
         
         height = height + sideMargin;
@@ -66,10 +73,12 @@
         // name
         self.textLabel.font = TITLE_FONT_SIZE;
         self.textLabel.textColor = [UIColor blackColor];
-
+        self.textLabel.highlightedTextColor = self.textLabel.textColor;
+        
         // source from & date
         self.detailTextLabel.font = SUBTITLE_FONT_SIZE;
         self.detailTextLabel.textColor = [UIColor grayColor];
+        self.detailTextLabel.highlightedTextColor = self.detailTextLabel.textColor;
         
         // status content
         self.contentLabel = [[UILabel alloc] initWithFrame:CGRectZero];
@@ -77,6 +86,11 @@
         self.contentLabel.font = CONTENT_FONT_SIZE;
         self.contentLabel.textColor = [UIColor blackColor];
         [self.contentView addSubview:self.contentLabel];
+        
+        // content image
+        self.contentImageView = [[NINetworkImageView alloc] initWithFrame:CGRectMake(0, 0, CONTENT_IMAGE_HEIGHT,
+                                                                             CONTENT_IMAGE_HEIGHT)];
+        [self.contentView addSubview:self.contentImageView];
         
         self.contentView.layer.borderColor = CELL_CONTENT_VIEW_BORDER_COLOR.CGColor;
         self.contentView.layer.borderWidth = 1.0f;
@@ -97,6 +111,7 @@
 {
     [super layoutSubviews];
     
+    self.backgroundColor = [UIColor clearColor];
     self.contentView.backgroundColor = CELL_CONTENT_VIEW_BG_COLOR;
     self.textLabel.backgroundColor = [UIColor clearColor];
     self.detailTextLabel.backgroundColor = [UIColor clearColor];
@@ -128,6 +143,10 @@
                                             constrainedToSize:CGSizeMake(kContentLength, FLT_MAX)];
     self.contentLabel.frame = CGRectMake(self.headView.left, self.headView.bottom + CELL_PADDING_10,
                                         kContentLength, contentSize.height);
+    
+    // content image
+    self.contentImageView.left = self.contentLabel.left;
+    self.contentImageView.top = self.contentLabel.bottom + CELL_PADDING_10;
 }
 
 ///////////////////////////////////////////////////////////////////////////////////////////////////
@@ -136,11 +155,19 @@
     [super shouldUpdateCellWithObject:object];
     if ([object isKindOfClass:[SMStatusEntity class]]) {
         SMStatusEntity* o = (SMStatusEntity*)object;
-        [self.headView setPathToNetworkImage:o.thumbnail_pic];
+        [self.headView setPathToNetworkImage:o.user.profile_image_url];
         self.textLabel.text = o.user.name;
         self.detailTextLabel.text = [NSString stringWithFormat:@"%@  %@",
                                      o.source, [o.timestamp formatRelativeTime]];// 解决动态计算时间
         self.contentLabel.text = o.text;
+        if (o.thumbnail_pic.length) {
+            self.contentImageView.hidden = NO;
+            [self.contentImageView setPathToNetworkImage:o.thumbnail_pic contentMode:UIViewContentModeScaleAspectFit];
+        }
+        else {
+            self.contentImageView.hidden = YES;
+            [self.contentImageView setPathToNetworkImage:nil];
+        }
     }
     return YES;
 }
