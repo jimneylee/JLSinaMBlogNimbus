@@ -13,12 +13,19 @@
 
 + (SMAPIClient*)sharedClient;
 
-- (NSString*)relativePathForPublicTimelineWithPageCounter:(NSInteger)pageCounter
+// 用户信息
++ (NSString *)relativePathForUserInfoWithUserName:(NSString *)userName
+                                         orUserId:(NSString *)userId;
+// 随便看看
++ (NSString*)relativePathForPublicTimelineWithPageCounter:(NSInteger)pageCounter
                                              perpageCount:(NSInteger)perpageCount;
+
 // 当前登录用户及关注好友微博某页
-+ (NSString*)relativePathForFriendsTimelineWithMaxId:(NSString *)maxId;;
++ (NSString*)relativePathForFriendsTimelineWithMaxId:(NSString *)maxId;
+
 // 用户发布的微博:maxId
 + (NSString*)relativePathForUserTimelineWithUserID:(NSString *)userID maxId:(NSString *)maxId;
+
 // @我的微博:maxId
 + (NSString*)relativePathForAtMeTimelineWithMaxId:(NSString *)maxId;
 

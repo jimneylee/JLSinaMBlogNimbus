@@ -47,12 +47,33 @@ NSString *const kSNAPIBaseURLString = @"https://api.weibo.com/2/";
 
 ///////////////////////////////////////////////////////////////////////////////////////////////////
 ///////////////////////////////////////////////////////////////////////////////////////////////////
+#pragma mark - User
+
+///////////////////////////////////////////////////////////////////////////////////////////////////
++ (NSString *)relativePathForUserInfoWithUserName:(NSString *)userName
+                                orUserId:(NSString *)userId {
+    NSString* param;
+    if (userId.length) {
+        param = [NSString stringWithFormat:@"uid=%@", userId];
+    }
+    else if (userName.length) {
+        param = [NSString stringWithFormat:@"screen_name=%@", userName];
+    }
+    if (param) {
+        return [NSString stringWithFormat:@"users/show.json?%@&access_token=%@",
+                param, [SMGlobalConfig getCurrentLoginedAccessToken]];
+    }
+    return nil;
+}
+
+///////////////////////////////////////////////////////////////////////////////////////////////////
+///////////////////////////////////////////////////////////////////////////////////////////////////
 #pragma mark - TimeLine
 
 ///////////////////////////////////////////////////////////////////////////////////////////////////
 // 公共微博某页
 // !note: page -> cusor
-- (NSString*)relativePathForPublicTimelineWithPageCounter:(NSInteger)pageCounter
++ (NSString*)relativePathForPublicTimelineWithPageCounter:(NSInteger)pageCounter
                                              perpageCount:(NSInteger)perpageCount
 {
     return [NSString stringWithFormat:@"statuses/public_timeline.json?cursor=%d&count=%d&source=%@",
