@@ -27,7 +27,7 @@
     if (self) {
         self.title = APP_NAME;
         self.navigationItem.rightBarButtonItem = [SMGlobalConfig createRefreshBarButtonItemWithTarget:self
-                                                                                               action:@selector(refreshAction)];
+                                                                                               action:@selector(autoPullDownRefreshAction)];
     }
     return self;
 }
@@ -50,9 +50,9 @@
 #pragma mark - Private
 
 ///////////////////////////////////////////////////////////////////////////////////////////////////
-- (void)refreshAction
+- (void)autoPullDownRefreshAction
 {   
-    [super refreshAction];
+    [super autoPullDownRefreshAction];
 }
 
 ///////////////////////////////////////////////////////////////////////////////////////////////////
