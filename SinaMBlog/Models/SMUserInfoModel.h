@@ -13,6 +13,8 @@
 
 @property(nonatomic, retain) SMUserInfoEntity *entity;
 
-- (void)loadUserInfoWithUserId:(NSString*)userId block:(void(^)(SMUserInfoEntity* entity, NSError* error))block;
+- (void)loadUserInfoWithUserName:(NSString*)userName
+                        orUserId:(NSString*)userId
+                           block:(void(^)(SMUserInfoEntity* entity, NSError* error))block;
 
 @end

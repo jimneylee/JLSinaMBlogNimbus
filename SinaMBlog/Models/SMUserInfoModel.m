@@ -13,14 +13,16 @@
 @implementation SMUserInfoModel
 
 //////////////////////////////////////////////////////////////////////////////////////////////////////
-- (NSString*)relativePathWithUserId:(NSString*)userId {
-    return [SMAPIClient relativePathForUserInfoWithUserName:nil orUserId:userId];
+- (NSString*)relativePathWithUserName:(NSString*)userName orUserId:(NSString*)userId {
+    return [SMAPIClient relativePathForUserInfoWithUserName:userName orUserId:userId];
 }
 
 ///////////////////////////////////////////////////////////////////////////////////////////////////
-- (void)loadUserInfoWithUserId:(NSString*)userId block:(void(^)(SMUserInfoEntity* entity, NSError* error))block
+- (void)loadUserInfoWithUserName:(NSString*)userName
+                        orUserId:(NSString*)userId
+                           block:(void(^)(SMUserInfoEntity* entity, NSError* error))block
 {
-    [[SMAPIClient sharedClient] getPath:[self relativePathWithUserId:userId] parameters:nil
+    [[SMAPIClient sharedClient] getPath:[self relativePathWithUserName:userName orUserId:userId] parameters:nil
                                  success:^(AFHTTPRequestOperation *operation, id responseObject) {
                                      if ([responseObject isKindOfClass:[NSDictionary class]]) {
                                          NSDictionary* dic = (NSDictionary*)responseObject;
