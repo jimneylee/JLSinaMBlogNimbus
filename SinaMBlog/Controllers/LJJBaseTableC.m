@@ -14,6 +14,7 @@
 ///////////////////////////////////////////////////////////////////////////////////////////////////
 @interface LJJBaseTableC ()
 @property (nonatomic, strong) LJJLoadMoreFooterView* loadMoreFooterView;
+@property (nonatomic, assign) BOOL autoPullDownLoading;
 @end
 
 ///////////////////////////////////////////////////////////////////////////////////////////////////
@@ -87,16 +88,25 @@
 #pragma mark - Private
 
 ///////////////////////////////////////////////////////////////////////////////////////////////////
+- (void)autoPullDownRefreshAction
+{
+    if (!self.autoPullDownLoading) {
+        CGFloat height = - self.refreshControl.frame.size.height;//XCode4
+#ifdef __IPHONE_7_0//XCode5
+        if (self.navigationController.navigationBar.translucent) {
+            height = - (self.navigationController.navigationBar.bottom + self.refreshControl.frame.size.height);
+        }
+#endif
+        self.tableView.contentOffset = CGPointMake(0.f, height);
+        
+        [self refreshAction];
+        self.autoPullDownLoading = YES;
+    }
+}
+
+///////////////////////////////////////////////////////////////////////////////////////////////////
 - (void)refreshAction
 {
-//    CGFloat height = 0.0f;
-//    if (IOS_7_X) {
-//        height = -((44+20)+self.refreshControl.frame.size.height);
-//    }
-//    else {
-//        height = -self.refreshControl.frame.size.height;
-//    }
-//    self.tableView.contentOffset = CGPointMake(0.f, height);
     [self.refreshControl beginRefreshing];
     [self refreshData];
 }
@@ -192,16 +202,18 @@
             }
             [self.refreshControl endRefreshing];
             
-//            CGFloat height = 0.0f;
-//            if (IOS_7_X) {
-//                height = (20.f + 44.f);
-//            }
-//            else {
-//                height = 0.f;
-//            }
-//            [UIView animateWithDuration:0.25f delay:0.f options:UIViewAnimationOptionBeginFromCurrentState animations:^(void){
-//                self.tableView.contentOffset = CGPointMake(0.f, height);
-//            } completion:NULL];
+            if (self.autoPullDownLoading) {
+                self.autoPullDownLoading = NO;
+                CGFloat height = 0.0f;
+#ifdef __IPHONE_7_0
+                if (self.navigationController.navigationBar.translucent) {
+                    height = - self.navigationController.navigationBar.bottom;
+                }
+#endif
+                [UIView animateWithDuration:0.25f delay:0.f options:UIViewAnimationOptionBeginFromCurrentState animations:^(void){
+                    self.tableView.contentOffset = CGPointMake(0.f, height);
+                } completion:NULL];
+            }
         } more:NO];
     }
 }
