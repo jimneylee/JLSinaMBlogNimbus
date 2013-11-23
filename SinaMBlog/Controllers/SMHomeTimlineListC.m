@@ -10,6 +10,7 @@
 #import "SMStatusEntity.h"
 #import "SMMaxIdTimelineModel.h"
 #import "SMUserInfoModel.h"
+#import "SMMBlogPostC.h"
 
 @interface SMHomeTimlineListC ()
 @property (nonatomic, strong) NIActionBlock tapAction;
@@ -26,23 +27,11 @@
 {
     self = [super initWithStyle:style];
     if (self) {
-        self.navigationItem.leftBarButtonItem = [SMGlobalConfig createPostBarButtonItemWithTarget:self action:@selector(postNewStatusAction)];
+        self.navigationItem.leftBarButtonItem = [SMGlobalConfig createPostBarButtonItemWithTarget:self
+                                                                                           action:@selector(postNewStatusAction)];
         self.navigationItem.rightBarButtonItem = [SMGlobalConfig createRefreshBarButtonItemWithTarget:self
                                                                                                action:@selector(autoPullDownRefreshAction)];
-        // 获取当前登录用户的基本信息
-        if ([SMGlobalConfig getCurrentLoginedUserName].length) {
-            self.title = [SMGlobalConfig getCurrentLoginedUserName];
-        }
-        else {
-            SMUserInfoModel* userInfoModel = [[SMUserInfoModel alloc] init];
-            [userInfoModel loadUserInfoWithUserName:nil orUserId:[SMGlobalConfig getCurrentLoginedUserId]
-                                              block:^(SMUserInfoEntity *entity, NSError *error) {
-                                                  if (entity) {
-                                                      self.title = entity.name;
-                                                      [SMGlobalConfig setCurrentLoginedUserName:entity.name];
-                                                  }
-                                              }];
-        }
+        [self showTitleWithUserName];
     }
     return self;
 }
@@ -74,7 +63,27 @@
 ///////////////////////////////////////////////////////////////////////////////////////////////////
 - (void)postNewStatusAction
 {
-    [SMGlobalConfig showHUDMessage:@"com later on!" addedToView:self.view];
+    SMMBlogPostC* postC = [[SMMBlogPostC alloc] init];
+    [self.navigationController pushViewController:postC animated:YES];
+}
+
+///////////////////////////////////////////////////////////////////////////////////////////////////
+// 获取当前登录用户的基本信息
+- (void)showTitleWithUserName
+{
+    if ([SMGlobalConfig getCurrentLoginedUserName].length) {
+        self.title = [SMGlobalConfig getCurrentLoginedUserName];
+    }
+    else {
+        SMUserInfoModel* userInfoModel = [[SMUserInfoModel alloc] init];
+        [userInfoModel loadUserInfoWithUserName:nil orUserId:[SMGlobalConfig getCurrentLoginedUserId]
+                                          block:^(SMUserInfoEntity *entity, NSError *error) {
+                                              if (entity) {
+                                                  self.title = entity.name;
+                                                  [SMGlobalConfig setCurrentLoginedUserName:entity.name];
+                                              }
+                                          }];
+    }
 }
 
 ///////////////////////////////////////////////////////////////////////////////////////////////////
