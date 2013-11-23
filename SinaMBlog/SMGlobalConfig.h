@@ -17,6 +17,9 @@
 #define SinaWeiboV2AppKey @"2045436852"
 #define SinaWeiboV2RedirectUri @"http://www.sina.com"
 
+// baidu map key
+#define BaiduMapEngineKey @"8502D0F8B5F266104698378D6A9010C31F850B49"
+
 #define IOS_7_X (([[UIDevice currentDevice].systemVersion floatValue] > 6.99))
 #define INVALID_INDEX -1
 #define PERPAGE_COUNT 20
@@ -31,6 +34,9 @@
 #define TABLE_VIEW_BG_COLOR RGBCOLOR(230, 230, 230)
 #define CELL_CONTENT_VIEW_BG_COLOR RGBCOLOR(247, 247, 247)
 #define CELL_CONTENT_VIEW_BORDER_COLOR RGBCOLOR(234, 234, 234)
+
+// 表情plist文件名
+#define EMOTION_PLIST @"emotion_icons.plist"
 
 typedef enum {
     // 微博广场
@@ -47,6 +53,13 @@ typedef enum {
     MBlogTimeLineType_CommentsByMe = 9,
     MBlogTimeLinetype_DirectMsgs = 10    // 登录用户的私信列表
 }MBlogTimeLineType;
+
+typedef enum
+{
+    MBlogPostType_AtUser,
+    MBlogPostType_AboutTrend,
+    MBlogPostType_Common
+}MBlogPostType;
 
 @interface SMGlobalConfig : NSObject
 
@@ -66,5 +79,18 @@ typedef enum {
 + (void)showHUDMessage:(NSString*)msg addedToView:(UIView*)view;
 + (UIBarButtonItem*)createRefreshBarButtonItemWithTarget:(id)target action:(SEL)action;
 + (UIBarButtonItem*)createPostBarButtonItemWithTarget:(id)target action:(SEL)action;
++ (UIBarButtonItem*)createBarButtonItemWithTitle:(NSString*)buttonTitle target:(id)target action:(SEL)action;
+
+// Emotion
++ (NSArray* )emotionsArray;
++ (NSString*)pathForEmotionCode:(NSString*)code;
++ (NSString*)pathForEmotionCodeForHtml:(NSString*)code;
+
+// 草稿箱数据
++ (NSArray*)getDraftArray;
++ (void)saveToDraft:(NSMutableDictionary*)dic;
++ (BOOL)removeDraftWithIndex:(int)index;
++ (NSDictionary*)convertNSDataToUIImageForDraft:(NSDictionary*)dic;
++ (NSDictionary*)convertUIImageToNSDataForDraft:(NSDictionary*)dic;
 
 @end
