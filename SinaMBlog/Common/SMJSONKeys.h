@@ -56,4 +56,8 @@
 #define JSON_USERINFO_FOLLOWING @"following"
 #define JSON_USERINFO_FOLLOW_ME @"follow_me"
 
+//==========================================================================
+// 话题信息
+#define JSON_TREND_LIST @"trends"
+
 #endif
