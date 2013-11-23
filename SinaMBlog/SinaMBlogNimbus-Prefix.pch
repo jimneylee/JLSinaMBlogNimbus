@@ -15,6 +15,7 @@
     // self
     #import "SMGlobalConfig.h"
     #import "SMJSONKeys.h"
+    #import "UIImage+SNAddtions.h"// todo: change name
 
     // MBProgressHUD
     #import "MBProgressHUD.h"
@@ -28,7 +29,7 @@
     #import "NimbusNetworkImage.h"
     #import "NITableViewModel+Private.h"
     #import "NIMutableTableViewModel+Private.h"
-
+    
     // sina mblog sdk
     #import "WeiboSDK.h"
 
