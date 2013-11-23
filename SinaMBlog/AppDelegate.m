@@ -9,25 +9,20 @@
 #import "AppDelegate.h"
 #import "SDURLCache.h"
 #import "AFNetworking.h"
+#import "BMapKit.h"
+
+@interface AppDelegate()<BMKGeneralDelegate>
+@property (nonatomic, strong) BMKMapManager* mapManager;
+@end
 
 @implementation AppDelegate
 
 - (void)prepareForLaunching
 {
-    // http://wiki.nimbuskit.info/Network-Disk-Caching
-    // Nimbus implements its own in-memory cache for network images. Because of this we don't allocate
-    // any memory for NSURLCache.
-    static const NSUInteger kMemoryCapacity = 4 * 1024 * 1024;// 4MB memory cache
-    static const NSUInteger kDiskCapacity = 20 * 1024 * 1024; // 20MB disk cache
-    SDURLCache *urlCache = [[SDURLCache alloc] initWithMemoryCapacity:kMemoryCapacity
-                                                         diskCapacity:kDiskCapacity
-                                                             diskPath:[SDURLCache defaultCachePath]];
-    [NSURLCache setSharedURLCache:urlCache];
-    
-    //    NSURLCache *URLCache = [[NSURLCache alloc] initWithMemoryCapacity:4 * 1024 * 1024
-    //                                                         diskCapacity:20 * 1024 * 1024
-    //                                                             diskPath:nil];
-    //    [NSURLCache setSharedURLCache:URLCache];
+    NSURLCache *URLCache = [[NSURLCache alloc] initWithMemoryCapacity:4 * 1024 * 1024
+                                                        diskCapacity:20 * 1024 * 1024
+                                                            diskPath:nil];
+    [NSURLCache setSharedURLCache:URLCache];
     
     [[AFNetworkActivityIndicatorManager sharedManager] setEnabled:YES];
     [AFJSONRequestOperation addAcceptableContentTypes:[NSSet setWithObjects:
@@ -39,6 +34,14 @@
     // 新浪微博
     [WeiboSDK enableDebugMode:YES];
     [WeiboSDK registerApp:SinaWeiboV2AppKey];
+    
+    self.mapManager = [[BMKMapManager alloc]init];
+	BOOL ret = [self.mapManager start:BaiduMapEngineKey generalDelegate:self];
+	if (!ret) {
+		NSLog(@"manager start failed!");
+	} else {
+        NSLog(@"manager start OK!");
+    }
 }
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
