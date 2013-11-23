@@ -6,7 +6,6 @@
 //  Copyright (c) 2013年 jimneylee. All rights reserved.
 //
 
-#import <UIKit/UIKit.h>
 #import "LJJBaseTableC.h"
 
 @interface SMPageTimlineListC : LJJBaseTableC
