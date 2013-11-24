@@ -7,7 +7,9 @@
 //
 
 #import "SMTrendsModel.h"
-#import "SMTrendsEntity.h"
+#import "SMAPIClient.h"
+#import "SMTrendEntity.h"
+#import "SMTrendListEntity.h"
 #import "SMTrendCell.h"
 
 @implementation SMTrendsModel 
@@ -17,7 +19,7 @@
 {
 	self = [super initWithDelegate:delegate];
 	if (self) {
-        
+        self.hasMoreEntity = NO;
 	}
 	return self;
 }
@@ -29,21 +31,55 @@
 }
 
 ///////////////////////////////////////////////////////////////////////////////////////////////////
-- (NSString*)listString
-{
-	return JSON_TREND_LIST;
-}
-
-///////////////////////////////////////////////////////////////////////////////////////////////////
 - (Class)objectClass
 {
-	return [SMTrendsEntity class];
+	return [SMTrendEntity class];
 }
 
 ///////////////////////////////////////////////////////////////////////////////////////////////////
 - (Class)cellClass
 {
     return [SMTrendCell class];
+}
+
+///////////////////////////////////////////////////////////////////////////////////////////////////
+- (NSDictionary*)generateParameters
+{
+    return nil;
+}
+
+///////////////////////////////////////////////////////////////////////////////////////////////////
+- (void)loadDataWithBlock:(void(^)(NSArray* indexPaths, NSError *error))block  more:(BOOL)more
+{
+    NSString* relativePath = [self relativePath];
+    [[SMAPIClient sharedClient] getPath:relativePath parameters:[self generateParameters]
+                                success:^(AFHTTPRequestOperation *operation, id responseObject) {
+                                    // remove all
+                                    for (int i = 0; i < self.sections.count; i++) {
+                                        [self removeSectionAtIndex:i];
+                                    }
+                                    // reset with latest
+                                    SMTrendListEntity* entity = [SMTrendListEntity entityWithDictionary:responseObject];
+                                    NITableViewModelSection* s = nil;
+                                    NSMutableArray* modelSections = [NSMutableArray arrayWithCapacity:entity.items.count];
+                                    for (int i = 0; i < entity.items.count; i++) {
+                                        s = [NITableViewModelSection section];
+                                        s.headerTitle = entity.sections[i];
+                                        s.rows = entity.items[i];
+                                        [modelSections addObject:s];
+                                    }
+                                    self.sections = modelSections;
+                                    self.sectionIndexTitles = entity.sections;
+                                    
+                                    if (block) {
+                                        block(self.sections, nil);
+                                    }
+                                } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+                                    NSLog(@"Error:%@", error.description);
+                                    if (block) {
+                                        block(nil, error);
+                                    }
+                                }];
 }
 
 @end
