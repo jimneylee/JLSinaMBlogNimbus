@@ -3,7 +3,7 @@
 //  SinaMBlog
 //
 //  Created by jimney on 13-3-11.
-//  Copyright (c) 2013年 SuperMaxDev. All rights reserved.
+//  Copyright (c) 2013年 jimneylee. All rights reserved.
 //
 
 #import "SMSectionItemBaseEntity.h"
@@ -12,6 +12,6 @@
 {
 
 }
-+ (id)createWithDictionary:(NSDictionary*)dic;
++ (id)entityWithDictionary:(NSDictionary*)dic;
 - (NSString* )getNameWithSharp;
 @end
