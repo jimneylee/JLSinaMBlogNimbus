@@ -3,7 +3,7 @@
 //  SinaMBlog
 //
 //  Created by jimney on 13-3-4.
-//  Copyright (c) 2013年 SuperMaxDev. All rights reserved.
+//  Copyright (c) 2013年 jimneylee. All rights reserved.
 //
 
 #import "SMMBlogPostC.h"
