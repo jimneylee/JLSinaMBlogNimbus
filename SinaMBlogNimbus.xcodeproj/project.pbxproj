@@ -89,7 +89,6 @@
 		CE019BBF18407A4000CAC675 /* SMTrendsC.m in Sources */ = {isa = PBXBuildFile; fileRef = CE019BBE18407A4000CAC675 /* SMTrendsC.m */; };
 		CE019BC218407B6C00CAC675 /* SMFriendsModel.m in Sources */ = {isa = PBXBuildFile; fileRef = CE019BC118407B6C00CAC675 /* SMFriendsModel.m */; };
 		CE019BC718407BBF00CAC675 /* SMFriendEntity.m in Sources */ = {isa = PBXBuildFile; fileRef = CE019BC418407BBD00CAC675 /* SMFriendEntity.m */; };
-		CE019BC818407BBF00CAC675 /* SMFriendsEntity.m in Sources */ = {isa = PBXBuildFile; fileRef = CE019BC618407BBF00CAC675 /* SMFriendsEntity.m */; };
 		CE019BCB18407CB000CAC675 /* SMFriendCell.m in Sources */ = {isa = PBXBuildFile; fileRef = CE019BCA18407CB000CAC675 /* SMFriendCell.m */; };
 		CE019BD51840819600CAC675 /* SMMBlogPostC.m in Sources */ = {isa = PBXBuildFile; fileRef = CE019BD41840819500CAC675 /* SMMBlogPostC.m */; };
 		CE019BD9184081AB00CAC675 /* LocationViewController.mm in Sources */ = {isa = PBXBuildFile; fileRef = CE019BD8184081AB00CAC675 /* LocationViewController.mm */; };
@@ -102,6 +101,7 @@
 		CE019C0D184084A500CAC675 /* SMPhotoBrowseC.m in Sources */ = {isa = PBXBuildFile; fileRef = CE019C0C184084A400CAC675 /* SMPhotoBrowseC.m */; };
 		CE019C111840858900CAC675 /* MTStatusBarOverlay.m in Sources */ = {isa = PBXBuildFile; fileRef = CE019C101840858900CAC675 /* MTStatusBarOverlay.m */; };
 		CE3DF6E918408B2300CD69B5 /* SMPostPhotoBrowseC.m in Sources */ = {isa = PBXBuildFile; fileRef = CE3DF6E818408B2300CD69B5 /* SMPostPhotoBrowseC.m */; };
+		CE7B9D261841DE24004A3BB1 /* SMFriendListEntity.m in Sources */ = {isa = PBXBuildFile; fileRef = CE7B9D251841DE24004A3BB1 /* SMFriendListEntity.m */; };
 		CEE525881840CF9700BF18B6 /* NSStringAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = CEE525871840CF9700BF18B6 /* NSStringAdditions.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		CEE525931840D0D900BF18B6 /* NSDataAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = CEE525921840D0D900BF18B6 /* NSDataAdditions.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		CEE5259C1840D18500BF18B6 /* SMEmotionC.m in Sources */ = {isa = PBXBuildFile; fileRef = CEE5259B1840D18500BF18B6 /* SMEmotionC.m */; };
@@ -319,8 +319,6 @@
 		CE019BC118407B6C00CAC675 /* SMFriendsModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SMFriendsModel.m; sourceTree = "<group>"; };
 		CE019BC318407BBD00CAC675 /* SMFriendEntity.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SMFriendEntity.h; sourceTree = "<group>"; };
 		CE019BC418407BBD00CAC675 /* SMFriendEntity.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SMFriendEntity.m; sourceTree = "<group>"; };
-		CE019BC518407BBE00CAC675 /* SMFriendsEntity.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SMFriendsEntity.h; sourceTree = "<group>"; };
-		CE019BC618407BBF00CAC675 /* SMFriendsEntity.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SMFriendsEntity.m; sourceTree = "<group>"; };
 		CE019BC918407CB000CAC675 /* SMFriendCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SMFriendCell.h; sourceTree = "<group>"; };
 		CE019BCA18407CB000CAC675 /* SMFriendCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SMFriendCell.m; sourceTree = "<group>"; };
 		CE019BD31840819500CAC675 /* SMMBlogPostC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SMMBlogPostC.h; sourceTree = "<group>"; };
@@ -370,6 +368,8 @@
 		CE019C101840858900CAC675 /* MTStatusBarOverlay.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MTStatusBarOverlay.m; sourceTree = "<group>"; };
 		CE3DF6E718408B2300CD69B5 /* SMPostPhotoBrowseC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SMPostPhotoBrowseC.h; sourceTree = "<group>"; };
 		CE3DF6E818408B2300CD69B5 /* SMPostPhotoBrowseC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SMPostPhotoBrowseC.m; sourceTree = "<group>"; };
+		CE7B9D241841DE24004A3BB1 /* SMFriendListEntity.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SMFriendListEntity.h; sourceTree = "<group>"; };
+		CE7B9D251841DE24004A3BB1 /* SMFriendListEntity.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SMFriendListEntity.m; sourceTree = "<group>"; };
 		CED59D181841A0E7001AB8A3 /* SMTrendListEntity.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SMTrendListEntity.h; sourceTree = "<group>"; };
 		CEE525861840CF9700BF18B6 /* NSStringAdditions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NSStringAdditions.h; sourceTree = "<group>"; };
 		CEE525871840CF9700BF18B6 /* NSStringAdditions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NSStringAdditions.m; sourceTree = "<group>"; };
@@ -552,8 +552,8 @@
 				CE019BB5184046CA00CAC675 /* SMTrendListEntity.m */,
 				CE019BC318407BBD00CAC675 /* SMFriendEntity.h */,
 				CE019BC418407BBD00CAC675 /* SMFriendEntity.m */,
-				CE019BC518407BBE00CAC675 /* SMFriendsEntity.h */,
-				CE019BC618407BBF00CAC675 /* SMFriendsEntity.m */,
+				CE7B9D241841DE24004A3BB1 /* SMFriendListEntity.h */,
+				CE7B9D251841DE24004A3BB1 /* SMFriendListEntity.m */,
 				CEE5259D1840D1D900BF18B6 /* SMEmotionEntity.h */,
 				CEE5259E1840D1D900BF18B6 /* SMEmotionEntity.m */,
 			);
@@ -1229,7 +1229,6 @@
 				CE019BBF18407A4000CAC675 /* SMTrendsC.m in Sources */,
 				CE019BC218407B6C00CAC675 /* SMFriendsModel.m in Sources */,
 				CE019BC718407BBF00CAC675 /* SMFriendEntity.m in Sources */,
-				CE019BC818407BBF00CAC675 /* SMFriendsEntity.m in Sources */,
 				CE019BCB18407CB000CAC675 /* SMFriendCell.m in Sources */,
 				CE019BD51840819600CAC675 /* SMMBlogPostC.m in Sources */,
 				CE019BD9184081AB00CAC675 /* LocationViewController.mm in Sources */,
@@ -1252,6 +1251,7 @@
 				CEE526291840DBED00BF18B6 /* UIWindowAdditions.m in Sources */,
 				CEE5263C1840E98200BF18B6 /* TTButtonBar.m in Sources */,
 				CEE5263F1840EA2500BF18B6 /* SMPostButtonBar.m in Sources */,
+				CE7B9D261841DE24004A3BB1 /* SMFriendListEntity.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -6,15 +6,15 @@
 //  Copyright (c) 2013年 jimneylee. All rights reserved.
 //
 
-#import "SMFriendsEntity.h"
+#import "SMFriendListEntity.h"
 #import "SMFriendEntity.h"
 
-@implementation SMFriendsEntity
+@implementation SMFriendListEntity
 // http://open.weibo.com/wiki/2/friendships/groups
 ///////////////////////////////////////////////////////////////////////////////////////////////////
 + (id)createWithDictionary:(NSDictionary*)dic
 {
-    SMFriendsEntity* entity = [SMFriendsEntity new];
+    SMFriendListEntity* entity = [SMFriendListEntity new];
     NSArray* sourceArray = [dic objectForKey:@"lists"];
     if (sourceArray.count > 0) {
         

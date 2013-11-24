@@ -8,7 +8,7 @@
 
 #import "SMFriendsModel.h"
 #import "SMFriendEntity.h"
-#import "SMFriendsEntity.h"
+#import "SMFriendListEntity.h"
 #import "SMFriendCell.h"
 
 @implementation SMFriendsModel
@@ -52,7 +52,7 @@
                                         [self removeSectionAtIndex:i];
                                     }
                                     // reset with latest
-                                    SMFriendsEntity* entity = [SMFriendsEntity entityWithDictionary:responseObject];
+                                    SMFriendListEntity* entity = [SMFriendListEntity entityWithDictionary:responseObject];
                                     NITableViewModelSection* s = nil;
                                     NSMutableArray* modelSections = [NSMutableArray arrayWithCapacity:entity.items.count];
                                     for (int i = 0; i < entity.items.count; i++) {

@@ -8,6 +8,6 @@
 
 #import "SMSectionListBaseEntity.h"
 
-@interface SMFriendsEntity :SMSectionListBaseEntity
+@interface SMFriendListEntity :SMSectionListBaseEntity
 
 @end
