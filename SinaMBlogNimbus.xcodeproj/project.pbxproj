@@ -84,7 +84,7 @@
 		CE019BB6184046CA00CAC675 /* SMSectionItemBaseEntity.m in Sources */ = {isa = PBXBuildFile; fileRef = CE019BAF184046CA00CAC675 /* SMSectionItemBaseEntity.m */; };
 		CE019BB7184046CA00CAC675 /* SMSectionListBaseEntity.m in Sources */ = {isa = PBXBuildFile; fileRef = CE019BB1184046CA00CAC675 /* SMSectionListBaseEntity.m */; };
 		CE019BB8184046CA00CAC675 /* SMTrendEntity.m in Sources */ = {isa = PBXBuildFile; fileRef = CE019BB3184046CA00CAC675 /* SMTrendEntity.m */; };
-		CE019BB9184046CA00CAC675 /* SMTrendsEntity.m in Sources */ = {isa = PBXBuildFile; fileRef = CE019BB5184046CA00CAC675 /* SMTrendsEntity.m */; };
+		CE019BB9184046CA00CAC675 /* SMTrendListEntity.m in Sources */ = {isa = PBXBuildFile; fileRef = CE019BB5184046CA00CAC675 /* SMTrendListEntity.m */; };
 		CE019BBC18407A2300CAC675 /* SMFriendsC.m in Sources */ = {isa = PBXBuildFile; fileRef = CE019BBB18407A2200CAC675 /* SMFriendsC.m */; };
 		CE019BBF18407A4000CAC675 /* SMTrendsC.m in Sources */ = {isa = PBXBuildFile; fileRef = CE019BBE18407A4000CAC675 /* SMTrendsC.m */; };
 		CE019BC218407B6C00CAC675 /* SMFriendsModel.m in Sources */ = {isa = PBXBuildFile; fileRef = CE019BC118407B6C00CAC675 /* SMFriendsModel.m */; };
@@ -310,8 +310,7 @@
 		CE019BB1184046CA00CAC675 /* SMSectionListBaseEntity.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SMSectionListBaseEntity.m; sourceTree = "<group>"; };
 		CE019BB2184046CA00CAC675 /* SMTrendEntity.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SMTrendEntity.h; sourceTree = "<group>"; };
 		CE019BB3184046CA00CAC675 /* SMTrendEntity.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SMTrendEntity.m; sourceTree = "<group>"; };
-		CE019BB4184046CA00CAC675 /* SMTrendsEntity.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SMTrendsEntity.h; sourceTree = "<group>"; };
-		CE019BB5184046CA00CAC675 /* SMTrendsEntity.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SMTrendsEntity.m; sourceTree = "<group>"; };
+		CE019BB5184046CA00CAC675 /* SMTrendListEntity.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SMTrendListEntity.m; sourceTree = "<group>"; };
 		CE019BBA18407A2200CAC675 /* SMFriendsC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SMFriendsC.h; sourceTree = "<group>"; };
 		CE019BBB18407A2200CAC675 /* SMFriendsC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SMFriendsC.m; sourceTree = "<group>"; };
 		CE019BBD18407A3F00CAC675 /* SMTrendsC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SMTrendsC.h; sourceTree = "<group>"; };
@@ -371,6 +370,7 @@
 		CE019C101840858900CAC675 /* MTStatusBarOverlay.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MTStatusBarOverlay.m; sourceTree = "<group>"; };
 		CE3DF6E718408B2300CD69B5 /* SMPostPhotoBrowseC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SMPostPhotoBrowseC.h; sourceTree = "<group>"; };
 		CE3DF6E818408B2300CD69B5 /* SMPostPhotoBrowseC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SMPostPhotoBrowseC.m; sourceTree = "<group>"; };
+		CED59D181841A0E7001AB8A3 /* SMTrendListEntity.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SMTrendListEntity.h; sourceTree = "<group>"; };
 		CEE525861840CF9700BF18B6 /* NSStringAdditions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NSStringAdditions.h; sourceTree = "<group>"; };
 		CEE525871840CF9700BF18B6 /* NSStringAdditions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NSStringAdditions.m; sourceTree = "<group>"; };
 		CEE525911840D0D900BF18B6 /* NSDataAdditions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NSDataAdditions.h; sourceTree = "<group>"; };
@@ -548,8 +548,8 @@
 				CE019BB1184046CA00CAC675 /* SMSectionListBaseEntity.m */,
 				CE019BB2184046CA00CAC675 /* SMTrendEntity.h */,
 				CE019BB3184046CA00CAC675 /* SMTrendEntity.m */,
-				CE019BB4184046CA00CAC675 /* SMTrendsEntity.h */,
-				CE019BB5184046CA00CAC675 /* SMTrendsEntity.m */,
+				CED59D181841A0E7001AB8A3 /* SMTrendListEntity.h */,
+				CE019BB5184046CA00CAC675 /* SMTrendListEntity.m */,
 				CE019BC318407BBD00CAC675 /* SMFriendEntity.h */,
 				CE019BC418407BBD00CAC675 /* SMFriendEntity.m */,
 				CE019BC518407BBE00CAC675 /* SMFriendsEntity.h */,
@@ -1224,7 +1224,7 @@
 				CE019BB6184046CA00CAC675 /* SMSectionItemBaseEntity.m in Sources */,
 				CE019BB7184046CA00CAC675 /* SMSectionListBaseEntity.m in Sources */,
 				CE019BB8184046CA00CAC675 /* SMTrendEntity.m in Sources */,
-				CE019BB9184046CA00CAC675 /* SMTrendsEntity.m in Sources */,
+				CE019BB9184046CA00CAC675 /* SMTrendListEntity.m in Sources */,
 				CE019BBC18407A2300CAC675 /* SMFriendsC.m in Sources */,
 				CE019BBF18407A4000CAC675 /* SMTrendsC.m in Sources */,
 				CE019BC218407B6C00CAC675 /* SMFriendsModel.m in Sources */,
