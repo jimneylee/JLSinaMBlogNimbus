@@ -3,7 +3,7 @@
 //  SinaMBlog
 //
 //  Created by jimney on 13-3-12.
-//  Copyright (c) 2013年 SuperMaxDev. All rights reserved.
+//  Copyright (c) 2013年 jimneylee. All rights reserved.
 //
 
 #import "SMFriendsEntity.h"
@@ -20,7 +20,7 @@
         
         entity.unsortedArray = [NSMutableArray arrayWithCapacity:sourceArray.count];
         for (NSDictionary* d in sourceArray) {
-            SMFriendEntity* e = [SMFriendEntity createWithDictionary:d];
+            SMFriendEntity* e = [SMFriendEntity entityWithDictionary:d];
             if (e) {
                 [entity.unsortedArray addObject:e];
             }

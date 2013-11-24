@@ -3,7 +3,7 @@
 //  SinaMBlog
 //
 //  Created by jimney on 13-3-12.
-//  Copyright (c) 2013年 SuperMaxDev. All rights reserved.
+//  Copyright (c) 2013年 jimneylee. All rights reserved.
 //
 
 #import "SMFriendEntity.h"
@@ -14,7 +14,7 @@
 @synthesize userId = _userId;
 
 ///////////////////////////////////////////////////////////////////////////////////////////////////
-+ (id)createWithDictionary:(NSDictionary*)dic
++ (id)entityWithDictionary:(NSDictionary*)dic
 {
 	SMFriendEntity* entity = [SMFriendEntity new];
     entity.userId = [NSString getStringValue:[dic objectForKey:@"id"]];
@@ -33,4 +33,5 @@
 {
     return [NSString stringWithFormat:@"@%@", self.name];
 }
+
 @end
