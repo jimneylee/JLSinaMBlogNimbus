@@ -3,7 +3,7 @@
 //  SinaMBlogNimbus
 //
 //  Created by ccjoy-jimneylee on 13-11-13.
-//  Copyright (c) 2013年 SuperMaxDev. All rights reserved.
+//  Copyright (c) 2013年 jimneylee. All rights reserved.
 //
 
 #import "SMUserInfoModel.h"
