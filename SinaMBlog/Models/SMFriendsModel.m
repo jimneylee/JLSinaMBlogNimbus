@@ -3,10 +3,11 @@
 //  SinaMBlog
 //
 //  Created by jimney on 13-3-12.
-//  Copyright (c) 2013年 SuperMaxDev. All rights reserved.
+//  Copyright (c) 2013年 jimneylee. All rights reserved.
 //
 
 #import "SMFriendsModel.h"
+#import "SMFriendEntity.h"
 #import "SMFriendsEntity.h"
 #import "SMFriendCell.h"
 
@@ -29,21 +30,49 @@
 }
 
 ///////////////////////////////////////////////////////////////////////////////////////////////////
-- (NSString*)listString
-{
-	return JSON_TREND_LIST;
-}
-
-///////////////////////////////////////////////////////////////////////////////////////////////////
 - (Class)objectClass
 {
-	return [SMFriendsEntity class];
+	return [SMFriendEntity class];
 }
 
 ///////////////////////////////////////////////////////////////////////////////////////////////////
 - (Class)cellClass
 {
     return [SMFriendCell class];
+}
+
+///////////////////////////////////////////////////////////////////////////////////////////////////
+- (void)loadDataWithBlock:(void(^)(NSArray* indexPaths, NSError *error))block  more:(BOOL)more
+{
+    NSString* relativePath = [self relativePath];
+    [[SMAPIClient sharedClient] getPath:relativePath parameters:[self generateParameters]
+                                success:^(AFHTTPRequestOperation *operation, id responseObject) {
+                                    // remove all
+                                    for (int i = 0; i < self.sections.count; i++) {
+                                        [self removeSectionAtIndex:i];
+                                    }
+                                    // reset with latest
+                                    SMFriendsEntity* entity = [SMFriendsEntity entityWithDictionary:responseObject];
+                                    NITableViewModelSection* s = nil;
+                                    NSMutableArray* modelSections = [NSMutableArray arrayWithCapacity:entity.items.count];
+                                    for (int i = 0; i < entity.items.count; i++) {
+                                        s = [NITableViewModelSection section];
+                                        s.headerTitle = entity.sections[i];
+                                        s.rows = entity.items[i];
+                                        [modelSections addObject:s];
+                                    }
+                                    self.sections = modelSections;
+                                    self.sectionIndexTitles = entity.sections;
+                                    
+                                    if (block) {
+                                        block(self.sections, nil);
+                                    }
+                                } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+                                    NSLog(@"Error:%@", error.description);
+                                    if (block) {
+                                        block(nil, error);
+                                    }
+                                }];
 }
 
 @end
