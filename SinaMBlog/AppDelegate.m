@@ -7,7 +7,6 @@
 //
 
 #import "AppDelegate.h"
-#import "SDURLCache.h"
 #import "AFNetworking.h"
 #import "BMapKit.h"
 
@@ -31,10 +30,11 @@
                                                        @"text/javascript",
                                                        @"text/html",
                                                        @"text/plain", nil]];
-    // 新浪微博
+    // 新浪微博SDK
     [WeiboSDK enableDebugMode:YES];
     [WeiboSDK registerApp:SinaWeiboV2AppKey];
     
+    // 百度地图
     self.mapManager = [[BMKMapManager alloc]init];
 	BOOL ret = [self.mapManager start:BaiduMapEngineKey generalDelegate:self];
 	if (!ret) {
