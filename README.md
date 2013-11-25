@@ -52,7 +52,6 @@
     
       git rm -r --cached vendor/SDURLCache
 
---------------
     3、若出现这个问题：diff: /../Podfile.lock: No such file or directory 
     diff: /Manifest.lock: No such file or directory 
     error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.
