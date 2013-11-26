@@ -31,21 +31,29 @@
    
    git submodule update
    
+   注：如需要添加其他的submodule
+
+       git submodule add https://github.com/jverkoey/nimbus.git vendor/nimbus
 
 2、使用[CocoaPods](http://cocoapods.org)的命令安装其他依赖库：
    
    pod install
+   
+   注：如需要添加其他依赖库，请修改Podfile
 
 #ERROR解决方法
 
 --------------
-若出现这个问题：'vendor/SDURLCache' already exists in the index
+    1、若出现这个问题：'vendor/SDURLCache' already exists in the index
 
-git rm --cached vendor/SDURLCache
+      git rm --cached vendor/SDURLCache
 
---------------
-若出现这个问题：diff: /../Podfile.lock: No such file or directory 
-diff: /Manifest.lock: No such file or directory 
-error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.
+    2、若出现这个问题：fatal: not removing 'vendor/nimbus' recursively without -r
+    
+      git rm -r --cached vendor/SDURLCache
 
-重新pod install
+    3、若出现这个问题：diff: /../Podfile.lock: No such file or directory 
+    diff: /Manifest.lock: No such file or directory 
+    error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.
+
+      pod install
