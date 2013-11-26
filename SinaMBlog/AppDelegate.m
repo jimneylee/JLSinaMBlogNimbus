@@ -9,6 +9,9 @@
 #import "AppDelegate.h"
 #import "AFNetworking.h"
 #import "BMapKit.h"
+#import "SMAuthorizeModel.h"
+#import "SMLoginC.h"
+#import "SMHomeTimlineListC.h"
 
 @interface AppDelegate()<BMKGeneralDelegate>
 @property (nonatomic, strong) BMKMapManager* mapManager;
@@ -18,11 +21,13 @@
 
 - (void)prepareForLaunching
 {
+    // Disk cache
     NSURLCache *URLCache = [[NSURLCache alloc] initWithMemoryCapacity:4 * 1024 * 1024
                                                         diskCapacity:20 * 1024 * 1024
                                                             diskPath:nil];
     [NSURLCache setSharedURLCache:URLCache];
     
+    // AFNetworking
     [[AFNetworkActivityIndicatorManager sharedManager] setEnabled:YES];
     [AFJSONRequestOperation addAcceptableContentTypes:[NSSet setWithObjects:
                                                        @"application/json",
@@ -30,27 +35,50 @@
                                                        @"text/javascript",
                                                        @"text/html",
                                                        @"text/plain", nil]];
-    // 新浪微博SDK
+    // Sina SDK
     [WeiboSDK enableDebugMode:YES];
     [WeiboSDK registerApp:SinaWeiboV2AppKey];
     
-    // 百度地图
+    // Baidu Map
     self.mapManager = [[BMKMapManager alloc]init];
 	BOOL ret = [self.mapManager start:BaiduMapEngineKey generalDelegate:self];
 	if (!ret) {
-		NSLog(@"manager start failed!");
-	} else {
-        NSLog(@"manager start OK!");
+		[SMGlobalConfig showHUDMessage:@"地图初始化失败！"
+                           addedToView:[UIApplication sharedApplication].keyWindow];
+	}
+}
+
+- (void)appearanceChange
+{
+    [[UIBarButtonItem appearance] setTintColor:[UIColor blackColor]];
+    [[UINavigationBar appearance] setTintColor:[UIColor blackColor]];
+    if (NIDeviceOSVersionIsAtLeast(NIIOS_7_0)) {
+        // do change if u need
+        //[[UINavigationBar appearance] setBarTintColor:[UIColor lightGrayColor]];
+        //[[UIApplication sharedApplication] setStatusBarStyle:UIStatusBarStyleLightContent];
     }
+}
+
+- (UIViewController*)generateRootViewController
+{
+    UIViewController* c = nil;
+    if ([SMAuthorizeModel isAuthorized]) {
+        c = [[SMHomeTimlineListC alloc] init];
+    }
+    else {
+        c = [[SMLoginC alloc] initWithStyle:UITableViewStylePlain];
+    }
+    return c;
 }
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
     [self prepareForLaunching];
-    
+    [self appearanceChange];
+
     self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
-    self.viewController = [[SMLoginC alloc] initWithStyle:UITableViewStylePlain];
-    UINavigationController* navi = [[UINavigationController alloc] initWithRootViewController:self.viewController];
+    UIViewController* c = [self generateRootViewController];
+    UINavigationController* navi = [[UINavigationController alloc] initWithRootViewController:c];
     navi.navigationBar.translucent = NO;
     self.window.rootViewController = navi;
     [self.window makeKeyAndVisible];
