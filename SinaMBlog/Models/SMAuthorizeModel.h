@@ -8,6 +8,9 @@
 
 #import <Foundation/Foundation.h>
 
-@interface SMUserModel : NSObject
+@interface SMAuthorizeModel : NSObject
+
++ (void)sendAuthorizeRequest;
++ (BOOL)isAuthorized;
 
 @end
