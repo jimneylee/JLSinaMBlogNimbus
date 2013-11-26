@@ -14,6 +14,7 @@
 
 @implementation SMPostPhotoBrowseC
 
+///////////////////////////////////////////////////////////////////////////////////////////////////
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
@@ -26,6 +27,7 @@
     return self;
 }
 
+///////////////////////////////////////////////////////////////////////////////////////////////////
 - (void)deletePhoto
 {
     if ([self.deletePhotoDelegate respondsToSelector:@selector(deletePhoto)]) {
