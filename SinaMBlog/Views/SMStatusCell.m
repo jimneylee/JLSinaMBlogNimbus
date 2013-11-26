@@ -11,11 +11,12 @@
 #import "NSDateAdditions.h"
 #import "SMStatusEntity.h"
 
-#define TITLE_FONT_SIZE [UIFont systemFontOfSize:15]
-#define SUBTITLE_FONT_SIZE [UIFont systemFontOfSize:12]
-#define CONTENT_FONT_SIZE [UIFont systemFontOfSize:16]
+#define TITLE_FONT_SIZE [UIFont systemFontOfSize:15.f]
+#define SUBTITLE_FONT_SIZE [UIFont systemFontOfSize:12.f]
+#define CONTENT_FONT_SIZE [UIFont systemFontOfSize:18.f]
 #define HEAD_IAMGE_HEIGHT 34
 #define CONTENT_IMAGE_HEIGHT 160
+
 @interface SMStatusCell()
 @property (nonatomic, strong) UILabel* contentLabel;
 @property (nonatomic, strong) NINetworkImageView* headView;
