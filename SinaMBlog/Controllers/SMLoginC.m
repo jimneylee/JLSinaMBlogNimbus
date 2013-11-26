@@ -12,6 +12,7 @@
 
 #import "SMPageTimlineListC.h"
 #import "SMHomeTimlineListC.h"
+#import "SMAuthorizeModel.h"
 
 NSString *const SNDidOAuthNotification = @"DidOAuthNotification";
 
@@ -38,40 +39,33 @@ NSString *const SNDidOAuthNotification = @"DidOAuthNotification";
     if (self) {
         // Custom initialization
         self.title = @"新浪微博";
-        
+
         _actions = [[NITableViewActions alloc] initWithTarget:self];
-        NIActionBlock tapLoginAction = ^BOOL(id object, UIViewController *controller, NSIndexPath* indexPath) {
-            if ([self isAuthorized]) {
-                // 直接登录
-                SMHomeTimlineListC* c = [[SMHomeTimlineListC alloc] init];
-                [self.navigationController pushViewController:c animated:YES];
+        NIActionBlock tapLoginAction =
+        ^BOOL(id object, UIViewController *controller, NSIndexPath* indexPath) {
+            if ([SMAuthorizeModel isAuthorized]) {
+                [self showHomeView];
             }
             else {
-                // 已登录ing，不执行登录操作
-                if (!self.hud) {
-                    WBAuthorizeRequest *request = [WBAuthorizeRequest request];
-                    request.redirectURI = SinaWeiboV2RedirectUri;
-                    request.scope = nil;//http://open.weibo.com/wiki/Scope
-                    request.userInfo = nil;
-                    [WeiboSDK sendRequest:request];
-                    
+                if (!self.hud) {// 已登录ing，不执行登录操作
+                    [SMAuthorizeModel sendAuthorizeRequest];
                     self.hud = [MBProgressHUD showHUDAddedTo:self.view animated:YES];
                     self.hud.labelText = @"正在登录...";
                     return YES;
                 }
             }
-
+            
             return NO;
         };
         
         NIActionBlock tapPublicAction = ^BOOL(id object, UIViewController *controller, NSIndexPath* indexPath) {
-                SMPageTimlineListC* c = [[SMPageTimlineListC alloc] init];
-                [controller.navigationController pushViewController:c animated:YES];
+            SMPageTimlineListC* c = [[SMPageTimlineListC alloc] init];
+            [controller.navigationController pushViewController:c animated:YES];
             return YES;
         };
         NSArray* tableContents =
         [NSArray arrayWithObjects:
-        @"",
+         @"",
          [_actions attachToObject:[NITitleCellObject objectWithTitle:@"登录微博"]
                          tapBlock:tapLoginAction],
          @"",
@@ -123,35 +117,13 @@ NSString *const SNDidOAuthNotification = @"DidOAuthNotification";
 
 ///////////////////////////////////////////////////////////////////////////////////////////////////
 ///////////////////////////////////////////////////////////////////////////////////////////////////
-#pragma mark - Authorization
+#pragma mark - Private
 
 ///////////////////////////////////////////////////////////////////////////////////////////////////
-- (BOOL)isAuthorized
+- (void)showHomeView
 {
-	return [SMGlobalConfig getCurrentLoginedUserId]
-            && [SMGlobalConfig getCurrentLoginedAccessToken]
-            && ![self isAuthorizeExpired];
-}
-
-///////////////////////////////////////////////////////////////////////////////////////////////////
-- (BOOL)isAuthorizeExpired
-{
-    if ([SMGlobalConfig getCurrentLoginedExpiresIn]) {
-        
-        NSDate* expirationDate = [NSDate distantPast];
-        
-        if ([SMGlobalConfig getCurrentLoginedExpiresIn]) {
-            int expVal = [[SMGlobalConfig getCurrentLoginedExpiresIn] intValue];
-            if (expVal != 0) {
-                expirationDate = [NSDate dateWithTimeIntervalSinceNow:expVal];
-            }
-        }
-        
-        NSDate* now = [NSDate date];
-        return ([now compare:expirationDate] == NSOrderedDescending);
-    }
-    
-    return NO;
+    SMHomeTimlineListC* c = [[SMHomeTimlineListC alloc] init];
+    [self.navigationController pushViewController:c animated:YES];
 }
 
 ///////////////////////////////////////////////////////////////////////////////////////////////////
@@ -165,16 +137,12 @@ NSString *const SNDidOAuthNotification = @"DidOAuthNotification";
     if ([object isKindOfClass:[NSNumber class]]) {
         BOOL authoredSuccess = [(NSNumber*)object boolValue];
         if (authoredSuccess) {
-            // TODO: 获取当前用户信息后再进入首页
-            //self.hud.labelText = @"获取用户信息...";
-            
-            // 直接登录，进入首页
-            SMHomeTimlineListC* c = [[SMHomeTimlineListC alloc] init];
-            [self.navigationController pushViewController:c animated:YES];
+            [self showHomeView];
         }
         else {
-            // hud 提示登录失败
             self.hud.labelText = @"登录失败";
+            [self.hud hide:YES afterDelay:1.0f];
+            self.hud = nil;
         }
     }
 }
