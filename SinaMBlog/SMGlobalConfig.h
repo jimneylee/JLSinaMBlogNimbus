@@ -20,7 +20,10 @@
 // baidu map key
 #define BaiduMapEngineKey @"8502D0F8B5F266104698378D6A9010C31F850B49"
 
-#define IOS_7_X (([[UIDevice currentDevice].systemVersion floatValue] > 6.99))
+// iOS 系统版本
+#define IOS_IS_AT_LEAST_6 ([[[UIDevice currentDevice] systemVersion] floatValue] >= 6.0)
+#define IOS_IS_AT_LEAST_7 ([[[UIDevice currentDevice] systemVersion] floatValue] >= 7.0)
+
 #define INVALID_INDEX -1
 #define PERPAGE_COUNT 20
 

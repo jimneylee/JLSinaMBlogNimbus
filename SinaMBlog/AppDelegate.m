@@ -52,7 +52,7 @@
 {
     [[UIBarButtonItem appearance] setTintColor:[UIColor blackColor]];
     [[UINavigationBar appearance] setTintColor:[UIColor blackColor]];
-    if (NIDeviceOSVersionIsAtLeast(NIIOS_7_0)) {
+    if (IOS_IS_AT_LEAST_7) {
         // do change if u need
         //[[UINavigationBar appearance] setBarTintColor:[UIColor lightGrayColor]];
         //[[UIApplication sharedApplication] setStatusBarStyle:UIStatusBarStyleLightContent];
