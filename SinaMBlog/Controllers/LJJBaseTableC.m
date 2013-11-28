@@ -1,6 +1,6 @@
 //
 //  LJJBaseTableC.m
-//  SinaMBlogNimbus
+//  SkyNet
 //
 //  Created by jimneylee on 13-7-29.
 //  Copyright (c) 2013年 jimneylee. All rights reserved.
@@ -14,7 +14,6 @@
 ///////////////////////////////////////////////////////////////////////////////////////////////////
 @interface LJJBaseTableC ()
 @property (nonatomic, strong) LJJLoadMoreFooterView* loadMoreFooterView;
-@property (nonatomic, assign) BOOL autoPullDownLoading;
 @end
 
 ///////////////////////////////////////////////////////////////////////////////////////////////////
@@ -27,7 +26,7 @@
 {
     self = [super initWithStyle:style];
     if (self) {
-
+        
     }
     return self;
 }
@@ -56,7 +55,7 @@
     [super loadView];
     
     self.refreshControl = [[UIRefreshControl alloc] init];
-    [self.refreshControl addTarget:self action:@selector(refreshAction) forControlEvents:UIControlEventValueChanged];
+    [self.refreshControl addTarget:self action:@selector(pullDownRefreshAction) forControlEvents:UIControlEventValueChanged];
     self.refreshControl.attributedTitle = [[NSAttributedString alloc] initWithString:@"下拉刷新"];
 }
 
@@ -72,8 +71,7 @@
     self.tableView.dataSource = self.model;
     self.tableView.delegate = [self.actions forwardingTo:self];
     
-    [self.refreshControl beginRefreshing];
-    [self refreshData];
+    [self performSelector:@selector(reloadActionAnimaton) withObject:nil afterDelay:1.f];
 }
 
 ///////////////////////////////////////////////////////////////////////////////////////////////////
@@ -88,30 +86,6 @@
 #pragma mark - Private
 
 ///////////////////////////////////////////////////////////////////////////////////////////////////
-- (void)autoPullDownRefreshAction
-{
-    if (!self.autoPullDownLoading) {
-        CGFloat height = - self.refreshControl.frame.size.height;//XCode4
-#ifdef __IPHONE_7_0//XCode5
-        if (self.navigationController.navigationBar.translucent) {
-            height = - (self.navigationController.navigationBar.bottom + self.refreshControl.frame.size.height);
-        }
-#endif
-        self.tableView.contentOffset = CGPointMake(0.f, height);
-        
-        [self refreshAction];
-        self.autoPullDownLoading = YES;
-    }
-}
-
-///////////////////////////////////////////////////////////////////////////////////////////////////
-- (void)refreshAction
-{
-    [self.refreshControl beginRefreshing];
-    [self refreshData];
-}
-
-///////////////////////////////////////////////////////////////////////////////////////////////////
 - (void)setEditing:(BOOL)editing animated:(BOOL)animated {
     [super setEditing:editing animated:animated];
     [self.tableView setEditing:editing animated:animated];
@@ -121,17 +95,101 @@
 - (void)createLoadMoreFooterView
 {
     LJJLoadMoreFooterView* loadMoreFooterView = [[LJJLoadMoreFooterView alloc] init];
-    loadMoreFooterView.backgroundColor = TABLE_VIEW_BG_COLOR;
     [loadMoreFooterView addTarget:self action:@selector(loadMoreAction) forControlEvents:UIControlEventTouchUpInside];
     self.tableView.tableFooterView = loadMoreFooterView;
     self.loadMoreFooterView = loadMoreFooterView;
 }
 
 ///////////////////////////////////////////////////////////////////////////////////////////////////
+- (void)reloadActionAnimaton
+{
+    [UIView animateWithDuration:0.25f delay:0.f options:UIViewAnimationOptionBeginFromCurrentState animations:^(void){
+        self.tableView.contentOffset = CGPointMake(0.f, -self.refreshControl.frame.size.height);
+    } completion:NULL];
+    [self.refreshControl beginRefreshing];
+    [self refreshData:NO];
+}
+
+///////////////////////////////////////////////////////////////////////////////////////////////////
+- (void)pullDownRefreshAction
+{
+    [self refreshData:YES];
+}
+
+///////////////////////////////////////////////////////////////////////////////////////////////////
 - (void)loadMoreAction
 {
-    [self loadMore];
+    [self loadMoreData];
     [self.loadMoreFooterView setAnimating:YES];
+}
+
+///////////////////////////////////////////////////////////////////////////////////////////////////
+- (void)refreshData:(BOOL)refresh
+{
+    if (self.refreshControl.refreshing) {
+        self.refreshControl.attributedTitle = [[NSAttributedString alloc] initWithString:@"加载中…"];
+        [self didBeginLoadData];
+        [self.model loadDataWithBlock:^(NSArray* indexPaths, NSError* error) {
+            if (indexPaths) {
+                if (indexPaths.count) {
+                    [self.tableView reloadData];
+                    self.refreshControl.attributedTitle = [[NSAttributedString alloc]
+                                                           initWithString:@"下拉刷新"];
+                }
+                else {
+                    [SMGlobalConfig showHUDMessage:@"信息为空！" addedToView:self.view];
+                }
+                
+                [self didFinishLoadData];
+            }
+            else {
+                // TODO: 底层统一添加empty title & subtitle
+                NSString* alertMsg = nil;
+                alertMsg = error ? @"抱歉，无法获取信息，请稍后再试！" : @"信息为空！";
+                [SMGlobalConfig showHUDMessage:alertMsg addedToView:self.view];
+                
+                [self didFailLoadData];
+            }
+            [self.refreshControl endRefreshing];
+            [UIView animateWithDuration:0.25f delay:0.f options:UIViewAnimationOptionBeginFromCurrentState animations:^(void){
+                self.tableView.contentOffset = CGPointMake(0.f, 0.f);
+            } completion:NULL];
+        } more:NO];// refresh:refresh
+    }
+}
+
+///////////////////////////////////////////////////////////////////////////////////////////////////
+- (void)loadMoreData
+{
+    [self.model loadDataWithBlock:^(NSArray* indexPaths, NSError* error) {
+        if (indexPaths.count) {
+            [self.tableView insertRowsAtIndexPaths:indexPaths withRowAnimation:UITableViewRowAnimationAutomatic];
+            [self didFinishLoadData];
+        }
+        else {
+            [self didFailLoadData];
+            
+            // TODO: 底层统一添加empty title & subtitle
+            NSString* alertMsg = nil;
+            alertMsg = error ? @"抱歉，无法获取信息，请稍后再试！" : @"已是最后一页";
+            [SMGlobalConfig showHUDMessage:alertMsg addedToView:self.view];
+        }
+        [self.loadMoreFooterView setAnimating:NO];
+    } more:YES];// refresh:YES
+}
+
+///////////////////////////////////////////////////////////////////////////////////////////////////
+///////////////////////////////////////////////////////////////////////////////////////////////////
+#pragma mark - Public
+
+///////////////////////////////////////////////////////////////////////////////////////////////////
+- (void)autoPullDownRefreshActionAnimation
+{
+    [UIView animateWithDuration:0.25f delay:0.f options:UIViewAnimationOptionBeginFromCurrentState animations:^(void){
+        self.tableView.contentOffset = CGPointMake(0.f, -self.refreshControl.frame.size.height);
+    } completion:NULL];
+    [self.refreshControl beginRefreshing];
+    [self refreshData:YES];
 }
 
 ///////////////////////////////////////////////////////////////////////////////////////////////////
@@ -150,6 +208,12 @@
 - (Class)tableModelClass
 {
     return [LJJBaseTableModel class];
+}
+
+///////////////////////////////////////////////////////////////////////////////////////////////////
+- (void)didBeginLoadData
+{
+    
 }
 
 ///////////////////////////////////////////////////////////////////////////////////////////////////
@@ -172,69 +236,6 @@
 - (void)didFailLoadData
 {
     
-}
-
-#pragma mark - Load Data
-///////////////////////////////////////////////////////////////////////////////////////////////////
-- (void)refreshData
-{
-    if (self.refreshControl.refreshing) {
-        self.refreshControl.attributedTitle = [[NSAttributedString alloc] initWithString:@"加载中…"];
-        
-        [self.model loadDataWithBlock:^(NSArray* indexPaths, NSError* error) {
-            if (indexPaths) {
-                if (indexPaths.count) {
-                    [self.tableView reloadData];
-                    self.refreshControl.attributedTitle = [[NSAttributedString alloc]
-                                                           initWithString:@"下拉刷新"];
-                    [self didFinishLoadData];
-                }
-                else {
-                    [SMGlobalConfig showHUDMessage:@"信息为空！" addedToView:self.view];
-                }
-            }
-            else {
-                [self didFailLoadData];
-
-                NSString* alertMsg = nil;
-                alertMsg = error ? @"抱歉，无法获取信息，请稍后再试！" : @"信息为空！";
-                [SMGlobalConfig showHUDMessage:alertMsg addedToView:self.view];
-            }
-            [self.refreshControl endRefreshing];
-            
-            if (self.autoPullDownLoading) {
-                self.autoPullDownLoading = NO;
-                CGFloat height = 0.0f;
-#ifdef __IPHONE_7_0
-                if (self.navigationController.navigationBar.translucent) {
-                    height = - self.navigationController.navigationBar.bottom;
-                }
-#endif
-                [UIView animateWithDuration:0.25f delay:0.f options:UIViewAnimationOptionBeginFromCurrentState animations:^(void){
-                    self.tableView.contentOffset = CGPointMake(0.f, height);
-                } completion:NULL];
-            }
-        } more:NO];
-    }
-}
-
-///////////////////////////////////////////////////////////////////////////////////////////////////
-- (void)loadMore
-{
-    [self.model loadDataWithBlock:^(NSArray* indexPaths, NSError* error) {
-        if (indexPaths.count) {
-            [self.tableView insertRowsAtIndexPaths:indexPaths withRowAnimation:UITableViewRowAnimationNone];
-            [self didFinishLoadData];
-        }
-        else {
-            [self didFailLoadData];
-            
-            NSString* alertMsg = nil;
-            alertMsg = error ? @"抱歉，无法获取信息，请稍后再试！" : @"已是最后一页";
-            [SMGlobalConfig showHUDMessage:alertMsg addedToView:self.view];
-        }
-        [self.loadMoreFooterView setAnimating:NO];
-    } more:YES];
 }
 
 ///////////////////////////////////////////////////////////////////////////////////////////////////

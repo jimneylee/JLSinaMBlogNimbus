@@ -30,7 +30,7 @@
         self.navigationItem.leftBarButtonItem = [SMGlobalConfig createPostBarButtonItemWithTarget:self
                                                                                            action:@selector(postNewStatusAction)];
         self.navigationItem.rightBarButtonItem = [SMGlobalConfig createRefreshBarButtonItemWithTarget:self
-                                                                                               action:@selector(autoPullDownRefreshAction)];
+                                                                                               action:@selector(autoPullDownRefreshActionAnimation)];
         [self showTitleWithUserName];
     }
     return self;
@@ -53,12 +53,6 @@
 ///////////////////////////////////////////////////////////////////////////////////////////////////
 ///////////////////////////////////////////////////////////////////////////////////////////////////
 #pragma mark - Private
-
-///////////////////////////////////////////////////////////////////////////////////////////////////
-- (void)autoPullDownRefreshAction
-{   
-    [super autoPullDownRefreshAction];
-}
 
 ///////////////////////////////////////////////////////////////////////////////////////////////////
 - (void)postNewStatusAction

@@ -16,12 +16,8 @@
 @property (nonatomic, strong) NITableViewActions* actions;
 @property (nonatomic, strong) NICellFactory* cellFactory;
 
-// 自动下拉刷新
-- (void)autoPullDownRefreshAction;
-// 直接数据刷新
-- (void)refreshAction;
-- (void)refreshData;
-- (void)loadMore;
+- (void)autoPullDownRefreshActionAnimation;
+- (void)didBeginLoadData;
 - (void)didFinishLoadData;
 - (void)didFailLoadData;
 
