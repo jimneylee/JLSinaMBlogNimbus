@@ -32,6 +32,11 @@
         self.navigationItem.rightBarButtonItem = [SMGlobalConfig createRefreshBarButtonItemWithTarget:self
                                                                                                action:@selector(autoPullDownRefreshActionAnimation)];
         [self showTitleWithUserName];
+        // TODO: comment out
+        // 由于修复NIAttributedLabel底层touch问题，
+        // http://stackoverflow.com/questions/17467086/using-niattributedlabel-in-uitableviewcell
+        // 可执行tapBlock
+        //[self.actions attachToClass:[self.model objectClass] tapBlock:NULL];
     }
     return self;
 }
