@@ -9,7 +9,9 @@
 #import "SMStatusCell.h"
 #import <QuartzCore/QuartzCore.h>
 #import "NSDateAdditions.h"
+#import "UIView+findViewController.h"
 #import "NIAttributedLabel.h"
+#import "NIWebController.h"
 #import "NSStringAdditions.h"
 #import "SMStatusEntity.h"
 
@@ -238,13 +240,9 @@ didSelectTextCheckingResult:(NSTextCheckingResult *)result
         else if ([url.absoluteString hasPrefix:@"sharptrend://"]) {
             NSLog(@"#sometrend");
         }
-        else if (![[UIApplication sharedApplication] openURL:url]) {
-            UIAlertView* alert = [[UIAlertView alloc] initWithTitle:@"抱歉"
-                                                            message:[@"无法打开这个链接" stringByAppendingString:url.absoluteString]
-                                                           delegate:nil
-                                                  cancelButtonTitle:@"确定"
-                                                  otherButtonTitles:nil];
-            [alert show];
+        else {
+            NIWebController* c = [[NIWebController alloc] initWithURL:url];
+            [[self viewController].navigationController pushViewController:c animated:YES];
         }
         
     } else {
