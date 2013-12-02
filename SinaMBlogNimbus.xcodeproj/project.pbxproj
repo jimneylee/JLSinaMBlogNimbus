@@ -42,6 +42,13 @@
 		2844DA091831E8B9006405EA /* LJJMaxIdBaseTableModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 2844DA081831E8B9006405EA /* LJJMaxIdBaseTableModel.m */; };
 		2844DA0C1831EB27006405EA /* SMMaxIdTimelineModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 2844DA0B1831EB27006405EA /* SMMaxIdTimelineModel.m */; };
 		2844DA0F1831F28F006405EA /* SMHomeTimlineListC.m in Sources */ = {isa = PBXBuildFile; fileRef = 2844DA0E1831F28F006405EA /* SMHomeTimlineListC.m */; };
+		2871C573184C2C7F003B7684 /* SMRegularParser.m in Sources */ = {isa = PBXBuildFile; fileRef = 2871C572184C2C7F003B7684 /* SMRegularParser.m */; };
+		2871C575184C2D35003B7684 /* CoreFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2871C574184C2D35003B7684 /* CoreFoundation.framework */; };
+		2871C57D184C586D003B7684 /* NIAttributedLabel.m in Sources */ = {isa = PBXBuildFile; fileRef = 2871C579184C586D003B7684 /* NIAttributedLabel.m */; };
+		2871C57E184C586D003B7684 /* NSMutableAttributedString+NimbusAttributedLabel.m in Sources */ = {isa = PBXBuildFile; fileRef = 2871C57C184C586D003B7684 /* NSMutableAttributedString+NimbusAttributedLabel.m */; };
+		2871C580184C681A003B7684 /* CoreText.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2871C57F184C681A003B7684 /* CoreText.framework */; };
+		2871C58C184C90B8003B7684 /* NIWebController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2871C58B184C90B8003B7684 /* NIWebController.m */; };
+		2871C58F184C920A003B7684 /* UIView+findViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2871C58E184C920A003B7684 /* UIView+findViewController.m */; };
 		2872F32C182104E2008F329D /* NIActions.m in Sources */ = {isa = PBXBuildFile; fileRef = 2872F2FA182104E2008F329D /* NIActions.m */; };
 		2872F32D182104E2008F329D /* NIButtonUtilities.m in Sources */ = {isa = PBXBuildFile; fileRef = 2872F2FD182104E2008F329D /* NIButtonUtilities.m */; };
 		2872F32E182104E2008F329D /* NICommonMetrics.m in Sources */ = {isa = PBXBuildFile; fileRef = 2872F2FF182104E2008F329D /* NICommonMetrics.m */; };
@@ -222,6 +229,20 @@
 		2844DA0B1831EB27006405EA /* SMMaxIdTimelineModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SMMaxIdTimelineModel.m; sourceTree = "<group>"; };
 		2844DA0D1831F28F006405EA /* SMHomeTimlineListC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SMHomeTimlineListC.h; sourceTree = "<group>"; };
 		2844DA0E1831F28F006405EA /* SMHomeTimlineListC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SMHomeTimlineListC.m; sourceTree = "<group>"; };
+		2871C571184C2C7F003B7684 /* SMRegularParser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SMRegularParser.h; sourceTree = "<group>"; };
+		2871C572184C2C7F003B7684 /* SMRegularParser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SMRegularParser.m; sourceTree = "<group>"; };
+		2871C574184C2D35003B7684 /* CoreFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreFoundation.framework; path = System/Library/Frameworks/CoreFoundation.framework; sourceTree = SDKROOT; };
+		2871C578184C586D003B7684 /* NIAttributedLabel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = NIAttributedLabel.h; path = vendor/nimbus/src/attributedlabel/src/NIAttributedLabel.h; sourceTree = "<group>"; };
+		2871C579184C586D003B7684 /* NIAttributedLabel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = NIAttributedLabel.m; path = vendor/nimbus/src/attributedlabel/src/NIAttributedLabel.m; sourceTree = "<group>"; };
+		2871C57A184C586D003B7684 /* NimbusAttributedLabel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = NimbusAttributedLabel.h; path = vendor/nimbus/src/attributedlabel/src/NimbusAttributedLabel.h; sourceTree = "<group>"; };
+		2871C57B184C586D003B7684 /* NSMutableAttributedString+NimbusAttributedLabel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "NSMutableAttributedString+NimbusAttributedLabel.h"; path = "vendor/nimbus/src/attributedlabel/src/NSMutableAttributedString+NimbusAttributedLabel.h"; sourceTree = "<group>"; };
+		2871C57C184C586D003B7684 /* NSMutableAttributedString+NimbusAttributedLabel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "NSMutableAttributedString+NimbusAttributedLabel.m"; path = "vendor/nimbus/src/attributedlabel/src/NSMutableAttributedString+NimbusAttributedLabel.m"; sourceTree = "<group>"; };
+		2871C57F184C681A003B7684 /* CoreText.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreText.framework; path = System/Library/Frameworks/CoreText.framework; sourceTree = SDKROOT; };
+		2871C589184C90B8003B7684 /* NimbusWebController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = NimbusWebController.h; path = vendor/nimbus/src/webcontroller/src/NimbusWebController.h; sourceTree = "<group>"; };
+		2871C58A184C90B8003B7684 /* NIWebController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = NIWebController.h; path = vendor/nimbus/src/webcontroller/src/NIWebController.h; sourceTree = "<group>"; };
+		2871C58B184C90B8003B7684 /* NIWebController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = NIWebController.m; path = vendor/nimbus/src/webcontroller/src/NIWebController.m; sourceTree = "<group>"; };
+		2871C58D184C920A003B7684 /* UIView+findViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+findViewController.h"; sourceTree = "<group>"; };
+		2871C58E184C920A003B7684 /* UIView+findViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+findViewController.m"; sourceTree = "<group>"; };
 		2872F2F9182104E2008F329D /* NIActions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = NIActions.h; path = vendor/nimbus/src/core/src/NIActions.h; sourceTree = "<group>"; };
 		2872F2FA182104E2008F329D /* NIActions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = NIActions.m; path = vendor/nimbus/src/core/src/NIActions.m; sourceTree = "<group>"; };
 		2872F2FB182104E2008F329D /* NIActions+Subclassing.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "NIActions+Subclassing.h"; path = "vendor/nimbus/src/core/src/NIActions+Subclassing.h"; sourceTree = "<group>"; };
@@ -447,6 +468,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2871C580184C681A003B7684 /* CoreText.framework in Frameworks */,
+				2871C575184C2D35003B7684 /* CoreFoundation.framework in Frameworks */,
 				CEE5262B1840DC5C00BF18B6 /* Accelerate.framework in Frameworks */,
 				CEE526231840DB0000BF18B6 /* CoreImage.framework in Frameworks */,
 				CEE526211840DAF900BF18B6 /* CoreLocation.framework in Frameworks */,
@@ -491,6 +514,8 @@
 				28121EFC1822226400837E25 /* NSDate+SinaMBlog.m */,
 				CEE5261B1840D71A00BF18B6 /* UIImage+SNAddtions.h */,
 				CEE5261C1840D71A00BF18B6 /* UIImage+SNAddtions.m */,
+				2871C58D184C920A003B7684 /* UIView+findViewController.h */,
+				2871C58E184C920A003B7684 /* UIView+findViewController.m */,
 			);
 			name = Category;
 			path = SinaMBlog/Category;
@@ -539,16 +564,13 @@
 		28121E921821FA0800837E25 /* Entities */ = {
 			isa = PBXGroup;
 			children = (
+				2871C56F184C29E8003B7684 /* SortBaseEntity */,
 				28121E931821FA0800837E25 /* SMBaseEntity.h */,
 				28121E941821FA0800837E25 /* SMBaseEntity.m */,
 				28121E951821FA0800837E25 /* SMStatusEntity.h */,
 				28121E961821FA0800837E25 /* SMStatusEntity.m */,
 				28121E971821FA0800837E25 /* SMUserInfoEntity.h */,
 				28121E981821FA0800837E25 /* SMUserInfoEntity.m */,
-				CE019BAE184046CA00CAC675 /* SMSectionItemBaseEntity.h */,
-				CE019BAF184046CA00CAC675 /* SMSectionItemBaseEntity.m */,
-				CE019BB0184046CA00CAC675 /* SMSectionListBaseEntity.h */,
-				CE019BB1184046CA00CAC675 /* SMSectionListBaseEntity.m */,
 				CE019BB2184046CA00CAC675 /* SMTrendEntity.h */,
 				CE019BB3184046CA00CAC675 /* SMTrendEntity.m */,
 				CED59D181841A0E7001AB8A3 /* SMTrendListEntity.h */,
@@ -647,6 +669,49 @@
 			path = vendor/libWeiboSDK;
 			sourceTree = "<group>";
 		};
+		2871C56F184C29E8003B7684 /* SortBaseEntity */ = {
+			isa = PBXGroup;
+			children = (
+				CE019BAE184046CA00CAC675 /* SMSectionItemBaseEntity.h */,
+				CE019BAF184046CA00CAC675 /* SMSectionItemBaseEntity.m */,
+				CE019BB0184046CA00CAC675 /* SMSectionListBaseEntity.h */,
+				CE019BB1184046CA00CAC675 /* SMSectionListBaseEntity.m */,
+			);
+			name = SortBaseEntity;
+			sourceTree = "<group>";
+		};
+		2871C570184C2C7F003B7684 /* Util */ = {
+			isa = PBXGroup;
+			children = (
+				2871C571184C2C7F003B7684 /* SMRegularParser.h */,
+				2871C572184C2C7F003B7684 /* SMRegularParser.m */,
+			);
+			name = Util;
+			path = SinaMBlog/Util;
+			sourceTree = SOURCE_ROOT;
+		};
+		2871C576184C585D003B7684 /* AttributedLabel */ = {
+			isa = PBXGroup;
+			children = (
+				2871C578184C586D003B7684 /* NIAttributedLabel.h */,
+				2871C579184C586D003B7684 /* NIAttributedLabel.m */,
+				2871C57A184C586D003B7684 /* NimbusAttributedLabel.h */,
+				2871C57B184C586D003B7684 /* NSMutableAttributedString+NimbusAttributedLabel.h */,
+				2871C57C184C586D003B7684 /* NSMutableAttributedString+NimbusAttributedLabel.m */,
+			);
+			name = AttributedLabel;
+			sourceTree = "<group>";
+		};
+		2871C584184C906D003B7684 /* Webcontroller */ = {
+			isa = PBXGroup;
+			children = (
+				2871C589184C90B8003B7684 /* NimbusWebController.h */,
+				2871C58A184C90B8003B7684 /* NIWebController.h */,
+				2871C58B184C90B8003B7684 /* NIWebController.m */,
+			);
+			name = Webcontroller;
+			sourceTree = "<group>";
+		};
 		28B4756C1820EFC20044DF59 = {
 			isa = PBXGroup;
 			children = (
@@ -671,6 +736,8 @@
 		28B475771820EFC30044DF59 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				2871C57F184C681A003B7684 /* CoreText.framework */,
+				2871C574184C2D35003B7684 /* CoreFoundation.framework */,
 				CEE5262A1840DC5C00BF18B6 /* Accelerate.framework */,
 				CEE526221840DAFF00BF18B6 /* CoreImage.framework */,
 				CEE526201840DAF900BF18B6 /* CoreLocation.framework */,
@@ -691,6 +758,7 @@
 				28121E561821F07200837E25 /* AppDelegate.m */,
 				28121E571821F07300837E25 /* SMGlobalConfig.h */,
 				28121E581821F07300837E25 /* SMGlobalConfig.m */,
+				2871C570184C2C7F003B7684 /* Util */,
 				28121E861821FA0800837E25 /* Category */,
 				28121E891821FA0800837E25 /* Common */,
 				28121E8D1821FA0800837E25 /* Controllers */,
@@ -720,6 +788,8 @@
 		28B475C7182103790044DF59 /* Nimbus */ = {
 			isa = PBXGroup;
 			children = (
+				2871C584184C906D003B7684 /* Webcontroller */,
+				2871C576184C585D003B7684 /* AttributedLabel */,
 				28B475CA182103A80044DF59 /* Core */,
 				28B475C9182103A10044DF59 /* Models */,
 				28B475C81821038D0044DF59 /* Network Image */,
@@ -1205,9 +1275,11 @@
 				28121EA31821FA0800837E25 /* NSString+StringValue.m in Sources */,
 				28398CA3183360110087F2F1 /* SMUserInfoModel.m in Sources */,
 				28121EA41821FA0800837E25 /* SMAPIClient.m in Sources */,
+				2871C573184C2C7F003B7684 /* SMRegularParser.m in Sources */,
 				28121EA51821FA0800837E25 /* LJJBaseTableC.m in Sources */,
 				28121EA61821FA0800837E25 /* SMPageTimlineListC.m in Sources */,
 				28121EA71821FA0800837E25 /* SMBaseEntity.m in Sources */,
+				2871C57E184C586D003B7684 /* NSMutableAttributedString+NimbusAttributedLabel.m in Sources */,
 				28121EA81821FA0800837E25 /* SMStatusEntity.m in Sources */,
 				28121EA91821FA0800837E25 /* SMUserInfoEntity.m in Sources */,
 				28121EAA1821FA0800837E25 /* LJJBaseTableModel.m in Sources */,
@@ -1225,6 +1297,7 @@
 				2844DA091831E8B9006405EA /* LJJMaxIdBaseTableModel.m in Sources */,
 				2844DA0C1831EB27006405EA /* SMMaxIdTimelineModel.m in Sources */,
 				2844DA0F1831F28F006405EA /* SMHomeTimlineListC.m in Sources */,
+				2871C58F184C920A003B7684 /* UIView+findViewController.m in Sources */,
 				CE019BA21840444700CAC675 /* SMTrendsModel.m in Sources */,
 				CE019BAD184045ED00CAC675 /* SMTrendCell.m in Sources */,
 				CE019BB6184046CA00CAC675 /* SMSectionItemBaseEntity.m in Sources */,
@@ -1252,7 +1325,9 @@
 				CEE5260F1840D30400BF18B6 /* UIImage+fixOrientation.m in Sources */,
 				CEE526161840D38700BF18B6 /* Reachability.m in Sources */,
 				CEE5261A1840D3C200BF18B6 /* NetworkSpy.m in Sources */,
+				2871C57D184C586D003B7684 /* NIAttributedLabel.m in Sources */,
 				CEE5261D1840D71A00BF18B6 /* UIImage+SNAddtions.m in Sources */,
+				2871C58C184C90B8003B7684 /* NIWebController.m in Sources */,
 				CEE526261840DBD200BF18B6 /* TTGlobalUICommon.m in Sources */,
 				CEE526291840DBED00BF18B6 /* UIWindowAdditions.m in Sources */,
 				CEE5263C1840E98200BF18B6 /* TTButtonBar.m in Sources */,
