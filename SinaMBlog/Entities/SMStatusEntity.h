@@ -10,6 +10,10 @@
 #import "SMBaseEntity.h"
 #import "SMUserInfoEntity.h"
 
+@interface SMKeywordEntity : NSObject
+@property (nonatomic, copy) NSString* keyword;
+@property (nonatomic, assign) NSRange range;
+@end
 @interface SMStatusEntity : SMBaseEntity
 
 @property (nonatomic, strong) SMUserInfoEntity *user;

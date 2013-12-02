@@ -12,6 +12,9 @@
 #import "NSDate+SinaMBlog.h"
 #import "SMRegularParser.h"
 
+@implementation SMKeywordEntity
+@end
+
 @implementation SMStatusEntity
 
 ///////////////////////////////////////////////////////////////////////////////////////////////////
@@ -68,13 +71,15 @@
 
 - (void)parseAllKeywords
 {
-    if (!self.atPersonRanges) {
-        self.atPersonRanges = [SMRegularParser rangesOfAtPersonInString:self.text];
+    if (self.text.length) {
+        if (!self.atPersonRanges) {
+            self.atPersonRanges = [SMRegularParser keywordRangesOfAtPersonInString:self.text];
+        }
+        if (!self.sharpTrendRanges) {
+            self.sharpTrendRanges = [SMRegularParser keywordRangesOfSharpTrendInString:self.text];
+        }
+        // TODO: emotion
     }
-    if (!self.sharpTrendRanges) {
-        self.sharpTrendRanges = [SMRegularParser rangesOfSharpTrendInString:self.text];
-    }
-    // TODO: emotion
 }
 
 @end
