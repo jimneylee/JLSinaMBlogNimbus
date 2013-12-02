@@ -108,6 +108,7 @@
 		CE019C0D184084A500CAC675 /* SMPhotoBrowseC.m in Sources */ = {isa = PBXBuildFile; fileRef = CE019C0C184084A400CAC675 /* SMPhotoBrowseC.m */; };
 		CE019C111840858900CAC675 /* MTStatusBarOverlay.m in Sources */ = {isa = PBXBuildFile; fileRef = CE019C101840858900CAC675 /* MTStatusBarOverlay.m */; };
 		CE3DF6E918408B2300CD69B5 /* SMPostPhotoBrowseC.m in Sources */ = {isa = PBXBuildFile; fileRef = CE3DF6E818408B2300CD69B5 /* SMPostPhotoBrowseC.m */; };
+		CE48316B184CB756002991AD /* NimbusWebController.bundle in Resources */ = {isa = PBXBuildFile; fileRef = CE48316A184CB756002991AD /* NimbusWebController.bundle */; };
 		CE7B9D261841DE24004A3BB1 /* SMFriendListEntity.m in Sources */ = {isa = PBXBuildFile; fileRef = CE7B9D251841DE24004A3BB1 /* SMFriendListEntity.m */; };
 		CE809A9D1844DC45009E3613 /* SMAuthorizeModel.m in Sources */ = {isa = PBXBuildFile; fileRef = CE809A9C1844DC45009E3613 /* SMAuthorizeModel.m */; };
 		CEE525881840CF9700BF18B6 /* NSStringAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = CEE525871840CF9700BF18B6 /* NSStringAdditions.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
@@ -390,6 +391,7 @@
 		CE019C101840858900CAC675 /* MTStatusBarOverlay.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MTStatusBarOverlay.m; sourceTree = "<group>"; };
 		CE3DF6E718408B2300CD69B5 /* SMPostPhotoBrowseC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SMPostPhotoBrowseC.h; sourceTree = "<group>"; };
 		CE3DF6E818408B2300CD69B5 /* SMPostPhotoBrowseC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SMPostPhotoBrowseC.m; sourceTree = "<group>"; };
+		CE48316A184CB756002991AD /* NimbusWebController.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; name = NimbusWebController.bundle; path = vendor/nimbus/src/webcontroller/resources/NimbusWebController.bundle; sourceTree = "<group>"; };
 		CE7B9D241841DE24004A3BB1 /* SMFriendListEntity.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SMFriendListEntity.h; sourceTree = "<group>"; };
 		CE7B9D251841DE24004A3BB1 /* SMFriendListEntity.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SMFriendListEntity.m; sourceTree = "<group>"; };
 		CE809A9B1844DC45009E3613 /* SMAuthorizeModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SMAuthorizeModel.h; sourceTree = "<group>"; };
@@ -705,6 +707,7 @@
 		2871C584184C906D003B7684 /* Webcontroller */ = {
 			isa = PBXGroup;
 			children = (
+				CE48316A184CB756002991AD /* NimbusWebController.bundle */,
 				2871C589184C90B8003B7684 /* NimbusWebController.h */,
 				2871C58A184C90B8003B7684 /* NIWebController.h */,
 				2871C58B184C90B8003B7684 /* NIWebController.m */,
@@ -1173,6 +1176,7 @@
 				CEE526641840ED1900BF18B6 /* compose_keyboardbutton_background_highlighted.png in Resources */,
 				CEE526651840ED1900BF18B6 /* compose_keyboardbutton_background_highlighted@2x.png in Resources */,
 				CEE526661840ED1900BF18B6 /* compose_keyboardbutton_background.png in Resources */,
+				CE48316B184CB756002991AD /* NimbusWebController.bundle in Resources */,
 				CEE526671840ED1900BF18B6 /* compose_keyboardbutton_background@2x.png in Resources */,
 				CEE526681840ED1900BF18B6 /* compose_locatebutton_background_highlighted.png in Resources */,
 				CEE526691840ED1900BF18B6 /* compose_locatebutton_background_highlighted@2x.png in Resources */,
