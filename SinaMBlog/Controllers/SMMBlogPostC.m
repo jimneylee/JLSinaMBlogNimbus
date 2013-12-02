@@ -533,8 +533,6 @@
     NSData* data = UIImageJPEGRepresentation(newImage, compressionQuality);
     newImage = [[UIImage alloc] initWithData:data];
     
-    NSLog(@"data len = %d", data.length);
-    
     return newImage;
 }
 
