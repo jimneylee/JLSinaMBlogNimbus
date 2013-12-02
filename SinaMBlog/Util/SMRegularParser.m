@@ -8,6 +8,7 @@
 
 #import "SMRegularParser.h"
 #import "NSStringAdditions.h"
+#import "SMStatusEntity.h"
 
 static NSString *atRegular = @"@[^.,:;!?\\s#@。，；！？]+";
 static NSString *sharpRegular = @"#(.*?)#";
@@ -15,78 +16,100 @@ static NSString *iconRegular = @"\\[([\u4e00-\u9fa5]+)\\]";
 
 @implementation SMRegularParser
 
-+ (NSArray *)rangesOfAtPersonInString:(NSString *)string {
++ (NSArray *)keywordRangesOfAtPersonInString:(NSString *)string {
     NSError *error;
     
     NSRegularExpression *regex = [NSRegularExpression regularExpressionWithPattern:atRegular
                                                                            options:NSRegularExpressionCaseInsensitive
                                                                              error:&error];
     __block NSMutableArray *rangesArray = [NSMutableArray array];
+    __block NSString* keyword = nil;
+    __block SMKeywordEntity* keywordEntity = nil;
     [regex enumerateMatchesInString:string
                             options:0
                               range:NSMakeRange(0, string.length)
                          usingBlock:^(NSTextCheckingResult *result, NSMatchingFlags flags, BOOL *stop) {
                              NSRange resultRange = [result range];
                              // range & name
-//                             NSString* match = [regex replacementStringForResult:result
-//                                                                        inString:string
-//                                                                          offset:0
-//                                                                        template:@"$0"];
-                             [rangesArray addObject:[NSValue valueWithRange:resultRange]];
+                             keyword = [regex replacementStringForResult:result
+                                                                        inString:string
+                                                                          offset:0
+                                                                        template:@"$0"];
+                             if (keyword.length) {
+                                 // @someone
+                                 keyword = [keyword substringWithRange:NSMakeRange(1, keyword.length-1)];
+                                 keywordEntity = [[SMKeywordEntity alloc] init];
+                                 keywordEntity.keyword = keyword;
+                                 keywordEntity.range = resultRange;
+                                 [rangesArray addObject:keywordEntity];
+                             }
                          }];
     return rangesArray;
 }
 
-+ (NSArray *)rangesOfSharpTrendInString:(NSString *)string {
++ (NSArray *)keywordRangesOfSharpTrendInString:(NSString *)string {
     NSError *error;
     
     NSRegularExpression *regex = [NSRegularExpression regularExpressionWithPattern:sharpRegular
                                                                            options:NSRegularExpressionCaseInsensitive
                                                                              error:&error];
     __block NSMutableArray *rangesArray = [NSMutableArray array];
+    __block NSString* keyword = nil;
+    __block SMKeywordEntity* keywordEntity = nil;
     [regex enumerateMatchesInString:string
                             options:0
                               range:NSMakeRange(0, string.length)
                          usingBlock:^(NSTextCheckingResult *result, NSMatchingFlags flags, BOOL *stop) {
                              NSRange resultRange = [result range];
                              // range & trend
-//                             NSString* match = [regex replacementStringForResult:result
-//                                                                        inString:string
-//                                                                          offset:0
-//                                                                        template:@"$0"];
-                             [rangesArray addObject:[NSValue valueWithRange:resultRange]];
+                             keyword = [regex replacementStringForResult:result
+                                                                inString:string
+                                                                  offset:0
+                                                                template:@"$0"];
+                             if (keyword.length) {
+                                 // #sometrend#
+                                 keyword = [keyword substringWithRange:NSMakeRange(1, keyword.length-2)];
+                                 keywordEntity = [[SMKeywordEntity alloc] init];
+                                 keywordEntity.keyword = keyword;
+                                 keywordEntity.range = resultRange;
+                                 [rangesArray addObject:keywordEntity];
+                             }
                          }];
     return rangesArray;
 }
 
-+ (NSString *)rangesOfEmotionInString:(NSString *)string {
++ (NSArray *)keywordRangesOfEmotionInString:(NSString *)string {
     NSError *error;
     
     NSRegularExpression *regex = [NSRegularExpression regularExpressionWithPattern:iconRegular
                                                                            options:NSRegularExpressionCaseInsensitive
                                                                              error:&error];
+    __block NSMutableArray *rangesArray = [NSMutableArray array];
     __block NSMutableString *mutableString = [string mutableCopy];
     __block NSInteger offset = 0;
-    
+    __block NSString* keyword = nil;
+    __block SMKeywordEntity* keywordEntity = nil;
     [regex enumerateMatchesInString:string
                             options:0
                               range:NSMakeRange(0, string.length)
                          usingBlock:^(NSTextCheckingResult *result, NSMatchingFlags flags, BOOL *stop) {
                              NSRange resultRange = [result range];
                              resultRange.location += offset;
-                             
-//                             NSString* match = [regex replacementStringForResult:result
-//                                                                        inString:mutableString
-//                                                                          offset:offset
-//                                                                        template:@"$0"];
-//                             NSString *tempStr = [match substringWithRange:NSMakeRange(1, match.length-1)];
-                             
+                             // range & emotion
+                             keyword = [regex replacementStringForResult:result
+                                                                inString:mutableString
+                                                                  offset:offset
+                                                                template:@"$0"];
+                             keywordEntity = [[SMKeywordEntity alloc] init];
+                             keywordEntity.keyword = keyword;
+                             keywordEntity.range = resultRange;
+                             [rangesArray addObject:keywordEntity];
+
                              [mutableString replaceCharactersInRange:resultRange withString:@""];
-                             
                              offset -= resultRange.length;
                          }];
-      
-    return mutableString;
+      // 考虑去掉表情标签的字串如何返回
+    return rangesArray;
 }
 
 @end

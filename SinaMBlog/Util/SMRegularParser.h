@@ -11,12 +11,12 @@
 @interface SMRegularParser : NSObject
 
 // 返回所有at某人的range数组
-+ (NSArray *)rangesOfAtPersonInString:(NSString *)string;
++ (NSArray *)keywordRangesOfAtPersonInString:(NSString *)string;
 
 // 返回所有#话题的range数组
-+ (NSArray *)rangesOfSharpTrendInString:(NSString *)string;
++ (NSArray *)keywordRangesOfSharpTrendInString:(NSString *)string;
 
 // 返回表情的range数组
-+ (NSString *)rangesOfEmotionInString:(NSString *)string;
++ (NSArray *)keywordRangesOfEmotionInString:(NSString *)string;
 
 @end
