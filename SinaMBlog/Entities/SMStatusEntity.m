@@ -72,13 +72,14 @@
 - (void)parseAllKeywords
 {
     if (self.text.length) {
+        // TODO: emotion
+        // 考虑有限剔除表情，这样@和#不会勿标识
         if (!self.atPersonRanges) {
             self.atPersonRanges = [SMRegularParser keywordRangesOfAtPersonInString:self.text];
         }
         if (!self.sharpTrendRanges) {
             self.sharpTrendRanges = [SMRegularParser keywordRangesOfSharpTrendInString:self.text];
         }
-        // TODO: emotion
     }
 }
 
