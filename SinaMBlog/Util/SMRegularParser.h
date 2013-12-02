@@ -12,11 +12,11 @@
 
 // 返回所有at某人的range数组
 + (NSArray *)rangesOfAtPersonInString:(NSString *)string;
+
 // 返回所有#话题的range数组
 + (NSArray *)rangesOfSharpTrendInString:(NSString *)string;
 
-+ (NSString *)replaceAtAndSharpInString:(NSString *) string;
-+ (NSString *)replaceAtAndSharpInStringForHtml:(NSString *) string;
-+ (NSString *)replaceAtInString:(NSString *) string;
-+ (NSString *)replaceSharpInString:(NSString *)string;
+// 返回表情的range数组
++ (NSString *)rangesOfEmotionInString:(NSString *)string;
+
 @end
