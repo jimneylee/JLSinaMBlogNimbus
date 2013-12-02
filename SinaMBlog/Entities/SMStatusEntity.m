@@ -10,6 +10,7 @@
 #import "SMJSONKeys.h"
 #import "NSString+StringValue.h"
 #import "NSDate+SinaMBlog.h"
+#import "SMRegularParser.h"
 
 @implementation SMStatusEntity
 
@@ -63,6 +64,17 @@
                                       range2.location - (range1.location + range1.length) - 1);
     NSString* source = [htmlSource substringWithRange:sourceRange];
     return [NSString stringWithFormat:@"来自%@", source];
+}
+
+- (void)parseAllKeywords
+{
+    if (!self.atPersonRanges) {
+        self.atPersonRanges = [SMRegularParser rangesOfAtPersonInString:self.text];
+    }
+    if (!self.sharpTrendRanges) {
+        self.sharpTrendRanges = [SMRegularParser rangesOfSharpTrendInString:self.text];
+    }
+    // TODO: emotion
 }
 
 @end

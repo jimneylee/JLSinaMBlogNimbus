@@ -33,4 +33,11 @@
 @property (assign) int comments_count;
 @property (assign) int attitudes_count;
 
+@property (nonatomic, strong) NSArray* atPersonRanges;
+@property (nonatomic, strong) NSArray* sharpTrendRanges;
+@property (nonatomic, strong) NSArray* emotionRanges;
+
+// 提出at某人 share话题 标签
+- (void)parseAllKeywords;
+
 @end
