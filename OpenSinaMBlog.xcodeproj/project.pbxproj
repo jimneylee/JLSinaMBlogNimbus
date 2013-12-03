@@ -43,6 +43,11 @@
 		283D4A45184D9CC500329272 /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 283D4A42184D9CC500329272 /* Default-568h@2x.png */; };
 		283D4A46184D9CC500329272 /* Default.png in Resources */ = {isa = PBXBuildFile; fileRef = 283D4A43184D9CC500329272 /* Default.png */; };
 		283D4A47184D9CC500329272 /* Default@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 283D4A44184D9CC500329272 /* Default@2x.png */; };
+		283D4A65184DBE4700329272 /* SMCommentOrRetweetC.m in Sources */ = {isa = PBXBuildFile; fileRef = 283D4A64184DBE4600329272 /* SMCommentOrRetweetC.m */; };
+		283D4A6A184DCAD700329272 /* compose_checkbox_checked.png in Resources */ = {isa = PBXBuildFile; fileRef = 283D4A66184DCAD700329272 /* compose_checkbox_checked.png */; };
+		283D4A6B184DCAD700329272 /* compose_checkbox_checked@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 283D4A67184DCAD700329272 /* compose_checkbox_checked@2x.png */; };
+		283D4A6C184DCAD700329272 /* compose_checkbox.png in Resources */ = {isa = PBXBuildFile; fileRef = 283D4A68184DCAD700329272 /* compose_checkbox.png */; };
+		283D4A6D184DCAD700329272 /* compose_checkbox@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 283D4A69184DCAD700329272 /* compose_checkbox@2x.png */; };
 		2844D9E71831BC5F006405EA /* libWeiboSDK.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 2844D9E41831BC5F006405EA /* libWeiboSDK.a */; };
 		2844D9E81831BC5F006405EA /* WeiboSDK.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 2844D9E51831BC5F006405EA /* WeiboSDK.bundle */; };
 		2844D9EB1831BF06006405EA /* SMLoginC.m in Sources */ = {isa = PBXBuildFile; fileRef = 2844D9EA1831BF06006405EA /* SMLoginC.m */; };
@@ -233,6 +238,12 @@
 		283D4A42184D9CC500329272 /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
 		283D4A43184D9CC500329272 /* Default.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Default.png; sourceTree = "<group>"; };
 		283D4A44184D9CC500329272 /* Default@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default@2x.png"; sourceTree = "<group>"; };
+		283D4A63184DBE4600329272 /* SMCommentOrRetweetC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SMCommentOrRetweetC.h; sourceTree = "<group>"; };
+		283D4A64184DBE4600329272 /* SMCommentOrRetweetC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SMCommentOrRetweetC.m; sourceTree = "<group>"; };
+		283D4A66184DCAD700329272 /* compose_checkbox_checked.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = compose_checkbox_checked.png; sourceTree = "<group>"; };
+		283D4A67184DCAD700329272 /* compose_checkbox_checked@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "compose_checkbox_checked@2x.png"; sourceTree = "<group>"; };
+		283D4A68184DCAD700329272 /* compose_checkbox.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = compose_checkbox.png; sourceTree = "<group>"; };
+		283D4A69184DCAD700329272 /* compose_checkbox@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "compose_checkbox@2x.png"; sourceTree = "<group>"; };
 		2844D9E41831BC5F006405EA /* libWeiboSDK.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libWeiboSDK.a; sourceTree = "<group>"; };
 		2844D9E51831BC5F006405EA /* WeiboSDK.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = WeiboSDK.bundle; sourceTree = "<group>"; };
 		2844D9E61831BC5F006405EA /* WeiboSDK.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WeiboSDK.h; sourceTree = "<group>"; };
@@ -562,6 +573,8 @@
 				2844DA0E1831F28F006405EA /* SMHomeTimlineListC.m */,
 				CE019BD31840819500CAC675 /* SMMBlogPostC.h */,
 				CE019BD41840819500CAC675 /* SMMBlogPostC.m */,
+				283D4A63184DBE4600329272 /* SMCommentOrRetweetC.h */,
+				283D4A64184DBE4600329272 /* SMCommentOrRetweetC.m */,
 				CE019BBD18407A3F00CAC675 /* SMTrendsC.h */,
 				CE019BBE18407A4000CAC675 /* SMTrendsC.m */,
 				CE019BBA18407A2200CAC675 /* SMFriendsC.h */,
@@ -1093,6 +1106,10 @@
 			children = (
 				283D4A39184D9CB000329272 /* icon_default */,
 				CEE526801840F84800BF18B6 /* ReadMe */,
+				283D4A66184DCAD700329272 /* compose_checkbox_checked.png */,
+				283D4A67184DCAD700329272 /* compose_checkbox_checked@2x.png */,
+				283D4A68184DCAD700329272 /* compose_checkbox.png */,
+				283D4A69184DCAD700329272 /* compose_checkbox@2x.png */,
 				CEE5267C1840F17C00BF18B6 /* navigationbar_button_delete_background.png */,
 				CEE5267D1840F17C00BF18B6 /* navigationbar_button_delete_background@2x.png */,
 				CEE526401840ED1900BF18B6 /* clearbutton_background.png */,
@@ -1204,8 +1221,10 @@
 				CEE526611840ED1900BF18B6 /* compose_emoticonbutton_background_highlighted@2x.png in Resources */,
 				CEE526621840ED1900BF18B6 /* compose_emoticonbutton_background.png in Resources */,
 				CEE526631840ED1900BF18B6 /* compose_emoticonbutton_background@2x.png in Resources */,
+				283D4A6A184DCAD700329272 /* compose_checkbox_checked.png in Resources */,
 				CEE526641840ED1900BF18B6 /* compose_keyboardbutton_background_highlighted.png in Resources */,
 				CEE526651840ED1900BF18B6 /* compose_keyboardbutton_background_highlighted@2x.png in Resources */,
+				283D4A6C184DCAD700329272 /* compose_checkbox.png in Resources */,
 				CEE526661840ED1900BF18B6 /* compose_keyboardbutton_background.png in Resources */,
 				CE48316B184CB756002991AD /* NimbusWebController.bundle in Resources */,
 				CEE526671840ED1900BF18B6 /* compose_keyboardbutton_background@2x.png in Resources */,
@@ -1228,8 +1247,10 @@
 				CEE5267A1840EF3100BF18B6 /* compose_trendbutton_background.png in Resources */,
 				CEE5267B1840EF3100BF18B6 /* compose_trendbutton_background@2x.png in Resources */,
 				CEE5267E1840F17C00BF18B6 /* navigationbar_button_delete_background.png in Resources */,
+				283D4A6B184DCAD700329272 /* compose_checkbox_checked@2x.png in Resources */,
 				CEE5267F1840F17C00BF18B6 /* navigationbar_button_delete_background@2x.png in Resources */,
 				CEE526811840F84800BF18B6 /* ReadMe in Resources */,
+				283D4A6D184DCAD700329272 /* compose_checkbox@2x.png in Resources */,
 				283D4A40184D9CB000329272 /* icon_os7.png in Resources */,
 				283D4A41184D9CB000329272 /* icon_os7@2x.png in Resources */,
 				283D4A3F184D9CB000329272 /* icon@2x.png in Resources */,
@@ -1349,6 +1370,7 @@
 				CE019BC218407B6C00CAC675 /* SMFriendsModel.m in Sources */,
 				CE019BC718407BBF00CAC675 /* SMFriendEntity.m in Sources */,
 				CE019BCB18407CB000CAC675 /* SMFriendCell.m in Sources */,
+				283D4A65184DBE4700329272 /* SMCommentOrRetweetC.m in Sources */,
 				CE019BD51840819600CAC675 /* SMMBlogPostC.m in Sources */,
 				CE019BD9184081AB00CAC675 /* LocationViewController.mm in Sources */,
 				CE019C07184081DE00CAC675 /* pinyin.c in Sources */,
