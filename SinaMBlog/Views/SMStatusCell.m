@@ -52,12 +52,14 @@
         // content
         SMStatusEntity* o = (SMStatusEntity*)object;
         CGFloat kContentLength = tableView.width - sideMargin * 2;
-#if 0
+        
+#if 0// sizeWithFont
         CGSize contentSize = [o.text sizeWithFont:CONTENT_FONT_SIZE
                                 constrainedToSize:CGSizeMake(kContentLength, FLT_MAX)
                                     lineBreakMode:NSLineBreakByWordWrapping];
         height = height + contentSize.height;
-#else
+        
+#else// sizeToFit
         NIAttributedLabel* contentLabel = [[NIAttributedLabel alloc] initWithFrame:CGRectZero];
         contentLabel.numberOfLines = 0;
         contentLabel.lineBreakMode = NSLineBreakByWordWrapping;
@@ -82,12 +84,13 @@
             height = height + contentViewMarin;
             
             CGFloat kRetweetContentLength = kContentLength - contentViewMarin * 2;
-#if 0
+            
+#if 0// sizeWithFont
             CGSize retweetContentSizeSize = [o.retweeted_status.text sizeWithFont:RETWEET_CONTENT_FONT_SIZE
                                                                 constrainedToSize:CGSizeMake(kRetweetContentLength, FLT_MAX)
                                                                     lineBreakMode:NSLineBreakByWordWrapping];
             height = height + retweetContentSizeSize.height;
-#else
+#else// sizeToFit
             // reuse contentLabel and reset frame, it's important
             contentLabel.frame = CGRectZero;
             contentLabel.font = RETWEET_CONTENT_FONT_SIZE;
