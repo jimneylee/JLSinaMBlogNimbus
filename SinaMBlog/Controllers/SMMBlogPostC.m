@@ -7,6 +7,7 @@
 //
 
 #import "SMMBlogPostC.h"
+#import "TTGlobalUICommon.h"
 #import "UIImage+Resizing.h"
 #import "UIImage+FixOrientation.h"
 #import "NetworkSpy.h"
@@ -139,7 +140,7 @@
     [self limitPostStatusesText];
     [self registerForKeyboardNotifications];
     [_statusesTextView becomeFirstResponder];
-    [self layoutViewsWithKeyboardHeight:NIIsSupportedOrientation(self.interfaceOrientation)];
+    [self layoutViewsWithKeyboardHeight:TTKeyboardHeightForOrientation(self.interfaceOrientation)];
 }
 
 ///////////////////////////////////////////////////////////////////////////////////////////////////
@@ -190,6 +191,7 @@
 - (void)createPostButtonBar
 {
     SMPostButtonBar* bar = [[SMPostButtonBar alloc] initWithFrame:CGRectZero];
+    bar.backgroundColor = [UIColor whiteColor];
 	[bar addButton:nil target:self action:@selector(buttonSelected:)];
 	[bar addButton:nil target:self action:@selector(buttonSelected:)];
 	[bar addButton:nil target:self action:@selector(buttonSelected:)];
@@ -233,7 +235,6 @@
 		}
 		i++;
 	}
-    bar.backgroundColor = [UIColor whiteColor];
     _postBtnBar = bar;
     [self.view addSubview:_postBtnBar];
 }
@@ -790,7 +791,6 @@
     if (SAVE_TO_DRAFT_ACTION_SHEET_TAG == actionSheet.tag) {
         switch (buttonIndex) {
             case 0:
-                //[self.presentingViewController dismissViewControllerAnimated:YES completion:NULL];
                 [self.navigationController popViewControllerAnimated:YES];
                 break;
                 
