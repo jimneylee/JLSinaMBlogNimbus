@@ -230,7 +230,7 @@
     NSString* path = [SMAPIClient relativePathForCreateComment];
 
     NSMutableDictionary* parameters = [NSMutableDictionary dictionary];
-    [parameters setObject:[comment urlEncoded] forKey:@"comment"];
+    [parameters setObject:comment forKey:@"comment"];
     [parameters setObject:blogId forKey:@"id"];
     [parameters setObject:[SMGlobalConfig getCurrentLoginedAccessToken] forKey:@"access_token"];
 
@@ -262,7 +262,7 @@
 - (NSMutableDictionary* )createParametersForPostComment:(NSString *)comment toBlogId:(NSString*)blogId
 {
     NSMutableDictionary* parameters = [NSMutableDictionary dictionaryWithCapacity:5];
-    [parameters setObject:[comment urlEncoded] forKey:@"comment"];
+    [parameters setObject:comment forKey:@"comment"];
     [parameters setObject:blogId forKey:@"id"];
     return parameters;
 }
@@ -277,7 +277,7 @@
 
     NSMutableDictionary* parameters = [NSMutableDictionary dictionary];
     [parameters setObject:[SMGlobalConfig getCurrentLoginedAccessToken] forKey:@"access_token"];
-    [parameters setObject:[status urlEncoded] forKey:@"status"];
+    [parameters setObject:status forKey:@"status"];
     [parameters setObject:blogId forKey:@"id"];
     if (isComment) {
         [parameters setObject:@"1" forKey:@"is_comment"];
@@ -311,7 +311,7 @@
 - (NSMutableDictionary* )createParametersForRetweetStatus:(NSString *)status blogId:(NSString*)blogId isComment:(BOOL)isComment
 {
     NSMutableDictionary* parameters = [NSMutableDictionary dictionaryWithCapacity:5];
-    [parameters setObject:[status urlEncoded] forKey:@"status"];
+    [parameters setObject:status forKey:@"status"];
     [parameters setObject:blogId forKey:@"id"];
     if (isComment) {
         [parameters setObject:@"1" forKey:@"is_comment"];
