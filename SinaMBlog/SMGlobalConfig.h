@@ -83,6 +83,7 @@ typedef enum
 + (UIBarButtonItem*)createRefreshBarButtonItemWithTarget:(id)target action:(SEL)action;
 + (UIBarButtonItem*)createPostBarButtonItemWithTarget:(id)target action:(SEL)action;
 + (UIBarButtonItem*)createBarButtonItemWithTitle:(NSString*)buttonTitle target:(id)target action:(SEL)action;
++ (UILabel*)getNavigationBarTitleViewWithTitle:(NSString*)title;
 
 // Emotion
 + (NSArray* )emotionsArray;

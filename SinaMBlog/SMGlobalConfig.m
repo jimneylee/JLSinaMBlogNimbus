@@ -145,6 +145,21 @@ static NSUInteger settingMsgRemindFrequencyIndex = ULLONG_MAX;
     return item;
 }
 
++ (UILabel*)getNavigationBarTitleViewWithTitle:(NSString*)title
+{
+    if (title) {
+        UILabel* titleLabel = [[UILabel alloc] initWithFrame:
+                               CGRectMake(0, 0, 200.f,
+                                        NIToolbarHeightForOrientation([UIApplication sharedApplication].statusBarOrientation))];
+        [titleLabel setBackgroundColor:[UIColor clearColor]];
+        [titleLabel setFont:[UIFont boldSystemFontOfSize:20.f]];
+        [titleLabel setTextAlignment:NSTextAlignmentCenter];
+        [titleLabel setText:title];
+        return titleLabel;
+    }
+    return nil;
+}
+
 #pragma mark -
 #pragma mark Emotion
 + (NSArray* )emotionsArray
