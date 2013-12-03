@@ -42,6 +42,7 @@
         CGFloat contentViewMarin = CELL_PADDING_8;
         CGFloat sideMargin = cellMargin + contentViewMarin;
 
+        // top margin
         CGFloat height = sideMargin;
         
         // head image
@@ -51,9 +52,22 @@
         // content
         SMStatusEntity* o = (SMStatusEntity*)object;
         CGFloat kContentLength = tableView.width - sideMargin * 2;
+#if 0
         CGSize contentSize = [o.text sizeWithFont:CONTENT_FONT_SIZE
-                              constrainedToSize:CGSizeMake(kContentLength, FLT_MAX)];
+                                constrainedToSize:CGSizeMake(kContentLength, FLT_MAX)
+                                    lineBreakMode:NSLineBreakByWordWrapping];
         height = height + contentSize.height;
+#else
+        NIAttributedLabel* contentLabel = [[NIAttributedLabel alloc] initWithFrame:CGRectZero];
+        contentLabel.numberOfLines = 0;
+        contentLabel.lineBreakMode = NSLineBreakByWordWrapping;
+        
+        contentLabel.font = CONTENT_FONT_SIZE;
+        contentLabel.width = kContentLength;
+        contentLabel.text = o.text;
+        [contentLabel sizeToFit];
+        height = height + contentLabel.height;
+#endif
         
         // content image
         if (o.bmiddle_pic.length) {
@@ -68,10 +82,22 @@
             height = height + contentViewMarin;
             
             CGFloat kRetweetContentLength = kContentLength - contentViewMarin * 2;
+#if 0
             CGSize retweetContentSizeSize = [o.retweeted_status.text sizeWithFont:RETWEET_CONTENT_FONT_SIZE
-                                               constrainedToSize:CGSizeMake(kRetweetContentLength, FLT_MAX)];
+                                                                constrainedToSize:CGSizeMake(kRetweetContentLength, FLT_MAX)
+                                                                    lineBreakMode:NSLineBreakByWordWrapping];
             height = height + retweetContentSizeSize.height;
-            
+#else
+            // reuse contentLabel and reset frame, it's important
+            contentLabel.frame = CGRectZero;
+            contentLabel.font = RETWEET_CONTENT_FONT_SIZE;
+            contentLabel.width = kRetweetContentLength;
+            contentLabel.text = [NSString stringWithFormat:@"%@：%@",
+                                             o.retweeted_status.user.name,
+                                             o.retweeted_status.text];
+            [contentLabel sizeToFit];
+            height = height + contentLabel.height;
+#endif
             // content image
             if (o.retweeted_status.bmiddle_pic.length) {
                 height = height + CELL_PADDING_10;
@@ -82,7 +108,9 @@
         
         // TODO: button
         
+        // bottom side margin
         height = height + sideMargin;
+        
         return height;
     }
     
@@ -206,6 +234,12 @@
                                          kContentLength, 0.f);
     [self.contentLabel sizeToFit];
 
+    CGSize contentSize = [self.contentLabel.text sizeWithFont:CONTENT_FONT_SIZE
+                                            constrainedToSize:CGSizeMake(kContentLength, FLT_MAX)
+                                                lineBreakMode:NSLineBreakByWordWrapping];
+    NSLog(@"sizeWithFont height = %f", contentSize.height);
+    NSLog(@"sizeToFit height    = %f", self.contentLabel.height);
+
     // content image
     self.contentImageView.left = self.contentLabel.left;
     self.contentImageView.top = self.contentLabel.bottom + CELL_PADDING_10;
@@ -222,6 +256,12 @@
         self.retweetContentLabel.frame = CGRectMake(contentViewMarin, contentViewMarin,
                                                     kRetweetContentLength, 0.f);
         [self.retweetContentLabel sizeToFit];
+
+        CGSize retweetContentSizeSize = [self.retweetContentLabel.text sizeWithFont:RETWEET_CONTENT_FONT_SIZE
+                                                            constrainedToSize:CGSizeMake(kRetweetContentLength, FLT_MAX)
+                                                                lineBreakMode:NSLineBreakByWordWrapping];
+        NSLog(@"retweet sizeWithFont height = %f", retweetContentSizeSize.height);
+        NSLog(@"retweet sizeToFit height    = %f", self.retweetContentLabel.height);
         
         // content image
         self.retweetContentImageView.left = self.retweetContentLabel.left;
