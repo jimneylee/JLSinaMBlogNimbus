@@ -15,14 +15,19 @@
 #import "NIWebController.h"
 #import "NSStringAdditions.h"
 #import "SMStatusEntity.h"
+#import "SMCommentOrRetweetC.h"
 
 #define TITLE_FONT_SIZE [UIFont systemFontOfSize:15.f]
 #define SUBTITLE_FONT_SIZE [UIFont systemFontOfSize:12.f]
+#define BUTTON_FONT_SIZE [UIFont systemFontOfSize:13.f]
 
 #if 0
+
 #define CONTENT_FONT_SIZE [UIFont systemFontOfSize:18.f]
 #define RETWEET_CONTENT_FONT_SIZE [UIFont systemFontOfSize:16.f]
+
 #else
+
 //冬青字体：http://tadaland.com/ios-better-experience-font-hiragino.html
 #define CONTENT_FONT_SIZE [UIFont fontWithName:@"Hiragino Sans GB" size:18.f]
 #define CONTENT_LINE_HEIGHT 22.f
@@ -36,16 +41,22 @@
 
 #define HEAD_IAMGE_HEIGHT 34
 #define CONTENT_IMAGE_HEIGHT 160
+#define BUTTON_SIZE CGSizeMake(103.f, 30.f)
 
 @interface SMStatusCell()<NIAttributedLabelDelegate>
 @property (nonatomic, strong) NIAttributedLabel* contentLabel;
 @property (nonatomic, strong) NINetworkImageView* headView;
 @property (nonatomic, strong) NINetworkImageView* contentImageView;
+@property (nonatomic, strong) SMStatusEntity* statusEntity;
 // 转发视图
 @property (nonatomic, assign) BOOL hasRetweet;
 @property (nonatomic, strong) UIView* retweetContentView;
 @property (nonatomic, strong) NIAttributedLabel* retweetContentLabel;
 @property (nonatomic, strong) NINetworkImageView* retweetContentImageView;
+// 操作按钮
+@property (nonatomic, strong) UIButton* retweetBtn;
+@property (nonatomic, strong) UIButton* commentBtn;
+@property (nonatomic, strong) UIButton* praiseBtn;
 @end
 @implementation SMStatusCell
 
@@ -126,7 +137,8 @@
             height = height + contentViewMarin;
         }
         
-        // TODO: button
+        // button
+        height = height + BUTTON_SIZE.height;
         
         // bottom side margin
         height = height + sideMargin;
@@ -296,6 +308,15 @@
             self.retweetContentView.height = self.retweetContentImageView.bottom + contentViewMarin;
         }
     }
+    
+    ///////////////////////////////////////////////////////////////////////////////////////////////////
+    // 操作按钮
+    self.retweetBtn.left = 0.f;
+    self.retweetBtn.bottom = self.contentView.height;
+    self.commentBtn.left = self.retweetBtn.right-1.f;
+    self.commentBtn.bottom = self.retweetBtn.bottom;
+    self.praiseBtn.left = self.commentBtn.right-1.f;
+    self.praiseBtn.bottom = self.commentBtn.bottom;
 }
 
 ///////////////////////////////////////////////////////////////////////////////////////////////////
@@ -304,7 +325,7 @@
     [super shouldUpdateCellWithObject:object];
     if ([object isKindOfClass:[SMStatusEntity class]]) {
         SMStatusEntity* o = (SMStatusEntity*)object;
-
+        self.statusEntity = o;
         if (o.user.profile_image_url.length) {
             [self.headView setPathToNetworkImage:o.user.profile_image_url];
         }
@@ -361,6 +382,10 @@
         else {
             self.retweetContentView.hidden = YES;
         }
+        
+        [_retweetBtn setTitle:[NSString stringWithFormat:@"转发%d", o.reposts_count] forState:UIControlStateNormal];
+        [_commentBtn setTitle:[NSString stringWithFormat:@"评论%d", o.comments_count] forState:UIControlStateNormal];
+        [_praiseBtn setTitle:[NSString stringWithFormat:@"赞%d", o.attitudes_count] forState:UIControlStateNormal];
     }
     return YES;
 }
@@ -425,8 +450,10 @@ didSelectTextCheckingResult:(NSTextCheckingResult *)result
                                addedToView:[UIApplication sharedApplication].keyWindow];
         }
         else {
-            NIWebController* c = [[NIWebController alloc] initWithURL:url];
-            [[self viewController].navigationController pushViewController:c animated:YES];
+            if (self.viewController) {
+                NIWebController* c = [[NIWebController alloc] initWithURL:url];
+                [self.viewController.navigationController pushViewController:c animated:YES];
+            }
         }
     } else {
         NSLog(@"无效的链接");
@@ -439,5 +466,89 @@ shouldPresentActionSheet:(UIActionSheet *)actionSheet
  withTextCheckingResult:(NSTextCheckingResult *)result atPoint:(CGPoint)point
 {
     return NO;
+}
+
+#pragma mark - UIButton Action
+- (void)retweetAction
+{
+    NSLog(@"retweet action");
+    NSString* retweetContent = nil;
+    if (self.statusEntity.retweeted_status) {
+        retweetContent = self.statusEntity.text;
+    }
+    SMCommentOrRetweetC* c = [[SMCommentOrRetweetC alloc] initWithRetweetBlogId:self.statusEntity.blogID
+                                                                       username:self.statusEntity.user.name
+                                                                 retweetContent:retweetContent];
+    if (self.viewController) {
+        [self.viewController.navigationController pushViewController:c animated:YES];
+    }
+}
+
+- (void)commentAction
+{
+    NSLog(@"comment action");
+    SMCommentOrRetweetC* c = [[SMCommentOrRetweetC alloc] initWithBlogId:self.statusEntity.blogID];
+    if (self.viewController) {
+        [self.viewController.navigationController pushViewController:c animated:YES];
+    }
+}
+
+- (void)praiseAction
+{
+    NSLog(@"praise action");
+    if (self.viewController) {
+        [SMGlobalConfig showHUDMessage:@"暂时没有赞的接口"
+                           addedToView:self.viewController.view];
+    }
+}
+
+#pragma mark - UI
+- (UIButton*)retweetBtn
+{
+    if (!_retweetBtn) {
+        _retweetBtn = [[UIButton alloc] initWithFrame:CGRectMake(0.f, 0.f, BUTTON_SIZE.width, BUTTON_SIZE.height)];
+        [_retweetBtn.titleLabel setFont:BUTTON_FONT_SIZE];
+        [_retweetBtn setTitle:@"转发" forState:UIControlStateNormal];
+        [_retweetBtn setTitleColor:[UIColor grayColor] forState:UIControlStateNormal];
+        [_retweetBtn setTitleColor:[UIColor redColor] forState:UIControlStateHighlighted];
+        [_retweetBtn addTarget:self action:@selector(retweetAction) forControlEvents:UIControlEventTouchUpInside];
+        [self.contentView addSubview:_retweetBtn];
+        _retweetBtn.layer.borderColor = CELL_CONTENT_VIEW_BORDER_COLOR.CGColor;
+        _retweetBtn.layer.borderWidth = 1.0f;
+    }
+    return _retweetBtn;
+}
+
+- (UIButton*)commentBtn
+{
+    if (!_commentBtn) {
+        _commentBtn = [[UIButton alloc] initWithFrame:CGRectMake(0.f, 0.f, BUTTON_SIZE.width, BUTTON_SIZE.height)];
+        [_commentBtn.titleLabel setFont:BUTTON_FONT_SIZE];
+        [_commentBtn setTitle:@"评论" forState:UIControlStateNormal];
+        [_commentBtn setTitleColor:[UIColor grayColor] forState:UIControlStateNormal];
+        [_commentBtn setTitleColor:[UIColor redColor] forState:UIControlStateHighlighted];
+        [_commentBtn addTarget:self action:@selector(commentAction) forControlEvents:UIControlEventTouchUpInside];
+        [self.contentView addSubview:_commentBtn];
+        _commentBtn.layer.borderColor = CELL_CONTENT_VIEW_BORDER_COLOR.CGColor;
+        _commentBtn.layer.borderWidth = 1.0f;
+    }
+    return _commentBtn;
+}
+
+- (UIButton*)praiseBtn
+{
+    if (!_praiseBtn) {
+        _praiseBtn = [[UIButton alloc] initWithFrame:CGRectMake(0.f, 0.f, BUTTON_SIZE.width, BUTTON_SIZE.height)];
+        [_praiseBtn.titleLabel setFont:BUTTON_FONT_SIZE];
+        [_praiseBtn.titleLabel setTextColor:[UIColor grayColor]];
+        [_praiseBtn setTitle:@"赞" forState:UIControlStateNormal];
+        [_praiseBtn setTitleColor:[UIColor grayColor] forState:UIControlStateNormal];
+        [_praiseBtn setTitleColor:[UIColor redColor] forState:UIControlStateHighlighted];
+        [_praiseBtn addTarget:self action:@selector(praiseAction) forControlEvents:UIControlEventTouchUpInside];
+        [self.contentView addSubview:_praiseBtn];
+        _praiseBtn.layer.borderColor = CELL_CONTENT_VIEW_BORDER_COLOR.CGColor;
+        _praiseBtn.layer.borderWidth = 1.0f;
+    }
+    return _praiseBtn;
 }
 @end
