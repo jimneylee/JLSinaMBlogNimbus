@@ -11,7 +11,7 @@
 		28121E231821F05D00837E25 /* Default.png in Resources */ = {isa = PBXBuildFile; fileRef = 28121E1D1821F05D00837E25 /* Default.png */; };
 		28121E241821F05D00837E25 /* Default@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 28121E1E1821F05D00837E25 /* Default@2x.png */; };
 		28121E251821F05D00837E25 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 28121E1F1821F05D00837E25 /* main.m */; };
-		28121E261821F05D00837E25 /* SinaMBlogNimbus-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 28121E201821F05D00837E25 /* SinaMBlogNimbus-Info.plist */; };
+		28121E261821F05D00837E25 /* OpenSinaMBlog-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 28121E201821F05D00837E25 /* OpenSinaMBlog-Info.plist */; };
 		28121E591821F07300837E25 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 28121E561821F07200837E25 /* AppDelegate.m */; };
 		28121E5A1821F07300837E25 /* SMGlobalConfig.m in Sources */ = {isa = PBXBuildFile; fileRef = 28121E581821F07300837E25 /* SMGlobalConfig.m */; };
 		28121EA31821FA0800837E25 /* NSString+StringValue.m in Sources */ = {isa = PBXBuildFile; fileRef = 28121E881821FA0800837E25 /* NSString+StringValue.m */; };
@@ -36,6 +36,13 @@
 		28121F1C1822654C00837E25 /* README.md in Resources */ = {isa = PBXBuildFile; fileRef = 28121F1B1822654C00837E25 /* README.md */; };
 		28121F1E1822655E00837E25 /* TODO in Resources */ = {isa = PBXBuildFile; fileRef = 28121F1D1822655E00837E25 /* TODO */; };
 		28398CA3183360110087F2F1 /* SMUserInfoModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 28398CA2183360110087F2F1 /* SMUserInfoModel.m */; };
+		283D4A3E184D9CB000329272 /* icon.png in Resources */ = {isa = PBXBuildFile; fileRef = 283D4A3A184D9CB000329272 /* icon.png */; };
+		283D4A3F184D9CB000329272 /* icon@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 283D4A3B184D9CB000329272 /* icon@2x.png */; };
+		283D4A40184D9CB000329272 /* icon_os7.png in Resources */ = {isa = PBXBuildFile; fileRef = 283D4A3C184D9CB000329272 /* icon_os7.png */; };
+		283D4A41184D9CB000329272 /* icon_os7@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 283D4A3D184D9CB000329272 /* icon_os7@2x.png */; };
+		283D4A45184D9CC500329272 /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 283D4A42184D9CC500329272 /* Default-568h@2x.png */; };
+		283D4A46184D9CC500329272 /* Default.png in Resources */ = {isa = PBXBuildFile; fileRef = 283D4A43184D9CC500329272 /* Default.png */; };
+		283D4A47184D9CC500329272 /* Default@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 283D4A44184D9CC500329272 /* Default@2x.png */; };
 		2844D9E71831BC5F006405EA /* libWeiboSDK.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 2844D9E41831BC5F006405EA /* libWeiboSDK.a */; };
 		2844D9E81831BC5F006405EA /* WeiboSDK.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 2844D9E51831BC5F006405EA /* WeiboSDK.bundle */; };
 		2844D9EB1831BF06006405EA /* SMLoginC.m in Sources */ = {isa = PBXBuildFile; fileRef = 2844D9EA1831BF06006405EA /* SMLoginC.m */; };
@@ -169,8 +176,8 @@
 		28121E1D1821F05D00837E25 /* Default.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = Default.png; path = SinaMBlog/Default.png; sourceTree = SOURCE_ROOT; };
 		28121E1E1821F05D00837E25 /* Default@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "Default@2x.png"; path = "SinaMBlog/Default@2x.png"; sourceTree = SOURCE_ROOT; };
 		28121E1F1821F05D00837E25 /* main.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = main.m; path = SinaMBlog/main.m; sourceTree = SOURCE_ROOT; };
-		28121E201821F05D00837E25 /* SinaMBlogNimbus-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "SinaMBlogNimbus-Info.plist"; path = "SinaMBlog/SinaMBlogNimbus-Info.plist"; sourceTree = SOURCE_ROOT; };
-		28121E211821F05D00837E25 /* SinaMBlogNimbus-Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "SinaMBlogNimbus-Prefix.pch"; path = "SinaMBlog/SinaMBlogNimbus-Prefix.pch"; sourceTree = SOURCE_ROOT; };
+		28121E201821F05D00837E25 /* OpenSinaMBlog-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "OpenSinaMBlog-Info.plist"; path = "SinaMBlog/OpenSinaMBlog-Info.plist"; sourceTree = SOURCE_ROOT; };
+		28121E211821F05D00837E25 /* OpenSinaMBlog-Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "OpenSinaMBlog-Prefix.pch"; path = "SinaMBlog/OpenSinaMBlog-Prefix.pch"; sourceTree = SOURCE_ROOT; };
 		28121E551821F07200837E25 /* AppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AppDelegate.h; path = SinaMBlog/AppDelegate.h; sourceTree = SOURCE_ROOT; };
 		28121E561821F07200837E25 /* AppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = AppDelegate.m; path = SinaMBlog/AppDelegate.m; sourceTree = SOURCE_ROOT; };
 		28121E571821F07300837E25 /* SMGlobalConfig.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SMGlobalConfig.h; path = SinaMBlog/SMGlobalConfig.h; sourceTree = SOURCE_ROOT; };
@@ -219,6 +226,13 @@
 		28121F1D1822655E00837E25 /* TODO */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = TODO; sourceTree = "<group>"; };
 		28398CA1183360110087F2F1 /* SMUserInfoModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SMUserInfoModel.h; sourceTree = "<group>"; };
 		28398CA2183360110087F2F1 /* SMUserInfoModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SMUserInfoModel.m; sourceTree = "<group>"; };
+		283D4A3A184D9CB000329272 /* icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = icon.png; sourceTree = "<group>"; };
+		283D4A3B184D9CB000329272 /* icon@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icon@2x.png"; sourceTree = "<group>"; };
+		283D4A3C184D9CB000329272 /* icon_os7.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = icon_os7.png; sourceTree = "<group>"; };
+		283D4A3D184D9CB000329272 /* icon_os7@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icon_os7@2x.png"; sourceTree = "<group>"; };
+		283D4A42184D9CC500329272 /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
+		283D4A43184D9CC500329272 /* Default.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Default.png; sourceTree = "<group>"; };
+		283D4A44184D9CC500329272 /* Default@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default@2x.png"; sourceTree = "<group>"; };
 		2844D9E41831BC5F006405EA /* libWeiboSDK.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libWeiboSDK.a; sourceTree = "<group>"; };
 		2844D9E51831BC5F006405EA /* WeiboSDK.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = WeiboSDK.bundle; sourceTree = "<group>"; };
 		2844D9E61831BC5F006405EA /* WeiboSDK.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WeiboSDK.h; sourceTree = "<group>"; };
@@ -316,7 +330,7 @@
 		2872F355182104ED008F329D /* NITableViewModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = NITableViewModel.h; path = vendor/nimbus/src/models/src/NITableViewModel.h; sourceTree = "<group>"; };
 		2872F356182104ED008F329D /* NITableViewModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = NITableViewModel.m; path = vendor/nimbus/src/models/src/NITableViewModel.m; sourceTree = "<group>"; };
 		2872F357182104ED008F329D /* NITableViewModel+Private.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "NITableViewModel+Private.h"; path = "vendor/nimbus/src/models/src/NITableViewModel+Private.h"; sourceTree = "<group>"; };
-		28B475751820EFC30044DF59 /* SinaMBlogNimbus.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SinaMBlogNimbus.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		28B475751820EFC30044DF59 /* OpenSinaMBlog.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = OpenSinaMBlog.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		28B475781820EFC30044DF59 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		28B4757A1820EFC30044DF59 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		28B4757C1820EFC30044DF59 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -660,6 +674,20 @@
 			path = vendor/320Category;
 			sourceTree = "<group>";
 		};
+		283D4A39184D9CB000329272 /* icon_default */ = {
+			isa = PBXGroup;
+			children = (
+				283D4A42184D9CC500329272 /* Default-568h@2x.png */,
+				283D4A43184D9CC500329272 /* Default.png */,
+				283D4A44184D9CC500329272 /* Default@2x.png */,
+				283D4A3A184D9CB000329272 /* icon.png */,
+				283D4A3B184D9CB000329272 /* icon@2x.png */,
+				283D4A3C184D9CB000329272 /* icon_os7.png */,
+				283D4A3D184D9CB000329272 /* icon_os7@2x.png */,
+			);
+			path = icon_default;
+			sourceTree = "<group>";
+		};
 		2844D9E31831BC5F006405EA /* libWeiboSDK */ = {
 			isa = PBXGroup;
 			children = (
@@ -731,7 +759,7 @@
 		28B475761820EFC30044DF59 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				28B475751820EFC30044DF59 /* SinaMBlogNimbus.app */,
+				28B475751820EFC30044DF59 /* OpenSinaMBlog.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -782,8 +810,8 @@
 				28121E1D1821F05D00837E25 /* Default.png */,
 				28121E1E1821F05D00837E25 /* Default@2x.png */,
 				28121E1F1821F05D00837E25 /* main.m */,
-				28121E201821F05D00837E25 /* SinaMBlogNimbus-Info.plist */,
-				28121E211821F05D00837E25 /* SinaMBlogNimbus-Prefix.pch */,
+				28121E201821F05D00837E25 /* OpenSinaMBlog-Info.plist */,
+				28121E211821F05D00837E25 /* OpenSinaMBlog-Prefix.pch */,
 			);
 			name = "Supporting Files";
 			sourceTree = "<group>";
@@ -1063,6 +1091,7 @@
 		CEE5262D1840E03200BF18B6 /* Sina */ = {
 			isa = PBXGroup;
 			children = (
+				283D4A39184D9CB000329272 /* icon_default */,
 				CEE526801840F84800BF18B6 /* ReadMe */,
 				CEE5267C1840F17C00BF18B6 /* navigationbar_button_delete_background.png */,
 				CEE5267D1840F17C00BF18B6 /* navigationbar_button_delete_background@2x.png */,
@@ -1103,9 +1132,9 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		28B475741820EFC30044DF59 /* SinaMBlogNimbus */ = {
+		28B475741820EFC30044DF59 /* OpenSinaMBlog */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 28B475981820EFC30044DF59 /* Build configuration list for PBXNativeTarget "SinaMBlogNimbus" */;
+			buildConfigurationList = 28B475981820EFC30044DF59 /* Build configuration list for PBXNativeTarget "OpenSinaMBlog" */;
 			buildPhases = (
 				99F971B4003F40CB84714AAA /* Check Pods Manifest.lock */,
 				28B475711820EFC30044DF59 /* Sources */,
@@ -1117,9 +1146,9 @@
 			);
 			dependencies = (
 			);
-			name = SinaMBlogNimbus;
+			name = OpenSinaMBlog;
 			productName = VideoOnline;
-			productReference = 28B475751820EFC30044DF59 /* SinaMBlogNimbus.app */;
+			productReference = 28B475751820EFC30044DF59 /* OpenSinaMBlog.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
@@ -1132,7 +1161,7 @@
 				LastUpgradeCheck = 0460;
 				ORGANIZATIONNAME = SuperMaxDev;
 			};
-			buildConfigurationList = 28B475701820EFC20044DF59 /* Build configuration list for PBXProject "SinaMBlogNimbus" */;
+			buildConfigurationList = 28B475701820EFC20044DF59 /* Build configuration list for PBXProject "OpenSinaMBlog" */;
 			compatibilityVersion = "Xcode 3.2";
 			developmentRegion = English;
 			hasScannedForEncodings = 0;
@@ -1144,7 +1173,7 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				28B475741820EFC30044DF59 /* SinaMBlogNimbus */,
+				28B475741820EFC30044DF59 /* OpenSinaMBlog */,
 			);
 		};
 /* End PBXProject section */
@@ -1157,7 +1186,8 @@
 				28121E221821F05D00837E25 /* Default-568h@2x.png in Resources */,
 				28121E231821F05D00837E25 /* Default.png in Resources */,
 				28121E241821F05D00837E25 /* Default@2x.png in Resources */,
-				28121E261821F05D00837E25 /* SinaMBlogNimbus-Info.plist in Resources */,
+				28121E261821F05D00837E25 /* OpenSinaMBlog-Info.plist in Resources */,
+				283D4A46184D9CC500329272 /* Default.png in Resources */,
 				28121EFA1822040600837E25 /* Three20.bundle in Resources */,
 				28121F1C1822654C00837E25 /* README.md in Resources */,
 				28121F1E1822655E00837E25 /* TODO in Resources */,
@@ -1165,6 +1195,7 @@
 				CE019C06184081DE00CAC675 /* mapapi.bundle in Resources */,
 				CEE5265A1840ED1900BF18B6 /* clearbutton_background.png in Resources */,
 				CEE5265B1840ED1900BF18B6 /* clearbutton_background@2x.png in Resources */,
+				283D4A47184D9CC500329272 /* Default@2x.png in Resources */,
 				CEE5265C1840ED1900BF18B6 /* compose_camerabutton_background_highlighted.png in Resources */,
 				CEE5265D1840ED1900BF18B6 /* compose_camerabutton_background_highlighted@2x.png in Resources */,
 				CEE5265E1840ED1900BF18B6 /* compose_camerabutton_background.png in Resources */,
@@ -1182,6 +1213,8 @@
 				CEE526691840ED1900BF18B6 /* compose_locatebutton_background_highlighted@2x.png in Resources */,
 				CEE5266A1840ED1900BF18B6 /* compose_locatebutton_background.png in Resources */,
 				CEE5266B1840ED1900BF18B6 /* compose_locatebutton_background@2x.png in Resources */,
+				283D4A3E184D9CB000329272 /* icon.png in Resources */,
+				283D4A45184D9CC500329272 /* Default-568h@2x.png in Resources */,
 				CEE5266C1840ED1900BF18B6 /* compose_mentionbutton_background_highlighted.png in Resources */,
 				CEE5266D1840ED1900BF18B6 /* compose_mentionbutton_background_highlighted@2x.png in Resources */,
 				CEE5266E1840ED1900BF18B6 /* compose_mentionbutton_background.png in Resources */,
@@ -1197,6 +1230,9 @@
 				CEE5267E1840F17C00BF18B6 /* navigationbar_button_delete_background.png in Resources */,
 				CEE5267F1840F17C00BF18B6 /* navigationbar_button_delete_background@2x.png in Resources */,
 				CEE526811840F84800BF18B6 /* ReadMe in Resources */,
+				283D4A40184D9CB000329272 /* icon_os7.png in Resources */,
+				283D4A41184D9CB000329272 /* icon_os7@2x.png in Resources */,
+				283D4A3F184D9CB000329272 /* icon@2x.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1404,8 +1440,8 @@
 			baseConfigurationReference = B466FEF4A8494C228DF493F0 /* Pods.xcconfig */;
 			buildSettings = {
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = "SinaMBlog/SinaMBlogNimbus-Prefix.pch";
-				INFOPLIST_FILE = "$(SRCROOT)/SinaMBlog/SinaMBlogNimbus-Info.plist";
+				GCC_PREFIX_HEADER = "SinaMBlog/OpenSinaMBlog-Prefix.pch";
+				INFOPLIST_FILE = "SinaMBlog/OpenSinaMBlog-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
@@ -1414,7 +1450,7 @@
 					"\"$(SRCROOT)/vendor/baidumap/libs/Release-iphoneos\"",
 					"\"$(SRCROOT)/vendor/baidumap/libs/Release-iphonesimulator\"",
 				);
-				PRODUCT_NAME = SinaMBlogNimbus;
+				PRODUCT_NAME = OpenSinaMBlog;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				WRAPPER_EXTENSION = app;
 			};
@@ -1425,8 +1461,8 @@
 			baseConfigurationReference = B466FEF4A8494C228DF493F0 /* Pods.xcconfig */;
 			buildSettings = {
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = "SinaMBlog/SinaMBlogNimbus-Prefix.pch";
-				INFOPLIST_FILE = "$(SRCROOT)/SinaMBlog/SinaMBlogNimbus-Info.plist";
+				GCC_PREFIX_HEADER = "SinaMBlog/OpenSinaMBlog-Prefix.pch";
+				INFOPLIST_FILE = "SinaMBlog/OpenSinaMBlog-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
@@ -1435,7 +1471,7 @@
 					"\"$(SRCROOT)/vendor/baidumap/libs/Release-iphoneos\"",
 					"\"$(SRCROOT)/vendor/baidumap/libs/Release-iphonesimulator\"",
 				);
-				PRODUCT_NAME = SinaMBlogNimbus;
+				PRODUCT_NAME = OpenSinaMBlog;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				WRAPPER_EXTENSION = app;
 			};
@@ -1444,7 +1480,7 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		28B475701820EFC20044DF59 /* Build configuration list for PBXProject "SinaMBlogNimbus" */ = {
+		28B475701820EFC20044DF59 /* Build configuration list for PBXProject "OpenSinaMBlog" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				28B475961820EFC30044DF59 /* Debug */,
@@ -1453,7 +1489,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		28B475981820EFC30044DF59 /* Build configuration list for PBXNativeTarget "SinaMBlogNimbus" */ = {
+		28B475981820EFC30044DF59 /* Build configuration list for PBXNativeTarget "OpenSinaMBlog" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				28B475991820EFC30044DF59 /* Debug */,
