@@ -17,13 +17,12 @@
                         streetPlace:(NSString*)streetPlace;
 @end
 
-@interface LocationViewController : UIViewController<MKMapViewDelegate,
+@interface SMLocationViewController : UIViewController<MKMapViewDelegate,
                                                      BMKSearchDelegate,
                                                      BMKMapViewDelegate,
                                                      BMKAnnotation>
 - (id)initWithDelegate:(id)delegate;
-@property(nonatomic, retain) MKMapView* mapView;
-@property(nonatomic, retain) BMKMapView *bMapView;
-@property(nonatomic, retain) id<StreetPlaceLocationDelegate> delegate;
+
+@property(nonatomic, assign) id<StreetPlaceLocationDelegate> delegate;
 
 @end

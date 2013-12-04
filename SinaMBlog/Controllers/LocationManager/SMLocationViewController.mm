@@ -1,17 +1,20 @@
 //
 //  LocationViewController.m
-//  MapKitTest
+//  SinaMBLog
 //
 //  Created by jimney on 13-3-20.
 //  Copyright (c) 2013年 jimneylee. All rights reserved.
 //
 
-#import "LocationViewController.h"
+#import "SMLocationViewController.h"
 
-@implementation LocationViewController
-{
-    BMKSearch *_bmkSearch;
-}
+@interface SMLocationViewController()
+@property(nonatomic, strong) MKMapView* mapView;
+@property(nonatomic, strong) BMKMapView* bMapView;
+@property(nonatomic, strong) BMKSearch* bmkSearch;
+@end
+
+@implementation SMLocationViewController
 
 - (id)initWithDelegate:(id)delegate
 {
@@ -26,8 +29,6 @@
 {
     self = [super initWithNibName:nil bundle:nil];
     if (self) {
-//        self.navigationItem.leftBarButtonItem = [SMGlobalConfig getBackItemWithTarget:self.presentingViewController
-//                                                                               action:@selector(dismissModalViewControllerAnimated:)];
     }
     return self;
 }

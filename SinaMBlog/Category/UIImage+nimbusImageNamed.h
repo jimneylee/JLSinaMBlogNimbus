@@ -8,15 +8,8 @@
 
 #import <UIKit/UIKit.h>
 
-@interface UIImage (SNAddtions)
+@interface UIImage (nimbusImageNamed)
 
 + (UIImage*)nimbusImageNamed:(NSString*)imageName;
-
-+ (UIImage*)compressImage:(UIImage*)image;
-
-+ (UIImage *)imageWithColor:(UIColor *)color;
-
-// 实时毛玻璃效果
-+ (UIImage *)blurryImage:(UIImage *)image withBlurLevel:(CGFloat)blur;
 
 @end
