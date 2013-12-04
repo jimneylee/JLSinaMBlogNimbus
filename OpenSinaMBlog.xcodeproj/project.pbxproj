@@ -38,6 +38,8 @@
 		281E984E184EEE370039DC38 /* MobileCoreServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 281E984D184EEE370039DC38 /* MobileCoreServices.framework */; };
 		281E9851184EEEE00039DC38 /* SMNetworkSpy.m in Sources */ = {isa = PBXBuildFile; fileRef = 281E9850184EEEE00039DC38 /* SMNetworkSpy.m */; };
 		281E9854184F1A910039DC38 /* homepage.png in Resources */ = {isa = PBXBuildFile; fileRef = 281E9853184F1A910039DC38 /* homepage.png */; };
+		281E9857184F1C8D0039DC38 /* postnewstatus.png in Resources */ = {isa = PBXBuildFile; fileRef = 281E9855184F1C8D0039DC38 /* postnewstatus.png */; };
+		281E9858184F1C8D0039DC38 /* repost.png in Resources */ = {isa = PBXBuildFile; fileRef = 281E9856184F1C8D0039DC38 /* repost.png */; };
 		28398CA3183360110087F2F1 /* SMUserInfoModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 28398CA2183360110087F2F1 /* SMUserInfoModel.m */; };
 		283D4A3E184D9CB000329272 /* icon.png in Resources */ = {isa = PBXBuildFile; fileRef = 283D4A3A184D9CB000329272 /* icon.png */; };
 		283D4A3F184D9CB000329272 /* icon@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 283D4A3B184D9CB000329272 /* icon@2x.png */; };
@@ -232,6 +234,8 @@
 		281E984F184EEEE00039DC38 /* SMNetworkSpy.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SMNetworkSpy.h; sourceTree = "<group>"; };
 		281E9850184EEEE00039DC38 /* SMNetworkSpy.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SMNetworkSpy.m; sourceTree = "<group>"; };
 		281E9853184F1A910039DC38 /* homepage.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = homepage.png; sourceTree = "<group>"; };
+		281E9855184F1C8D0039DC38 /* postnewstatus.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = postnewstatus.png; sourceTree = "<group>"; };
+		281E9856184F1C8D0039DC38 /* repost.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = repost.png; sourceTree = "<group>"; };
 		28398CA1183360110087F2F1 /* SMUserInfoModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SMUserInfoModel.h; sourceTree = "<group>"; };
 		28398CA2183360110087F2F1 /* SMUserInfoModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SMUserInfoModel.m; sourceTree = "<group>"; };
 		283D4A3A184D9CB000329272 /* icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = icon.png; sourceTree = "<group>"; };
@@ -687,6 +691,8 @@
 			isa = PBXGroup;
 			children = (
 				281E9853184F1A910039DC38 /* homepage.png */,
+				281E9855184F1C8D0039DC38 /* postnewstatus.png */,
+				281E9856184F1C8D0039DC38 /* repost.png */,
 			);
 			name = Screenshot;
 			path = SinaMBlog/Images/Screenshot;
@@ -1198,6 +1204,7 @@
 				28121EFA1822040600837E25 /* Three20.bundle in Resources */,
 				28121F1C1822654C00837E25 /* README.md in Resources */,
 				28121F1E1822655E00837E25 /* TODO in Resources */,
+				281E9857184F1C8D0039DC38 /* postnewstatus.png in Resources */,
 				2844D9E81831BC5F006405EA /* WeiboSDK.bundle in Resources */,
 				CE019C06184081DE00CAC675 /* mapapi.bundle in Resources */,
 				CEE5265A1840ED1900BF18B6 /* clearbutton_background.png in Resources */,
@@ -1237,6 +1244,7 @@
 				CEE526791840EF3100BF18B6 /* compose_trendbutton_background_highlighted@2x.png in Resources */,
 				CEE5267A1840EF3100BF18B6 /* compose_trendbutton_background.png in Resources */,
 				CEE5267B1840EF3100BF18B6 /* compose_trendbutton_background@2x.png in Resources */,
+				281E9858184F1C8D0039DC38 /* repost.png in Resources */,
 				CEE5267E1840F17C00BF18B6 /* navigationbar_button_delete_background.png in Resources */,
 				283D4A6B184DCAD700329272 /* compose_checkbox_checked@2x.png in Resources */,
 				CEE5267F1840F17C00BF18B6 /* navigationbar_button_delete_background@2x.png in Resources */,
