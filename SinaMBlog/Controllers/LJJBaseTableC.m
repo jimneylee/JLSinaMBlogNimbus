@@ -154,7 +154,7 @@
             [UIView animateWithDuration:0.25f delay:0.f options:UIViewAnimationOptionBeginFromCurrentState animations:^(void){
                 self.tableView.contentOffset = CGPointMake(0.f, 0.f);
             } completion:NULL];
-        } more:NO];// refresh:refresh
+        } more:NO refresh:refresh];
     }
 }
 
@@ -175,7 +175,7 @@
             [SMGlobalConfig showHUDMessage:alertMsg addedToView:self.view];
         }
         [self.loadMoreFooterView setAnimating:NO];
-    } more:YES];// refresh:YES
+    } more:YES refresh:YES];
 }
 
 ///////////////////////////////////////////////////////////////////////////////////////////////////

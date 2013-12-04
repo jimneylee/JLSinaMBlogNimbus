@@ -13,6 +13,12 @@
 
 + (SMAPIClient*)sharedClient;
 
+- (void)getPath:(NSString *)path
+     parameters:(NSDictionary *)parameters
+        refresh:(BOOL)refresh
+        success:(void (^)(AFHTTPRequestOperation *operation, id responseObject))success
+        failure:(void (^)(AFHTTPRequestOperation *operation, NSError *error))failure;
+
 // 用户信息
 + (NSString *)relativePathForUserInfoWithUserName:(NSString *)userName
                                          orUserId:(NSString *)userId;

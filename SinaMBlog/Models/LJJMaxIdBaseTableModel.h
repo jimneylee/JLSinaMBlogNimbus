@@ -32,6 +32,6 @@
 - (NSDictionary*)generateParameters;
 - (NSArray*)getEntityArray:(NSDictionary*)dic;
 
-- (void)loadDataWithBlock:(void(^)(NSArray* items, NSError *error))block more:(BOOL)more;
+- (void)loadDataWithBlock:(void(^)(NSArray* items, NSError *error))block more:(BOOL)more refresh:(BOOL)refresh;
 
 @end

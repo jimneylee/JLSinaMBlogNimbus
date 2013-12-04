@@ -81,7 +81,7 @@
 }
 
 ///////////////////////////////////////////////////////////////////////////////////////////////////
-- (void)loadDataWithBlock:(void(^)(NSArray* indexPaths, NSError *error))block more:(BOOL)more
+- (void)loadDataWithBlock:(void(^)(NSArray* indexPaths, NSError *error))block more:(BOOL)more refresh:(BOOL)refresh
 {
     if (more) {
         self.pageCounter++;
@@ -90,7 +90,7 @@
         self.pageCounter = 1;
     }
     NSString* relativePath = [self relativePath];
-    [[SMAPIClient sharedClient] getPath:relativePath parameters:[self generateParameters]
+    [[SMAPIClient sharedClient] getPath:relativePath parameters:[self generateParameters] refresh:refresh
                                  success:^(AFHTTPRequestOperation *operation, id responseObject) {
                                      // if   more = YES
                                      //      append new items
