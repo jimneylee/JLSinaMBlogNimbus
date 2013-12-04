@@ -36,6 +36,10 @@
 
 3、发布微博、拍照及地理位置获取
 
+PS:以前项目中主要使用[three20](https://github.com/facebook/three20)开发APP，
+
+了解过three20的同学，应该比较熟悉nimbus的作者，不熟悉请google之。
+
 --------------
 项目clone到本地后
 
