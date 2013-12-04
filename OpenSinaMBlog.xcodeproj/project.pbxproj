@@ -34,9 +34,6 @@
 		28121EFA1822040600837E25 /* Three20.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 28121EF91822040600837E25 /* Three20.bundle */; };
 		28121F1C1822654C00837E25 /* README.md in Resources */ = {isa = PBXBuildFile; fileRef = 28121F1B1822654C00837E25 /* README.md */; };
 		28121F1E1822655E00837E25 /* TODO in Resources */ = {isa = PBXBuildFile; fileRef = 28121F1D1822655E00837E25 /* TODO */; };
-		281E9844184ED2030039DC38 /* SMSearchResultModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 281E9843184ED2030039DC38 /* SMSearchResultModel.m */; };
-		281E9847184ED4850039DC38 /* SMSearchResultC.m in Sources */ = {isa = PBXBuildFile; fileRef = 281E9846184ED4850039DC38 /* SMSearchResultC.m */; };
-		281E984A184ED7340039DC38 /* SMUserHomeC.m in Sources */ = {isa = PBXBuildFile; fileRef = 281E9849184ED7340039DC38 /* SMUserHomeC.m */; };
 		281E984C184EED890039DC38 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 281E984B184EED890039DC38 /* SystemConfiguration.framework */; };
 		281E984E184EEE370039DC38 /* MobileCoreServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 281E984D184EEE370039DC38 /* MobileCoreServices.framework */; };
 		281E9851184EEEE00039DC38 /* SMNetworkSpy.m in Sources */ = {isa = PBXBuildFile; fileRef = 281E9850184EEEE00039DC38 /* SMNetworkSpy.m */; };
@@ -229,12 +226,6 @@
 		28121EF91822040600837E25 /* Three20.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = Three20.bundle; sourceTree = "<group>"; };
 		28121F1B1822654C00837E25 /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = README.md; sourceTree = "<group>"; };
 		28121F1D1822655E00837E25 /* TODO */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = TODO; sourceTree = "<group>"; };
-		281E9842184ED2030039DC38 /* SMSearchResultModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SMSearchResultModel.h; sourceTree = "<group>"; };
-		281E9843184ED2030039DC38 /* SMSearchResultModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SMSearchResultModel.m; sourceTree = "<group>"; };
-		281E9845184ED4850039DC38 /* SMSearchResultC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SMSearchResultC.h; sourceTree = "<group>"; };
-		281E9846184ED4850039DC38 /* SMSearchResultC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SMSearchResultC.m; sourceTree = "<group>"; };
-		281E9848184ED7340039DC38 /* SMUserHomeC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SMUserHomeC.h; sourceTree = "<group>"; };
-		281E9849184ED7340039DC38 /* SMUserHomeC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SMUserHomeC.m; sourceTree = "<group>"; };
 		281E984B184EED890039DC38 /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
 		281E984D184EEE370039DC38 /* MobileCoreServices.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MobileCoreServices.framework; path = System/Library/Frameworks/MobileCoreServices.framework; sourceTree = SDKROOT; };
 		281E984F184EEEE00039DC38 /* SMNetworkSpy.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SMNetworkSpy.h; sourceTree = "<group>"; };
@@ -574,8 +565,6 @@
 				28121E911821FA0800837E25 /* SMPageTimlineListC.m */,
 				2844DA0D1831F28F006405EA /* SMHomeTimlineListC.h */,
 				2844DA0E1831F28F006405EA /* SMHomeTimlineListC.m */,
-				281E9848184ED7340039DC38 /* SMUserHomeC.h */,
-				281E9849184ED7340039DC38 /* SMUserHomeC.m */,
 				CE019BD31840819500CAC675 /* SMMBlogPostC.h */,
 				CE019BD41840819500CAC675 /* SMMBlogPostC.m */,
 				283D4A63184DBE4600329272 /* SMCommentOrRetweetC.h */,
@@ -584,8 +573,6 @@
 				CE019BBE18407A4000CAC675 /* SMTrendsC.m */,
 				CE019BBA18407A2200CAC675 /* SMFriendsC.h */,
 				CE019BBB18407A2200CAC675 /* SMFriendsC.m */,
-				281E9845184ED4850039DC38 /* SMSearchResultC.h */,
-				281E9846184ED4850039DC38 /* SMSearchResultC.m */,
 				CE019C0B184084A300CAC675 /* SMPhotoBrowseC.h */,
 				CE019C0C184084A400CAC675 /* SMPhotoBrowseC.m */,
 				CE3DF6E718408B2300CD69B5 /* SMPostPhotoBrowseC.h */,
@@ -633,8 +620,6 @@
 				28121E9D1821FA0800837E25 /* SMPageTimelineModel.m */,
 				2844DA0A1831EB26006405EA /* SMMaxIdTimelineModel.h */,
 				2844DA0B1831EB27006405EA /* SMMaxIdTimelineModel.m */,
-				281E9842184ED2030039DC38 /* SMSearchResultModel.h */,
-				281E9843184ED2030039DC38 /* SMSearchResultModel.m */,
 				CE809A9B1844DC45009E3613 /* SMAuthorizeModel.h */,
 				CE809A9C1844DC45009E3613 /* SMAuthorizeModel.m */,
 				28398CA1183360110087F2F1 /* SMUserInfoModel.h */,
@@ -1321,7 +1306,6 @@
 				2872F35C182104ED008F329D /* NIMutableTableViewModel.m in Sources */,
 				2872F35D182104ED008F329D /* NIRadioGroup.m in Sources */,
 				2872F35E182104ED008F329D /* NIRadioGroupController.m in Sources */,
-				281E984A184ED7340039DC38 /* SMUserHomeC.m in Sources */,
 				2872F35F182104ED008F329D /* NITableViewActions.m in Sources */,
 				2872F360182104ED008F329D /* NITableViewModel.m in Sources */,
 				28121E251821F05D00837E25 /* main.m in Sources */,
@@ -1358,7 +1342,6 @@
 				CE019BB7184046CA00CAC675 /* SMSectionListBaseEntity.m in Sources */,
 				CE019BB8184046CA00CAC675 /* SMTrendEntity.m in Sources */,
 				CE019BB9184046CA00CAC675 /* SMTrendListEntity.m in Sources */,
-				281E9847184ED4850039DC38 /* SMSearchResultC.m in Sources */,
 				CE019BBC18407A2300CAC675 /* SMFriendsC.m in Sources */,
 				CE019BBF18407A4000CAC675 /* SMTrendsC.m in Sources */,
 				CE019BC218407B6C00CAC675 /* SMFriendsModel.m in Sources */,
@@ -1387,7 +1370,6 @@
 				CEE526291840DBED00BF18B6 /* UIWindowAdditions.m in Sources */,
 				CEE5263C1840E98200BF18B6 /* TTButtonBar.m in Sources */,
 				CEE5263F1840EA2500BF18B6 /* SMPostButtonBar.m in Sources */,
-				281E9844184ED2030039DC38 /* SMSearchResultModel.m in Sources */,
 				CE7B9D261841DE24004A3BB1 /* SMFriendListEntity.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
