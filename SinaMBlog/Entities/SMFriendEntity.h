@@ -9,11 +9,9 @@
 #import "SMSectionItemBaseEntity.h"
 
 @interface SMFriendEntity : SMSectionItemBaseEntity
-{
-    NSString* _userId;
-}
+
+@property (nonatomic, copy) NSString* userId;
 
 + (id)entityWithDictionary:(NSDictionary*)dic;
 - (NSString* )getNameWithAt;
-@property (nonatomic, copy) NSString* userId;
 @end

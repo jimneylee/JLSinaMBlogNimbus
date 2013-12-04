@@ -10,4 +10,6 @@
 
 @interface SMFriendListEntity :SMSectionListBaseEntity
 
++ (id)entityWithDictionary:(NSDictionary*)dic;
+
 @end
