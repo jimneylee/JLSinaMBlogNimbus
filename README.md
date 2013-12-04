@@ -86,6 +86,8 @@ PS:以前项目中主要使用[three20](https://github.com/facebook/three20)开�
        参考：http://stackoverflow.com/questions/17467086/using-niattributedlabel-in-uitableviewcell
 
 #LICENSE
+
+--------------
 本项目基于MIT协议发布
 
-MIT: [http://rem.mit-license.org]http://rem.mit-license.org
+MIT: [http://rem.mit-license.org](http://rem.mit-license.org)
