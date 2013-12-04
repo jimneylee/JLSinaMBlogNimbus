@@ -15,7 +15,7 @@
     // self
     #import "SMGlobalConfig.h"
     #import "SMJSONKeys.h"
-    #import "UIImage+SNAddtions.h"// todo: change name
+    #import "UIImage+nimbusImageNamed.h"
 
     // MBProgressHUD
     #import "MBProgressHUD.h"
@@ -33,7 +33,7 @@
     // sina mblog sdk
     #import "WeiboSDK.h"
 
-    // log switch
+    // debug log switch
     #ifdef DEBUG
     #    define NSLog(...) NSLog(__VA_ARGS__)
     #else
