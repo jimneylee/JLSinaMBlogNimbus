@@ -11,7 +11,7 @@
 @protocol SMTrendsDelegate;
 @interface SMTrendsC : LJJBaseTableC
 
-@property(nonatomic, assign) id trendsDelegate;
+@property(nonatomic, assign) id<SMTrendsDelegate> trendsDelegate;
 
 @end
 

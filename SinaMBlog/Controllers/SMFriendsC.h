@@ -12,7 +12,7 @@
 @protocol SMFriendsDelegate;
 @interface SMFriendsC : LJJBaseTableC
 
-@property(nonatomic, assign) id friendsDelegate;
+@property(nonatomic, assign) id<SMFriendsDelegate> friendsDelegate;
 
 @end
 
