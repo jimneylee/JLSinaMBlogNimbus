@@ -1104,8 +1104,8 @@
 		CEE5262D1840E03200BF18B6 /* Sina */ = {
 			isa = PBXGroup;
 			children = (
-				283D4A39184D9CB000329272 /* icon_default */,
 				CEE526801840F84800BF18B6 /* ReadMe */,
+				283D4A39184D9CB000329272 /* icon_default */,
 				283D4A66184DCAD700329272 /* compose_checkbox_checked.png */,
 				283D4A67184DCAD700329272 /* compose_checkbox_checked@2x.png */,
 				283D4A68184DCAD700329272 /* compose_checkbox.png */,
