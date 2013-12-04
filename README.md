@@ -84,3 +84,8 @@ PS:以前项目中主要使用[three20](https://github.com/facebook/three20)开�
     
        请暂时用Nimbus_fix目录下的NIAttributedLabel.m替换原工程中的这个文件
        参考：http://stackoverflow.com/questions/17467086/using-niattributedlabel-in-uitableviewcell
+
+#LICENSE
+本项目基于MIT协议发布
+
+MIT: [http://rem.mit-license.org]http://rem.mit-license.org
