@@ -67,7 +67,7 @@ typedef enum
 @interface SMGlobalConfig : NSObject
 
 ///////////////////////////////////////////////////////////////////////////////////////////////////
-// Author
+// OAuth
 + (void)setCurrentLoginedUserName:(NSString*)userName;
 + (NSString *)getCurrentLoginedUserName;
 + (void)setCurrentLoginedUserId:(NSString*)userId;
