@@ -14,7 +14,23 @@
 #import "SMFriendEntity.h"
 
 @interface SMMBlogPostC ()
+{
+    UITextView* _statusesTextView;
+    UIButton* _locationBtn;
+    UIButton* _textCountBtn;
+    UIButton* _clearTextBtn;
+    UIImageView* _inputBackgroundImageView;
+    SMPostButtonBar* _postBtnBar;
+    SMEmotionC* _emotionC;
+    SMTrendsC* _trendsC;
+    SMFriendsC* _friendsC;
+    UIImagePickerController* _picker;
 
+    SMMBlogPostModel* _postModel;
+    double _latitude;
+    double _longitude;
+    NSString* _trendNameOrUserName;
+}
 @end
 
 #define TEXT_COUNT_BTN_WIDTH 45
@@ -35,20 +51,24 @@
 @implementation SMMBlogPostC
 
 ///////////////////////////////////////////////////////////////////////////////////////////////////
-// 发表关于某个话题微博入口
-// 发表@某人微博入口
-///////////////////////////////////////////////////////////////////////////////////////////////////
-- (id)initWithTrendNameOrUserName:(NSString*)text type:(MBlogPostType)type
+- (id)initWithTrendName:(NSString*)trend
 {
     self = [self initWithNibName:nil bundle:nil];
     if (self) {
-        if (text.length > 0) {
-            if (MBlogPostType_AtUser == type) {
-                _trendNameOrUserName = [[NSString stringWithFormat:@"@%@ ", text] copy];
-            }
-            else if (MBlogPostType_AboutTrend == type) {
-                _trendNameOrUserName = [[NSString stringWithFormat:@"#%@# ", text] copy];
-            }
+        if (trend.length) {
+            _trendNameOrUserName = [[NSString stringWithFormat:@"#%@# ", trend] copy];
+        }
+    }
+    return self;
+}
+
+///////////////////////////////////////////////////////////////////////////////////////////////////
+- (id)initWithUserName:(NSString*)username
+{
+    self = [self initWithNibName:nil bundle:nil];
+    if (self) {
+        if (username.length > 0) {
+            _trendNameOrUserName = [[NSString stringWithFormat:@"@%@ ", username] copy];
         }
     }
     return self;
@@ -627,17 +647,11 @@
     if (streetPlace.length > 0) {
         [_locationBtn setTitle:streetPlace forState:UIControlStateNormal];
         
-        // 文本中不用显示我在这里数据
-//        NSString* trendStreetPlaceString = [NSString stringWithFormat:@"我在这里：#%@#", streetPlace];
-//        _statusesTextView.text = [NSString stringWithFormat:@"%@%@", _statusesTextView.text,
-//                                  trendStreetPlaceString];
-        
         _latitude = latitude;
         _longitude = longitude;
         [self limitPostStatusesText];
         _locationBtn.hidden = NO;
         
-        // TODO:
         // 修改定位图标颜色
         UIButton* btn = [_postBtnBar.buttons objectAtIndex:0];
         [btn setImage:[UIImage nimbusImageNamed:@"compose_locatebutton_background_highlighted.png"]
@@ -645,26 +659,6 @@
         
         [self checkIfNeedShowClearButton];
         
-        // method1:保存位置名到数组中，供删除位置所用
-//        if (!_streetPlacesArray) {
-//            _streetPlacesArray = [[NSMutableArray alloc] initWithCapacity:10];
-//        }
-//        if (_streetPlacesArray.count > 0) {
-//            BOOL find = NO;
-//            for (NSString* place in _streetPlacesArray) {
-//                if ([place isEqualToString:trendStreetPlaceString]) {
-//                    find = YES;
-//                    break;
-//                }
-//            }
-//            if (!find) {
-//                [_streetPlacesArray addObject:trendStreetPlaceString];
-//            }
-//        }
-//        else {
-//            [_streetPlacesArray addObject:trendStreetPlaceString];
-//        }
-        // method2:简单的方法，保存后，发送的时候加进去
         self.streetPlace = streetPlace;
     }
 }
@@ -684,18 +678,6 @@
     
     [self checkIfNeedShowClearButton];
     
-    // method1:删除text中我在位置和情况位置数组
-//    if (_streetPlacesArray && _streetPlacesArray.count > 0
-//        && _statusesTextView.text.length > 0) {
-//        
-//        NSMutableString* subString = nil;
-//        NSMutableString* sourceString = [NSMutableString stringWithString:_statusesTextView.text];
-//        for (NSString* place in _streetPlacesArray) {
-//            subString = [NSMutableString stringWithString:place];
-//            _statusesTextView.text = [self stringByDeleteSubstring:subString inSourceString:sourceString];
-//        }
-//    }
-    // method2:删除位置字串
     self.streetPlace = nil;
 }
 

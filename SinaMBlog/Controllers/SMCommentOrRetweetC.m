@@ -12,7 +12,28 @@
 #import "SMFriendEntity.h"
 
 @interface SMCommentOrRetweetC ()
-
+{
+    UITextView* _statusesTextView;
+    UIButton* _checkboxBtn;
+    UIButton* _textCountBtn;
+    UIButton* _clearTextBtn;
+    UIImageView* _checkBoxImageView;
+    UIImageView* _inputBackgroundImageView;
+    SMPostButtonBar* _postBtnBar;
+	SMEmotionC* _emotionC;
+    SMTrendsC* _trendsC;
+    SMFriendsC* _friendsC;
+    
+    SMMBlogPostModel* _postModel;
+    ZDPostActionType _postActionType;
+    NSString* _blogId;
+    BOOL _retweet;
+    
+    // retweet
+    NSString* _username;
+    NSString* _retweetContent;
+    BOOL _comment;
+}
 @end
 
 #define TEXT_COUNT_BTN_WIDTH 40
