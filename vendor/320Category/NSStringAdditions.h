@@ -84,11 +84,6 @@
 - (NSString*)urlEncoded;
 
 /**
- * Returns a string with all HTML tags removed.
- */
-- (NSString*)stringByRemovingHTMLTags;
-
-/**
  * Compares two strings expressing software versions.
  *
  * The comparison is (except for the development version provisions noted below) lexicographic
