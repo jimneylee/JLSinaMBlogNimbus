@@ -12,7 +12,7 @@
 #import "SMPostPhotoBrowseC.h"
 #import "SMTrendsC.h"
 #import "SMFriendsC.h"
-#import "LocationViewController.h"
+#import "SMLocationViewController.h"
 
 @interface SMMBlogPostC : UIViewController<UIActionSheetDelegate, UINavigationControllerDelegate,
                                                     UIImagePickerControllerDelegate, UITextViewDelegate,

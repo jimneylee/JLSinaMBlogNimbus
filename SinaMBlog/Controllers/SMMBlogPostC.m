@@ -10,7 +10,7 @@
 #import "TTGlobalUICommon.h"
 #import "UIImage+Resizing.h"
 #import "UIImage+FixOrientation.h"
-#import "NetworkSpy.h"
+#import "SMNetworkSpy.h"
 #import "SMFriendEntity.h"
 
 @interface SMMBlogPostC ()
@@ -330,7 +330,7 @@
 ///////////////////////////////////////////////////////////////////////////////////////////////////
 - (void)showLocationView
 {
-    LocationViewController* c = [[LocationViewController alloc] initWithDelegate:self];
+    SMLocationViewController* c = [[SMLocationViewController alloc] initWithDelegate:self];
     [self.navigationController pushViewController:c animated:YES];
 }
 
@@ -541,7 +541,7 @@
 {
     CGSize size = image.size;
     CGFloat compressionQuality = 1.0f;
-    if ([[NetworkSpy sharedNetworkSpy] isReachableViaWiFi] ) {
+    if ([[SMNetworkSpy sharedNetworkSpy] isReachableViaWiFi] ) {
         size = CGSizeMake(1200, 1600);
         compressionQuality = 0.45f;
     }
