@@ -8,7 +8,7 @@
 
 #import "SMCommentOrRetweetC.h"
 #import "TTGlobalUICommon.h"
-#import "NetworkSpy.h"
+#import "SMNetworkSpy.h"
 #import "SMFriendEntity.h"
 
 @interface SMCommentOrRetweetC ()
