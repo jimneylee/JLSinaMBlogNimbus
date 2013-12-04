@@ -26,7 +26,7 @@
 /**
  * Additions.
  */
-TT_FIX_CATEGORY_BUG(UIWindowAdditions)
+//TT_FIX_CATEGORY_BUG(UIWindowAdditions)
 
 @implementation UIWindow (TTCategory)
 
