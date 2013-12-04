@@ -229,6 +229,13 @@
 - (void)prepareForReuse
 {
     [super prepareForReuse];
+    
+    if (self.contentImageView.image) {
+        [self.contentImageView setImage:nil];
+    }
+    if (self.retweetContentImageView.image) {
+        [self.retweetContentImageView setImage:nil];
+    }
 }
 
 ///////////////////////////////////////////////////////////////////////////////////////////////////
@@ -338,7 +345,6 @@
                                      o.source, [o.timestamp formatRelativeTime]];// 解决动态计算时间
         self.contentLabel.text = o.text;
         
-        [o parseAllKeywords];
         [self showAllKeywordsInContentLabel:self.contentLabel withStatus:o fromLocation:0];
         
         if (o.bmiddle_pic.length) {
@@ -366,7 +372,6 @@
             [self.retweetContentLabel addLink:[NSURL URLWithString:url]
                             range:NSMakeRange(0, o.retweeted_status.user.name.length)];
             
-            [o.retweeted_status parseAllKeywords];
             [self showAllKeywordsInContentLabel:self.retweetContentLabel
                                      withStatus:o.retweeted_status
                                    fromLocation:namePrefix.length];
@@ -374,7 +379,7 @@
             if (o.retweeted_status.bmiddle_pic.length) {
                 self.retweetContentImageView.hidden = NO;
                 [self.retweetContentImageView setPathToNetworkImage:o.retweeted_status.bmiddle_pic
-                                                        contentMode:UIViewContentModeScaleAspectFill];
+                                                        contentMode:UIViewContentModeScaleAspectFit];
             }
             else {
                 self.retweetContentImageView.hidden = YES;
