@@ -9,7 +9,7 @@
 #import "SMStatusEntity.h"
 #import "SMJSONKeys.h"
 #import "NSString+StringValue.h"
-#import "NSDate+SinaMBlog.h"
+#import "NSDateAdditions.h"
 #import "SMRegularParser.h"
 
 @implementation SMKeywordEntity
@@ -43,6 +43,9 @@
         self.comments_count = [dic[JSON_STATUS_COMMENTS_COUNT] intValue];
         self.attitudes_count = [dic[JSON_STATUS_ATTITUDES_COUNT] intValue];
         self.timestamp = [NSDate formatDateFromString:self.created_at];
+        
+        // 与其每个微博加载都卡，不如这边一次都解析好
+        [self parseAllKeywords];
     }
     return self;
 }
@@ -69,11 +72,13 @@
     return [NSString stringWithFormat:@"来自%@", source];
 }
 
+///////////////////////////////////////////////////////////////////////////////////////////////////
+// 识别出 表情 at某人 share话题 标签
 - (void)parseAllKeywords
 {
     if (self.text.length) {
         // TODO: emotion
-        // 考虑有限剔除表情，这样@和#不会勿标识
+        // 考虑优先剔除表情，这样@和#不会勿标识
         if (!self.atPersonRanges) {
             self.atPersonRanges = [SMRegularParser keywordRangesOfAtPersonInString:self.text];
         }
