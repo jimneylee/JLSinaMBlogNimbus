@@ -32,7 +32,6 @@
 		28121EF51822036900837E25 /* TTGlobalCoreLocale.m in Sources */ = {isa = PBXBuildFile; fileRef = 28121EF41822036900837E25 /* TTGlobalCoreLocale.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		28121EF81822038A00837E25 /* NSDateAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = 28121EF71822038A00837E25 /* NSDateAdditions.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		28121EFA1822040600837E25 /* Three20.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 28121EF91822040600837E25 /* Three20.bundle */; };
-		28121EFD1822226400837E25 /* NSDate+SinaMBlog.m in Sources */ = {isa = PBXBuildFile; fileRef = 28121EFC1822226400837E25 /* NSDate+SinaMBlog.m */; };
 		28121F1C1822654C00837E25 /* README.md in Resources */ = {isa = PBXBuildFile; fileRef = 28121F1B1822654C00837E25 /* README.md */; };
 		28121F1E1822655E00837E25 /* TODO in Resources */ = {isa = PBXBuildFile; fileRef = 28121F1D1822655E00837E25 /* TODO */; };
 		281E9844184ED2030039DC38 /* SMSearchResultModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 281E9843184ED2030039DC38 /* SMSearchResultModel.m */; };
@@ -228,8 +227,6 @@
 		28121EF61822038A00837E25 /* NSDateAdditions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NSDateAdditions.h; sourceTree = "<group>"; };
 		28121EF71822038A00837E25 /* NSDateAdditions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NSDateAdditions.m; sourceTree = "<group>"; };
 		28121EF91822040600837E25 /* Three20.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = Three20.bundle; sourceTree = "<group>"; };
-		28121EFB1822226400837E25 /* NSDate+SinaMBlog.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSDate+SinaMBlog.h"; sourceTree = "<group>"; };
-		28121EFC1822226400837E25 /* NSDate+SinaMBlog.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSDate+SinaMBlog.m"; sourceTree = "<group>"; };
 		28121F1B1822654C00837E25 /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = README.md; sourceTree = "<group>"; };
 		28121F1D1822655E00837E25 /* TODO */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = TODO; sourceTree = "<group>"; };
 		281E9842184ED2030039DC38 /* SMSearchResultModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SMSearchResultModel.h; sourceTree = "<group>"; };
@@ -545,8 +542,6 @@
 			children = (
 				28121E871821FA0800837E25 /* NSString+StringValue.h */,
 				28121E881821FA0800837E25 /* NSString+StringValue.m */,
-				28121EFB1822226400837E25 /* NSDate+SinaMBlog.h */,
-				28121EFC1822226400837E25 /* NSDate+SinaMBlog.m */,
 				CEE5261B1840D71A00BF18B6 /* UIImage+nimbusImageNamed.h */,
 				CEE5261C1840D71A00BF18B6 /* UIImage+nimbusImageNamed.m */,
 				2871C58D184C920A003B7684 /* UIView+findViewController.h */,
@@ -1352,7 +1347,6 @@
 				28121EEA1821FA4E00837E25 /* NINetworkImageView.m in Sources */,
 				28121EF51822036900837E25 /* TTGlobalCoreLocale.m in Sources */,
 				28121EF81822038A00837E25 /* NSDateAdditions.m in Sources */,
-				28121EFD1822226400837E25 /* NSDate+SinaMBlog.m in Sources */,
 				2844D9EB1831BF06006405EA /* SMLoginC.m in Sources */,
 				2844DA091831E8B9006405EA /* LJJMaxIdBaseTableModel.m in Sources */,
 				2844DA0C1831EB27006405EA /* SMMaxIdTimelineModel.m in Sources */,
