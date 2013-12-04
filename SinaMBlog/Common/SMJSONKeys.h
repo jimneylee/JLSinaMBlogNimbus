@@ -9,6 +9,10 @@
 #ifndef SinaMBlog_SMJSONKeys_h
 #define SinaMBlog_SMJSONKeys_h
 
+// 分页获取宏
+#define INVALID_INDEX -1
+#define PERPAGE_COUNT 20
+
 //==========================================================================
 // 每条微博信息
 #define JSON_STATUS_LIST           @"statuses"

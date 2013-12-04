@@ -10,6 +10,7 @@
 #import "SMFriendEntity.h"
 
 @implementation SMFriendListEntity
+
 // http://open.weibo.com/wiki/2/friendships/groups
 ///////////////////////////////////////////////////////////////////////////////////////////////////
 + (id)entityWithDictionary:(NSDictionary*)dic
