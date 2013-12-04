@@ -17,28 +17,27 @@
 #import "SMStatusEntity.h"
 #import "SMCommentOrRetweetC.h"
 
+// 自定义链接协议
+#define PROTOCOL_AT_SOMEONE @"atsomeone://"
+#define PROTOCOL_SHARP_TREND @"sharptrend://"
+
+// 布局字体
 #define TITLE_FONT_SIZE [UIFont systemFontOfSize:15.f]
 #define SUBTITLE_FONT_SIZE [UIFont systemFontOfSize:12.f]
 #define BUTTON_FONT_SIZE [UIFont systemFontOfSize:13.f]
 
-#if 0
-
-#define CONTENT_FONT_SIZE [UIFont systemFontOfSize:18.f]
-#define RETWEET_CONTENT_FONT_SIZE [UIFont systemFontOfSize:16.f]
-
-#else
-
-//冬青字体：http://tadaland.com/ios-better-experience-font-hiragino.html
+// 冬青字体：http://tadaland.com/ios-better-experience-font-hiragino.html
+// 本微博：字体 行高 文本色设置
 #define CONTENT_FONT_SIZE [UIFont fontWithName:@"Hiragino Sans GB" size:18.f]
 #define CONTENT_LINE_HEIGHT 22.f
 #define CONTENT_TEXT_COLOR RGBCOLOR(30, 30, 30)
 
+// 被转发原文：字体 行高 文本色设置
 #define RETWEET_CONTENT_FONT_SIZE [UIFont fontWithName:@"Hiragino Sans GB" size:16.f]
 #define RETWEET_CONTENT_LINE_HEIGHT 20.f
 #define RETWEET_CONTENT_TEXT_COLOR [UIColor darkGrayColor]// 0.333 white
 
-#endif
-
+// 布局固定参数值
 #define HEAD_IAMGE_HEIGHT 34
 #define CONTENT_IMAGE_HEIGHT 160
 #define BUTTON_SIZE CGSizeMake(103.f, 30.f)
@@ -123,8 +122,9 @@
             contentLabel.font = RETWEET_CONTENT_FONT_SIZE;
             contentLabel.lineHeight = RETWEET_CONTENT_LINE_HEIGHT;
             contentLabel.width = kRetweetContentLength;
-            contentLabel.text = [NSString stringWithFormat:@"%@: %@",
-                                             o.retweeted_status.user.name,
+            NSString* namePrefix = [NSString stringWithFormat:@"%@: ", o.retweeted_status.user.name];
+            contentLabel.text = [NSString stringWithFormat:@"%@%@",
+                                             namePrefix,
                                              o.retweeted_status.text];
             [contentLabel sizeToFit];
             height = height + contentLabel.height;
@@ -355,11 +355,13 @@
         if (o.retweeted_status) {
             self.hasRetweet = YES;
             self.retweetContentView.hidden = NO;
-            self.retweetContentLabel.text = [NSString stringWithFormat:@"%@: %@",
-                                             o.retweeted_status.user.name,
+            NSString* namePrefix = [NSString stringWithFormat:@"%@: ", o.retweeted_status.user.name];
+            self.retweetContentLabel.text = [NSString stringWithFormat:@"%@%@",
+                                             namePrefix,
                                              o.retweeted_status.text];
             
-            NSString* url =[NSString stringWithFormat:@"atsomeone://%@",
+            NSString* url =[NSString stringWithFormat:@"%@%@",
+                            PROTOCOL_AT_SOMEONE,
                             [o.retweeted_status.user.name urlEncoded]];
             [self.retweetContentLabel addLink:[NSURL URLWithString:url]
                             range:NSMakeRange(0, o.retweeted_status.user.name.length)];
@@ -367,7 +369,7 @@
             [o.retweeted_status parseAllKeywords];
             [self showAllKeywordsInContentLabel:self.retweetContentLabel
                                      withStatus:o.retweeted_status
-                                   fromLocation:o.retweeted_status.user.name.length+1];
+                                   fromLocation:namePrefix.length];
             
             if (o.retweeted_status.bmiddle_pic.length) {
                 self.retweetContentImageView.hidden = NO;
@@ -400,7 +402,7 @@
     if (o.atPersonRanges.count) {
         for (int i = 0; i < o.atPersonRanges.count; i++) {
             k = (SMKeywordEntity*)o.atPersonRanges[i];
-            url =[NSString stringWithFormat:@"atsomeone://%@", [k.keyword urlEncoded]];
+            url =[NSString stringWithFormat:@"%@%@", PROTOCOL_AT_SOMEONE, [k.keyword urlEncoded]];
             [contentLabel addLink:[NSURL URLWithString:url]
                             range:NSMakeRange(k.range.location + location, k.range.length)];
 
@@ -409,7 +411,7 @@
     if (o.sharpTrendRanges.count) {
         for (int i = 0; i < o.sharpTrendRanges.count; i++) {
             k = (SMKeywordEntity*)o.sharpTrendRanges[i];
-            url = [NSString stringWithFormat:@"sharptrend://%@", [k.keyword urlEncoded]];
+            url = [NSString stringWithFormat:@"%@%@", PROTOCOL_SHARP_TREND, [k.keyword urlEncoded]];
             [contentLabel addLink:[NSURL URLWithString:url]
                             range:NSMakeRange(k.range.location + location, k.range.length)];
             
@@ -435,15 +437,15 @@ didSelectTextCheckingResult:(NSTextCheckingResult *)result
     }
     
     if (nil != url) {
-        if ([url.absoluteString hasPrefix:@"atsomeone://"]) {
-            NSString* someone = [url.absoluteString substringFromIndex:@"atsomeone://".length];
+        if ([url.absoluteString hasPrefix:PROTOCOL_AT_SOMEONE]) {
+            NSString* someone = [url.absoluteString substringFromIndex:PROTOCOL_AT_SOMEONE.length];
             // TODO: show someone homepage
             someone = [someone stringByReplacingPercentEscapesUsingEncoding:NSUTF8StringEncoding];
             [SMGlobalConfig showHUDMessage:someone
                                addedToView:[UIApplication sharedApplication].keyWindow];
         }
-        else if ([url.absoluteString hasPrefix:@"sharptrend://"]) {
-            NSString* sometrend = [url.absoluteString substringFromIndex:@"sharptrend://".length];
+        else if ([url.absoluteString hasPrefix:PROTOCOL_SHARP_TREND]) {
+            NSString* sometrend = [url.absoluteString substringFromIndex:PROTOCOL_SHARP_TREND.length];
             // TODO: show some mblogs about this trend
             sometrend = [sometrend stringByReplacingPercentEscapesUsingEncoding:NSUTF8StringEncoding];
             [SMGlobalConfig showHUDMessage:sometrend
