@@ -44,6 +44,12 @@
   return [[NSDate date] dateAtMidnight];
 }
 
++ (NSDate *)formatDateFromString:(NSString *)str {
+    NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
+    [dateFormatter setLocale:[[NSLocale alloc] initWithLocaleIdentifier:@"en_US_POSIX"]];
+    [dateFormatter setDateFormat:@"EEE MMM dd HH:mm:ss '+0800' yyyy"];
+    return [dateFormatter dateFromString:str];
+}
 
 ///////////////////////////////////////////////////////////////////////////////////////////////////
 ///////////////////////////////////////////////////////////////////////////////////////////////////
@@ -201,84 +207,6 @@
       return [self formatDateTime];
     }
   }
-}
-
-
-///////////////////////////////////////////////////////////////////////////////////////////////////
-- (NSString*)zd_formatDateTime {
-    NSTimeInterval diff = abs([self timeIntervalSinceNow]);
-    if (diff < TT_DAY) {
-        return [self formatTime];
-        
-    } else {
-        static NSDateFormatter* formatter = nil;
-        if (nil == formatter) {
-            formatter = [[NSDateFormatter alloc] init];
-            formatter.dateFormat = TTLocalizedString(@"MMM d h:mm a", @"Date format: Jul 27 1:05 pm");
-            formatter.locale = TTCurrentLocale();
-        }
-        return [formatter stringFromDate:self];
-    }
-}
-
-///////////////////////////////////////////////////////////////////////////////////////////////////
-- (NSString*)zd_formatRelativeTime {
-    NSTimeInterval elapsed = [self timeIntervalSinceNow];
-    if (elapsed > 0) {
-        if (elapsed <= 1) {
-            return TTLocalizedString(@"in just a moment", @"");
-        }
-        else if (elapsed < TT_MINUTE) {
-            int seconds = (int)(elapsed);
-            return [NSString stringWithFormat:TTLocalizedString(@"in %d seconds", @""), seconds];
-            
-        }
-        else if (elapsed < 2*TT_MINUTE) {
-            return TTLocalizedString(@"in about a minute", @"");
-        }
-        else if (elapsed < TT_HOUR) {
-            int mins = (int)(elapsed/TT_MINUTE);
-            return [NSString stringWithFormat:TTLocalizedString(@"in %d minutes", @""), mins];
-        }
-        else if (elapsed < TT_HOUR*1.5) {
-            return TTLocalizedString(@"in about an hour", @"");
-        }
-        else if (elapsed < TT_DAY) {
-            int hours = (int)((elapsed+TT_HOUR/2)/TT_HOUR);
-            return [NSString stringWithFormat:TTLocalizedString(@"in %d hours", @""), hours];
-        }
-        else {
-            return [self zd_formatDateTime];
-        }
-    }
-    else {
-        elapsed = -elapsed;
-        
-        if (elapsed <= 1) {
-            return TTLocalizedString(@"just a moment ago", @"");
-            
-        } else if (elapsed < TT_MINUTE) {
-            int seconds = (int)(elapsed);
-            return [NSString stringWithFormat:TTLocalizedString(@"%d seconds ago", @""), seconds];
-            
-        } else if (elapsed < 2*TT_MINUTE) {
-            return TTLocalizedString(@"about a minute ago", @"");
-            
-        } else if (elapsed < TT_HOUR) {
-            int mins = (int)(elapsed/TT_MINUTE);
-            return [NSString stringWithFormat:TTLocalizedString(@"%d minutes ago", @""), mins];
-            
-        } else if (elapsed < TT_HOUR*1.5) {
-            return TTLocalizedString(@"about an hour ago", @"");
-            
-        } else if (elapsed < TT_DAY) {
-            int hours = (int)((elapsed+TT_HOUR/2)/TT_HOUR);
-            return [NSString stringWithFormat:TTLocalizedString(@"%d hours ago", @""), hours];
-            
-        } else {
-            return [self zd_formatDateTime];
-        }
-    }
 }
 
 

@@ -18,6 +18,8 @@
 
 @interface NSDate (TTCategory)
 
++ (NSDate *)formatDateFromString:(NSString *)str;
+
 /**
  * Returns the current date with the time set to midnight.
  */
