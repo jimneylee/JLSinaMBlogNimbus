@@ -80,6 +80,7 @@ PS:以前项目中主要使用[three20](https://github.com/facebook/three20)开�
 
       pod install
     
-    4、官方的nimbus版本没有修复NIAttributedLabel在tableview中link无法点击问题，
+    4、官方的nimbus版本没有修复NIAttributedLabel在tableview中link无法点击问题
+    
        请暂时用Nimbus_fix目录下的NIAttributedLabel.m替换原工程中的这个文件
        参考：http://stackoverflow.com/questions/17467086/using-niattributedlabel-in-uitableviewcell
