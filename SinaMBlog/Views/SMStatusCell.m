@@ -471,7 +471,6 @@ shouldPresentActionSheet:(UIActionSheet *)actionSheet
 #pragma mark - UIButton Action
 - (void)retweetAction
 {
-    NSLog(@"retweet action");
     NSString* retweetContent = nil;
     if (self.statusEntity.retweeted_status) {
         retweetContent = self.statusEntity.text;
@@ -486,7 +485,6 @@ shouldPresentActionSheet:(UIActionSheet *)actionSheet
 
 - (void)commentAction
 {
-    NSLog(@"comment action");
     SMCommentOrRetweetC* c = [[SMCommentOrRetweetC alloc] initWithBlogId:self.statusEntity.blogID];
     if (self.viewController) {
         [self.viewController.navigationController pushViewController:c animated:YES];
@@ -495,7 +493,6 @@ shouldPresentActionSheet:(UIActionSheet *)actionSheet
 
 - (void)praiseAction
 {
-    NSLog(@"praise action");
     if (self.viewController) {
         [SMGlobalConfig showHUDMessage:@"暂时没有赞的接口"
                            addedToView:self.viewController.view];
