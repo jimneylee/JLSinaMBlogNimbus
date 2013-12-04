@@ -169,4 +169,32 @@ NSString *const kSNAPIBaseURLString = @"https://api.weibo.com/2/";
     return [NSString stringWithFormat:@"comments/destroy.json"];
 }
 
+#pragma mark - Search
+// 搜索用户
++ (NSString*)urlForSearchUsersWithKeywords:(NSString*)keywords
+                               pageCounter:(NSInteger)pageCounter
+                              perpageCount:(NSInteger)perpageCount
+{
+    return [NSString stringWithFormat:@"search/suggestions/users.json?q=%@&page=%d&count=%d&access_token=%@",
+            keywords, pageCounter, perpageCount, [SMGlobalConfig getCurrentLoginedAccessToken]];
+}
+
+// 搜索微博
++ (NSString*)urlForSearchStatusesWithKeywords:(NSString*)keywords
+                                  pageCounter:(NSInteger)pageCounter
+                                 perpageCount:(NSInteger)perpageCount
+{
+    return [NSString stringWithFormat:@"search/suggestions/statuses.json?q=%@&page=%d&count=%d&access_token=%@",
+            keywords, pageCounter, perpageCount, [SMGlobalConfig getCurrentLoginedAccessToken]];
+}
+
+// 搜索话题下的微博信息
+// 高级接口待申请 http://open.weibo.com/wiki/2/search/topics
++ (NSString*)urlForSearchTrendsWithKeywords:(NSString*)keywords
+                                pageCounter:(NSInteger)pageCounter
+                               perpageCount:(NSInteger)perpageCount
+{
+    return [NSString stringWithFormat:@"search/topics.json?q=%@&page=%d&count=%d&access_token=%@",
+            keywords, pageCounter, perpageCount, [SMGlobalConfig getCurrentLoginedAccessToken]];
+}
 @end

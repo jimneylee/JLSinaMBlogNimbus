@@ -63,6 +63,24 @@
 // 删除一条微博评论
 + (NSString*)relativePathForDestroyComment;
 
+//================================================================================
+// search
+//================================================================================
+// 搜索用户
++ (NSString*)urlForSearchUsersWithKeywords:(NSString*)keywords
+                               pageCounter:(NSInteger)pageCounter
+                              perpageCount:(NSInteger)perpageCount;
+
+// 搜索微博
++ (NSString*)urlForSearchStatusesWithKeywords:(NSString*)keywords
+                                  pageCounter:(NSInteger)pageCounter
+                                 perpageCount:(NSInteger)perpageCount;
+
+// 搜索话题下的微博信息
++ (NSString*)urlForSearchTrendsWithKeywords:(NSString*)keywords
+                                pageCounter:(NSInteger)pageCounter
+                               perpageCount:(NSInteger)perpageCount;
+
 @end
 
 NSString *const kSNAPIBaseURLString;
