@@ -28,7 +28,7 @@
 /**
  * Additions.
  */
-TT_FIX_CATEGORY_BUG(NSDataAdditions)
+//TT_FIX_CATEGORY_BUG(NSDataAdditions)
 
 @implementation NSData (TTCategory)
 

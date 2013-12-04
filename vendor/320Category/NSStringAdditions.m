@@ -27,7 +27,7 @@
 /**
  * Additions.
  */
-TT_FIX_CATEGORY_BUG(NSStringAdditions)
+//TT_FIX_CATEGORY_BUG(NSStringAdditions)
 
 @implementation NSString (TTAdditions)
 
