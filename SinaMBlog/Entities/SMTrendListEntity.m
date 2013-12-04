@@ -39,21 +39,6 @@
         NSString* key = [keys objectAtIndex:0];
         entity.time = key;
         NSArray* sourceArray = [sourceDic objectForKey:key];
-// unit test
-//      sourceArray = [NSArray arrayWithObjects:
-//                       [NSDictionary dictionaryWithObjectsAndKeys:@"Ljin李进", @"name", nil],
-//                       [NSDictionary dictionaryWithObjectsAndKeys:@"jin进", @"name", nil],
-//                       [NSDictionary dictionaryWithObjectsAndKeys:@"3jimney", @"name", nil],
-//                       [NSDictionary dictionaryWithObjectsAndKeys:@"晋jimn", @"name", nil],
-//                       [NSDictionary dictionaryWithObjectsAndKeys:@"JIN进", @"name", nil],
-//                       [NSDictionary dictionaryWithObjectsAndKeys:@"Lljin李进", @"name", nil],
-//                       [NSDictionary dictionaryWithObjectsAndKeys:@"10李jin进", @"name", nil],
-//                       [NSDictionary dictionaryWithObjectsAndKeys:@"ljin李进", @"name", nil],
-//                       [NSDictionary dictionaryWithObjectsAndKeys:@"李进", @"name", nil],
-//                       [NSDictionary dictionaryWithObjectsAndKeys:@"-李进", @"name", nil],
-//                       [NSDictionary dictionaryWithObjectsAndKeys:@"jimneylee", @"name", nil]
-//                       nil];
-        
         entity.unsortedArray = [NSMutableArray arrayWithCapacity:sourceArray.count];
         for (NSDictionary* d in sourceArray) {
             SMTrendEntity* aTrend = [SMTrendEntity entityWithDictionary:d];
