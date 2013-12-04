@@ -1,7 +1,7 @@
 #截图
 ===============
 
-![image](https://github.com/jimneylee/ContactListSort/raw/master/Screenshots/screenshot1.png)
+![image]
 
 #enjoy it!
 
