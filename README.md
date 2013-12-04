@@ -25,7 +25,7 @@
 
 --------------
 
-#OpenSinaMBlog
+#SinaMBlogNimbus
 --------------
 
 基于轻量级iOS开发框架[nimbus](https://github.com/jverkoey/nimbus)，网络层采用AFNetworking，
