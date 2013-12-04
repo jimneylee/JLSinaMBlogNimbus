@@ -41,28 +41,33 @@
 // 表情plist文件名
 #define EMOTION_PLIST @"emotion_icons.plist"
 
+// 微博时间线信息类型
 typedef enum {
-    // 微博广场
-    MBlogTimeLineType_Public = 0,       // 随便看看
-    MBlogTimeLineType_HotRecommend = 1, // 推荐微博
-    MBlogTimeLineType_HotComment = 2,   // 热门评论
-    MBlogTimeLineType_HotRepost = 3,    // 热门转发
-    // 其他
-    MBlogTimeLineType_Friends = 4,      // 当前登录用户及关注好友的微博
-    MBlogTimeLineType_User = 5,         // 用户发布的微博
-    MBlogTimeLineType_AtMe = 6,         // @当前登录用户的微博
-    MBlogTimeLineType_Comments = 7,     // 返回最新N条评论列表（发送的和接收到的）
-    MBlogTimeLineType_CommentsToMe = 8,
-    MBlogTimeLineType_CommentsByMe = 9,
-    MBlogTimeLinetype_DirectMsgs = 10    // 登录用户的私信列表
+    MBlogTimeLineType_Public,       // 随便看看
+    MBlogTimeLineType_Friends,      // 当前登录用户及关注好友的微博
+    MBlogTimeLineType_User,         // 用户发布的微博
+    MBlogTimeLineType_AtMe,         // @当前登录用户的微博
+    MBlogTimeLineType_Comments,     // 返回最新N条评论列表（发送的和接收到的）
+    MBlogTimeLineType_CommentsToMe, // 评论我的微博
+    MBlogTimeLineType_CommentsByMe, // 我发出的评论
+    MBlogTimeLinetype_DirectMsgs    // 登录用户的私信列表
 }MBlogTimeLineType;
 
+// 微博发送类型
 typedef enum
 {
     MBlogPostType_AtUser,
     MBlogPostType_AboutTrend,
     MBlogPostType_Common
 }MBlogPostType;
+
+//微博搜索类型
+typedef enum
+{
+    SearchType_Statuses,
+    SearchType_Users,
+    SearchType_Topics
+}SearchType;
 
 @interface SMGlobalConfig : NSObject
 

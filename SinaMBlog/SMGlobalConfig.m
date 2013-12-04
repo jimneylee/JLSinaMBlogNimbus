@@ -23,11 +23,6 @@ static NSString* currentLoginedExpiresIn = nil;
 static NSArray* emotionsArray = nil;
 static NSArray* emotionsArrayForHtml = nil;
 
-// font setting
-static NSUInteger settingFontSizeIndex = ULONG_MAX;
-static NSUInteger settingBrowseModeIndex = ULONG_MAX;
-static NSUInteger settingMsgRemindFrequencyIndex = ULLONG_MAX;
-
 @implementation SMGlobalConfig
 
 ///////////////////////////////////////////////////////////////////////////////////////////////////
@@ -170,7 +165,7 @@ static NSUInteger settingMsgRemindFrequencyIndex = ULLONG_MAX;
         NSMutableArray* entities = [NSMutableArray arrayWithCapacity:array.count];
         SMEmotionEntity* entity;
         for (NSDictionary* dic in array) {
-            entity = [SMEmotionEntity createWithDictionary:dic];
+            entity = [SMEmotionEntity entityWithDictionary:dic];
             [entities addObject:entity];
         }
         emotionsArray = entities;
@@ -196,7 +191,7 @@ static NSUInteger settingMsgRemindFrequencyIndex = ULLONG_MAX;
         NSMutableArray* entities = [NSMutableArray arrayWithCapacity:array.count];
         SMEmotionEntity* entity;
         for (NSDictionary* dic in array) {
-            entity = [SMEmotionEntity createWithDictionaryForHtml:dic];
+            entity = [SMEmotionEntity entityWithDictionaryForHtml:dic];
             [entities addObject:entity];
         }
         emotionsArrayForHtml = entities;
