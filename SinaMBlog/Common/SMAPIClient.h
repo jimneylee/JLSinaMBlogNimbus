@@ -13,6 +13,7 @@
 
 + (SMAPIClient*)sharedClient;
 
+// 获取数据，是否需要refresh新的数据
 - (void)getPath:(NSString *)path
      parameters:(NSDictionary *)parameters
         refresh:(BOOL)refresh
