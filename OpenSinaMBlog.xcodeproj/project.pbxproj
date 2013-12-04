@@ -37,6 +37,7 @@
 		281E984C184EED890039DC38 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 281E984B184EED890039DC38 /* SystemConfiguration.framework */; };
 		281E984E184EEE370039DC38 /* MobileCoreServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 281E984D184EEE370039DC38 /* MobileCoreServices.framework */; };
 		281E9851184EEEE00039DC38 /* SMNetworkSpy.m in Sources */ = {isa = PBXBuildFile; fileRef = 281E9850184EEEE00039DC38 /* SMNetworkSpy.m */; };
+		281E9854184F1A910039DC38 /* homepage.png in Resources */ = {isa = PBXBuildFile; fileRef = 281E9853184F1A910039DC38 /* homepage.png */; };
 		28398CA3183360110087F2F1 /* SMUserInfoModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 28398CA2183360110087F2F1 /* SMUserInfoModel.m */; };
 		283D4A3E184D9CB000329272 /* icon.png in Resources */ = {isa = PBXBuildFile; fileRef = 283D4A3A184D9CB000329272 /* icon.png */; };
 		283D4A3F184D9CB000329272 /* icon@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 283D4A3B184D9CB000329272 /* icon@2x.png */; };
@@ -230,6 +231,7 @@
 		281E984D184EEE370039DC38 /* MobileCoreServices.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MobileCoreServices.framework; path = System/Library/Frameworks/MobileCoreServices.framework; sourceTree = SDKROOT; };
 		281E984F184EEEE00039DC38 /* SMNetworkSpy.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SMNetworkSpy.h; sourceTree = "<group>"; };
 		281E9850184EEEE00039DC38 /* SMNetworkSpy.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SMNetworkSpy.m; sourceTree = "<group>"; };
+		281E9853184F1A910039DC38 /* homepage.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = homepage.png; sourceTree = "<group>"; };
 		28398CA1183360110087F2F1 /* SMUserInfoModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SMUserInfoModel.h; sourceTree = "<group>"; };
 		28398CA2183360110087F2F1 /* SMUserInfoModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SMUserInfoModel.m; sourceTree = "<group>"; };
 		283D4A3A184D9CB000329272 /* icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = icon.png; sourceTree = "<group>"; };
@@ -681,6 +683,15 @@
 			path = vendor/320Category;
 			sourceTree = "<group>";
 		};
+		281E9852184F1A910039DC38 /* Screenshot */ = {
+			isa = PBXGroup;
+			children = (
+				281E9853184F1A910039DC38 /* homepage.png */,
+			);
+			name = Screenshot;
+			path = SinaMBlog/Images/Screenshot;
+			sourceTree = SOURCE_ROOT;
+		};
 		283D4A39184D9CB000329272 /* icon_default */ = {
 			isa = PBXGroup;
 			children = (
@@ -816,6 +827,7 @@
 		28B4757F1820EFC30044DF59 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				281E9852184F1A910039DC38 /* Screenshot */,
 				CEE5262C1840E03200BF18B6 /* Images */,
 				28121E1C1821F05D00837E25 /* Default-568h@2x.png */,
 				28121E1D1821F05D00837E25 /* Default.png */,
@@ -1207,6 +1219,7 @@
 				CE48316B184CB756002991AD /* NimbusWebController.bundle in Resources */,
 				CEE526671840ED1900BF18B6 /* compose_keyboardbutton_background@2x.png in Resources */,
 				CEE526681840ED1900BF18B6 /* compose_locatebutton_background_highlighted.png in Resources */,
+				281E9854184F1A910039DC38 /* homepage.png in Resources */,
 				CEE526691840ED1900BF18B6 /* compose_locatebutton_background_highlighted@2x.png in Resources */,
 				CEE5266A1840ED1900BF18B6 /* compose_locatebutton_background.png in Resources */,
 				CEE5266B1840ED1900BF18B6 /* compose_locatebutton_background@2x.png in Resources */,
