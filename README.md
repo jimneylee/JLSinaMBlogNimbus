@@ -22,23 +22,21 @@
 #OpenSinaMBlog
 --------------
 
-基于轻量级iOS开发框架[nimbus](https://github.com/jverkoey/nimbus)，
+基于轻量级iOS开发框架[nimbus](https://github.com/jverkoey/nimbus)，网络层采用AFNetworking，
 
-网络层采用AFNetworking，在此基础上进行二次构建，可以简单、便捷地处理和显示列表数据，
+在此基础上进行二次构建，可以简单、便捷地处理和显示列表数据，
 
-通过新浪微博授权后的首页为例子，介绍框架的使用，通过开源分享，跟大家一起技术交流。
+通过制作iOS7上新浪微博APP的首页，介绍框架的使用，通过开源分享，一起交流进步。
 
-由于新浪微博的api接口阉割太多，所以这个开源客户端主要分享的技术点如下：
+主要分享的技术点如下：
 
-1、tableView列表的数据获取和显示
+1、二次构建，处理tableView列表的网络数据请求和显示
 
-2、类似官方客户端列表中的富文本的布局和关键字的识别和交互
+2、类似官方APP富文本的布局和关键字的识别和交互
 
-3、发布微博、拍照及地理位置获取
+3、发布微博、拍照及获取地理位置
 
-PS:以前项目中主要使用[three20](https://github.com/facebook/three20)开发APP，
-
-了解过three20的同学，应该比较熟悉nimbus的作者，不熟悉请google之。
+PS:以前项目中主要使用[three20](https://github.com/facebook/three20)开发APP，了解过three20的同学，应该比较熟悉nimbus的作者，不熟悉请google之。
 
 --------------
 项目clone到本地后
