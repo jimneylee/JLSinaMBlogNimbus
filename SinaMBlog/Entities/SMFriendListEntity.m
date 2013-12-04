@@ -12,7 +12,7 @@
 @implementation SMFriendListEntity
 // http://open.weibo.com/wiki/2/friendships/groups
 ///////////////////////////////////////////////////////////////////////////////////////////////////
-+ (id)createWithDictionary:(NSDictionary*)dic
++ (id)entityWithDictionary:(NSDictionary*)dic
 {
     SMFriendListEntity* entity = [SMFriendListEntity new];
     NSArray* sourceArray = [dic objectForKey:@"lists"];
