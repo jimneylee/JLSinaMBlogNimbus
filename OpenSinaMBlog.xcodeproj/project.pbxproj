@@ -40,6 +40,7 @@
 		281E9854184F1A910039DC38 /* homepage.png in Resources */ = {isa = PBXBuildFile; fileRef = 281E9853184F1A910039DC38 /* homepage.png */; };
 		281E9857184F1C8D0039DC38 /* postnewstatus.png in Resources */ = {isa = PBXBuildFile; fileRef = 281E9855184F1C8D0039DC38 /* postnewstatus.png */; };
 		281E9858184F1C8D0039DC38 /* repost.png in Resources */ = {isa = PBXBuildFile; fileRef = 281E9856184F1C8D0039DC38 /* repost.png */; };
+		281E985B184F24C60039DC38 /* NIAttributedLabel.m in Sources */ = {isa = PBXBuildFile; fileRef = 281E985A184F24C60039DC38 /* NIAttributedLabel.m */; };
 		28398CA3183360110087F2F1 /* SMUserInfoModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 28398CA2183360110087F2F1 /* SMUserInfoModel.m */; };
 		283D4A3E184D9CB000329272 /* icon.png in Resources */ = {isa = PBXBuildFile; fileRef = 283D4A3A184D9CB000329272 /* icon.png */; };
 		283D4A3F184D9CB000329272 /* icon@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 283D4A3B184D9CB000329272 /* icon@2x.png */; };
@@ -236,6 +237,7 @@
 		281E9853184F1A910039DC38 /* homepage.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = homepage.png; sourceTree = "<group>"; };
 		281E9855184F1C8D0039DC38 /* postnewstatus.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = postnewstatus.png; sourceTree = "<group>"; };
 		281E9856184F1C8D0039DC38 /* repost.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = repost.png; sourceTree = "<group>"; };
+		281E985A184F24C60039DC38 /* NIAttributedLabel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NIAttributedLabel.m; sourceTree = "<group>"; };
 		28398CA1183360110087F2F1 /* SMUserInfoModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SMUserInfoModel.h; sourceTree = "<group>"; };
 		28398CA2183360110087F2F1 /* SMUserInfoModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SMUserInfoModel.m; sourceTree = "<group>"; };
 		283D4A3A184D9CB000329272 /* icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = icon.png; sourceTree = "<group>"; };
@@ -698,6 +700,14 @@
 			path = SinaMBlog/Images/Screenshot;
 			sourceTree = SOURCE_ROOT;
 		};
+		281E9859184F24C50039DC38 /* Nimbus_fixbug */ = {
+			isa = PBXGroup;
+			children = (
+				281E985A184F24C60039DC38 /* NIAttributedLabel.m */,
+			);
+			path = Nimbus_fixbug;
+			sourceTree = "<group>";
+		};
 		283D4A39184D9CB000329272 /* icon_default */ = {
 			isa = PBXGroup;
 			children = (
@@ -774,6 +784,7 @@
 			children = (
 				28121F1D1822655E00837E25 /* TODO */,
 				28121F1B1822654C00837E25 /* README.md */,
+				281E9859184F24C50039DC38 /* Nimbus_fixbug */,
 				28121DF41821EAB700837E25 /* Vendor */,
 				28B4757E1820EFC30044DF59 /* SinaMBlog */,
 				28B475771820EFC30044DF59 /* Frameworks */,
@@ -1384,6 +1395,7 @@
 				CEE5260C1840D2DD00BF18B6 /* UIImage+Resizing.m in Sources */,
 				CEE5260F1840D30400BF18B6 /* UIImage+fixOrientation.m in Sources */,
 				CEE526161840D38700BF18B6 /* Reachability.m in Sources */,
+				281E985B184F24C60039DC38 /* NIAttributedLabel.m in Sources */,
 				2871C57D184C586D003B7684 /* NIAttributedLabel.m in Sources */,
 				CEE5261D1840D71A00BF18B6 /* UIImage+nimbusImageNamed.m in Sources */,
 				2871C58C184C90B8003B7684 /* NIWebController.m in Sources */,
