@@ -11,7 +11,7 @@
 @implementation SMEmotionEntity
 
 ///////////////////////////////////////////////////////////////////////////////////////////////////
-+ (id)createWithDictionary:(NSDictionary*)dic
++ (id)entityWithDictionary:(NSDictionary*)dic
 {
 	SMEmotionEntity* entity = [SMEmotionEntity new];
 	entity.code = [NSString stringWithFormat:@"[%@]", [dic objectForKey:@"chs"]];
@@ -21,7 +21,7 @@
 }
 
 ///////////////////////////////////////////////////////////////////////////////////////////////////
-+ (id)createWithDictionaryForHtml:(NSDictionary *)dic {
++ (id)entityWithDictionaryForHtml:(NSDictionary *)dic {
     SMEmotionEntity* entity = [SMEmotionEntity new];
 	entity.code = [NSString stringWithFormat:@"[%@]", [dic objectForKey:@"chs"]];
 	NSString* name = [dic objectForKey:@"gif"];

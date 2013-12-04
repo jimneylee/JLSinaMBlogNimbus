@@ -14,8 +14,8 @@
 	NSString* _urlPath;
 }
 
-+ (id)createWithDictionary:(NSDictionary*)dic;
-+ (id)createWithDictionaryForHtml:(NSDictionary *)dic;
++ (id)entityWithDictionary:(NSDictionary*)dic;
++ (id)entityWithDictionaryForHtml:(NSDictionary *)dic;
 @property (nonatomic, copy) NSString* code;
 @property (nonatomic, copy) NSString* urlPath;
 @end
