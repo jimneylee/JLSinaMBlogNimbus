@@ -1,7 +1,7 @@
 #截图
 ===============
 
-![image]
+![image](http://git.oschina.net/jimneylee/SinaMBlogNimbus/raw/master/SinaMBlog/Images/Screenshot/homepage.png)
 
 #enjoy it!
 
