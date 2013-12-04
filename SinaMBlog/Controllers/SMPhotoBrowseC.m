@@ -26,17 +26,6 @@
 }
 
 ///////////////////////////////////////////////////////////////////////////////////////////////////
-- (id)initWithNavigatorURL:(NSURL *)URL query:(NSDictionary *)query
-{
-    self = [self initWithNibName:nil bundle:nil];
-    if (self) {
-        self.urlPath = [query objectForKey:@"urlpath"];
-    }
-    
-    return self;
-}
-
-///////////////////////////////////////////////////////////////////////////////////////////////////
 - (id)initWithImage:(UIImage*)image
 {
     self = [self initWithNibName:nil bundle:nil];
@@ -52,9 +41,7 @@
 {
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
     if (self) {
-        // Custom initialization
-        
-        self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"保存" 
+        self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"保存"
                                                                                  style:UIBarButtonItemStylePlain 
                                                                                 target:self action:@selector(save)];
         
