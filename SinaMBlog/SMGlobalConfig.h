@@ -13,7 +13,7 @@
 
 //"error":"applications over the unaudited use restrictions!"
 //报错参考此处：http://open.weibo.com/qa/index.php?qa=159&qa_1=%E7%94%A8%E6%88%B7%E6%8E%88%E6%9D%83%E5%90%8E%E5%87%BA%E7%8E%B0applications-over-unaudited-restrictions%E9%94%99%E8%AF%AF%E6%80%8E%E4%B9%88%E8%A7%A3%E5%86%B3%EF%BC%9F
-//#error @"设置你自己的appkey，请注释掉#error"
+//#error @"please set your sina app key"
 #define SinaWeiboV2AppKey @"2045436852"
 #define SinaWeiboV2RedirectUri @"http://www.sina.com"
 
@@ -24,9 +24,6 @@
 #define IOS_IS_AT_LEAST_6 ([[[UIDevice currentDevice] systemVersion] floatValue] >= 6.0)
 #define IOS_IS_AT_LEAST_7 ([[[UIDevice currentDevice] systemVersion] floatValue] >= 7.0)
 
-#define INVALID_INDEX -1
-#define PERPAGE_COUNT 20
-
 // Cell布局相关 
 #define CELL_PADDING_10 10
 #define CELL_PADDING_8 8
@@ -34,12 +31,10 @@
 #define CELL_PADDING_4 4
 #define CELL_PADDING_2 2
 
+// TableView 视图背景
 #define TABLE_VIEW_BG_COLOR RGBCOLOR(230, 230, 230)
 #define CELL_CONTENT_VIEW_BG_COLOR RGBCOLOR(247, 247, 247)
 #define CELL_CONTENT_VIEW_BORDER_COLOR RGBCOLOR(234, 234, 234)
-
-// 表情plist文件名
-#define EMOTION_PLIST @"emotion_icons.plist"
 
 // 微博时间线信息类型
 typedef enum {

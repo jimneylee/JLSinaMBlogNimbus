@@ -160,7 +160,7 @@ static NSArray* emotionsArrayForHtml = nil;
 + (NSArray* )emotionsArray
 {
     if (!emotionsArray) {
-        NSString *path = [[NSBundle mainBundle] pathForResource:EMOTION_PLIST ofType:nil];
+        NSString *path = nil;//[[NSBundle mainBundle] pathForResource:EMOTION_PLIST ofType:nil];
         NSArray* array = [NSArray arrayWithContentsOfFile:path];
         NSMutableArray* entities = [NSMutableArray arrayWithCapacity:array.count];
         SMEmotionEntity* entity;
@@ -186,7 +186,7 @@ static NSArray* emotionsArrayForHtml = nil;
 + (NSString*)pathForEmotionCodeForHtml:(NSString*)code
 {
     if (!emotionsArrayForHtml) {
-        NSString *path = [[NSBundle mainBundle] pathForResource:EMOTION_PLIST ofType:nil];
+        NSString *path = nil;//[[NSBundle mainBundle] pathForResource:EMOTION_PLIST ofType:nil];
         NSArray* array = [NSArray arrayWithContentsOfFile:path];
         NSMutableArray* entities = [NSMutableArray arrayWithCapacity:array.count];
         SMEmotionEntity* entity;
