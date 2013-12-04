@@ -11,7 +11,7 @@
 		28121E231821F05D00837E25 /* Default.png in Resources */ = {isa = PBXBuildFile; fileRef = 28121E1D1821F05D00837E25 /* Default.png */; };
 		28121E241821F05D00837E25 /* Default@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 28121E1E1821F05D00837E25 /* Default@2x.png */; };
 		28121E251821F05D00837E25 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 28121E1F1821F05D00837E25 /* main.m */; };
-		28121E261821F05D00837E25 /* OpenSinaMBlog-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 28121E201821F05D00837E25 /* OpenSinaMBlog-Info.plist */; };
+		28121E261821F05D00837E25 /* SinaMBlogNimbus-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 28121E201821F05D00837E25 /* SinaMBlogNimbus-Info.plist */; };
 		28121E591821F07300837E25 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 28121E561821F07200837E25 /* AppDelegate.m */; };
 		28121E5A1821F07300837E25 /* SMGlobalConfig.m in Sources */ = {isa = PBXBuildFile; fileRef = 28121E581821F07300837E25 /* SMGlobalConfig.m */; };
 		28121EA31821FA0800837E25 /* NSString+StringValue.m in Sources */ = {isa = PBXBuildFile; fileRef = 28121E881821FA0800837E25 /* NSString+StringValue.m */; };
@@ -184,8 +184,8 @@
 		28121E1D1821F05D00837E25 /* Default.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = Default.png; path = SinaMBlog/Default.png; sourceTree = SOURCE_ROOT; };
 		28121E1E1821F05D00837E25 /* Default@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "Default@2x.png"; path = "SinaMBlog/Default@2x.png"; sourceTree = SOURCE_ROOT; };
 		28121E1F1821F05D00837E25 /* main.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = main.m; path = SinaMBlog/main.m; sourceTree = SOURCE_ROOT; };
-		28121E201821F05D00837E25 /* OpenSinaMBlog-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "OpenSinaMBlog-Info.plist"; path = "SinaMBlog/OpenSinaMBlog-Info.plist"; sourceTree = SOURCE_ROOT; };
-		28121E211821F05D00837E25 /* OpenSinaMBlog-Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "OpenSinaMBlog-Prefix.pch"; path = "SinaMBlog/OpenSinaMBlog-Prefix.pch"; sourceTree = SOURCE_ROOT; };
+		28121E201821F05D00837E25 /* SinaMBlogNimbus-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "SinaMBlogNimbus-Info.plist"; path = "SinaMBlog/SinaMBlogNimbus-Info.plist"; sourceTree = SOURCE_ROOT; };
+		28121E211821F05D00837E25 /* SinaMBlogNimbus-Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "SinaMBlogNimbus-Prefix.pch"; path = "SinaMBlog/SinaMBlogNimbus-Prefix.pch"; sourceTree = SOURCE_ROOT; };
 		28121E551821F07200837E25 /* AppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AppDelegate.h; path = SinaMBlog/AppDelegate.h; sourceTree = SOURCE_ROOT; };
 		28121E561821F07200837E25 /* AppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = AppDelegate.m; path = SinaMBlog/AppDelegate.m; sourceTree = SOURCE_ROOT; };
 		28121E571821F07300837E25 /* SMGlobalConfig.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SMGlobalConfig.h; path = SinaMBlog/SMGlobalConfig.h; sourceTree = SOURCE_ROOT; };
@@ -350,7 +350,7 @@
 		2872F355182104ED008F329D /* NITableViewModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = NITableViewModel.h; path = vendor/nimbus/src/models/src/NITableViewModel.h; sourceTree = "<group>"; };
 		2872F356182104ED008F329D /* NITableViewModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = NITableViewModel.m; path = vendor/nimbus/src/models/src/NITableViewModel.m; sourceTree = "<group>"; };
 		2872F357182104ED008F329D /* NITableViewModel+Private.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "NITableViewModel+Private.h"; path = "vendor/nimbus/src/models/src/NITableViewModel+Private.h"; sourceTree = "<group>"; };
-		28B475751820EFC30044DF59 /* OpenSinaMBlog.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = OpenSinaMBlog.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		28B475751820EFC30044DF59 /* SinaMBlogNimbus.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SinaMBlogNimbus.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		28B475781820EFC30044DF59 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		28B4757A1820EFC30044DF59 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		28B4757C1820EFC30044DF59 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -796,7 +796,7 @@
 		28B475761820EFC30044DF59 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				28B475751820EFC30044DF59 /* OpenSinaMBlog.app */,
+				28B475751820EFC30044DF59 /* SinaMBlogNimbus.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -850,8 +850,8 @@
 				28121E1D1821F05D00837E25 /* Default.png */,
 				28121E1E1821F05D00837E25 /* Default@2x.png */,
 				28121E1F1821F05D00837E25 /* main.m */,
-				28121E201821F05D00837E25 /* OpenSinaMBlog-Info.plist */,
-				28121E211821F05D00837E25 /* OpenSinaMBlog-Prefix.pch */,
+				28121E201821F05D00837E25 /* SinaMBlogNimbus-Info.plist */,
+				28121E211821F05D00837E25 /* SinaMBlogNimbus-Prefix.pch */,
 			);
 			name = "Supporting Files";
 			sourceTree = "<group>";
@@ -1156,9 +1156,9 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		28B475741820EFC30044DF59 /* OpenSinaMBlog */ = {
+		28B475741820EFC30044DF59 /* SinaMBlogNimbus */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 28B475981820EFC30044DF59 /* Build configuration list for PBXNativeTarget "OpenSinaMBlog" */;
+			buildConfigurationList = 28B475981820EFC30044DF59 /* Build configuration list for PBXNativeTarget "SinaMBlogNimbus" */;
 			buildPhases = (
 				99F971B4003F40CB84714AAA /* Check Pods Manifest.lock */,
 				28B475711820EFC30044DF59 /* Sources */,
@@ -1170,9 +1170,9 @@
 			);
 			dependencies = (
 			);
-			name = OpenSinaMBlog;
+			name = SinaMBlogNimbus;
 			productName = VideoOnline;
-			productReference = 28B475751820EFC30044DF59 /* OpenSinaMBlog.app */;
+			productReference = 28B475751820EFC30044DF59 /* SinaMBlogNimbus.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
@@ -1185,7 +1185,7 @@
 				LastUpgradeCheck = 0460;
 				ORGANIZATIONNAME = SuperMaxDev;
 			};
-			buildConfigurationList = 28B475701820EFC20044DF59 /* Build configuration list for PBXProject "OpenSinaMBlog" */;
+			buildConfigurationList = 28B475701820EFC20044DF59 /* Build configuration list for PBXProject "SinaMBlogNimbus" */;
 			compatibilityVersion = "Xcode 3.2";
 			developmentRegion = English;
 			hasScannedForEncodings = 0;
@@ -1197,7 +1197,7 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				28B475741820EFC30044DF59 /* OpenSinaMBlog */,
+				28B475741820EFC30044DF59 /* SinaMBlogNimbus */,
 			);
 		};
 /* End PBXProject section */
@@ -1210,7 +1210,7 @@
 				28121E221821F05D00837E25 /* Default-568h@2x.png in Resources */,
 				28121E231821F05D00837E25 /* Default.png in Resources */,
 				28121E241821F05D00837E25 /* Default@2x.png in Resources */,
-				28121E261821F05D00837E25 /* OpenSinaMBlog-Info.plist in Resources */,
+				28121E261821F05D00837E25 /* SinaMBlogNimbus-Info.plist in Resources */,
 				283D4A46184D9CC500329272 /* Default.png in Resources */,
 				28121EFA1822040600837E25 /* Three20.bundle in Resources */,
 				28121F1C1822654C00837E25 /* README.md in Resources */,
@@ -1471,8 +1471,8 @@
 			baseConfigurationReference = B466FEF4A8494C228DF493F0 /* Pods.xcconfig */;
 			buildSettings = {
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = "SinaMBlog/OpenSinaMBlog-Prefix.pch";
-				INFOPLIST_FILE = "SinaMBlog/OpenSinaMBlog-Info.plist";
+				GCC_PREFIX_HEADER = "SinaMBlog/SinaMBlogNimbus-Prefix.pch";
+				INFOPLIST_FILE = "SinaMBlog/SinaMBlogNimbus-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
@@ -1481,7 +1481,7 @@
 					"\"$(SRCROOT)/vendor/baidumap/libs/Release-iphoneos\"",
 					"\"$(SRCROOT)/vendor/baidumap/libs/Release-iphonesimulator\"",
 				);
-				PRODUCT_NAME = OpenSinaMBlog;
+				PRODUCT_NAME = SinaMBlogNimbus;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				WRAPPER_EXTENSION = app;
 			};
@@ -1492,8 +1492,8 @@
 			baseConfigurationReference = B466FEF4A8494C228DF493F0 /* Pods.xcconfig */;
 			buildSettings = {
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = "SinaMBlog/OpenSinaMBlog-Prefix.pch";
-				INFOPLIST_FILE = "SinaMBlog/OpenSinaMBlog-Info.plist";
+				GCC_PREFIX_HEADER = "SinaMBlog/SinaMBlogNimbus-Prefix.pch";
+				INFOPLIST_FILE = "SinaMBlog/SinaMBlogNimbus-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
@@ -1502,7 +1502,7 @@
 					"\"$(SRCROOT)/vendor/baidumap/libs/Release-iphoneos\"",
 					"\"$(SRCROOT)/vendor/baidumap/libs/Release-iphonesimulator\"",
 				);
-				PRODUCT_NAME = OpenSinaMBlog;
+				PRODUCT_NAME = SinaMBlogNimbus;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				WRAPPER_EXTENSION = app;
 			};
@@ -1511,7 +1511,7 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		28B475701820EFC20044DF59 /* Build configuration list for PBXProject "OpenSinaMBlog" */ = {
+		28B475701820EFC20044DF59 /* Build configuration list for PBXProject "SinaMBlogNimbus" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				28B475961820EFC30044DF59 /* Debug */,
@@ -1520,7 +1520,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		28B475981820EFC30044DF59 /* Build configuration list for PBXNativeTarget "OpenSinaMBlog" */ = {
+		28B475981820EFC30044DF59 /* Build configuration list for PBXNativeTarget "SinaMBlogNimbus" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				28B475991820EFC30044DF59 /* Debug */,
