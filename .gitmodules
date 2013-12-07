@@ -1,3 +1,9 @@
 [submodule "vendor/nimbus"]
 	path = vendor/nimbus
 	url = https://github.com/jverkoey/nimbus.git
+[submodule "vendor/NimbusTimeline"]
+	path = vendor/NimbusTimeline
+	url = https://github.com/jimneylee/NimbusTimeline.git
+[submodule "vendor/JLNimbusTimeline"]
+	path = vendor/JLNimbusTimeline
+	url = https://github.com/jimneylee/JLNimbusTimeline.git
