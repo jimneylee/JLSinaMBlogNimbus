@@ -7,7 +7,7 @@
 
 # SinaMBlogNimbus
 
-基于轻量级iOS开发框架[nimbus](https://github.com/jverkoey/nimbus)，网络层采用AFNetworking，
+基于轻量级iOS开发框架[Nimbus](https://github.com/jverkoey/nimbus)，网络层采用AFNetworking，
 
 在此基础上进行二次构建，可以简单、便捷地处理和显示列表数据，
 
@@ -15,48 +15,46 @@
 
 主要分享的技术点如下：
 
-1、二次构建，简化tableView网络数据请求和显示
+   1、二次构建，简化tableView网络数据请求和显示
 
-2、类似官方APP富文本的布局和关键字的识别和交互
+   2、类似官方APP富文本的布局和关键字的识别和交互
 
-3、发布微博、拍照及获取地理位置
+   3、发布微博、拍照及获取地理位置
 
-PS:以前项目中主要使用[three20](https://github.com/facebook/three20)开发APP，了解过three20的同学，应该比较熟悉nimbus的作者，不熟悉请google之。
+   PS:以前项目中主要使用[three20](https://github.com/facebook/three20)开发APP，了解过three20的同学，应该比较熟悉nimbus的作者，不熟悉请google之。
 
---------------
-项目clone到本地后
-
-1、更新submodule：
+# 更新依赖库
+   1、更新submodule：
 ``` bash
    git submodule init 
    git submodule update
-'''
+```
    注：如需要添加其他的submodule
 
        git submodule add https://github.com/jverkoey/nimbus.git vendor/nimbus
 
-2、使用[CocoaPods](http://cocoapods.org)的命令安装其他依赖库：
+   2、使用[CocoaPods](http://cocoapods.org)的命令安装其他依赖库：
 ``` bash   
    pod install
-'''   
+```   
    注：如需要添加其他依赖库，请修改Podfile
 
-#ERROR解决方法
+# ERROR解决方法
 
     1、若出现这个问题：'vendor/SDURLCache' already exists in the index
 ``` bash
       git rm --cached vendor/SDURLCache
-'''
+```
     2、若出现这个问题：fatal: not removing 'vendor/nimbus' recursively without -r
 ``` bash
       git rm -r --cached vendor/SDURLCache
-'''
+```
     3、若出现这个问题：diff: /../Podfile.lock: No such file or directory 
     diff: /Manifest.lock: No such file or directory 
     error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.
 ``` bash
       pod install
-'''
+```
     4、官方的nimbus版本没有修复NIAttributedLabel在tableview中link无法点击问题
     
        请暂时用Nimbus_fix目录下的NIAttributedLabel.m替换原工程中的这个文件
