@@ -1,4 +1,4 @@
-# 截图
+# Screenshots
 
 ![image](http://git.oschina.net/jimneylee/SinaMBlogNimbus/raw/master/SinaMBlog/Images/Screenshot/homepage.png)
 ![image](http://git.oschina.net/jimneylee/SinaMBlogNimbus/raw/master/SinaMBlog/Images/Screenshot/postnewstatus.png)
@@ -39,7 +39,6 @@ $ pod install
    注：如需要添加其他依赖库，请修改Podfile
 
 # ERROR解决方法
-
     1、若出现这个问题：'vendor/SDURLCache' already exists in the index
 ``` bash
 $ git rm --cached vendor/SDURLCache
@@ -55,18 +54,21 @@ $ git rm -r --cached vendor/SDURLCache
 $ pod install
 ```
     4、官方的nimbus版本没有修复NIAttributedLabel在tableview中link无法点击问题
-    
        请暂时用Nimbus_fix目录下的NIAttributedLabel.m替换原工程中的这个文件
        参考：http://stackoverflow.com/questions/17467086/using-niattributedlabel-in-uitableviewcell
 
 # DONE
 1、支持XCode4 & XCode5 & iOS7
+
 2、集成新浪微博SDK
+
 3、发帖、转发、评论
+
 4、微博征文布局和@某人、#话题#识别
 
 # TODO
 1、原图查看
+
 2、表情显示
 
 # LICENSE
