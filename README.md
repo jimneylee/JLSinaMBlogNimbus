@@ -27,9 +27,9 @@ $ git submodule init
 $ git submodule update
 ```
    注：如需要添加其他的submodule
-
+``` bash
        git submodule add https://github.com/jverkoey/nimbus.git vendor/nimbus
-
+```
    2、使用[CocoaPods](http://cocoapods.org)的命令安装其他依赖库
 ``` bash   
 $ pod install
