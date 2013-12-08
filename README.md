@@ -1,11 +1,9 @@
 # Screenshots
-
 ![image](http://git.oschina.net/jimneylee/SinaMBlogNimbus/raw/master/SinaMBlog/Images/Screenshot/homepage.png)
 ![image](http://git.oschina.net/jimneylee/SinaMBlogNimbus/raw/master/SinaMBlog/Images/Screenshot/postnewstatus.png)
 ![image](http://git.oschina.net/jimneylee/SinaMBlogNimbus/raw/master/SinaMBlog/Images/Screenshot/repost.png)
 
 # SinaMBlogNimbus
-
 基于轻量级iOS开发框架[Nimbus](https://github.com/jverkoey/nimbus)，网络层采用AFNetworking，
 
 在此基础上进行二次构建，可以简单、便捷地处理和显示列表数据，
@@ -23,7 +21,7 @@
    PS:以前项目中主要使用[three20](https://github.com/facebook/three20)开发APP，了解过three20的同学，应该比较熟悉nimbus的作者，不熟悉请google之。
 
 # 更新依赖库
-   1、更新submodule：
+   1、更新submodule
 ``` bash
 $ git submodule init 
 $ git submodule update
@@ -32,7 +30,7 @@ $ git submodule update
 
        git submodule add https://github.com/jverkoey/nimbus.git vendor/nimbus
 
-   2、使用[CocoaPods](http://cocoapods.org)的命令安装其他依赖库：
+   2、使用[CocoaPods](http://cocoapods.org)的命令安装其他依赖库
 ``` bash   
 $ pod install
 ```   
