@@ -6,9 +6,9 @@
 //  Copyright (c) 2013 jimneylee. All rights reserved.
 //
 
-#import "LJJMaxIdBaseTableModel.h"
+#import "SMMaxIdTimelineModel.h"
 
-@interface SMMaxIdTimelineModel : LJJMaxIdBaseTableModel
+@interface SMMaxIdTimelineTypeModel : SMMaxIdTimelineModel
 
 - (id)initWithDelegate:(id<NITableViewModelDelegate>)delegate timeLineType:(MBlogTimeLineType)type;
 

@@ -7,14 +7,14 @@
 //
 
 #import <Foundation/Foundation.h>
-#import "SMBaseEntity.h"
+#import "JLNimbusEntity.h"
 #import "SMUserInfoEntity.h"
 
 @interface SMKeywordEntity : NSObject
 @property (nonatomic, copy) NSString* keyword;
 @property (nonatomic, assign) NSRange range;
 @end
-@interface SMStatusEntity : SMBaseEntity
+@interface SMStatusEntity : JLNimbusEntity
 
 @property (nonatomic, strong) SMUserInfoEntity *user;
 @property (nonatomic, strong) SMStatusEntity *retweeted_status;

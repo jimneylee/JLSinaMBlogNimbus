@@ -1,5 +1,5 @@
 //
-//  SNListBaseModel.h
+//  SMMaxIdTimelineModel.h
 //  SinaMBlogNimbus
 //
 //  Created by Lee jimney on 7/27/13.
@@ -12,17 +12,8 @@
 ///////////////////////////////////////////////////////////////////////////////////////////////////
 ///////////////////////////////////////////////////////////////////////////////////////////////////
 ///////////////////////////////////////////////////////////////////////////////////////////////////
-@interface LJJMaxIdBaseTableModel : NIMutableTableViewModel
+@interface SMMaxIdTimelineModel : JLNimbusTableModel
 
-@property (nonatomic, assign) BOOL hasMoreEntity;
 @property (nonatomic, copy) NSString* oldMaxId;
-@property (nonatomic, assign) NSInteger perpageCount;
-
-- (Class)objectClass;
-- (Class)cellClass;
-- (NSDictionary*)generateParameters;
-- (NSArray*)getEntityArray:(NSDictionary*)dic;
-
-- (void)loadDataWithBlock:(void(^)(NSArray* items, NSError *error))block more:(BOOL)more refresh:(BOOL)refresh;
 
 @end

@@ -7,6 +7,7 @@
 //
 
 #import "SMPageTimelineModel.h"
+#import "SMAPIClient.h"
 #import "SMStatusEntity.h"
 #import "SMStatusCell.h"
 
@@ -30,7 +31,7 @@
 }
 
 ///////////////////////////////////////////////////////////////////////////////////////////////////
-- (NSString*)listString
+- (NSString*)listKey
 {
 	return JSON_STATUS_LIST;
 }
@@ -45,6 +46,12 @@
 - (Class)cellClass
 {
     return [SMStatusCell class];
+}
+
+///////////////////////////////////////////////////////////////////////////////////////////////////
+- (id)apiSharedClient
+{
+    return [SMAPIClient sharedClient];
 }
 
 @end

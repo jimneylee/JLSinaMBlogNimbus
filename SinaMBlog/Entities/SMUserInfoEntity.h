@@ -6,11 +6,11 @@
 //  Copyright (c) 2013年 jimneylee. All rights reserved.
 //
 
-#import "SMBaseEntity.h"
+#import "JLNimbusEntity.h"
 #import "SMUserInfoEntity.h"
 
 @class SMStatusEntity;
-@interface SMUserInfoEntity : SMBaseEntity
+@interface SMUserInfoEntity : JLNimbusEntity
 
 @property(nonatomic, retain) SMStatusEntity *status;
 @property(nonatomic, copy) NSString *userID;

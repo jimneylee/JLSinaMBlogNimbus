@@ -41,8 +41,8 @@ NSString *const SNDidOAuthNotification = @"DidOAuthNotification";
         self.title = @"新浪微博";
 
         _actions = [[NITableViewActions alloc] initWithTarget:self];
-        NIActionBlock tapLoginAction =
-        ^BOOL(id object, UIViewController *controller, NSIndexPath* indexPath) {
+        NITableViewActionBlock tapLoginAction =
+        ^BOOL(id object, UIViewController *controller) {
             if ([SMAuthorizeModel isAuthorized]) {
                 [self showHomeView];
             }
@@ -58,7 +58,7 @@ NSString *const SNDidOAuthNotification = @"DidOAuthNotification";
             return NO;
         };
         
-        NIActionBlock tapPublicAction = ^BOOL(id object, UIViewController *controller, NSIndexPath* indexPath) {
+        NITableViewActionBlock tapPublicAction = ^BOOL(id object, UIViewController *controller) {
             SMPageTimlineListC* c = [[SMPageTimlineListC alloc] init];
             [controller.navigationController pushViewController:c animated:YES];
             return YES;

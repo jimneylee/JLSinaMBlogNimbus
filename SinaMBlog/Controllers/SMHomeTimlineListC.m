@@ -8,12 +8,12 @@
 
 #import "SMHomeTimlineListC.h"
 #import "SMStatusEntity.h"
-#import "SMMaxIdTimelineModel.h"
+#import "SMMaxIdTimelineTypeModel.h"
 #import "SMUserInfoModel.h"
 #import "SMMBlogPostC.h"
 
 @interface SMHomeTimlineListC ()
-@property (nonatomic, strong) NIActionBlock tapAction;
+@property (nonatomic, strong) NITableViewActionBlock tapAction;
 @end
 
 @implementation SMHomeTimlineListC
@@ -92,13 +92,13 @@
 ///////////////////////////////////////////////////////////////////////////////////////////////////
 - (id)tableModelClass
 {
-    return [SMMaxIdTimelineModel class];
+    return [SMMaxIdTimelineTypeModel class];
 }
 
 ///////////////////////////////////////////////////////////////////////////////////////////////////
-- (NIActionBlock)tapAction
+- (NITableViewActionBlock)tapAction
 {
-    return ^BOOL(id object, id target, NSIndexPath *indexPath) {
+    return ^BOOL(id object, id target) {
         if (!self.editing) {
             if ([object isKindOfClass:[SMStatusEntity class]]) {
                 SMStatusEntity* status = (SMStatusEntity*)object;

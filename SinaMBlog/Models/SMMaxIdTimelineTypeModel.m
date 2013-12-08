@@ -6,15 +6,15 @@
 //  Copyright (c) 2013 jimneylee. All rights reserved.
 //
 
-#import "SMMaxIdTimelineModel.h"
+#import "SMMaxIdTimelineTypeModel.h"
 #import "SMStatusEntity.h"
 #import "SMStatusCell.h"
 
-@interface SMMaxIdTimelineModel()
+@interface SMMaxIdTimelineTypeModel()
 @property (nonatomic, assign) MBlogTimeLineType timelineType;
 @end
 
-@implementation SMMaxIdTimelineModel
+@implementation SMMaxIdTimelineTypeModel
 
 ///////////////////////////////////////////////////////////////////////////////////////////////////
 - (id)initWithDelegate:(id<NITableViewModelDelegate>)delegate
@@ -62,7 +62,7 @@
 }
 
 ///////////////////////////////////////////////////////////////////////////////////////////////////
-- (NSString*)listString
+- (NSString*)listKey
 {
 	return JSON_STATUS_LIST;
 }

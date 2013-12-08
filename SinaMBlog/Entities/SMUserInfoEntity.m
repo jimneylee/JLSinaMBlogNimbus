@@ -45,7 +45,7 @@
 }
 
 ///////////////////////////////////////////////////////////////////////////////////////////////////
-+ (SMBaseEntity *)entityWithDictionary:(NSDictionary *)dic {
++ (JLNimbusEntity *)entityWithDictionary:(NSDictionary *)dic {
     if (!dic.count || ![dic isKindOfClass:[NSDictionary class]]) {
         return nil;
     }

@@ -7,8 +7,8 @@
 //
 
 #import <UIKit/UIKit.h>
-#import "LJJBaseTableC.h"
+#import "JLNimbusTableViewController.h"
 
-@interface SMHomeTimlineListC : LJJBaseTableC
+@interface SMHomeTimlineListC : JLNimbusTableViewController
 
 @end

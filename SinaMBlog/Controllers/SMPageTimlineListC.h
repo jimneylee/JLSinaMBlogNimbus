@@ -6,8 +6,8 @@
 //  Copyright (c) 2013年 jimneylee. All rights reserved.
 //
 
-#import "LJJBaseTableC.h"
+#import "JLNimbusTableViewController.h"
 
-@interface SMPageTimlineListC : LJJBaseTableC
+@interface SMPageTimlineListC : JLNimbusTableViewController
 
 @end
