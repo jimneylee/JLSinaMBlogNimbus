@@ -3,7 +3,6 @@
 ![image](http://git.oschina.net/jimneylee/SinaMBlogNimbus/raw/master/SinaMBlog/Images/Screenshot/homepage.png)
 ![image](http://git.oschina.net/jimneylee/SinaMBlogNimbus/raw/master/SinaMBlog/Images/Screenshot/postnewstatus.png)
 ![image](http://git.oschina.net/jimneylee/SinaMBlogNimbus/raw/master/SinaMBlog/Images/Screenshot/repost.png)
-#enjoy it!
 
 # SinaMBlogNimbus
 
@@ -26,8 +25,8 @@
 # 更新依赖库
    1、更新submodule：
 ``` bash
-   git submodule init 
-   git submodule update
+$ git submodule init 
+$ git submodule update
 ```
    注：如需要添加其他的submodule
 
@@ -35,7 +34,7 @@
 
    2、使用[CocoaPods](http://cocoapods.org)的命令安装其他依赖库：
 ``` bash   
-   pod install
+$ pod install
 ```   
    注：如需要添加其他依赖库，请修改Podfile
 
@@ -43,17 +42,17 @@
 
     1、若出现这个问题：'vendor/SDURLCache' already exists in the index
 ``` bash
-      git rm --cached vendor/SDURLCache
+$ git rm --cached vendor/SDURLCache
 ```
     2、若出现这个问题：fatal: not removing 'vendor/nimbus' recursively without -r
 ``` bash
-      git rm -r --cached vendor/SDURLCache
+$ git rm -r --cached vendor/SDURLCache
 ```
     3、若出现这个问题：diff: /../Podfile.lock: No such file or directory 
     diff: /Manifest.lock: No such file or directory 
     error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.
 ``` bash
-      pod install
+$ pod install
 ```
     4、官方的nimbus版本没有修复NIAttributedLabel在tableview中link无法点击问题
     
