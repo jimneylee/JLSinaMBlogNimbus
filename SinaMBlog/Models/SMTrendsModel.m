@@ -19,7 +19,7 @@
 {
 	self = [super initWithDelegate:delegate];
 	if (self) {
-        self.hasMoreEntity = NO;
+        self.hasMoreData = NO;
 	}
 	return self;
 }

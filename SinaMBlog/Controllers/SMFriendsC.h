@@ -6,11 +6,11 @@
 //  Copyright (c) 2013年 jimneylee. All rights reserved.
 //
 
-#import "LJJBaseTableC.h"
+#import "JLNimbusTableViewController.h"
 
 @class SMFriendEntity;
 @protocol SMFriendsDelegate;
-@interface SMFriendsC : LJJBaseTableC
+@interface SMFriendsC : JLNimbusTableViewController
 
 @property(nonatomic, assign) id<SMFriendsDelegate> friendsDelegate;
 

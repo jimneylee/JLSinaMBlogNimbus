@@ -6,8 +6,8 @@
 //  Copyright (c) 2013 jimneylee. All rights reserved.
 //
 
-#import "LJJBaseTableModel.h"
+#import "JLNimbusTableModel.h"
 
-@interface SMTrendsModel : LJJBaseTableModel
+@interface SMTrendsModel : JLNimbusTableModel
 
 @end

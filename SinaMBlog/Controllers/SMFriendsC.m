@@ -41,9 +41,9 @@
 }
 
 ///////////////////////////////////////////////////////////////////////////////////////////////////
-- (NIActionBlock)tapAction
+- (NITableViewActionBlock)tapAction
 {
-    return ^BOOL(id object, id target, NSIndexPath *indexPath) {
+    return ^BOOL(id object, id target) {
         if (!self.editing) {
             if ([object isKindOfClass:[SMFriendEntity class]]) {
                 SMFriendEntity* entity = (SMFriendEntity*)object;

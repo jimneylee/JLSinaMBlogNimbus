@@ -7,6 +7,7 @@
 //
 
 #import "SMFriendsModel.h"
+#import "SMAPIClient.h"
 #import "SMFriendEntity.h"
 #import "SMFriendListEntity.h"
 #import "SMFriendCell.h"
@@ -46,7 +47,7 @@
 - (void)loadDataWithBlock:(void(^)(NSArray* indexPaths, NSError *error))block  more:(BOOL)more
 {
     NSString* relativePath = [self relativePath];
-    [[SMAPIClient sharedClient] getPath:relativePath parameters:[self generateParameters]
+    [[SMAPIClient sharedClient] getPath:relativePath parameters:nil
                                 success:^(AFHTTPRequestOperation *operation, id responseObject) {
                                     // remove all
                                     for (int i = 0; i < self.sections.count; i++) {

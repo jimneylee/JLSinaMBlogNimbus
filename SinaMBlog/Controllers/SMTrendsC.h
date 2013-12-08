@@ -6,10 +6,10 @@
 //  Copyright (c) 2013年 jimneylee. All rights reserved.
 //
 
-#import "LJJBaseTableC.h"
+#import "JLNimbusTableViewController.h"
 
 @protocol SMTrendsDelegate;
-@interface SMTrendsC : LJJBaseTableC
+@interface SMTrendsC : JLNimbusTableViewController
 
 @property(nonatomic, assign) id<SMTrendsDelegate> trendsDelegate;
 

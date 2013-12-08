@@ -6,8 +6,8 @@
 //  Copyright (c) 2013年 jimneylee. All rights reserved.
 //
 
-#import "LJJBaseTableModel.h"
+#import "JLNimbusTableModel.h"
 
-@interface SMFriendsModel : LJJBaseTableModel
+@interface SMFriendsModel : JLNimbusTableModel
 
 @end
