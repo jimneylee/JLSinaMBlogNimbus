@@ -7,18 +7,11 @@
 //
 
 #import "AFHTTPClient.h"
-#import "AFJSONRequestOperation.h"
+#import "JLAFHTTPClient.h"
 
-@interface SMAPIClient : AFHTTPClient
+@interface SMAPIClient : JLAFHTTPClient
 
 + (SMAPIClient*)sharedClient;
-
-// 获取数据，是否需要refresh新的数据
-- (void)getPath:(NSString *)path
-     parameters:(NSDictionary *)parameters
-        refresh:(BOOL)refresh
-        success:(void (^)(AFHTTPRequestOperation *operation, id responseObject))success
-        failure:(void (^)(AFHTTPRequestOperation *operation, NSError *error))failure;
 
 // 用户信息
 + (NSString *)relativePathForUserInfoWithUserName:(NSString *)userName
