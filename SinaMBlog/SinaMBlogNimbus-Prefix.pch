@@ -20,16 +20,9 @@
     // MBProgressHUD
     #import "MBProgressHUD.h"
 
-    // three20 category
-    #import "UIViewAdditions.h"
+    // JLNimbusTimeline
+    #import "JLNimbusTimeline.h"
 
-    // nimbus
-    #import "NimbusModels.h"
-    #import "NimbusCore.h"
-    #import "NimbusNetworkImage.h"
-    #import "NITableViewModel+Private.h"
-    #import "NIMutableTableViewModel+Private.h"
-    
     // sina mblog sdk
     #import "WeiboSDK.h"
 
