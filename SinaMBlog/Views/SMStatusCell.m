@@ -26,21 +26,20 @@
 #define SUBTITLE_FONT_SIZE [UIFont systemFontOfSize:12.f]
 #define BUTTON_FONT_SIZE [UIFont systemFontOfSize:13.f]
 
-// 冬青字体：http://tadaland.com/ios-better-experience-font-hiragino.html
 // 本微博：字体 行高 文本色设置
-#define CONTENT_FONT_SIZE [UIFont fontWithName:@"Hiragino Sans GB" size:18.f]
+#define CONTENT_FONT_SIZE [UIFont fontWithName:@"STHeitiSC-Light" size:18.f]
 #define CONTENT_LINE_HEIGHT 22.f
 #define CONTENT_TEXT_COLOR RGBCOLOR(30, 30, 30)
 
 // 被转发原文：字体 行高 文本色设置
-#define RETWEET_CONTENT_FONT_SIZE [UIFont fontWithName:@"Hiragino Sans GB" size:16.f]
+#define RETWEET_CONTENT_FONT_SIZE [UIFont fontWithName:@"STHeitiSC-Light" size:16.f]
 #define RETWEET_CONTENT_LINE_HEIGHT 20.f
 #define RETWEET_CONTENT_TEXT_COLOR [UIColor darkGrayColor]// 0.333 white
 
 // 布局固定参数值
 #define HEAD_IAMGE_HEIGHT 34
 #define CONTENT_IMAGE_HEIGHT 160
-#define BUTTON_SIZE CGSizeMake(103.f, 30.f)
+#define BUTTON_SIZE CGSizeMake(103.f, 35.f)
 
 @interface SMStatusCell()<NIAttributedLabelDelegate>
 @property (nonatomic, strong) NIAttributedLabel* contentLabel;
@@ -248,7 +247,8 @@
     self.textLabel.backgroundColor = [UIColor clearColor];
     self.detailTextLabel.backgroundColor = [UIColor clearColor];
     self.contentLabel.backgroundColor = [UIColor clearColor];
-
+    self.retweetContentView.backgroundColor = CELL_RETWEET_CONTENT_VIEW_BG_COLOR;
+    
     CGFloat cellMargin = CELL_PADDING_6;
     CGFloat contentViewMarin = CELL_PADDING_8;
     CGFloat sideMargin = cellMargin + contentViewMarin;
@@ -475,7 +475,11 @@ shouldPresentActionSheet:(UIActionSheet *)actionSheet
     return NO;
 }
 
+///////////////////////////////////////////////////////////////////////////////////////////////////
+///////////////////////////////////////////////////////////////////////////////////////////////////
 #pragma mark - UIButton Action
+
+///////////////////////////////////////////////////////////////////////////////////////////////////
 - (void)retweetAction
 {
     NSString* retweetContent = nil;
@@ -490,6 +494,7 @@ shouldPresentActionSheet:(UIActionSheet *)actionSheet
     }
 }
 
+///////////////////////////////////////////////////////////////////////////////////////////////////
 - (void)commentAction
 {
     SMCommentOrRetweetC* c = [[SMCommentOrRetweetC alloc] initWithBlogId:self.statusEntity.blogID];
@@ -498,6 +503,7 @@ shouldPresentActionSheet:(UIActionSheet *)actionSheet
     }
 }
 
+///////////////////////////////////////////////////////////////////////////////////////////////////
 - (void)praiseAction
 {
     if (self.viewController) {
@@ -506,7 +512,11 @@ shouldPresentActionSheet:(UIActionSheet *)actionSheet
     }
 }
 
+///////////////////////////////////////////////////////////////////////////////////////////////////
+///////////////////////////////////////////////////////////////////////////////////////////////////
 #pragma mark - UI
+
+///////////////////////////////////////////////////////////////////////////////////////////////////
 - (UIButton*)retweetBtn
 {
     if (!_retweetBtn) {
@@ -523,6 +533,7 @@ shouldPresentActionSheet:(UIActionSheet *)actionSheet
     return _retweetBtn;
 }
 
+///////////////////////////////////////////////////////////////////////////////////////////////////
 - (UIButton*)commentBtn
 {
     if (!_commentBtn) {
@@ -539,6 +550,7 @@ shouldPresentActionSheet:(UIActionSheet *)actionSheet
     return _commentBtn;
 }
 
+///////////////////////////////////////////////////////////////////////////////////////////////////
 - (UIButton*)praiseBtn
 {
     if (!_praiseBtn) {
@@ -555,4 +567,5 @@ shouldPresentActionSheet:(UIActionSheet *)actionSheet
     }
     return _praiseBtn;
 }
+
 @end
