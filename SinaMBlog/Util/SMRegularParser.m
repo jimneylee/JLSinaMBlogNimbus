@@ -10,7 +10,7 @@
 #import "NSStringAdditions.h"
 #import "SMStatusEntity.h"
 
-static NSString *atRegular = @"@[^.,:;!?\\s#@。，；！？]+";
+static NSString *atRegular = @"@[^.,:;!?()\\s#@。，：；！？（）]+";
 static NSString *sharpRegular = @"#(.*?)#";
 static NSString *iconRegular = @"\\[([\u4e00-\u9fa5]+)\\]";
 
