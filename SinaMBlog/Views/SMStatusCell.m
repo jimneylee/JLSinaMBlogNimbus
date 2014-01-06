@@ -16,6 +16,7 @@
 #import "NSStringAdditions.h"
 #import "SMStatusEntity.h"
 #import "SMCommentOrRetweetC.h"
+#import "SMFullScreenPhotoBrowseView.h"
 
 // 自定义链接协议
 #define PROTOCOL_AT_SOMEONE @"atsomeone://"
@@ -188,7 +189,13 @@
                                                                                      CONTENT_IMAGE_HEIGHT)];
         [self.contentView addSubview:self.contentImageView];
         
-        // ui style
+        // content image gesture
+        self.contentImageView.userInteractionEnabled = YES;
+        UITapGestureRecognizer* tapContentImageGesture = [[UITapGestureRecognizer alloc] initWithTarget:self
+                                                                                                 action:@selector(showContentOriginImage)];
+        [self.contentImageView addGestureRecognizer:tapContentImageGesture];
+        
+        // border style
         self.contentView.layer.borderColor = CELL_CONTENT_VIEW_BORDER_COLOR.CGColor;
         self.contentView.layer.borderWidth = 1.0f;
         
@@ -218,6 +225,13 @@
                                                                                      CONTENT_IMAGE_HEIGHT)];
         [self.retweetContentView addSubview:self.retweetContentImageView];
         
+        // retweet content image gesture
+        self.retweetContentView.userInteractionEnabled = YES;
+        UITapGestureRecognizer* tapRetweetContentImageGesture = [[UITapGestureRecognizer alloc] initWithTarget:self
+                                                                                                 action:@selector(showRetweetContentOriginImage)];
+        [self.retweetContentView addGestureRecognizer:tapRetweetContentImageGesture];
+        
+        // retweet border style
         self.retweetContentView.layer.borderColor = CELL_CONTENT_VIEW_BORDER_COLOR.CGColor;
         self.retweetContentView.layer.borderWidth = 1.0f;
     }
@@ -349,7 +363,9 @@
         
         if (o.bmiddle_pic.length) {
             self.contentImageView.hidden = NO;
-            [self.contentImageView setPathToNetworkImage:o.bmiddle_pic contentMode:UIViewContentModeScaleAspectFill];
+            self.contentImageView.scaleOptions |= NINetworkImageViewScaleToFitCropsExcess;
+            [self.contentImageView setPathToNetworkImage:o.bmiddle_pic contentMode:UIViewContentModeScaleAspectFit];
+            self.contentImageView.contentMode = UIViewContentModeScaleAspectFit;
         }
         else {
             self.contentImageView.hidden = YES;
@@ -378,8 +394,10 @@
             
             if (o.retweeted_status.bmiddle_pic.length) {
                 self.retweetContentImageView.hidden = NO;
+                self.retweetContentImageView.scaleOptions |= NINetworkImageViewScaleToFitCropsExcess;
                 [self.retweetContentImageView setPathToNetworkImage:o.retweeted_status.bmiddle_pic
                                                         contentMode:UIViewContentModeScaleAspectFit];
+                self.retweetContentImageView.contentMode = UIViewContentModeScaleAspectFit;
             }
             else {
                 self.retweetContentImageView.hidden = YES;
@@ -509,6 +527,75 @@ shouldPresentActionSheet:(UIActionSheet *)actionSheet
     if (self.viewController) {
         [SMGlobalConfig showHUDMessage:@"暂时没有赞的接口"
                            addedToView:self.viewController.view];
+    }
+}
+
+///////////////////////////////////////////////////////////////////////////////////////////////////
+- (void)showContentOriginImage
+{
+    if (self.viewController) {
+        if ([self.viewController isKindOfClass:[UITableViewController class]]) {
+            UITableView* tableView = ((UITableViewController*)self.viewController).tableView;
+            UIWindow* window = [UIApplication sharedApplication].keyWindow;
+            
+            // convert rect to self(cell)
+            CGRect rectInCell = [self.contentView convertRect:self.contentImageView.frame toView:self];
+    
+            // convert rect to tableview
+            CGRect rectInTableView = [self convertRect:rectInCell toView:tableView];//self.superview
+            
+            // convert rect to window
+            CGRect rectInWindow = [tableView convertRect:rectInTableView toView:window];
+            
+            // show photo full screen
+            UIImage* image = self.contentImageView.image;
+            if (image) {
+                rectInWindow = CGRectMake(rectInWindow.origin.x + (rectInWindow.size.width - image.size.width) / 2.f,
+                                          rectInWindow.origin.y + (rectInWindow.size.height - image.size.height) / 2.f,
+                                          image.size.width, image.size.height);
+            }
+            SMFullScreenPhotoBrowseView* browseView =
+            [[SMFullScreenPhotoBrowseView alloc] initWithUrlPath:self.statusEntity.original_pic
+                                                       thumbnail:self.contentImageView.image
+                                                        fromRect:rectInWindow];
+            [window addSubview:browseView];
+        }
+    }
+}
+
+///////////////////////////////////////////////////////////////////////////////////////////////////
+- (void)showRetweetContentOriginImage
+{
+    if (self.viewController) {
+        if ([self.viewController isKindOfClass:[UITableViewController class]]) {
+            UITableView* tableView = ((UITableViewController*)self.viewController).tableView;
+            UIWindow* window = [UIApplication sharedApplication].keyWindow;
+
+            // convert rect to content view
+            CGRect rectInContentView = [self.retweetContentView convertRect:self.retweetContentImageView.frame
+                                                                     toView:self.contentView];
+            // convert rect to self(cell)
+            CGRect rectInCell = [self.contentView convertRect:rectInContentView toView:self];
+            
+            // convert rect to tableview
+            CGRect rectInTableView = [self convertRect:rectInCell toView:tableView];
+            
+            // convert rect to window
+            CGRect rectInWindow = [tableView convertRect:rectInTableView toView:window];
+
+            // show photo full screen
+            UIImage* image = self.retweetContentImageView.image;
+            if (image) {
+                rectInWindow = CGRectMake(rectInWindow.origin.x + (rectInWindow.size.width - image.size.width) / 2.f,
+                                          rectInWindow.origin.y + (rectInWindow.size.height - image.size.height) / 2.f,
+                                          image.size.width, image.size.height);
+            }
+            SMFullScreenPhotoBrowseView* browseView =
+            [[SMFullScreenPhotoBrowseView alloc] initWithUrlPath:self.statusEntity.retweeted_status.original_pic
+                                                       thumbnail:self.retweetContentImageView.image
+                                                        fromRect:rectInWindow];
+            [window addSubview:browseView];
+        }
     }
 }
 

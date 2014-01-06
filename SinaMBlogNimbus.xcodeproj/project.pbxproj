@@ -52,6 +52,7 @@
 		2871C575184C2D35003B7684 /* CoreFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2871C574184C2D35003B7684 /* CoreFoundation.framework */; };
 		2871C580184C681A003B7684 /* CoreText.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2871C57F184C681A003B7684 /* CoreText.framework */; };
 		2871C58F184C920A003B7684 /* UIView+findViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2871C58E184C920A003B7684 /* UIView+findViewController.m */; };
+		289D3E57187A6E1400A26C3D /* SMFullScreenPhotoBrowseView.m in Sources */ = {isa = PBXBuildFile; fileRef = 289D3E56187A6E1400A26C3D /* SMFullScreenPhotoBrowseView.m */; };
 		28B475791820EFC30044DF59 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 28B475781820EFC30044DF59 /* UIKit.framework */; };
 		28B4757B1820EFC30044DF59 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 28B4757A1820EFC30044DF59 /* Foundation.framework */; };
 		28B4757D1820EFC30044DF59 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 28B4757C1820EFC30044DF59 /* CoreGraphics.framework */; };
@@ -209,6 +210,8 @@
 		2871C57F184C681A003B7684 /* CoreText.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreText.framework; path = System/Library/Frameworks/CoreText.framework; sourceTree = SDKROOT; };
 		2871C58D184C920A003B7684 /* UIView+findViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+findViewController.h"; sourceTree = "<group>"; };
 		2871C58E184C920A003B7684 /* UIView+findViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+findViewController.m"; sourceTree = "<group>"; };
+		289D3E55187A6E1400A26C3D /* SMFullScreenPhotoBrowseView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SMFullScreenPhotoBrowseView.h; sourceTree = "<group>"; };
+		289D3E56187A6E1400A26C3D /* SMFullScreenPhotoBrowseView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SMFullScreenPhotoBrowseView.m; sourceTree = "<group>"; };
 		28B475751820EFC30044DF59 /* SinaMBlogNimbus.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SinaMBlogNimbus.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		28B475781820EFC30044DF59 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		28B4757A1820EFC30044DF59 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -537,6 +540,8 @@
 				CEE5263B1840E98200BF18B6 /* TTButtonBar.m */,
 				CEE5263D1840EA2400BF18B6 /* SMPostButtonBar.h */,
 				CEE5263E1840EA2400BF18B6 /* SMPostButtonBar.m */,
+				289D3E55187A6E1400A26C3D /* SMFullScreenPhotoBrowseView.h */,
+				289D3E56187A6E1400A26C3D /* SMFullScreenPhotoBrowseView.m */,
 			);
 			name = Views;
 			path = SinaMBlog/Views;
@@ -1132,6 +1137,7 @@
 				28121EA61821FA0800837E25 /* SMPageTimlineListC.m in Sources */,
 				28121EA81821FA0800837E25 /* SMStatusEntity.m in Sources */,
 				CE9E5554185365D400FBBD6D /* UIFontAdditions.m in Sources */,
+				289D3E57187A6E1400A26C3D /* SMFullScreenPhotoBrowseView.m in Sources */,
 				28121EA91821FA0800837E25 /* SMUserInfoEntity.m in Sources */,
 				CE9E554F185365D400FBBD6D /* NSDateAdditions.m in Sources */,
 				28121EAB1821FA0800837E25 /* SMPageTimelineModel.m in Sources */,
