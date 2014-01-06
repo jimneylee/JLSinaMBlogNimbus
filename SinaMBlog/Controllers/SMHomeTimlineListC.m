@@ -45,7 +45,10 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-
+    
+    self.tableView.separatorColor = [UIColor clearColor];
+    self.tableView.backgroundColor = TABLE_VIEW_BG_COLOR;
+    self.tableView.backgroundView = nil;
 }
 
 ///////////////////////////////////////////////////////////////////////////////////////////////////
