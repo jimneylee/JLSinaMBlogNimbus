@@ -12,13 +12,15 @@
 
 主要分享的技术点如下：
 
-   1、二次构建，简化tableView网络数据请求和显示
+* 1、二次构建，简化tableView网络数据请求和显示
 
-   2、类似官方APP富文本的布局和关键字的识别和交互
+* 2、类似官方APP图文的布局和关键字的识别和交互
 
-   3、发布微博、拍照及获取地理位置
+* 3、微博列表查看原图功能实现
 
-   PS:以前项目中主要使用[three20](https://github.com/facebook/three20)开发APP，了解过three20的同学，应该比较熟悉nimbus的作者，不熟悉请google之。
+* 4、发布微博、拍照及获取地理位置
+
+PS:以前项目中主要使用[three20](https://github.com/facebook/three20)开发APP，了解过three20的同学，应该比较熟悉nimbus的作者，不熟悉请google之。
 
 # 更新依赖库
 1、更新submodule
@@ -28,7 +30,7 @@ $ git submodule update
 ```
 注：如需要添加其他的submodule
 ``` bash
-       git submodule add https://github.com/jverkoey/nimbus.git vendor/nimbus
+$ git submodule add https://github.com/jverkoey/nimbus.git vendor/nimbus
 ```
 2、使用[CocoaPods](http://cocoapods.org)的命令安装其他依赖库
 ``` bash   
@@ -56,20 +58,20 @@ $ pod install
    参考：http://stackoverflow.com/questions/17467086/using-niattributedlabel-in-uitableviewcell
 
 # DONE
-1、支持XCode4 & XCode5 & iOS7
+* 1、支持XCode4 & XCode5 & iOS7
 
-2、集成新浪微博SDK
+* 2、集成新浪微博SDK
 
-3、发帖、转发、评论
+* 3、发帖、转发、评论
 
-4、微博征文布局和@某人、#话题#识别
+* 4、微博征文布局和@某人、#话题#识别
 
-5、原图查看
+* 5、原图查看
 
 # TODO
-~~1、原图查看~~
+* ~~1、原图查看~~
 
-2、表情显示
+* 2、表情显示
 
 # LICENSE
 本项目基于MIT协议发布
