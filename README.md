@@ -1,7 +1,5 @@
 # Screenshots
 ![image](http://cc.cocimg.com/bbs/attachment/Fid_19/19_22435_9c77b66707adb15.gif)
-![image](http://git.oschina.net/jimneylee/SinaMBlogNimbus/raw/master/SinaMBlog/Images/Screenshot/homepage.png)
-
 ![image](http://git.oschina.net/jimneylee/SinaMBlogNimbus/raw/master/SinaMBlog/Images/Screenshot/postnewstatus.png)
 ![image](http://git.oschina.net/jimneylee/SinaMBlogNimbus/raw/master/SinaMBlog/Images/Screenshot/repost.png)
 
