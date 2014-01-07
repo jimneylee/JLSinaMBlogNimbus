@@ -1,4 +1,5 @@
 # Screenshots
+![image](http://cc.cocimg.com/bbs/attachment/Fid_19/19_22435_9c77b66707adb15.gif)
 ![image](http://git.oschina.net/jimneylee/SinaMBlogNimbus/raw/master/SinaMBlog/Images/Screenshot/homepage.png)
 ![image](http://git.oschina.net/jimneylee/SinaMBlogNimbus/raw/master/SinaMBlog/Images/Screenshot/postnewstatus.png)
 ![image](http://git.oschina.net/jimneylee/SinaMBlogNimbus/raw/master/SinaMBlog/Images/Screenshot/repost.png)
@@ -64,8 +65,10 @@ $ pod install
 
 4、微博征文布局和@某人、#话题#识别
 
+5、原图查看
+
 # TODO
-1、原图查看
+~~1、原图查看~~
 
 2、表情显示
 
