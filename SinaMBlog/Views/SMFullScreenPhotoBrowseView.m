@@ -8,11 +8,23 @@
 
 #import "SMFullScreenPhotoBrowseView.h"
 
-@interface SMFullScreenPhotoBrowseView ()<UIScrollViewDelegate>
+#define PROGRESS_VIEW_WIDTH 60.f
+#define BUTTON_SIDE_MARGIN 20.f
+#define PREVIEW_ANIMATION_DURATION 0.5f
+
+@interface SMFullScreenPhotoBrowseView ()<UIScrollViewDelegate, NINetworkImageViewDelegate>
+
 @property (nonatomic, assign) CGRect fromRect;
+@property (nonatomic, strong) MBRoundProgressView* progressIndicator;
+@property (nonatomic, strong) UIButton* saveBtn;
+@property (nonatomic, assign) BOOL isOriginPhotoLoaded;
 @end
 
 @implementation SMFullScreenPhotoBrowseView
+
+///////////////////////////////////////////////////////////////////////////////////////////////////
+///////////////////////////////////////////////////////////////////////////////////////////////////
+#pragma mark - UI
 
 ///////////////////////////////////////////////////////////////////////////////////////////////////
 - (id)initWithUrlPath:(NSString *)urlPath thumbnail:(UIImage*)thumbnail fromRect:(CGRect)rect
@@ -22,24 +34,29 @@
         self.fromRect = rect;
         self.thumbnail = thumbnail;
         self.urlPath = urlPath;
-
-        [self initUI];
-
-        if (self.thumbnail) {
-            self.imageView.initialImage = self.thumbnail;
-        }
-        
-        UITapGestureRecognizer* tapGesture = [[UITapGestureRecognizer alloc] initWithTarget:self
-                                                                                     action:@selector(removeFromSuperviewAnimation)];
+        [self initAllViews];
+        UITapGestureRecognizer* tapGesture = [[UITapGestureRecognizer alloc]
+                                              initWithTarget:self action:@selector(removeFromSuperviewAnimation)];
         [self addGestureRecognizer:tapGesture];
-        
+        self.imageView.initialImage = self.thumbnail;
+        self.isOriginPhotoLoaded = NO;
+        self.saveBtn.enabled = NO;
         [self showImageViewAnimation];
     }
     return self;
 }
 
 ///////////////////////////////////////////////////////////////////////////////////////////////////
-- (void)initUI
+- (id)initWithFrame:(CGRect)frame
+{
+    self = [super initWithFrame:frame];
+    if (self) {
+    }
+    return self;
+}
+
+///////////////////////////////////////////////////////////////////////////////////////////////////
+- (void)initAllViews
 {
     self.backgroundColor = [UIColor blackColor];
     
@@ -52,29 +69,44 @@
     [self addSubview:_scrollView];
     
     _imageView = [[NINetworkImageView alloc] initWithFrame:_scrollView.bounds];
+    _imageView.delegate = self;
     _imageView.backgroundColor = [UIColor clearColor];
     [_scrollView addSubview:_imageView];
+    
+    _progressIndicator = [[MBRoundProgressView alloc] initWithFrame:CGRectMake(0.f, 0.f,
+                                                                               PROGRESS_VIEW_WIDTH,
+                                                                               PROGRESS_VIEW_WIDTH)];
+    _progressIndicator.backgroundTintColor = RGBACOLOR(0.f, 0.f, 0.f, 0.6f);
+    
+    UIImage* backgroundImage = [UIImage nimbusImageNamed:@"preview_button.png"];
+    UIImage* saveImage = [UIImage nimbusImageNamed:@"preview_save_icon.png"];
+    _saveBtn = [[UIButton alloc] initWithFrame:
+                CGRectMake(0.f, 0.f, backgroundImage.size.width, backgroundImage.size.height)];
+    [_saveBtn setImage:saveImage forState:UIControlStateNormal];
+    [_saveBtn setBackgroundImage:backgroundImage forState:UIControlStateNormal];
+    [_saveBtn addTarget:self action:@selector(savePhoto) forControlEvents:UIControlEventTouchUpInside];
+    [self addSubview:_saveBtn];
+    
+    self.progressIndicator.center = CGPointMake(self.size.width / 2, self.size.height / 2);
+    self.saveBtn.left = BUTTON_SIDE_MARGIN;
+    self.saveBtn.bottom = self.height - BUTTON_SIDE_MARGIN;
 }
 
 ///////////////////////////////////////////////////////////////////////////////////////////////////
-- (CGRect)calculateScaledFinalFrame
+- (void)layoutSubviews
 {
-    // calcaulate size
-    CGSize thumbSize = self.thumbnail.size;
-    CGFloat finalHeight = self.width * (thumbSize.height / thumbSize.width);
-    CGFloat top = 0.f;
-    if (finalHeight < self.height) {
-        top = (self.height - finalHeight) / 2.f;
-    }
-    return CGRectMake(0.f, top, self.width, finalHeight);
+    [super layoutSubviews];
 }
+
+///////////////////////////////////////////////////////////////////////////////////////////////////
+///////////////////////////////////////////////////////////////////////////////////////////////////
+#pragma mark - Private
 
 ///////////////////////////////////////////////////////////////////////////////////////////////////
 - (void)showImageViewAnimation
 {
     self.imageView.frame = self.fromRect;
     if (self.thumbnail) {
-        
         self.alpha = 0.f;
         
         // calculate scaled frame
@@ -83,7 +115,7 @@
             self.scrollView.contentSize = CGSizeMake(self.width, finalFrame.size.height);
         }
         // animation frame
-        [UIView animateWithDuration:1.f animations:^{
+        [UIView animateWithDuration:PREVIEW_ANIMATION_DURATION animations:^{
             self.imageView.frame = finalFrame;
             self.alpha = 1.f;
         } completion:^(BOOL finished) {
@@ -94,9 +126,16 @@
     }
     else {
         self.imageView.frame = self.bounds;
-        if (self.urlPath) {
-            [self.imageView setPathToNetworkImage:self.urlPath contentMode:UIViewContentModeScaleAspectFit];
-        }
+        self.alpha = 0.f;
+        
+        // animation frame
+        [UIView animateWithDuration:PREVIEW_ANIMATION_DURATION animations:^{
+            self.alpha = 1.f;
+        } completion:^(BOOL finished) {
+            if (self.urlPath) {
+                [self.imageView setPathToNetworkImage:self.urlPath contentMode:UIViewContentModeScaleAspectFit];
+            }
+        }];
     }
 }
 
@@ -105,14 +144,118 @@
 {
     // consider scroll offset
     CGRect newFromRect = self.fromRect;
-    newFromRect.origin = CGPointMake(self.fromRect.origin.x,
+    newFromRect.origin = CGPointMake(self.fromRect.origin.x + self.scrollView.contentOffset.x,
                                      self.fromRect.origin.y + self.scrollView.contentOffset.y);
-    [UIView animateWithDuration:1.f animations:^{
+    [UIView animateWithDuration:PREVIEW_ANIMATION_DURATION animations:^{
         self.imageView.frame = newFromRect;
         self.alpha = 0.f;
     } completion:^(BOOL finished) {
         [self removeFromSuperview];
     }];
+}
+
+///////////////////////////////////////////////////////////////////////////////////////////////////
+- (void)savePhoto
+{
+	if (self.isOriginPhotoLoaded && self.imageView.image) {
+        __block MBProgressHUD* hud = [MBProgressHUD showHUDAddedTo:self animated:YES];
+        hud.labelText = @"保存中...";
+        self.saveBtn.enabled = NO;
+        UIImageWriteToSavedPhotosAlbum(self.imageView.image, self,
+                                       @selector(image:didFinishSavingWithError:contextInfo:), nil);
+	}
+    else {
+        [SMGlobalConfig showHUDMessage:@"图片未下载完成，无法保存" addedToView:self];
+    }
+}
+
+///////////////////////////////////////////////////////////////////////////////////////////////////
+- (CGRect)calculateScaledFinalFrame
+{
+    CGSize thumbSize = self.thumbnail.size;
+    CGFloat finalHeight = self.width * (thumbSize.height / thumbSize.width);
+    CGFloat top = 0.f;
+    if (finalHeight < self.height) {
+        top = (self.height - finalHeight) / 2.f;
+    }
+    return CGRectMake(0.f, top, self.width, finalHeight);
+}
+
+///////////////////////////////////////////////////////////////////////////////////////////////////
+///////////////////////////////////////////////////////////////////////////////////////////////////
+#pragma mark - SavedPhotosAlbum CallBack
+
+///////////////////////////////////////////////////////////////////////////////////////////////////
+-(void) image:(UIImage *)image didFinishSavingWithError:(NSError *)error contextInfo:(void *)contextInfo
+{
+    if (error) {
+        [SMGlobalConfig showHUDMessage:@"保存失败" addedToView:self];
+    }
+    else {
+        [MBProgressHUD hideHUDForView:self animated:YES];
+        
+        __block MBProgressHUD* hud = [MBProgressHUD showHUDAddedTo:self animated:YES];
+        hud.customView = [[UIImageView alloc] initWithImage:[UIImage nimbusImageNamed:@"37x-Checkmark.png"]];
+        hud.mode = MBProgressHUDModeCustomView;
+        hud.labelText = @"保存成功";
+        [hud hide:YES afterDelay:1.5f];
+        
+        self.saveBtn.enabled = YES;
+    }
+}
+
+///////////////////////////////////////////////////////////////////////////////////////////////////
+///////////////////////////////////////////////////////////////////////////////////////////////////
+#pragma mark - UIScrolViewDelegate
+
+///////////////////////////////////////////////////////////////////////////////////////////////////
+- (UIView *)viewForZoomingInScrollView:(UIScrollView *)scrollView
+{
+    return _imageView;
+}
+
+///////////////////////////////////////////////////////////////////////////////////////////////////
+// code from so: http://stackoverflow.com/questions/1316451/center-content-of-uiscrollview-when-smaller
+-(void)scrollViewDidZoom:(UIScrollView *)scrollView {
+    CGFloat offsetX = (scrollView.bounds.size.width > scrollView.contentSize.width)?
+    (scrollView.bounds.size.width - scrollView.contentSize.width) * 0.5f : 0.f;
+    
+    CGFloat offsetY = (scrollView.bounds.size.height > scrollView.contentSize.height)?
+    (scrollView.bounds.size.height - scrollView.contentSize.height) * 0.5f : 0.f;
+    
+    self.imageView.center = CGPointMake(scrollView.contentSize.width * 0.5f + offsetX,
+                                 scrollView.contentSize.height * 0.5f + offsetY);
+}
+
+///////////////////////////////////////////////////////////////////////////////////////////////////
+///////////////////////////////////////////////////////////////////////////////////////////////////
+#pragma mark - NINetworkImageViewDelegate
+
+///////////////////////////////////////////////////////////////////////////////////////////////////
+- (void)networkImageViewDidStartLoad:(NINetworkImageView *)imageView
+{
+    [self addSubview:self.progressIndicator];
+}
+
+///////////////////////////////////////////////////////////////////////////////////////////////////
+- (void)networkImageView:(NINetworkImageView *)imageView didLoadImage:(UIImage *)image
+{
+    [self.progressIndicator removeFromSuperview];
+    self.isOriginPhotoLoaded = YES;
+    self.saveBtn.enabled = YES;
+}
+
+///////////////////////////////////////////////////////////////////////////////////////////////////
+- (void)networkImageView:(NINetworkImageView *)imageView didFailWithError:(NSError *)error
+{
+    [SMGlobalConfig showHUDMessage:@"原始大图加载失败！" addedToView:self];
+}
+
+///////////////////////////////////////////////////////////////////////////////////////////////////
+- (void)networkImageView:(NINetworkImageView *)imageView readBytes:(long long)readBytes totalBytes:(long long)totalBytes
+{
+    CGFloat progress = (float)readBytes / (float)totalBytes;
+    self.progressIndicator.progress = progress;
 }
 
 @end
