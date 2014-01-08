@@ -226,10 +226,10 @@
         [self.retweetContentView addSubview:self.retweetContentImageView];
         
         // retweet content image gesture
-        self.retweetContentView.userInteractionEnabled = YES;
+        self.retweetContentImageView.userInteractionEnabled = YES;
         UITapGestureRecognizer* tapRetweetContentImageGesture = [[UITapGestureRecognizer alloc] initWithTarget:self
                                                                                                  action:@selector(showRetweetContentOriginImage)];
-        [self.retweetContentView addGestureRecognizer:tapRetweetContentImageGesture];
+        [self.retweetContentImageView addGestureRecognizer:tapRetweetContentImageGesture];
         
         // retweet border style
         self.retweetContentView.layer.borderColor = CELL_CONTENT_VIEW_BORDER_COLOR.CGColor;
