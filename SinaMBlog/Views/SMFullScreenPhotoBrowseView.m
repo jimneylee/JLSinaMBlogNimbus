@@ -7,6 +7,7 @@
 //
 
 #import "SMFullScreenPhotoBrowseView.h"
+#import "UIScrollView+ZoomToPoint.h"
 
 #define PROGRESS_VIEW_WIDTH 60.f
 #define BUTTON_SIDE_MARGIN 20.f
@@ -35,9 +36,16 @@
         self.thumbnail = thumbnail;
         self.urlPath = urlPath;
         [self initAllViews];
-        UITapGestureRecognizer* tapGesture = [[UITapGestureRecognizer alloc]
-                                              initWithTarget:self action:@selector(removeFromSuperviewAnimation)];
-        [self addGestureRecognizer:tapGesture];
+        UITapGestureRecognizer* singleTap = [[UITapGestureRecognizer alloc]
+                                             initWithTarget:self action:@selector(removeFromSuperviewAnimation)];
+        [self addGestureRecognizer:singleTap];
+        UITapGestureRecognizer* doubleTap = [[UITapGestureRecognizer alloc]
+                                             initWithTarget:self action:@selector(scaleImageView:)];
+        doubleTap.numberOfTapsRequired = 2;
+        [self addGestureRecognizer:doubleTap];
+        // enable double tap
+        [singleTap requireGestureRecognizerToFail:doubleTap];
+        
         self.imageView.initialImage = self.thumbnail;
         self.isOriginPhotoLoaded = NO;
         self.saveBtn.enabled = NO;
@@ -152,6 +160,20 @@
     } completion:^(BOOL finished) {
         [self removeFromSuperview];
     }];
+}
+
+///////////////////////////////////////////////////////////////////////////////////////////////////
+- (void)scaleImageView:(UITapGestureRecognizer*)tapGesture
+{
+    CGPoint tapPoint = [tapGesture locationInView:self.scrollView];
+    if (self.scrollView.zoomScale > 1.f) {
+        //[self.scrollView setZoomScale:1.f animated:YES];
+        [self.scrollView zoomToPoint:tapPoint withScale:1.f animated:YES];
+    }
+    else {
+        //[self.scrollView setZoomScale:2.f animated:YES];
+        [self.scrollView zoomToPoint:tapPoint withScale:2.f animated:YES];
+    }
 }
 
 ///////////////////////////////////////////////////////////////////////////////////////////////////

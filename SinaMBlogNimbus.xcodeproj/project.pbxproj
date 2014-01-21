@@ -53,6 +53,7 @@
 		2871C580184C681A003B7684 /* CoreText.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2871C57F184C681A003B7684 /* CoreText.framework */; };
 		2871C58F184C920A003B7684 /* UIView+findViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2871C58E184C920A003B7684 /* UIView+findViewController.m */; };
 		289D3E57187A6E1400A26C3D /* SMFullScreenPhotoBrowseView.m in Sources */ = {isa = PBXBuildFile; fileRef = 289D3E56187A6E1400A26C3D /* SMFullScreenPhotoBrowseView.m */; };
+		28B3368A188E69B400179302 /* UIScrollView+ZoomToPoint.m in Sources */ = {isa = PBXBuildFile; fileRef = 28B33689188E69B400179302 /* UIScrollView+ZoomToPoint.m */; };
 		28B342C1187B98AB00407CA8 /* preview_save_icon.png in Resources */ = {isa = PBXBuildFile; fileRef = 28B342BF187B98AB00407CA8 /* preview_save_icon.png */; };
 		28B342C2187B98AB00407CA8 /* preview_save_icon@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 28B342C0187B98AB00407CA8 /* preview_save_icon@2x.png */; };
 		28B342C5187BA9EB00407CA8 /* preview_button.png in Resources */ = {isa = PBXBuildFile; fileRef = 28B342C3187BA9EB00407CA8 /* preview_button.png */; };
@@ -218,6 +219,8 @@
 		2871C58E184C920A003B7684 /* UIView+findViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+findViewController.m"; sourceTree = "<group>"; };
 		289D3E55187A6E1400A26C3D /* SMFullScreenPhotoBrowseView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SMFullScreenPhotoBrowseView.h; sourceTree = "<group>"; };
 		289D3E56187A6E1400A26C3D /* SMFullScreenPhotoBrowseView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SMFullScreenPhotoBrowseView.m; sourceTree = "<group>"; };
+		28B33688188E69B400179302 /* UIScrollView+ZoomToPoint.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIScrollView+ZoomToPoint.h"; sourceTree = "<group>"; };
+		28B33689188E69B400179302 /* UIScrollView+ZoomToPoint.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIScrollView+ZoomToPoint.m"; sourceTree = "<group>"; };
 		28B342BF187B98AB00407CA8 /* preview_save_icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = preview_save_icon.png; sourceTree = "<group>"; };
 		28B342C0187B98AB00407CA8 /* preview_save_icon@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "preview_save_icon@2x.png"; sourceTree = "<group>"; };
 		28B342C3187BA9EB00407CA8 /* preview_button.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = preview_button.png; sourceTree = "<group>"; };
@@ -426,6 +429,7 @@
 		28121DF41821EAB700837E25 /* Vendor */ = {
 			isa = PBXGroup;
 			children = (
+				28B33687188E69B400179302 /* UIScrollView+ZoomToPoint */,
 				CE2F1A851878EB0900662165 /* JSONKit_fixerror */,
 				CE2F1A871878EB0900662165 /* Nimbus_fixbug */,
 				CE9E552B185365D400FBBD6D /* JLNimbusTimeline */,
@@ -617,6 +621,16 @@
 			name = Util;
 			path = SinaMBlog/Util;
 			sourceTree = SOURCE_ROOT;
+		};
+		28B33687188E69B400179302 /* UIScrollView+ZoomToPoint */ = {
+			isa = PBXGroup;
+			children = (
+				28B33688188E69B400179302 /* UIScrollView+ZoomToPoint.h */,
+				28B33689188E69B400179302 /* UIScrollView+ZoomToPoint.m */,
+			);
+			name = "UIScrollView+ZoomToPoint";
+			path = "vendor/UIScrollView+ZoomToPoint";
+			sourceTree = "<group>";
 		};
 		28B4756C1820EFC20044DF59 = {
 			isa = PBXGroup;
@@ -1205,6 +1219,7 @@
 				CEE526161840D38700BF18B6 /* Reachability.m in Sources */,
 				CEE5261D1840D71A00BF18B6 /* UIImage+nimbusImageNamed.m in Sources */,
 				CE9E5555185365D400FBBD6D /* UIViewAdditions.m in Sources */,
+				28B3368A188E69B400179302 /* UIScrollView+ZoomToPoint.m in Sources */,
 				CEE5263C1840E98200BF18B6 /* TTButtonBar.m in Sources */,
 				CEE5263F1840EA2500BF18B6 /* SMPostButtonBar.m in Sources */,
 				CE7B9D261841DE24004A3BB1 /* SMFriendListEntity.m in Sources */,
