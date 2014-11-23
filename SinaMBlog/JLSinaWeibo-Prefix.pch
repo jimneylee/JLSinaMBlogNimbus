@@ -17,16 +17,13 @@
     #import "SMJSONKeys.h"
     #import "UIImage+nimbusImageNamed.h"
 
-    // MBProgressHUD
+    // vendor
     #import "MBProgressHUD.h"
-
-    // JLNimbusTimeline
     #import "JLNimbusTimeline.h"
-
-    // sina mblog sdk
+    #import "TTCategoryHeader.h"
     #import "WeiboSDK.h"
 
-    // debug log switch
+    // log switch
     #ifdef DEBUG
     #    define NSLog(...) NSLog(__VA_ARGS__)
     #else

@@ -8,15 +8,17 @@
 
 #import "AppDelegate.h"
 #import "AFNetworking.h"
-#import "BMapKit.h"
+#import "AFNetworkActivityIndicatorManager.h"
+//#import "BMapKit.h"
 #import "MTStatusBarOverlay.h"
+
 #import "SMAuthorizeModel.h"
 #import "SMLoginC.h"
 #import "SMHomeTimlineListC.h"
 
-@interface AppDelegate()<BMKGeneralDelegate>
-@property (nonatomic, strong) BMKMapManager* mapManager;
-@end
+//@interface AppDelegate()<BMKGeneralDelegate>
+//@property (nonatomic, strong) BMKMapManager* mapManager;
+//@end
 
 @implementation AppDelegate
 
@@ -35,23 +37,18 @@
     
     // AFNetworking
     [[AFNetworkActivityIndicatorManager sharedManager] setEnabled:YES];
-    [AFJSONRequestOperation addAcceptableContentTypes:[NSSet setWithObjects:
-                                                       @"application/json",
-                                                       @"text/json",
-                                                       @"text/javascript",
-                                                       @"text/html",
-                                                       @"text/plain", nil]];
+
     // Sina SDK
     [WeiboSDK enableDebugMode:YES];
     [WeiboSDK registerApp:SinaWeiboV2AppKey];
     
     // Baidu Map
-    self.mapManager = [[BMKMapManager alloc]init];
-	BOOL ret = [self.mapManager start:BaiduMapEngineKey generalDelegate:self];
-	if (!ret) {
-		[SMGlobalConfig showHUDMessage:@"地图初始化失败！"
-                           addedToView:[UIApplication sharedApplication].keyWindow];
-	}
+//  self.mapManager = [[BMKMapManager alloc]init];
+//	BOOL ret = [self.mapManager start:BaiduMapEngineKey generalDelegate:self];
+//	if (!ret) {
+//		[SMGlobalConfig showHUDMessage:@"地图初始化失败！"
+//                           addedToView:[UIApplication sharedApplication].keyWindow];
+//	}
 }
 
 ///////////////////////////////////////////////////////////////////////////////////////////////////
