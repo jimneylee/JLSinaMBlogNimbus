@@ -9,7 +9,9 @@
 #import "UIView+findViewController.h"
 
 @implementation UIView (findViewController)
-- (UIViewController *)viewController {
+
+- (UIViewController *)viewController
+{
     // Traverse responder chain. Return first found view controller, which will be the view's view controller.
     UIResponder *responder = self;
     while ((responder = [responder nextResponder]))
@@ -19,4 +21,5 @@
     // If the view controller isn't found, return nil.
     return nil;
 }
+
 @end
