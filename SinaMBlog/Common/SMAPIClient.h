@@ -6,10 +6,9 @@
 //  Copyright (c) 2013年 jimneylee. All rights reserved.
 //
 
-#import "AFHTTPClient.h"
-#import "JLAFHTTPClient.h"
+#import "JLAFAPIBaseClient.h"
 
-@interface SMAPIClient : JLAFHTTPClient
+@interface SMAPIClient : JLAFAPIBaseClient
 
 + (SMAPIClient*)sharedClient;
 
@@ -17,8 +16,8 @@
 + (NSString *)relativePathForUserInfoWithUserName:(NSString *)userName
                                          orUserId:(NSString *)userId;
 // 随便看看
-+ (NSString*)relativePathForPublicTimelineWithPageCounter:(NSInteger)pageCounter
-                                             perpageCount:(NSInteger)perpageCount;
++ (NSString*)relativePathForPublicTimelineWithPageIndex:(unsigned int)pageIndex
+                                               pageSize:(unsigned int)pageSize;
 
 // 当前登录用户及关注好友微博某页
 + (NSString*)relativePathForFriendsTimelineWithMaxId:(NSString *)maxId;
@@ -61,18 +60,18 @@
 //================================================================================
 // 搜索用户
 + (NSString*)urlForSearchUsersWithKeywords:(NSString*)keywords
-                               pageCounter:(NSInteger)pageCounter
-                              perpageCount:(NSInteger)perpageCount;
+                                 pageIndex:(unsigned int)pageIndex
+                                  pageSize:(unsigned int)pageSize;
 
 // 搜索微博
 + (NSString*)urlForSearchStatusesWithKeywords:(NSString*)keywords
-                                  pageCounter:(NSInteger)pageCounter
-                                 perpageCount:(NSInteger)perpageCount;
+                                    pageIndex:(unsigned int)pageIndex
+                                     pageSize:(unsigned int)pageSize;
 
 // 搜索话题下的微博信息
 + (NSString*)urlForSearchTrendsWithKeywords:(NSString*)keywords
-                                pageCounter:(NSInteger)pageCounter
-                               perpageCount:(NSInteger)perpageCount;
+                                  pageIndex:(unsigned int)pageIndex
+                                   pageSize:(unsigned int)pageSize;
 
 @end
 

@@ -7,7 +7,6 @@
 //
 
 #import "SMAPIClient.h"
-#import "AFImageRequestOperation.h"
 
 NSString *const kSNAPIBaseURLString = @"https://api.weibo.com/2/";
 
@@ -66,11 +65,11 @@ NSString *const kSNAPIBaseURLString = @"https://api.weibo.com/2/";
 ///////////////////////////////////////////////////////////////////////////////////////////////////
 // 公共微博某页
 // !note: page -> cusor
-+ (NSString*)relativePathForPublicTimelineWithPageCounter:(NSInteger)pageCounter
-                                             perpageCount:(NSInteger)perpageCount
++ (NSString*)relativePathForPublicTimelineWithPageIndex:(unsigned int)pageIndex
+                                               pageSize:(unsigned int)pageSize
 {
     return [NSString stringWithFormat:@"statuses/public_timeline.json?cursor=%d&count=%d&source=%@",
-            pageCounter, perpageCount, SinaWeiboV2AppKey];
+            pageIndex, pageSize, SinaWeiboV2AppKey];
 }
 
 // 当前登录用户及关注好友微博某页
@@ -146,29 +145,29 @@ NSString *const kSNAPIBaseURLString = @"https://api.weibo.com/2/";
 #pragma mark - Search
 // 搜索用户
 + (NSString*)urlForSearchUsersWithKeywords:(NSString*)keywords
-                               pageCounter:(NSInteger)pageCounter
-                              perpageCount:(NSInteger)perpageCount
+                                 pageIndex:(unsigned int)pageIndex
+                                  pageSize:(unsigned int)pageSize
 {
     return [NSString stringWithFormat:@"search/suggestions/users.json?q=%@&page=%d&count=%d&access_token=%@",
-            keywords, pageCounter, perpageCount, [SMGlobalConfig getCurrentLoginedAccessToken]];
+            keywords, pageIndex, pageSize, [SMGlobalConfig getCurrentLoginedAccessToken]];
 }
 
 // 搜索微博
 + (NSString*)urlForSearchStatusesWithKeywords:(NSString*)keywords
-                                  pageCounter:(NSInteger)pageCounter
-                                 perpageCount:(NSInteger)perpageCount
+                                    pageIndex:(unsigned int)pageIndex
+                                     pageSize:(unsigned int)pageSize
 {
     return [NSString stringWithFormat:@"search/suggestions/statuses.json?q=%@&page=%d&count=%d&access_token=%@",
-            keywords, pageCounter, perpageCount, [SMGlobalConfig getCurrentLoginedAccessToken]];
+            keywords, pageIndex, pageSize, [SMGlobalConfig getCurrentLoginedAccessToken]];
 }
 
 // 搜索话题下的微博信息
 // 高级接口待申请 http://open.weibo.com/wiki/2/search/topics
 + (NSString*)urlForSearchTrendsWithKeywords:(NSString*)keywords
-                                pageCounter:(NSInteger)pageCounter
-                               perpageCount:(NSInteger)perpageCount
+                                  pageIndex:(unsigned int)pageIndex
+                                   pageSize:(unsigned int)pageSize
 {
     return [NSString stringWithFormat:@"search/topics.json?q=%@&page=%d&count=%d&access_token=%@",
-            keywords, pageCounter, perpageCount, [SMGlobalConfig getCurrentLoginedAccessToken]];
+            keywords, pageIndex, pageSize, [SMGlobalConfig getCurrentLoginedAccessToken]];
 }
 @end
