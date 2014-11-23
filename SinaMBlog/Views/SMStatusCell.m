@@ -8,12 +8,14 @@
 
 #import "SMStatusCell.h"
 #import <QuartzCore/QuartzCore.h>
+#import "UIImageView+WebCache.h"
 #import "NSDateAdditions.h"
 #import "UIView+findViewController.h"
 #import "NIAttributedLabel.h"
 #import "NSMutableAttributedString+NimbusAttributedLabel.h"
 #import "NIWebController.h"
 #import "NSStringAdditions.h"
+
 #import "SMStatusEntity.h"
 #import "SMCommentOrRetweetC.h"
 #import "SMFullScreenPhotoBrowseView.h"
@@ -44,14 +46,14 @@
 
 @interface SMStatusCell()<NIAttributedLabelDelegate>
 @property (nonatomic, strong) NIAttributedLabel* contentLabel;
-@property (nonatomic, strong) NINetworkImageView* headView;
-@property (nonatomic, strong) NINetworkImageView* contentImageView;
+@property (nonatomic, strong) UIImageView* headView;
+@property (nonatomic, strong) UIImageView* contentImageView;
 @property (nonatomic, strong) SMStatusEntity* statusEntity;
 // 转发视图
 @property (nonatomic, assign) BOOL hasRetweet;
 @property (nonatomic, strong) UIView* retweetContentView;
 @property (nonatomic, strong) NIAttributedLabel* retweetContentLabel;
-@property (nonatomic, strong) NINetworkImageView* retweetContentImageView;
+@property (nonatomic, strong) UIImageView* retweetContentImageView;
 // 操作按钮
 @property (nonatomic, strong) UIButton* retweetBtn;
 @property (nonatomic, strong) UIButton* commentBtn;
@@ -156,8 +158,8 @@
     if (self) {
         self.selectionStyle = UITableViewCellSelectionStyleBlue;
         
-        self.headView = [[NINetworkImageView alloc] initWithFrame:CGRectMake(0, 0, HEAD_IAMGE_HEIGHT,
-                                                                                   HEAD_IAMGE_HEIGHT)];
+        self.headView = [[UIImageView alloc] initWithFrame:CGRectMake(0, 0, HEAD_IAMGE_HEIGHT,
+                                                                      HEAD_IAMGE_HEIGHT)];
         [self.contentView addSubview:self.headView];
 
         // name
@@ -184,9 +186,9 @@
         [self.contentView addSubview:self.contentLabel];
         
         // content image
-        self.contentImageView = [[NINetworkImageView alloc] initWithFrame:CGRectMake(0, 0,
-                                                                                     CONTENT_IMAGE_HEIGHT,
-                                                                                     CONTENT_IMAGE_HEIGHT)];
+        self.contentImageView = [[UIImageView alloc] initWithFrame:CGRectMake(0, 0,
+                                                                             CONTENT_IMAGE_HEIGHT,
+                                                                             CONTENT_IMAGE_HEIGHT)];
         [self.contentView addSubview:self.contentImageView];
         
         // content image gesture
@@ -220,9 +222,9 @@
         [self.retweetContentView addSubview:self.retweetContentLabel];
         
         // content image
-        self.retweetContentImageView = [[NINetworkImageView alloc] initWithFrame:CGRectMake(0, 0,
-                                                                                     CONTENT_IMAGE_HEIGHT,
-                                                                                     CONTENT_IMAGE_HEIGHT)];
+        self.retweetContentImageView = [[UIImageView alloc] initWithFrame:CGRectMake(0, 0,
+                                                                             CONTENT_IMAGE_HEIGHT,
+                                                                             CONTENT_IMAGE_HEIGHT)];
         [self.retweetContentView addSubview:self.retweetContentImageView];
         
         // retweet content image gesture
@@ -347,11 +349,12 @@
     if ([object isKindOfClass:[SMStatusEntity class]]) {
         SMStatusEntity* o = (SMStatusEntity*)object;
         self.statusEntity = o;
-        if (o.user.profile_image_url.length) {
-            [self.headView setPathToNetworkImage:o.user.profile_image_url];
+        if (o.user.profileImageUrl.length) {
+            [self.headView sd_setImageWithURL:[NSURL URLWithString:o.user.profileImageUrl]
+                             placeholderImage:nil];
         }
         else {
-            [self.headView setPathToNetworkImage:nil];
+            [self.headView sd_setImageWithURL:nil];
         }
         
         self.textLabel.text = o.user.name;
@@ -363,13 +366,15 @@
         
         if (o.bmiddle_pic.length) {
             self.contentImageView.hidden = NO;
-            self.contentImageView.scaleOptions |= NINetworkImageViewScaleToFitCropsExcess;
-            [self.contentImageView setPathToNetworkImage:o.bmiddle_pic contentMode:UIViewContentModeScaleAspectFit];
+            //self.contentImageView.scaleOptions |= NINetworkImageViewScaleToFitCropsExcess;
+            //[self.contentImageView setPathToNetworkImage:o.bmiddle_pic contentMode:UIViewContentModeScaleAspectFit];
+            [self.contentImageView sd_setImageWithURL:[NSURL URLWithString:o.bmiddle_pic]
+                                     placeholderImage:nil];
             self.contentImageView.contentMode = UIViewContentModeScaleAspectFit;
         }
         else {
             self.contentImageView.hidden = YES;
-            [self.contentImageView setPathToNetworkImage:nil];
+            [self.contentImageView sd_setImageWithURL:nil];
         }
         
         ///////////////////////////////////////////////////////////////////////////////////////////////////
@@ -394,14 +399,15 @@
             
             if (o.retweeted_status.bmiddle_pic.length) {
                 self.retweetContentImageView.hidden = NO;
-                self.retweetContentImageView.scaleOptions |= NINetworkImageViewScaleToFitCropsExcess;
-                [self.retweetContentImageView setPathToNetworkImage:o.retweeted_status.bmiddle_pic
-                                                        contentMode:UIViewContentModeScaleAspectFit];
+//                self.retweetContentImageView.scaleOptions |= NINetworkImageViewScaleToFitCropsExcess;
+//                [self.retweetContentImageView setPathToNetworkImage:o.retweeted_status.bmiddle_pic
+//                                                        contentMode:UIViewContentModeScaleAspectFit];
+                [self.retweetContentImageView sd_setImageWithURL:[NSURL URLWithString:o.retweeted_status.bmiddle_pic]];
                 self.retweetContentImageView.contentMode = UIViewContentModeScaleAspectFit;
             }
             else {
                 self.retweetContentImageView.hidden = YES;
-                [self.retweetContentImageView setPathToNetworkImage:nil];
+                [self.retweetContentImageView sd_setImageWithURL:nil];
             }
         }
         else {
@@ -542,7 +548,7 @@ shouldPresentActionSheet:(UIActionSheet *)actionSheet
             CGRect rectInCell = [self.contentView convertRect:self.contentImageView.frame toView:self];
     
             // convert rect to tableview
-            CGRect rectInTableView = [self convertRect:rectInCell toView:tableView];//self.superview
+            CGRect rectInTableView = [self convertRect:rectInCell toView:tableView];
             
             // convert rect to window
             CGRect rectInWindow = [tableView convertRect:rectInTableView toView:window];
@@ -550,10 +556,12 @@ shouldPresentActionSheet:(UIActionSheet *)actionSheet
             // show photo full screen
             UIImage* image = self.contentImageView.image;
             if (image) {
-                rectInWindow = CGRectMake(rectInWindow.origin.x + (rectInWindow.size.width - image.size.width) / 2.f,
-                                          rectInWindow.origin.y + (rectInWindow.size.height - image.size.height) / 2.f,
-                                          image.size.width, image.size.height);
+                CGSize scaledSize = [self getScaledSizeForImageView:self.contentImageView];
+                rectInWindow = CGRectMake(rectInWindow.origin.x + (rectInWindow.size.width - scaledSize.width) / 2.f,
+                                          rectInWindow.origin.y + (rectInWindow.size.height - scaledSize.height) / 2.f,
+                                          scaledSize.width, scaledSize.height);
             }
+            
             SMFullScreenPhotoBrowseView* browseView =
             [[SMFullScreenPhotoBrowseView alloc] initWithUrlPath:self.statusEntity.original_pic
                                                        thumbnail:self.contentImageView.image
@@ -586,9 +594,10 @@ shouldPresentActionSheet:(UIActionSheet *)actionSheet
             // show photo full screen
             UIImage* image = self.retweetContentImageView.image;
             if (image) {
-                rectInWindow = CGRectMake(rectInWindow.origin.x + (rectInWindow.size.width - image.size.width) / 2.f,
-                                          rectInWindow.origin.y + (rectInWindow.size.height - image.size.height) / 2.f,
-                                          image.size.width, image.size.height);
+                CGSize scaledSize = [self getScaledSizeForImageView:self.retweetContentImageView];
+                rectInWindow = CGRectMake(rectInWindow.origin.x + (rectInWindow.size.width - scaledSize.width) / 2.f,
+                                          rectInWindow.origin.y + (rectInWindow.size.height - scaledSize.height) / 2.f,
+                                          scaledSize.width, scaledSize.height);
             }
             SMFullScreenPhotoBrowseView* browseView =
             [[SMFullScreenPhotoBrowseView alloc] initWithUrlPath:self.statusEntity.retweeted_status.original_pic
@@ -597,6 +606,17 @@ shouldPresentActionSheet:(UIActionSheet *)actionSheet
             [window addSubview:browseView];
         }
     }
+}
+
+// scaled size for UIViewContentModeScaleAspectFit
+- (CGSize)getScaledSizeForImageView:(UIImageView *)imageView
+{
+    CGFloat sx = imageView.width / imageView.image.size.width;
+    CGFloat sy = imageView.height / imageView.image.size.height;
+    CGFloat s = fminf(sx, sy);
+    CGSize scaledSize = CGSizeMake(imageView.image.size.width * s,
+                                   imageView.image.size.height * s);
+    return scaledSize;
 }
 
 ///////////////////////////////////////////////////////////////////////////////////////////////////

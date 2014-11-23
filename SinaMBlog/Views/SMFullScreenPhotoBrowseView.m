@@ -46,7 +46,7 @@
         // enable double tap
         [singleTap requireGestureRecognizerToFail:doubleTap];
         
-        self.imageView.initialImage = self.thumbnail;
+        [self.imageView sd_setImageWithURL:nil placeholderImage:self.thumbnail];
         self.isOriginPhotoLoaded = NO;
         self.saveBtn.enabled = NO;
         [self showImageViewAnimation];
@@ -66,7 +66,7 @@
 ///////////////////////////////////////////////////////////////////////////////////////////////////
 - (void)initAllViews
 {
-    self.backgroundColor = [UIColor blackColor];
+    self.backgroundColor = [[UIColor blackColor] colorWithAlphaComponent:.6f];
     
     _scrollView = [[UIScrollView alloc] initWithFrame:self.bounds];
     _scrollView.delegate = self;
@@ -76,8 +76,7 @@
     _scrollView.backgroundColor = [UIColor clearColor];
     [self addSubview:_scrollView];
     
-    _imageView = [[NINetworkImageView alloc] initWithFrame:_scrollView.bounds];
-    _imageView.delegate = self;
+    _imageView = [[UIImageView alloc] initWithFrame:_scrollView.bounds];
     _imageView.backgroundColor = [UIColor clearColor];
     [_scrollView addSubview:_imageView];
     
@@ -128,7 +127,8 @@
             self.alpha = 1.f;
         } completion:^(BOOL finished) {
             if (self.urlPath) {
-                [self.imageView setPathToNetworkImage:self.urlPath contentMode:UIViewContentModeScaleAspectFit];
+//                [self.imageView setPathToNetworkImage:self.urlPath contentMode:UIViewContentModeScaleAspectFit];
+                [self loadOriginImage];
             }
         }];
     }
@@ -141,11 +141,33 @@
             self.alpha = 1.f;
         } completion:^(BOOL finished) {
             if (self.urlPath) {
-                [self.imageView setPathToNetworkImage:self.urlPath contentMode:UIViewContentModeScaleAspectFit];
+//                [self.imageView setPathToNetworkImage:self.urlPath contentMode:UIViewContentModeScaleAspectFit];
+                [self loadOriginImage];
             }
         }];
     }
 }
+
+- (void)loadOriginImage
+{
+    [self.imageView sd_setImageWithURL:[NSURL URLWithString:self.urlPath]
+                      placeholderImage:self.thumbnail
+                               options:SDWebImageProgressiveDownload
+                              progress:^(NSInteger receivedSize, NSInteger expectedSize) {
+                                  CGFloat progress = receivedSize / (expectedSize * 1.f);
+                                  self.progressIndicator.progress = progress;
+                              } completed:^(UIImage *image, NSError *error, SDImageCacheType cacheType, NSURL *imageURL) {
+                                  if (error) {
+                                      [SMGlobalConfig showHUDMessage:@"原始大图加载失败！" addedToView:self];
+                                  }
+                                  else {
+                                      [self.progressIndicator removeFromSuperview];
+                                      self.isOriginPhotoLoaded = YES;
+                                      self.saveBtn.enabled = YES;
+                                  }
+                              }];
+}
+
 
 ///////////////////////////////////////////////////////////////////////////////////////////////////
 - (void)removeFromSuperviewAnimation
