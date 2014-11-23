@@ -49,7 +49,6 @@
 //		[SMGlobalConfig showHUDMessage:@"地图初始化失败！"
 //                           addedToView:[UIApplication sharedApplication].keyWindow];
 //	}
-    
 }
 
 ///////////////////////////////////////////////////////////////////////////////////////////////////
