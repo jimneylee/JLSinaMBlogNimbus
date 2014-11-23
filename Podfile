@@ -1,5 +1,6 @@
 platform :ios,'6.0'
-pod 'Nimbus', '~> 1.0.0'
-pod 'AFNetworking', '~> 1.3.3'
+pod 'Nimbus'
+pod 'AFNetworking'
 pod 'MBProgressHUD'
 pod 'MTStatusBarOverlay'
+pod 'SDWebImage'

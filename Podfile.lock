@@ -1,11 +1,56 @@
 PODS:
-  - AFNetworking (1.3.3)
-  - JSONKit (1.5pre)
-  - MBProgressHUD (0.8)
+  - AFNetworking (2.4.1):
+    - AFNetworking/NSURLConnection
+    - AFNetworking/NSURLSession
+    - AFNetworking/Reachability
+    - AFNetworking/Security
+    - AFNetworking/Serialization
+    - AFNetworking/UIKit
+  - AFNetworking/NSURLConnection (2.4.1):
+    - AFNetworking/Reachability
+    - AFNetworking/Security
+    - AFNetworking/Serialization
+  - AFNetworking/NSURLSession (2.4.1):
+    - AFNetworking/Reachability
+    - AFNetworking/Security
+    - AFNetworking/Serialization
+  - AFNetworking/Reachability (2.4.1)
+  - AFNetworking/Security (2.4.1)
+  - AFNetworking/Serialization (2.4.1)
+  - AFNetworking/UIKit (2.4.1):
+    - AFNetworking/NSURLConnection
+    - AFNetworking/NSURLSession
+  - libwebp (0.4.1):
+    - libwebp/dec
+    - libwebp/demux
+    - libwebp/dsp
+    - libwebp/enc
+    - libwebp/mux
+    - libwebp/utils
+    - libwebp/webp
+  - libwebp/dec (0.4.1):
+    - libwebp/enc
+    - libwebp/utils
+  - libwebp/demux (0.4.1):
+    - libwebp/utils
+  - libwebp/dsp (0.4.1):
+    - libwebp/dec
+    - libwebp/enc
+    - libwebp/utils
+  - libwebp/enc (0.4.1):
+    - libwebp/utils
+  - libwebp/mux (0.4.1):
+    - libwebp/utils
+  - libwebp/utils (0.4.1):
+    - libwebp/dsp
+    - libwebp/webp
+  - libwebp/webp (0.4.1)
+  - MBProgressHUD (0.9)
   - MTStatusBarOverlay (0.9.1)
-  - Nimbus (1.0.0):
+  - Nimbus (1.2.0):
     - Nimbus/AttributedLabel
     - Nimbus/Badge
+    - Nimbus/Collections
     - Nimbus/Collections
     - Nimbus/Core
     - Nimbus/CSS
@@ -14,58 +59,70 @@ PODS:
     - Nimbus/Models
     - Nimbus/NetworkControllers
     - Nimbus/NetworkImage
-    - Nimbus/Operations
     - Nimbus/Overview
     - Nimbus/PagingScrollView
     - Nimbus/Photos
+    - Nimbus/Textfield
     - Nimbus/WebController
-  - Nimbus/AttributedLabel (1.0.0):
+  - Nimbus/AttributedLabel (1.2.0):
     - Nimbus/Core
-  - Nimbus/Badge (1.0.0):
+  - Nimbus/Badge (1.2.0):
     - Nimbus/Core
-  - Nimbus/Collections (1.0.0):
+  - Nimbus/Collections (1.2.0):
     - Nimbus/Core
-  - Nimbus/Core (1.0.0)
-  - Nimbus/CSS (1.0.0):
-    - AFNetworking (~> 1.0)
+  - Nimbus/Core (1.2.0)
+  - Nimbus/CSS (1.2.0):
+    - AFNetworking (~> 2.1)
     - Nimbus/Core
-  - Nimbus/Interapp (1.0.0):
+    - Nimbus/Textfield
+  - Nimbus/Interapp (1.2.0):
     - Nimbus/Core
-  - Nimbus/Launcher (1.0.0):
-    - Nimbus/Core
-  - Nimbus/Models (1.0.0):
-    - Nimbus/Core
-  - Nimbus/NetworkControllers (1.0.0):
-    - Nimbus/Core
-  - Nimbus/NetworkImage (1.0.0):
-    - Nimbus/Core
-  - Nimbus/Operations (1.0.0):
-    - Nimbus/Core
-    - Nimbus/Operations/JSON
-  - Nimbus/Operations/JSON (1.0.0):
-    - JSONKit
-    - Nimbus/Core
-  - Nimbus/Overview (1.0.0):
-    - Nimbus/Core
-  - Nimbus/PagingScrollView (1.0.0):
-    - Nimbus/Core
-  - Nimbus/Photos (1.0.0):
+  - Nimbus/Launcher (1.2.0):
     - Nimbus/Core
     - Nimbus/PagingScrollView
-  - Nimbus/WebController (1.0.0):
+  - Nimbus/Models (1.2.0):
     - Nimbus/Core
+  - Nimbus/NetworkControllers (1.2.0):
+    - Nimbus/Core
+  - Nimbus/NetworkImage (1.2.0):
+    - AFNetworking (~> 2.1)
+    - Nimbus/Core
+  - Nimbus/Overview (1.2.0):
+    - Nimbus/Core
+    - Nimbus/Models
+  - Nimbus/PagingScrollView (1.2.0):
+    - Nimbus/Core
+  - Nimbus/Photos (1.2.0):
+    - Nimbus/Core
+    - Nimbus/PagingScrollView
+  - Nimbus/Textfield (1.2.0):
+    - Nimbus/Core
+  - Nimbus/WebController (1.2.0):
+    - Nimbus/Core
+  - SDWebImage (3.7.1):
+    - SDWebImage/Core
+    - SDWebImage/MapKit
+    - SDWebImage/WebP
+  - SDWebImage/Core (3.7.1)
+  - SDWebImage/MapKit (3.7.1):
+    - SDWebImage/Core
+  - SDWebImage/WebP (3.7.1):
+    - libwebp
+    - SDWebImage/Core
 
 DEPENDENCIES:
-  - AFNetworking (~> 1.3.3)
+  - AFNetworking
   - MBProgressHUD
   - MTStatusBarOverlay
-  - Nimbus (~> 1.0.0)
+  - Nimbus
+  - SDWebImage
 
 SPEC CHECKSUMS:
-  AFNetworking: 61fdd49e2ffe6380378df37b3b6e70630bb9dd66
-  JSONKit: 409734ab3407fce90ef7eaa95d7168f38d9a6601
-  MBProgressHUD: 2bbc6f470111daf7f3eaa4eb12b8cbf01c4c0622
-  MTStatusBarOverlay: 2cee705996e4e307191d423bf49e583b9b2c14ac
-  Nimbus: 01c4339214b2f35be2e9284cb6e98beb7fe0f08a
+  AFNetworking: 0aabc6fae66d6e5d039eeb21c315843c7aae51ab
+  libwebp: 88e6e172a01df354b0a78400d2e5b87a9f2796cb
+  MBProgressHUD: 2038dbcf3dce73215abed6001657043d53aa79a8
+  MTStatusBarOverlay: f1fef7143ed3e9ce3d2c6ee3f297079e5cab905f
+  Nimbus: 14fd6f034c5f53d3dccef6cfd5763959497289a9
+  SDWebImage: 116e88633b5b416ea0ca4b334a4ac59cf72dd38d
 
-COCOAPODS: 0.29.0
+COCOAPODS: 0.32.1

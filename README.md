@@ -28,42 +28,21 @@ PS:以前项目中主要使用[three20](https://github.com/facebook/three20)开�
 $ git submodule init 
 $ git submodule update
 ```
-注：如需要添加其他的submodule
-``` bash
-$ git submodule add https://github.com/jverkoey/nimbus.git vendor/nimbus
-```
+
 2、使用[CocoaPods](http://cocoapods.org)的命令安装其他依赖库
 ``` bash   
-$ pod install
+$ pod update
 ```   
 注：如需要添加其他依赖库，请修改Podfile
 
-3、 替换pod添加的依赖库
-
-用工程中的`vendor`目录下的`Nimbus_fixbug`和`JSONKit_fixerror`中的文件，替换pod添加的对应文件。
-`Nimbus_fixbug`是为了解决帖子列表高亮名字或链接无法点击。
-`JSONKit_fixerror`为了解决编译引起的错误和警告。其实这个JSONKit是无用的，但是由于JSONKit是Nimbus的submodule递归依赖引入，
-所以在Nimbus没有发布新的版本，暂时只能这样处理。之前考虑过'git submodule add'依赖nimbus，去掉这个JSONKit库，但是会是工程膨胀，得不偿失。
-有问题，请添加到issue中！
-
 # ERROR解决方法
-1、若出现这个问题：'vendor/SDURLCache' already exists in the index
-``` bash
-$ git rm --cached vendor/SDURLCache
-```
-2、若出现这个问题：fatal: not removing 'vendor/nimbus' recursively without -r
-``` bash
-$ git rm -r --cached vendor/SDURLCache
-```
-3、若出现这个问题：diff: /../Podfile.lock: No such file or directory 
+
+1、若出现这个问题：diff: /../Podfile.lock: No such file or directory 
    diff: /Manifest.lock: No such file or directory 
    error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.
 ``` bash
-$ pod install
+$ pod update
 ```
-4、官方的nimbus版本没有修复NIAttributedLabel在tableview中link无法点击问题
-   请暂时用Nimbus_fix目录下的NIAttributedLabel.m替换原工程中的这个文件
-   参考：http://stackoverflow.com/questions/17467086/using-niattributedlabel-in-uitableviewcell
 
 # DONE
 * 1、支持XCode4 & XCode5 & iOS7
