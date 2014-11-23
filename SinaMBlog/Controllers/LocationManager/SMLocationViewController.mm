@@ -9,9 +9,11 @@
 #import "SMLocationViewController.h"
 
 @interface SMLocationViewController()
+#if 0
 @property(nonatomic, strong) MKMapView* mapView;
 @property(nonatomic, strong) BMKMapView* bMapView;
 @property(nonatomic, strong) BMKSearch* bmkSearch;
+#endif
 @end
 
 @implementation SMLocationViewController
@@ -54,6 +56,8 @@
     self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithCustomView:deleteBtn];
     
 }
+
+#if 0 // 暂不支持百度地图
 
 - (void)viewDidLoad
 {
@@ -156,5 +160,6 @@
                                      longitude:coordinate.longitude
                                    streetPlace:streetPlace];
 }
+#endif
 
 @end

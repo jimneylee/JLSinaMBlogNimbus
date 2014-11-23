@@ -13,7 +13,7 @@
 #import "SMMBlogPostC.h"
 
 @interface SMHomeTimlineListC ()
-@property (nonatomic, strong) NITableViewActionBlock tapAction;
+@property (nonatomic, strong) NIActionBlock tapAction;
 @end
 
 @implementation SMHomeTimlineListC
@@ -32,11 +32,6 @@
         self.navigationItem.rightBarButtonItem = [SMGlobalConfig createRefreshBarButtonItemWithTarget:self
                                                                                                action:@selector(autoPullDownRefreshActionAnimation)];
         [self showTitleWithUserName];
-        // TODO: comment out
-        // 由于修复NIAttributedLabel底层touch问题，
-        // http://stackoverflow.com/questions/17467086/using-niattributedlabel-in-uitableviewcell
-        // 可执行tapBlock
-        //[self.actions attachToClass:[self.model objectClass] tapBlock:NULL];
     }
     return self;
 }
@@ -76,7 +71,7 @@
     if ([SMGlobalConfig getCurrentLoginedUserName].length) {
         self.title = [SMGlobalConfig getCurrentLoginedUserName];
     }
-    else {
+    else if ([SMGlobalConfig getCurrentLoginedUserId].length) {
         SMUserInfoModel* userInfoModel = [[SMUserInfoModel alloc] init];
         [userInfoModel loadUserInfoWithUserName:nil orUserId:[SMGlobalConfig getCurrentLoginedUserId]
                                           block:^(SMUserInfoEntity *entity, NSError *error) {
@@ -99,9 +94,9 @@
 }
 
 ///////////////////////////////////////////////////////////////////////////////////////////////////
-- (NITableViewActionBlock)tapAction
+- (NIActionBlock)tapAction
 {
-    return ^BOOL(id object, id target) {
+    return ^BOOL(id object, id target, NSIndexPath* indexPath) {
         if (!self.editing) {
             if ([object isKindOfClass:[SMStatusEntity class]]) {
                 SMStatusEntity* status = (SMStatusEntity*)object;

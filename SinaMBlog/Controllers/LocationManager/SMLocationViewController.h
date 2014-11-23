@@ -8,7 +8,7 @@
 
 #import <UIKit/UIKit.h>
 #import <MapKit/MapKit.h>
-#import "BMapKit.h"
+//#import "BMapKit.h"
 
 @protocol StreetPlaceLocationDelegate <NSObject>
 - (void)deleteStreetPlace;
@@ -17,10 +17,12 @@
                         streetPlace:(NSString*)streetPlace;
 @end
 
-@interface SMLocationViewController : UIViewController<MKMapViewDelegate,
-                                                     BMKSearchDelegate,
-                                                     BMKMapViewDelegate,
-                                                     BMKAnnotation>
+@interface SMLocationViewController : UIViewController
+//<MKMapViewDelegate,
+//BMKSearchDelegate,
+//BMKMapViewDelegate,
+//BMKAnnotation>
+
 - (id)initWithDelegate:(id)delegate;
 
 @property(nonatomic, assign) id<StreetPlaceLocationDelegate> delegate;

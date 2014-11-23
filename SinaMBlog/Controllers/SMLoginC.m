@@ -41,8 +41,8 @@ NSString *const SNDidOAuthNotification = @"DidOAuthNotification";
         self.title = @"新浪微博";
 
         _actions = [[NITableViewActions alloc] initWithTarget:self];
-        NITableViewActionBlock tapLoginAction =
-        ^BOOL(id object, UIViewController *controller) {
+        NIActionBlock tapLoginAction =
+        ^BOOL(id object, UIViewController *controller, NSIndexPath* indexPath) {
             if ([SMAuthorizeModel isAuthorized]) {
                 [self showHomeView];
             }
@@ -58,7 +58,7 @@ NSString *const SNDidOAuthNotification = @"DidOAuthNotification";
             return NO;
         };
         
-        NITableViewActionBlock tapPublicAction = ^BOOL(id object, UIViewController *controller) {
+        NIActionBlock tapPublicAction = ^BOOL(id object, UIViewController *controller, NSIndexPath* indexPath) {
             SMPageTimlineListC* c = [[SMPageTimlineListC alloc] init];
             [controller.navigationController pushViewController:c animated:YES];
             return YES;
@@ -103,7 +103,6 @@ NSString *const SNDidOAuthNotification = @"DidOAuthNotification";
     self.tableView.dataSource = self.model;
     self.tableView.delegate = [self.actions forwardingTo:self];
 
-    self.tableView.separatorColor = [UIColor clearColor];
     self.tableView.backgroundColor = TABLE_VIEW_BG_COLOR;
     self.tableView.backgroundView = nil;
 }
