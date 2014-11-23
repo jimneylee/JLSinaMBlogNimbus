@@ -12,22 +12,24 @@
 typedef NS_ENUM(NSInteger, WeiboSDKResponseStatusCode)
 {
     WeiboSDKResponseStatusCodeSuccess               = 0,//成功
-    WeiboSDKResponseStatusCodeUserCancel            = -1,//用户取消发送
+    WeiboSDKResponseStatusCodeUserCancel            = -1,//用户取消
     WeiboSDKResponseStatusCodeSentFail              = -2,//发送失败
     WeiboSDKResponseStatusCodeAuthDeny              = -3,//授权失败
     WeiboSDKResponseStatusCodeUserCancelInstall     = -4,//用户取消安装微博客户端
+    
+    WeiboSDKResponseStatusCodeShareInSDKFailed      = -8,//分享失败 详情见response UserInfo
     WeiboSDKResponseStatusCodeUnsupport             = -99,//不支持的请求
     WeiboSDKResponseStatusCodeUnknown               = -100,
 };
 
 @protocol WeiboSDKDelegate;
-@protocol WeiboSDKJSONDelegate;
+@protocol WBHttpRequestDelegate;
 @class WBBaseRequest;
 @class WBBaseResponse;
 @class WBMessageObject;
 @class WBImageObject;
 @class WBBaseMediaObject;
-
+@class WBHttpRequest;
 /**
  微博SDK接口类
  */
@@ -38,6 +40,18 @@ typedef NS_ENUM(NSInteger, WeiboSDKResponseStatusCode)
  @return 已安装返回YES，未安装返回NO
  */
 + (BOOL)isWeiboAppInstalled;
+
+/**
+ 检查用户是否可以通过微博客户端进行分享
+ @return 可以使用返回YES，不可以使用返回NO
+ */
++ (BOOL)isCanShareInWeiboAPP;
+
+/**
+ 检查用户是否可以使用微博客户端进行SSO授权
+ @return 可以使用返回YES，不可以使用返回NO
+ */
++ (BOOL)isCanSSOInWeiboApp;
 
 /**
  打开微博客户端程序
@@ -114,20 +128,28 @@ typedef NS_ENUM(NSInteger, WeiboSDKResponseStatusCode)
  取消授权，登出接口
  调用此接口后，token将失效
  @param token 第三方应用之前申请的Token
- @param delegate WeiboSDKJSONDelegate对象，用于接收微博SDK对于发起的接口请求的请求的响应
+ @param delegate WBHttpRequestDelegate对象，用于接收微博SDK对于发起的接口请求的请求的响应
+ @param tag 用户自定义TAG,将通过回调WBHttpRequest实例的tag属性返回
 
  */
-+ (void)logOutWithToken:(NSString *)token delegate:(id<WeiboSDKJSONDelegate>)delegate;
++ (void)logOutWithToken:(NSString *)token delegate:(id<WBHttpRequestDelegate>)delegate withTag:(NSString*)tag;
 
 /**
  邀请好友使用应用
  调用此接口后，将发送私信至好友，成功将返回微博标准私信结构
- @param text 对好友邀请内容的文字描述
- @param uid  好友的uid
+ @param data 邀请数据。必须为json字串的形式，必须做URLEncode，采用UTF-8编码。
+ data参数支持的参数：
+    参数名称	值的类型	是否必填	说明描述
+    text	string	true	要回复的私信文本内容。文本大小必须小于300个汉字。
+    url	string	false	邀请点击后跳转链接。默认为当前应用地址。
+    invite_logo	string	false	邀请Card展示时的图标地址，大小必须为80px X 80px，仅支持PNG、JPG格式。默认为当前应用logo地址。
+ @param uid  被邀请人，需为当前用户互粉好友。
  @param access_token 第三方应用之前申请的Token
- @param delegate WeiboSDKJSONDelegate对象，用于接收微博SDK对于发起的接口请求的请求的响应
+ @param delegate WBHttpRequestDelegate对象，用于接收微博SDK对于发起的接口请求的请求的响应
+ @param tag 用户自定义TAG,将通过回调WBHttpRequest实例的tag属性返回
+
  */
-+(void)inviteFriend:(NSString* )text withUid:(NSString *)uid withToken:(NSString *)access_token delegate:(id<WeiboSDKJSONDelegate>)delegate;
++(void)inviteFriend:(NSString* )data withUid:(NSString *)uid withToken:(NSString *)access_token delegate:(id<WBHttpRequestDelegate>)delegate withTag:(NSString*)tag;
 
 @end
 
@@ -154,20 +176,125 @@ typedef NS_ENUM(NSInteger, WeiboSDKResponseStatusCode)
 
 @end
 
-/**
- 接收并处理来自微博sdk对于网络请求接口的调用响应
- 如inviteFriend、logOutWithToken的请求
- */
-@protocol WeiboSDKJSONDelegate <NSObject>
+#pragma mark - WBHttpRequest and WBHttpRequestDelegate
 
 /**
- 收到一个来自微博SDK的响应
- 
- 收到微博SDK对于发起的接口请求的请求的响应
- @param JsonObject 具体的响应返回内容
- @param error 当有网络错误时返回的NSError，无网络错误返回nil
+ 接收并处理来自微博sdk对于网络请求接口的调用响应 以及openAPI
+ 如inviteFriend、logOutWithToken的请求
  */
-- (void)didReceiveWeiboSDKResponse:(id)JsonObject err:(NSError *)error;
+@protocol WBHttpRequestDelegate <NSObject>
+
+/**
+ 收到一个来自微博Http请求的响应
+ 
+ @param response 具体的响应对象
+ */
+@optional
+- (void)request:(WBHttpRequest *)request didReceiveResponse:(NSURLResponse *)response;
+
+/**
+ 收到一个来自微博Http请求失败的响应
+ 
+ @param error 错误信息
+ */
+@optional
+- (void)request:(WBHttpRequest *)request didFailWithError:(NSError *)error;
+
+/**
+ 收到一个来自微博Http请求的网络返回
+ 
+ @param result 请求返回结果
+ */
+@optional
+- (void)request:(WBHttpRequest *)request didFinishLoadingWithResult:(NSString *)result;
+
+/**
+ 收到一个来自微博Http请求的网络返回
+ 
+ @param data 请求返回结果
+ */
+@optional
+- (void)request:(WBHttpRequest *)request didFinishLoadingWithDataResult:(NSData *)data;
+
+@end
+
+
+/**
+ 微博封装Http请求的消息结构
+ 
+ */
+@interface WBHttpRequest : NSObject
+{
+    NSURLConnection                 *connection;
+    NSMutableData                   *responseData;
+}
+
+/**
+ 用户自定义请求地址URL
+ */
+@property (nonatomic, retain) NSString *url;
+
+/**
+ 用户自定义请求方式
+ 
+ 支持"GET" "POST"
+ */
+@property (nonatomic, retain) NSString *httpMethod;
+
+/**
+ 用户自定义请求参数字典
+ */
+@property (nonatomic, retain) NSDictionary *params;
+
+/**
+ WBHttpRequestDelegate对象，用于接收微博SDK对于发起的接口请求的请求的响应
+ */
+@property (nonatomic, assign) id<WBHttpRequestDelegate> delegate;
+
+/**
+ 用户自定义TAG
+ 
+ 用于区分回调Request
+ */
+@property (nonatomic, retain) NSString* tag;
+
+/**
+ 统一HTTP请求接口
+ 调用此接口后，将发送一个HTTP网络请求
+ @param url 请求url地址
+ @param httpMethod  支持"GET" "POST"
+ @param params 向接口传递的参数结构
+ @param delegate WBHttpRequestDelegate对象，用于接收微博SDK对于发起的接口请求的请求的响应
+ @param tag 用户自定义TAG,将通过回调WBHttpRequest实例的tag属性返回
+ */
++ (WBHttpRequest *)requestWithURL:(NSString *)url
+            httpMethod:(NSString *)httpMethod
+                params:(NSDictionary *)params
+              delegate:(id<WBHttpRequestDelegate>)delegate
+               withTag:(NSString *)tag;
+
+
+/**
+ 统一微博Open API HTTP请求接口
+ 调用此接口后，将发送一个HTTP网络请求（用于访问微博open api）
+ @param accessToken 应用获取到的accessToken，用于身份验证
+ @param url 请求url地址
+ @param httpMethod  支持"GET" "POST"
+ @param params 向接口传递的参数结构
+ @param delegate WBHttpRequestDelegate对象，用于接收微博SDK对于发起的接口请求的请求的响应
+ @param tag 用户自定义TAG,将通过回调WBHttpRequest实例的tag属性返回
+ */
++ (WBHttpRequest *)requestWithAccessToken:(NSString *)accessToken
+                           url:(NSString *)url
+                    httpMethod:(NSString *)httpMethod
+                        params:(NSDictionary *)params
+                      delegate:(id<WBHttpRequestDelegate>)delegate
+                       withTag:(NSString *)tag;
+/**
+ 取消网络请求接口
+ 调用此接口后，将取消当前网络请求，建议同时[WBHttpRequest setDelegate:nil];
+ */
+- (void)disconnect;
 
 @end
 
@@ -281,6 +408,17 @@ typedef NS_ENUM(NSInteger, WeiboSDKResponseStatusCode)
  */
 @property (nonatomic, retain) NSString *scope;
 
+/**
+ 当用户没有安装微博客户端或微博客户端过低无法支持SSO的时候是否弹出SDK自带的Webview进行授权
+ 
+ 如果设置为YES，当用户没有安装微博客户端或微博客户端过低无法支持SSO的时候会自动弹出SDK自带的Webview进行授权。
+
+ 如果设置为NO，会根据 shouldOpenWeiboAppInstallPageIfNotInstalled 属性判断是否弹出安装/更新微博的对话框
+ 
+ 默认为YES
+ */
+@property (nonatomic, assign) BOOL shouldShowWebViewForAuthIfCannotSSO;
+
 @end
 
 
@@ -350,10 +488,27 @@ typedef NS_ENUM(NSInteger, WeiboSDKResponseStatusCode)
 
 /**
  返回一个 WBSendMessageToWeiboRequest 对象
- @param message 需要发送给微博客户端程序的消息对象
+ 此方法生成对象被[WeiboSDK sendRequest:]会唤起微博客户端的发布器进行分享，如果未安装微博客户端或客户端版本太低
+ 会根据 shouldOpenWeiboAppInstallPageIfNotInstalled 属性判断是否弹出安装/更新微博的对话框
+ @param message 需要发送给微博客户端的消息对象
  @return 返回一个*自动释放的*WBSendMessageToWeiboRequest对象
  */
 + (id)requestWithMessage:(WBMessageObject *)message;
+
+/**
+ 返回一个 WBSendMessageToWeiboRequest 对象
+ 
+ 当用户安装了可以支持微博客户端內分享的微博客户端时,会自动唤起微博并分享
+ 当用户没有安装微博客户端或微博客户端过低无法支持通过客户端內分享的时候会自动唤起SDK內微博发布器
+ 
+ @param message 需要发送给微博的消息对象
+ @param authRequest 授权相关信息,与access_token二者至少有一个不为空,当access_token为空并且需要弹出SDK內发布器时会通过此信息先进行授权后再分享
+ @param access_token 第三方应用之前申请的Token,当此值不为空并且无法通过客户端分享的时候,会使用此token进行分享。
+ @return 返回一个*自动释放的*WBSendMessageToWeiboRequest对象
+ */
++ (id)requestWithMessage:(WBMessageObject *)message
+                authInfo:(WBAuthorizeRequest *)authRequest
+            access_token:(NSString *)access_token;
 
 @end
 
@@ -362,6 +517,10 @@ typedef NS_ENUM(NSInteger, WeiboSDKResponseStatusCode)
  */
 @interface WBSendMessageToWeiboResponse : WBBaseResponse
 
+/**
+ 可能在分享过程中用户进行了授权操作，当此值不为空时，为用户相应授权信息
+ */
+@property (nonatomic,retain) WBAuthorizeResponse *authResponse;
 @end
 
 #pragma mark - MessageObject / ImageObject
@@ -479,6 +638,8 @@ typedef NS_ENUM(NSInteger, WeiboSDKResponseStatusCode)
 
 @end
 
+#pragma mark - Message Video Objects
+
 /**
  消息中包含的视频数据对象
  */
@@ -513,6 +674,8 @@ typedef NS_ENUM(NSInteger, WeiboSDKResponseStatusCode)
 @property (nonatomic, retain) NSString *videoLowBandStreamUrl;
 
 @end
+
+#pragma mark - Message Music Objects
 
 /**
  消息中包含的音乐数据对象
@@ -549,6 +712,8 @@ typedef NS_ENUM(NSInteger, WeiboSDKResponseStatusCode)
 @property (nonatomic, retain) NSString *musicLowBandStreamUrl;
 
 @end
+
+#pragma mark - Message WebPage Objects
 
 /**
  消息中包含的网页数据对象
