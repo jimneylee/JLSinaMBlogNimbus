@@ -111,12 +111,12 @@
             break;
     }
         
-    [[SMAPIClient sharedClient] postPath:path parameters:parameters
-                                 success:^(AFHTTPRequestOperation *operation, id responseObject) {
-                                     [self requestDidFinishLoadWithObject:responseObject];
-                                 } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
-                                     [self requestDidFailLoadWithError:error];
-                                 }];
+    [[SMAPIClient sharedClient] POST:path parameters:parameters
+                             success:^(AFHTTPRequestOperation *operation, id responseObject) {
+                                 [self requestDidFinishLoadWithObject:responseObject];
+                             } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+                                 [self requestDidFailLoadWithError:error];
+                             }];
         self.parameters = parameters;
 }
 
@@ -135,12 +135,12 @@
         [parameters setObject:[NSString stringWithFormat:@"%.6f", latitude] forKey:@"lat"];
         [parameters setObject:[NSString stringWithFormat:@"%.6f", longitude] forKey:@"long"];
     }
-    [[SMAPIClient sharedClient] postPath:path parameters:parameters
-                                 success:^(AFHTTPRequestOperation *operation, id responseObject) {
-                                     [self requestDidFinishLoadWithObject:responseObject];
-                                 } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
-                                     [self requestDidFailLoadWithError:error];
-                                 }];
+    [[SMAPIClient sharedClient] POST:path parameters:parameters
+                             success:^(AFHTTPRequestOperation *operation, id responseObject) {
+                                 [self requestDidFinishLoadWithObject:responseObject];
+                             } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+                                 [self requestDidFailLoadWithError:error];
+                             }];
     _postType = PostType_MBlogText;
     self.parameters = parameters;
     [[MTStatusBarOverlay sharedOverlay] postMessage:@"发布微博中..."];
@@ -186,12 +186,12 @@
         [parameters setObject:[NSString stringWithFormat:@"%.6f", latitude] forKey:@"lat"];
         [parameters setObject:[NSString stringWithFormat:@"%.6f", longitude] forKey:@"long"];
     }
-    [[SMAPIClient sharedClient] postPath:path parameters:parameters
-                                 success:^(AFHTTPRequestOperation *operation, id responseObject) {
-                                     [self requestDidFinishLoadWithObject:responseObject];
-                                 } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
-                                     [self requestDidFailLoadWithError:error];
-                                 }];    // 保存当前类型和数据
+    [[SMAPIClient sharedClient] POST:path parameters:parameters
+                             success:^(AFHTTPRequestOperation *operation, id responseObject) {
+                                 [self requestDidFinishLoadWithObject:responseObject];
+                             } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+                                 [self requestDidFailLoadWithError:error];
+                             }];    // 保存当前类型和数据
     _postType = PostType_MBlogImage;
     self.parameters = parameters;
     // 由于parameters这边发送失败后，底层会删除pic的key-value
@@ -238,12 +238,12 @@
     _postType = PostType_Comment;
     self.parameters = parameters;
     
-    [[SMAPIClient sharedClient] postPath:path parameters:parameters
-                                 success:^(AFHTTPRequestOperation *operation, id responseObject) {
-                                     [self requestDidFinishLoadWithObject:responseObject];
-                                 } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
-                                     [self requestDidFailLoadWithError:error];
-                                 }];
+    [[SMAPIClient sharedClient] POST:path parameters:parameters
+                             success:^(AFHTTPRequestOperation *operation, id responseObject) {
+                                 [self requestDidFinishLoadWithObject:responseObject];
+                             } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+                                 [self requestDidFailLoadWithError:error];
+                             }];
     
     // 修改状态栏
     [[MTStatusBarOverlay sharedOverlay] postMessage:@"发表评论中..."];
@@ -287,7 +287,7 @@
     _postType = PostType_Retweet;
     self.parameters = parameters;
 
-    [[SMAPIClient sharedClient] postPath:path parameters:parameters
+    [[SMAPIClient sharedClient] POST:path parameters:parameters
                              success:^(AFHTTPRequestOperation *operation, id responseObject) {
                                  [self requestDidFinishLoadWithObject:responseObject];
                              } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
