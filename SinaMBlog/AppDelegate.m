@@ -9,16 +9,11 @@
 #import "AppDelegate.h"
 #import "AFNetworking.h"
 #import "AFNetworkActivityIndicatorManager.h"
-//#import "BMapKit.h"
 #import "MTStatusBarOverlay.h"
 
 #import "SMAuthorizeModel.h"
 #import "SMLoginC.h"
 #import "SMHomeTimlineListC.h"
-
-//@interface AppDelegate()<BMKGeneralDelegate>
-//@property (nonatomic, strong) BMKMapManager* mapManager;
-//@end
 
 @implementation AppDelegate
 
@@ -41,14 +36,6 @@
     // Sina SDK
     [WeiboSDK enableDebugMode:YES];
     [WeiboSDK registerApp:SinaWeiboV2AppKey];
-    
-    // Baidu Map
-//  self.mapManager = [[BMKMapManager alloc]init];
-//	BOOL ret = [self.mapManager start:BaiduMapEngineKey generalDelegate:self];
-//	if (!ret) {
-//		[SMGlobalConfig showHUDMessage:@"地图初始化失败！"
-//                           addedToView:[UIApplication sharedApplication].keyWindow];
-//	}
 }
 
 ///////////////////////////////////////////////////////////////////////////////////////////////////
@@ -56,15 +43,11 @@
 {
     [[UIBarButtonItem appearance] setTintColor:[UIColor blackColor]];
     [[UINavigationBar appearance] setTintColor:[UIColor blackColor]];
-    if (IOS_IS_AT_LEAST_7) {
-        // do change if u need
-        //[[UINavigationBar appearance] setBarTintColor:[UIColor lightGrayColor]];
-        //[[UIApplication sharedApplication] setStatusBarStyle:UIStatusBarStyleLightContent];
-    }
+
     // MTStatusBarOverlay 修改背景色为白色
-    UIView* bgView = [[UIView alloc] initWithFrame:[UIApplication sharedApplication].statusBarFrame];
-    bgView.backgroundColor = [UIColor whiteColor];
-    [[MTStatusBarOverlay sharedOverlay] addSubviewToBackgroundView:bgView atIndex:1];// above statusBarBackgroundImageView
+//    UIView* bgView = [[UIView alloc] initWithFrame:[UIApplication sharedApplication].statusBarFrame];
+//    bgView.backgroundColor = [UIColor whiteColor];
+//    [[MTStatusBarOverlay sharedOverlay] addSubviewToBackgroundView:bgView atIndex:1];// above statusBarBackgroundImageView
 }
 
 ///////////////////////////////////////////////////////////////////////////////////////////////////
@@ -88,15 +71,16 @@
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
     [self prepareForLaunching];
-    [self appearanceChange];
-
+    
+    UIViewController* vc = [self generateRootViewController];
+    UINavigationController* nav = [[UINavigationController alloc] initWithRootViewController:vc];
+    nav.navigationBar.translucent = NO;
+    
     self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
-    UIViewController* c = [self generateRootViewController];
-    UINavigationController* navi = [[UINavigationController alloc] initWithRootViewController:c];
-    navi.navigationBar.translucent = NO;
-    self.window.rootViewController = navi;
+    self.window.rootViewController = nav;
     [self.window makeKeyAndVisible];
     
+    [self appearanceChange];
     
     return YES;
 }
@@ -164,12 +148,10 @@
             [SMGlobalConfig setCurrentLoginedAccessToken:[(WBAuthorizeResponse *)response accessToken]];
             [SMGlobalConfig setCurrentLoginedExpiresIn:response.userInfo[@"expires_in"]];
             
-            // post did login success notification
             [[NSNotificationCenter defaultCenter] postNotificationName:SNDidOAuthNotification
                                                                 object:[NSNumber numberWithBool:YES] userInfo:nil];
         }
         else {
-            // post did login fail notification
             [[NSNotificationCenter defaultCenter] postNotificationName:SNDidOAuthNotification
                                                                 object:[NSNumber numberWithBool:NO] userInfo:nil];
         }

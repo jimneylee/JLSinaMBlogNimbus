@@ -1,0 +1,37 @@
+{
+  "DVTSourceControlWorkspaceBlueprintPrimaryRemoteRepositoryKey" : "3992E89CEFF415BA2A361931C8A47674B6DC8846",
+  "DVTSourceControlWorkspaceBlueprintWorkingCopyRepositoryLocationsKey" : {
+
+  },
+  "DVTSourceControlWorkspaceBlueprintWorkingCopyStatesKey" : {
+    "3992E89CEFF415BA2A361931C8A47674B6DC8846" : 0,
+    "3696B39AF9A7D45AA2A36BD621E04A71FEC24306" : 0,
+    "E252D7BD2F0F58EA499CABA45B3A8E07286F0E94" : 0
+  },
+  "DVTSourceControlWorkspaceBlueprintIdentifierKey" : "44E6A8A1-2C06-4C4C-B071-F680CDE3A666",
+  "DVTSourceControlWorkspaceBlueprintWorkingCopyPathsKey" : {
+    "3992E89CEFF415BA2A361931C8A47674B6DC8846" : "JLSinaMBlogNimbus\/",
+    "3696B39AF9A7D45AA2A36BD621E04A71FEC24306" : "JLSinaMBlogNimbus\/vendor\/JLNimbusTimeline\/",
+    "E252D7BD2F0F58EA499CABA45B3A8E07286F0E94" : "JLSinaMBlogNimbus\/vendor\/320Categories\/"
+  },
+  "DVTSourceControlWorkspaceBlueprintNameKey" : "JLSinaWeibo",
+  "DVTSourceControlWorkspaceBlueprintVersion" : 204,
+  "DVTSourceControlWorkspaceBlueprintRelativePathToProjectKey" : "JLSinaWeibo.xcworkspace",
+  "DVTSourceControlWorkspaceBlueprintRemoteRepositoriesKey" : [
+    {
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryURLKey" : "https:\/\/github.com\/jimneylee\/JLNimbusTimeline.git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositorySystemKey" : "com.apple.dt.Xcode.sourcecontrol.Git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryIdentifierKey" : "3696B39AF9A7D45AA2A36BD621E04A71FEC24306"
+    },
+    {
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryURLKey" : "https:\/\/github.com\/jimneylee\/JLSinaMBlogNimbus.git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositorySystemKey" : "com.apple.dt.Xcode.sourcecontrol.Git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryIdentifierKey" : "3992E89CEFF415BA2A361931C8A47674B6DC8846"
+    },
+    {
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryURLKey" : "https:\/\/github.com\/jimneylee\/320Categories.git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositorySystemKey" : "com.apple.dt.Xcode.sourcecontrol.Git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryIdentifierKey" : "E252D7BD2F0F58EA499CABA45B3A8E07286F0E94"
+    }
+  ]
+}
